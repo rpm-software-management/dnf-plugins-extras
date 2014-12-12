@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 19:52+0300\n"
+"POT-Creation-Date: 2014-12-13 00:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../plugins/dnfpluginsextras/__init__.py:58
+msgid "show this help about this tool"
+msgstr ""
 
 #: ../plugins/snapper.py:43
 #, python-format
@@ -34,8 +38,4 @@ msgstr ""
 #: ../plugins/snapper.py:60
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr ""
-
-#: ../plugins/dnfpluginsextras/__init__.py:58
-msgid "show this help about this tool"
 msgstr ""

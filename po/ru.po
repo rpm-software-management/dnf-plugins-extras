@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnf-plugins-extras\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 20:02+0300\n"
-"PO-Revision-Date: 2014-12-12 17:08+0000\n"
+"POT-Creation-Date: 2014-12-13 00:09+0300\n"
+"PO-Revision-Date: 2014-12-12 21:12+0000\n"
 "Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dnf-plugins-extras/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../plugins/dnfpluginsextras/__init__.py:58
+msgid "show this help about this tool"
+msgstr "показать справку об этой программе"
 
 #: ../plugins/snapper.py:43
 #, python-format
@@ -35,8 +39,4 @@ msgstr "создан снимок %d"
 #: ../plugins/snapper.py:60
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr ""
-
-#: ../plugins/dnfpluginsextras/__init__.py:58
-msgid "show this help about this tool"
-msgstr ""
+msgstr "не удалось создать снимок: %s"
