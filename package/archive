@@ -1,0 +1,4 @@
+#!/bin/bash
+GITREV=`git rev-parse --short HEAD`
+echo $GITREV
+git archive ${GITREV} --prefix=dnf-plugins-extras/ | xz > dnf-plugins-extras-${GITREV}.tar.xz
