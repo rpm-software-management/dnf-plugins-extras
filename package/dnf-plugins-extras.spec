@@ -1,4 +1,4 @@
-%global gitrev 0000000
+%global gitrev 61e8c5e
 %global dnf_version 0.6.3
 
 Name:		dnf-plugins-extras
