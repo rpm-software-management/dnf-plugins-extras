@@ -72,12 +72,12 @@ popd
 %files -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python_sitelib}/dnfpluginsextras/
-%{python_sitelib}/dnf-plugins/*.py
+%{python_sitelib}/dnf-plugins/*
 
 %files -n python3-dnf-plugins-extras -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
-%{python3_sitelib}/dnf-plugins/*.py
+%{python3_sitelib}/dnf-plugins/*
 
 %changelog
 
