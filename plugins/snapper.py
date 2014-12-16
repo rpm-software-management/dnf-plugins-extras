@@ -44,10 +44,6 @@ class Snapper(dnf.Plugin):
             )
             return
         try:
-            snapper.GetConfig("root")
-        except DBusException:
-            snapper.CreateConfig("root", "/")
-        try:
             logger.info(
                 "snapper: " + _("creating snapshot")
             )
