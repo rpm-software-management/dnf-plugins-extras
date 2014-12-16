@@ -19,9 +19,7 @@ BuildRequires:	gettext
 #BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
-Requires:	dnf = %{dnf_version}
-Requires:	dbus-python
-Requires:	snapper
+Requires:	%{name}-snapper
 
 %description
 Extras Plugins for DNF. This package enhance DNF with snapper plugin.
@@ -33,13 +31,43 @@ BuildRequires:	python3-devel
 BuildRequires:	python3-dnf = %{dnf_version}
 #BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
-Requires:	python3-dnf = %{dnf_version}
-Requires:	dbus-python
-Requires:	snapper
+Requires:	python3-dnf-plugins-extras-snapper
 
 %description -n python3-dnf-plugins-extras
 Extras Plugins for DNF, Python 3 version. This package enhance DNF with snapper
 plugin.
+
+%package common
+Summary:	Common files for Extras Plugins for DNF
+Requires:	dnf = %{dnf_version}
+
+%description common
+Common files for Extras Plugins.
+
+%package -n python3-dnf-plugins-extras-common
+Summary:	Common files for Extras Plugins for DNF
+Requires:	python3-dnf = %{dnf_version}
+
+%description -n python3-dnf-plugins-extras-common
+Common files for Extras Plugins for DNF, Python 3 version.
+
+%package snapper
+Summary:	Snapper Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+Requires:	dbus-python
+Requires:	snapper
+
+%description snapper
+Snapper Plugin for DNF. Creates snapshot every transaction.
+
+%package -n python3-dnf-plugins-extras-snapper
+Summary:	Snapper Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	dbus-python
+Requires:	snapper
+
+%description -n python3-dnf-plugins-extras-snapper
+Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 
 %prep
 %setup -q -n dnf-plugins-extras
@@ -69,15 +97,27 @@ popd
 #PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
 #PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
-%files -f %{name}.lang
+%files
+# No files, metapackage
+
+%files -n python3-dnf-plugins-extras
+# No files, metapackage
+
+%files common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python_sitelib}/dnfpluginsextras/
-%{python_sitelib}/dnf-plugins/*
 
-%files -n python3-dnf-plugins-extras -f %{name}.lang
+%files -n python3-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
-%{python3_sitelib}/dnf-plugins/*
+%dir %{python3_sitelib}/dnf-plugins/__pycache__/
+
+%files snapper
+%{python_sitelib}/dnf-plugins/snapper.*
+
+%files -n python3-dnf-plugins-extras-snapper
+%{python3_sitelib}/dnf-plugins/snapper.*
+%{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 
 %changelog
 
