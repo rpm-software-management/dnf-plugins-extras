@@ -3,7 +3,7 @@
 
 Name:		dnf-plugins-extras
 Version:	0.0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -63,7 +63,7 @@ Snapper Plugin for DNF. Creates snapshot every transaction.
 %package -n python3-dnf-plugins-extras-snapper
 Summary:	Snapper Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
-Requires:	dbus-python
+Requires:	python3-dbus
 Requires:	snapper
 
 %description -n python3-dnf-plugins-extras-snapper
@@ -121,5 +121,9 @@ popd
 
 %changelog
 
-* Fri Dec 12 2014 Igor Gnatenko - 0.0.1-1
+* Wed Dec 17 2014 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.1-2
+- Fix Requires for py3 dbus
+- Fix email address in changelog
+
+* Fri Dec 12 2014 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.1-1
 - The initial package version.
