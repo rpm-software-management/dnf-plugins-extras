@@ -19,8 +19,9 @@
 
 from dnfpluginsextras import _, logger
 
-import dnf
 from dbus import SystemBus, Interface, DBusException
+import dnf
+import sys
 
 
 class Snapper(dnf.Plugin):
@@ -28,9 +29,7 @@ class Snapper(dnf.Plugin):
 
     def __init__(self, base, cli):
         self.base = base
-        # TODO: get full cmdline for description
-        # https://bugzilla.redhat.com/show_bug.cgi?id=1173620
-        self.description = "dnf"
+        self.description = " ".join(sys.argv)
 
     def transaction(self):
         try:
