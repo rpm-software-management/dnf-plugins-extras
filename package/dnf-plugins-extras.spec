@@ -34,8 +34,8 @@ BuildRequires:	python3-sphinx
 Requires:	python3-dnf-plugins-extras-snapper
 
 %description -n python3-dnf-plugins-extras
-Extras Plugins for DNF, Python 3 version. This package enhance DNF with snapper
-plugin.
+Extras Plugins for DNF, Python 3 version. This package enhance DNF with rpmconf
+and snapper plugins.
 
 %package common
 Summary:	Common files for Extras Plugins for DNF
@@ -50,6 +50,15 @@ Requires:	python3-dnf = %{dnf_version}
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
+
+%package -n python3-dnf-plugins-extras-rpmconf
+Summary:	RpmConf Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python3-rpmconf
+
+%description -n python3-dnf-plugins-extras-rpmconf
+RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
+transaction.
 
 %package snapper
 Summary:	Snapper Plugin for DNF
@@ -111,6 +120,10 @@ popd
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
+
+%files -n python3-dnf-plugins-extras-rpmconf
+%{python3_sitelib}/dnf-plugins/rpm_conf.*
+%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 
 %files snapper
 %{python_sitelib}/dnf-plugins/snapper.*
