@@ -65,7 +65,6 @@ class Tracer(dnf.Plugin):
 class TracerCommand(dnf.cli.Command):
     """DNF tracer plugin"""
     aliases = ['tracer']
-    activate_sack = True
 
     def run(self, args):
         """Called after running `dnf tracer ...`"""
