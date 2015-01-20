@@ -29,7 +29,7 @@ from tracer.resources.lang import _
 
 class Tracer(dnf.Plugin):
     """DNF plugin for `tracer` command"""
-    name = 'tracer'
+    name = "tracer"
 
     def __init__(self, base, cli):
         super(Tracer, self).__init__(base, cli)
@@ -52,7 +52,7 @@ class Tracer(dnf.Plugin):
         if "tracer" in erased - installed:
             return
 
-        args = ['tracer', '-n'] + list(installed | erased)
+        args = ["tracer", "-n"] + list(installed | erased)
         process = subprocess.Popen(args, stdout=subprocess.PIPE)
         out = process.communicate()[0]
         _print_output(out)
@@ -64,11 +64,11 @@ class Tracer(dnf.Plugin):
 
 class TracerCommand(dnf.cli.Command):
     """DNF tracer plugin"""
-    aliases = ['tracer']
+    aliases = ["tracer"]
 
     def run(self, args):
         """Called after running `dnf tracer ...`"""
-        args = ['tracer'] + args
+        args = ["tracer"] + args
         process = subprocess.Popen(args, stdout=subprocess.PIPE)
         out = process.communicate()[0]
         _print_output(out)
@@ -81,5 +81,5 @@ def _print_output(out):
         return
 
     # Last value is blank line
-    for line in out.split('\n')[:-1]:
+    for line in out.split("\n")[:-1]:
         print(line)
