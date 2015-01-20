@@ -61,7 +61,7 @@ class Tracer(dnf.Plugin):
         _print_output(out)
 
         if len(out) != 0:
-            print("\n" + _("for_more_informations"))
+            print("\n" + _("For more information run:"))
             print("    sudo tracer -iat " + str(self.timestamp))
 
 
@@ -79,8 +79,8 @@ class TracerCommand(dnf.cli.Command):
 
 def _print_output(out):
     if len(out) == 0:
-        print(_("you_should_restart"))
-        print("  " + _("nothing_to_restart"))
+        print(_("You should restart:"))
+        print("  " + _("Nothing needs to be restarted"))
         return
 
     # Last value is blank line
