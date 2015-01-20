@@ -52,8 +52,8 @@ class Tracer(dnf.Plugin):
             return
 
         args = ['tracer', '-n'] + list(installed | erased)
-        p = subprocess.Popen(args, stdout=subprocess.PIPE)
-        out = p.communicate()[0]
+        process = subprocess.Popen(args, stdout=subprocess.PIPE)
+        out = process.communicate()[0]
         _print_output(out)
 
         if len(out) != 0:
@@ -69,8 +69,8 @@ class TracerCommand(dnf.cli.Command):
     def run(self, args):
         """Called after running `dnf tracer ...`"""
         args = ['tracer'] + args
-        p = subprocess.Popen(args, stdout=subprocess.PIPE)
-        out = p.communicate()[0]
+        process = subprocess.Popen(args, stdout=subprocess.PIPE)
+        out = process.communicate()[0]
         _print_output(out)
 
 
