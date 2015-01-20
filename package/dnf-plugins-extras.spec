@@ -19,7 +19,9 @@ BuildRequires:	gettext
 #BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
+
 Requires:	%{name}-snapper
+Requires:	%{name}-tracer
 
 %description
 Extras Plugins for DNF. This package enhance DNF with snapper plugin.
@@ -34,6 +36,7 @@ BuildRequires:	python3-sphinx
 
 Requires:	python3-dnf-plugins-extras-rpmconf
 Requires:	python3-dnf-plugins-extras-snapper
+Requires:	python3-dnf-plugins-extras-tracer
 
 %description -n python3-dnf-plugins-extras
 Extras Plugins for DNF, Python 3 version. This package enhance DNF with rpmconf
@@ -79,6 +82,24 @@ Requires:	snapper
 
 %description -n python3-dnf-plugins-extras-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
+
+%package tracer
+Summary:	Tracer Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+Requires:	tracer
+
+%description tracer
+Tracer Plugin for DNF. Finds outdated running applications in your system
+every transaction.
+
+%package -n python3-dnf-plugins-extras-tracer
+Summary:	Tracer Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	tracer
+
+%description -n python3-dnf-plugins-extras-tracer
+Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
+your system every transaction.
 
 %prep
 %setup -q -n dnf-plugins-extras
@@ -133,6 +154,13 @@ popd
 %files -n python3-dnf-plugins-extras-snapper
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
+
+%files tracer
+%{python_sitelib}/dnf-plugins/tracer.*
+
+%files -n python3-dnf-plugins-extras-tracer
+%{python3_sitelib}/dnf-plugins/tracer.*
+%{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
 
 %changelog
 
