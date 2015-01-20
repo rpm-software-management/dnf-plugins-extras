@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-13 00:09+0300\n"
+"POT-Creation-Date: 2015-01-21 01:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,21 +21,25 @@ msgstr ""
 msgid "show this help about this tool"
 msgstr ""
 
-#: ../plugins/snapper.py:43
+#: ../plugins/snapper.py:42
 #, python-format
 msgid "connect to snapperd failed: %s"
 msgstr ""
 
-#: ../plugins/snapper.py:52
+#: ../plugins/snapper.py:47
 msgid "creating snapshot"
 msgstr ""
 
-#: ../plugins/snapper.py:56
+#: ../plugins/snapper.py:51
 #, python-format
 msgid "created snapshot %d"
 msgstr ""
 
-#: ../plugins/snapper.py:60
+#: ../plugins/snapper.py:55
 #, python-format
 msgid "creating snapshot failed: %s"
+msgstr ""
+
+#: ../plugins/rpmconf.py:44
+msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""

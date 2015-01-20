@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnf-plugins-extras\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-13 00:09+0300\n"
-"PO-Revision-Date: 2014-12-12 21:12+0000\n"
+"POT-Creation-Date: 2015-01-21 01:07+0300\n"
+"PO-Revision-Date: 2015-01-20 22:07+0000\n"
 "Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dnf-plugins-extras/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -22,21 +22,25 @@ msgstr ""
 msgid "show this help about this tool"
 msgstr "показать справку об этой программе"
 
-#: ../plugins/snapper.py:43
+#: ../plugins/snapper.py:42
 #, python-format
 msgid "connect to snapperd failed: %s"
 msgstr "не удалось соединиться с snapperd: %s"
 
-#: ../plugins/snapper.py:52
+#: ../plugins/snapper.py:47
 msgid "creating snapshot"
 msgstr "создание снимка"
 
-#: ../plugins/snapper.py:56
+#: ../plugins/snapper.py:51
 #, python-format
 msgid "created snapshot %d"
 msgstr "создан снимок %d"
 
-#: ../plugins/snapper.py:60
+#: ../plugins/snapper.py:55
 #, python-format
 msgid "creating snapshot failed: %s"
 msgstr "не удалось создать снимок: %s"
+
+#: ../plugins/rpmconf.py:44
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr ""
