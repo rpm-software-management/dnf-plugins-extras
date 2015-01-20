@@ -122,8 +122,8 @@ popd
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
 %files -n python3-dnf-plugins-extras-rpmconf
-%{python3_sitelib}/dnf-plugins/rpm_conf.*
-%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+%{python3_sitelib}/dnf-plugins/rpmconf.*
+%{python3_sitelib}/dnf-plugins/__pycache__/rpmconf.*
 
 %files snapper
 %{python_sitelib}/dnf-plugins/snapper.*
