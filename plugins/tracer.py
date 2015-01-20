@@ -43,8 +43,9 @@ class Tracer(dnf.Plugin):
         Call after successful transaction
         See https://rpm-software-management.github.io/dnf/api_transaction.html
         """
-        installed = set([package.name for package in self.base.transaction.install_set])
-        erased = set([package.name for package in self.base.transaction.remove_set])
+        transaction = self.base.transaction
+        installed = set([package.name for package in transaction.install_set])
+        erased = set([package.name for package in transaction.remove_set])
 
         # Don't run tracer when uninstalling it
         if "tracer" in erased - installed:
