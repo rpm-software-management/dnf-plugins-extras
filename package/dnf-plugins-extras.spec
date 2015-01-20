@@ -31,6 +31,8 @@ BuildRequires:	python3-devel
 BuildRequires:	python3-dnf = %{dnf_version}
 #BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
+
+Requires:	python3-dnf-plugins-extras-rpmconf
 Requires:	python3-dnf-plugins-extras-snapper
 
 %description -n python3-dnf-plugins-extras
