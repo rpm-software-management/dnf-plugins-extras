@@ -32,6 +32,7 @@ class Tracer(dnf.Plugin):
     name = 'tracer'
 
     def __init__(self, base, cli):
+        super(Tracer, self).__init__(base, cli)
         self.timestamp = time.time()
         self.base = base
         self.cli = cli
