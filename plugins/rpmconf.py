@@ -31,6 +31,7 @@ class Rpmconf(dnf.Plugin):
     name = 'rpmconf'
 
     def __init__(self, base, cli):
+        super().__init__(base, cli)
         self.base = base
         self.packages = []
 
