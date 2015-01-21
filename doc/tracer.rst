@@ -58,6 +58,6 @@ DNF command for tracer does only one thing. Directly executes tracer with passed
     # You can choose which one you like better
     sudo tracer <arguments>
     # or
-    dnf tracer <arguments>
+    sudo dnf tracer <arguments>
 
 For example `usage <http://docs.tracer-package.com/en/latest/user-guide/>`_ or possible `arguments <http://docs.tracer-package.com/en/latest/manpage/>`_ please visit it's `documentation <http://docs.tracer-package.com>`_.
