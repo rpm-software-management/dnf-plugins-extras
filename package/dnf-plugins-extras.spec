@@ -87,6 +87,7 @@ Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 Summary:	Tracer Plugin for DNF
 Requires:	%{name}-common = %{version}-%{release}
 Requires:	tracer
+Obsoletes:	dnf-plugin-tracer <= 0.5.6-1
 
 %description tracer
 Tracer Plugin for DNF. Finds outdated running applications in your system
