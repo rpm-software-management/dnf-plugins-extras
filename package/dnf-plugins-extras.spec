@@ -20,11 +20,13 @@ BuildRequires:	gettext
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
+Requires:	%{name}-repomanage
 Requires:	%{name}-snapper
 Requires:	%{name}-tracer
 
 %description
-Extras Plugins for DNF. This package enhance DNF with snapper plugin.
+Extras Plugins for DNF. This package enhance DNF with repomanage and snapper
+plugins.
 
 %package -n python3-dnf-plugins-extras
 Summary:	Extras Plugins for DNF
@@ -34,13 +36,14 @@ BuildRequires:	python3-dnf = %{dnf_version}
 #BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
+Requires:	python3-dnf-plugins-extras-repomanage
 Requires:	python3-dnf-plugins-extras-rpmconf
 Requires:	python3-dnf-plugins-extras-snapper
 Requires:	python3-dnf-plugins-extras-tracer
 
 %description -n python3-dnf-plugins-extras
-Extras Plugins for DNF, Python 3 version. This package enhance DNF with rpmconf
-and snapper plugins.
+Extras Plugins for DNF, Python 3 version. This package enhance DNF with
+repomanage, rpmconf and snapper plugins.
 
 %package common
 Summary:	Common files for Extras Plugins for DNF
@@ -55,6 +58,20 @@ Requires:	python3-dnf = %{dnf_version}
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
+
+%package repomanage
+Summary:	RepoManage Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+
+%description repomanage
+RepoManage Plugin for DNF. Manage a directory of rpm packages.
+
+%package -n python3-dnf-plugins-extras-repomanage
+Summary:	RepoManage Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+
+%description -n python3-dnf-plugins-extras-repomanage
+RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
 
 %package -n python3-dnf-plugins-extras-rpmconf
 Summary:	RpmConf Plugin for DNF
@@ -144,6 +161,13 @@ popd
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
+
+%files repomanage
+%{python_sitelib}/dnf-plugins/repomanage.*
+
+%files -n python3-dnf-plugins-extras-repomanage
+%{python3_sitelib}/dnf-plugins/repomanage.*
+%{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
 %files -n python3-dnf-plugins-extras-rpmconf
 %{python3_sitelib}/dnf-plugins/rpmconf.*

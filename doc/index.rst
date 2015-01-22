@@ -25,6 +25,7 @@ This documents extras plugins of DNF:
    :maxdepth: 1
 
    release_notes
+   repomanage
    rpmconf
    snapper
    tracer
