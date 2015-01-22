@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-21 01:07+0300\n"
+"POT-Creation-Date: 2015-01-22 16:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,18 @@ msgstr ""
 msgid "creating snapshot failed: %s"
 msgstr ""
 
-#: ../plugins/rpmconf.py:44
+#: ../plugins/rpmconf.py:45
 msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr ""
+
+#: ../plugins/tracer.py:63
+msgid "For more information run:"
+msgstr ""
+
+#: ../plugins/tracer.py:81
+msgid "You should restart:"
+msgstr ""
+
+#: ../plugins/tracer.py:82
+msgid "Nothing needs to be restarted"
 msgstr ""
