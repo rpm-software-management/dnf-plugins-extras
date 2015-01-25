@@ -1,4 +1,4 @@
-%global gitrev 61e8c5e
+%global gitrev 7ded32f
 %global dnf_version 0.6.3
 
 Name:		dnf-plugins-extras
@@ -188,6 +188,31 @@ popd
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
 
 %changelog
+* Sun Jan 25 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.2-1
+- po: update translations (Igor Gnatenko)
+- Revert "rename rpm_conf to rpmconf" (Igor Gnatenko)
+- po: update translations (Igor Gnatenko)
+- packaging: update descriptions with tracer plugin (Igor Gnatenko)
+- plugins: add repomanage plugin (RhBug:1048541) (Igor Gnatenko)
+- Don't run tracer if --installroot is set; Fix FrostyX/tracer#15 (Jakub Kadlčík)
+- po: update translations (Igor Gnatenko)
+- packaging: obsolete dnf-plugin-tracer by dnf-plugins-extras-tracer (Igor Gnatenko)
+- doc: include rpmconf to index (Igor Gnatenko)
+- packaging: add tracer plugin to distribute (Igor Gnatenko)
+- plugins: tracer plugin (Jakub Kadlčík)
+- packaging: include rpmconf as Requires for main package (Igor Gnatenko)
+- rpmconf: fix super-init-not-called (Igor Gnatenko)
+- po: update translations (Igor Gnatenko)
+- packaging: archive script the same as in dnf (Igor Gnatenko)
+- rename rpm_conf to rpmconf (Igor Gnatenko)
+- Add rpmconf plugin (Igor Gnatenko)
+- snapper: set description snapshot as command line (Igor Gnatenko)
+- packaging: fix requires and email (Igor Gnatenko)
+- snapper: change log level for debug stage to debug (Igor Gnatenko)
+- snapper: don't do any with snapper config (Igor Gnatenko)
+- packaging: split into subpackages (Igor Gnatenko)
+- packaging: handle all python files (Igor Gnatenko)
+- transifex update (Igor Gnatenko)
 
 * Wed Dec 17 2014 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.1-2
 - Fix Requires for py3 dbus
