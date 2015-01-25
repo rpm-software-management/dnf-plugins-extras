@@ -54,6 +54,10 @@ class Tracer(dnf.Plugin):
         if "tracer" in erased - installed:
             return
 
+        # Don't run tracer when preparing chroot for mock
+        if self.base.conf.installroot != "/":
+            return
+
         args = ["tracer", "-n"] + list(installed | erased)
         process = subprocess.Popen(args, stdout=subprocess.PIPE)
         out = process.communicate()[0]
