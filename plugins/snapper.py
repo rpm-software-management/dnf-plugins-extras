@@ -32,6 +32,15 @@ class Snapper(dnf.Plugin):
         self.description = " ".join(sys.argv)
 
     def transaction(self):
+        tmp = []
+        for trans_item in self.base_transaction:
+            tmp.append(trans_item.removes())
+        for packages in tmp:
+            for pkg in packages:
+                if pkg.name == "snapper":
+                    logger.debug(
+                        _("snapper: removing snapper, no more snaphots"))
+                    return
         try:
             bus = SystemBus()
             snapper = Interface(bus.get_object('org.opensuse.Snapper',
