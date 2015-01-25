@@ -22,6 +22,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.2 Release Notes
+====================
+
+Provides :doc:`repomanage`, :doc:`rpmconf` and :doc:`tracer`.
+
+Bugs fixed in 0.0.2:
+
+* :rhbug:`1048541`
+
+====================
  0.0.1 Release Notes
 ====================
 

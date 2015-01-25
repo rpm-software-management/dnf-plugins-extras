@@ -2,8 +2,8 @@
 %global dnf_version 0.6.3
 
 Name:		dnf-plugins-extras
-Version:	0.0.1
-Release:	2%{?dist}
+Version:	0.0.2
+Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
