@@ -25,8 +25,8 @@ Requires:	%{name}-snapper
 Requires:	%{name}-tracer
 
 %description
-Extras Plugins for DNF. This package enhance DNF with repomanage and snapper
-plugins.
+Extras Plugins for DNF. This package enhance DNF with repomanage, snapper and
+tracer plugins.
 
 %package -n python3-dnf-plugins-extras
 Summary:	Extras Plugins for DNF
@@ -43,7 +43,7 @@ Requires:	python3-dnf-plugins-extras-tracer
 
 %description -n python3-dnf-plugins-extras
 Extras Plugins for DNF, Python 3 version. This package enhance DNF with
-repomanage, rpmconf and snapper plugins.
+repomanage, rpmconf, snapper and tracer plugins.
 
 %package common
 Summary:	Common files for Extras Plugins for DNF
