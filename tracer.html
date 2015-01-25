@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>DNF snapper Plugin &mdash; dnf-plugins-extras 0.0.2-1 documentation</title>
+    <title>DNF tracer Plugin &mdash; dnf-plugins-extras 0.0.2-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="dnf-plugins-extras 0.0.2-1 documentation" href="index.html" />
-    <link rel="next" title="DNF tracer Plugin" href="tracer.html" />
-    <link rel="prev" title="DNF rpmconf Plugin" href="rpmconf.html" /> 
+    <link rel="prev" title="DNF snapper Plugin" href="snapper.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,10 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="tracer.html" title="DNF tracer Plugin"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="rpmconf.html" title="DNF rpmconf Plugin"
+          <a href="snapper.html" title="DNF snapper Plugin"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.2-1 documentation</a> &raquo;</li> 
       </ul>
@@ -49,9 +45,43 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dnf-snapper-plugin">
-<h1>DNF snapper Plugin<a class="headerlink" href="#dnf-snapper-plugin" title="Permalink to this headline">¶</a></h1>
-<p>Generates snapshots of root filesystem after transactions. The user is not supposed to interact with the plugin in any way.</p>
+  <div class="section" id="dnf-tracer-plugin">
+<h1>DNF tracer Plugin<a class="headerlink" href="#dnf-tracer-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="plugin">
+<h2>Plugin<a class="headerlink" href="#plugin" title="Permalink to this headline">¶</a></h2>
+<p>Calls <a class="reference external" href="http://tracer-package.com/">tracer</a> after every successful transaction. It finds running applications which are outdated by transaction&#8217;s packages.</p>
+<p>There you can see DNF output with <tt class="docutils literal"><span class="pre">dnf-plugins-extras-tracer</span></tt> installed:</p>
+<div class="highlight-python"><div class="highlight"><pre>$[FrostyX  ~]-&gt; sudo dnf update vim-X11
+...
+Running transaction
+  Upgrading    : vim-common-2:7.4.179-1.fc20.i686                           1/6
+  Upgrading    : vim-X11-2:7.4.179-1.fc20.i686                              2/6
+  Upgrading    : vim-enhanced-2:7.4.179-1.fc20.i686                         3/6
+  ...
+
+Upgraded:
+  vim-X11.i686 2:7.4.179-1.fc20           vim-common.i686 2:7.4.179-1.fc20
+  vim-enhanced.i686 2:7.4.179-1.fc20
+
+You should restart:
+  gvim
+
+Done!
+</pre></div>
+</div>
+<p>It is a good idea to restart those applications, because they can be potentially dangerous. They can contain old security issues, which are fixed in new version.</p>
+</div>
+<div class="section" id="command">
+<h2>Command<a class="headerlink" href="#command" title="Permalink to this headline">¶</a></h2>
+<p>DNF command for tracer does only one thing. Directly executes tracer with passed arguments.</p>
+<div class="highlight-python"><div class="highlight"><pre># You can choose which one you like better
+sudo tracer &lt;arguments&gt;
+# or
+sudo dnf tracer &lt;arguments&gt;
+</pre></div>
+</div>
+<p>For example <a class="reference external" href="http://docs.tracer-package.com/en/latest/user-guide/">usage</a> or possible <a class="reference external" href="http://docs.tracer-package.com/en/latest/manpage/">arguments</a> please visit it&#8217;s <a class="reference external" href="http://docs.tracer-package.com">documentation</a>.</p>
+</div>
 </div>
 
 
@@ -60,15 +90,21 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DNF tracer Plugin</a><ul>
+<li><a class="reference internal" href="#plugin">Plugin</a></li>
+<li><a class="reference internal" href="#command">Command</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="rpmconf.html"
-                        title="previous chapter">DNF rpmconf Plugin</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="tracer.html"
-                        title="next chapter">DNF tracer Plugin</a></p>
+  <p class="topless"><a href="snapper.html"
+                        title="previous chapter">DNF snapper Plugin</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/snapper.txt"
+    <li><a href="_sources/tracer.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -95,10 +131,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="tracer.html" title="DNF tracer Plugin"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="rpmconf.html" title="DNF rpmconf Plugin"
+          <a href="snapper.html" title="DNF snapper Plugin"
              >previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.2-1 documentation</a> &raquo;</li> 
       </ul>
