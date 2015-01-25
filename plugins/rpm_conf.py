@@ -17,13 +17,9 @@
 # Red Hat, Inc.
 #
 
-import sys
-sys.path.pop(0)
-
 from dnfpluginsextras import _, logger
 
 import dnf
-# pylint: disable=import-self
 from rpmconf import rpmconf
 
 

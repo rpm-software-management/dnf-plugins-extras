@@ -170,8 +170,8 @@ popd
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
 %files -n python3-dnf-plugins-extras-rpmconf
-%{python3_sitelib}/dnf-plugins/rpmconf.*
-%{python3_sitelib}/dnf-plugins/__pycache__/rpmconf.*
+%{python3_sitelib}/dnf-plugins/rpm_conf.*
+%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 
 %files snapper
 %{python_sitelib}/dnf-plugins/snapper.*

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 17:45+0300\n"
+"POT-Creation-Date: 2015-01-25 21:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,10 +38,6 @@ msgstr ""
 #: ../plugins/snapper.py:55
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr ""
-
-#: ../plugins/rpmconf.py:45
-msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 
 #: ../plugins/tracer.py:67
@@ -90,4 +86,8 @@ msgstr ""
 
 #: ../plugins/repomanage.py:142
 msgid "Path to directory"
+msgstr ""
+
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
