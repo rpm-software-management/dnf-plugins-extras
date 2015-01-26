@@ -33,6 +33,14 @@ if PY3:
 else:
     from . import mock
 
+class BaseStub(object):
+    def __init__(self):
+        self.sack = dnf.sack.Sack()
+
+    def add_remote_rpm(self, path):
+        self.sack.create_cmdline_repo()
+        return self.sack.add_cmdline_package(path)
+
 
 class CliStub(object):
     """A class mocking `dnf.cli.Cli`."""
