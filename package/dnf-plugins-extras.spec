@@ -20,6 +20,7 @@ BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
+Requires:	%{name}-local
 Requires:	%{name}-repograph
 Requires:	%{name}-repomanage
 Requires:	%{name}-snapper
@@ -37,6 +38,7 @@ BuildRequires:	python3-dnf = %{dnf_version}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
+Requires:	python3-dnf-plugins-extras-local
 Requires:	python3-dnf-plugins-extras-repograph
 Requires:	python3-dnf-plugins-extras-repomanage
 Requires:	python3-dnf-plugins-extras-rpmconf
@@ -60,6 +62,22 @@ Requires:	python3-dnf = %{dnf_version}
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
+
+%package local
+Summary:	Local Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+
+%description local
+Local Plugin for DNF. Automatically copy all downloaded packages to a
+repository on the local filesystem.
+
+%package -n python3-dnf-plugins-extras-local
+Summary:	Local Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+
+%description -n python3-dnf-plugins-extras-local
+Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
+packages to a repository on the local filesystem.
 
 %package repograph
 Summary:	RepoGraph Plugin for DNF
@@ -177,6 +195,16 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
+
+%files local
+%config %{_sysconfdir}/dnf/plugins/local.conf
+%{python_sitelib}/dnf-plugins/local.*
+
+%files -n python3-dnf-plugins-extras-local
+%config %{_sysconfdir}/dnf/plugins/local.conf
+%{python3_sitelib}/dnf-plugins/local.*
+%{python3_sitelib}/dnf-plugins/__pycache__/local.*
+
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 

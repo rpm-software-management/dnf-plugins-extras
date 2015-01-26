@@ -1,5 +1,5 @@
 ..
-  Copyright (C) 2014 Igor Gnatenko
+  Copyright (C) 2015 Igor Gnatenko
 
   This copyrighted material is made available to anyone wishing to use,
   modify, copy, or redistribute it subject to the terms and conditions of
@@ -15,36 +15,8 @@
   License and may only be used or replicated with the express permission of
   Red Hat, Inc.
 
-################################
-Extras DNF Plugins Documentation
-################################
+================
+DNF local Plugin
+================
 
-This documents extras plugins of DNF:
-
-.. toctree::
-   :maxdepth: 1
-
-   release_notes
-   local
-   repograph
-   repomanage
-   rpmconf
-   snapper
-   tracer
-
-
-========
-See Also
-========
-
-* `DNF project homepage <https://github.com/rpm-software-management/dnf/>`_
-* `Core DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-core/>`_
-* `Extras DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-extras/>`_
-
-==================
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Automatically copy all downloaded packages to a repository on the local filesystem. The user is not supposed to interact with the plugin in any way.

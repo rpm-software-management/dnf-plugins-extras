@@ -1,0 +1,1 @@
+INSTALL (FILES local.conf DESTINATION ${SYSCONFDIR}/dnf/plugins)
