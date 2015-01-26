@@ -16,7 +16,7 @@ BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	dnf = %{dnf_version}
 BuildRequires:	gettext
-#BuildRequires:	python-nose
+BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
@@ -33,7 +33,7 @@ Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 BuildRequires:	python3-devel
 BuildRequires:	python3-dnf = %{dnf_version}
-#BuildRequires:	python3-nose
+BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
 Requires:	python3-dnf-plugins-extras-repomanage
@@ -145,8 +145,8 @@ pushd py3
 popd
 
 %check
-#PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
-#PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
+PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
+PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
 %files
 # No files, metapackage
