@@ -143,9 +143,6 @@ class RepoManageCommand(dnf.cli.Command):
 
         return parser.parse_args(args)
 
-    def _package_to_path(self, package):
-        return os.path.join(self.opts.path, package.location)
-
     @staticmethod
     def _get_file_list(path, ext):
         """Return all files in path matching ext
@@ -159,6 +156,10 @@ class RepoManageCommand(dnf.cli.Command):
                     filelist.append(os.path.join(root, f))
 
         return filelist
+
+    @staticmethod
+    def _package_to_path(pkg):
+        return pkg.location
 
     @staticmethod
     def _package_to_nevra(pkg):
