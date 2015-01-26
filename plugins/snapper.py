@@ -17,12 +17,13 @@
 # Red Hat, Inc.
 #
 
-from dnfpluginsextras import _, logger
-
 from dbus import SystemBus, Interface, DBusException
 import dnf
+import dnfpluginsextras
 import sys
 
+_ = dnfpluginsextras._
+logger = dnfpluginsextras.logger
 
 class Snapper(dnf.Plugin):
     name = 'snapper'
@@ -32,6 +33,9 @@ class Snapper(dnf.Plugin):
         self.description = " ".join(sys.argv)
 
     def transaction(self):
+        if dnfpluginsextras.is_erasing(self.base.transaction,
+                                       "snapper"):
+            return
         try:
             bus = SystemBus()
             snapper = Interface(bus.get_object('org.opensuse.Snapper',

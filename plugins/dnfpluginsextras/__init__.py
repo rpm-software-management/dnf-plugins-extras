@@ -72,3 +72,23 @@ class ArgumentParser(argparse.ArgumentParser):
             self.print_help()
             raise dnf.exceptions.Error(str(e))
         return opts
+
+def is_erasing(transaction, pkg):
+    """Check if package removing in transaction
+
+    Args:
+      transaction (dnf.transaction.Transaction): Transaction instance.
+      pkg (str): Package name to check.
+
+    Returns:
+      bool: True if pkg removes by transaction, False otherwise.
+
+    """
+    installed = set([package.name for package in transaction.install_set])
+    erased = set([package.name for package in transaction.remove_set])
+
+    # Don't run tracer when uninstalling it
+    if pkg in erased - installed:
+        return True
+    else
+        return False
