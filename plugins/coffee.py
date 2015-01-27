@@ -65,9 +65,33 @@ class Coffee(dnf.Plugin):
     def __init__(self, base, cli):
         super(Coffee, self).__init__(base, cli)
         self.base = base
+        self.cli = cli
+        if self.cli is not None:
+            self.cli.register_command(CoffeeCommand)
+            self.cli.register_command(HotDogCommand)
 
     def config(self):
-        print(COFFEE)
+        if self.cli is not None:
+            t = type(self.cli.command)
+            if t != CoffeeCommand and t != HotDogCommand:
+                print(COFFEE)
 
     def transaction(self):
+        if self.cli is not None:
+            print(HOTDOG)
+
+
+class CoffeeCommand(dnf.cli.Command):
+
+    aliases = ["coffee"]
+
+    def run(self, args):
+        print(COFFEE)
+
+
+class HotDogCommand(dnf.cli.Command):
+
+    aliases = ["hotdog"]
+
+    def run(self, args):
         print(HOTDOG)
