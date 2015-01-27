@@ -59,6 +59,18 @@ Requires:	python3-dnf = %{dnf_version}
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
 
+%package coffee
+Summary:        Coffee Plugin for DNF
+
+%description coffee
+Coffee Plugin for DNF. Making coffee and hotdog.
+
+%package -n python3-dnf-plugins-extras-coffee
+Summary:        Coffee Plugin for DNF
+
+%description -n python3-dnf-plugins-extras-coffee
+Coffee Plugin for DNF, Python 3 version. Making coffee and hotdog.
+
 %package repomanage
 Summary:	RepoManage Plugin for DNF
 Requires:	%{name}-common = %{version}-%{release}
@@ -162,6 +174,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
+
+%files coffee
+%{python_sitelib}/dnf-plugins/coffee.*
+
+%files -n python3-dnf-plugins-extras-coffee
+%{python3_sitelib}/dnf-plugins/coffee.*
+%{python3_sitelib}/dnf-plugins/__pycache__/coffee.*
 
 %files repomanage
 %{python_sitelib}/dnf-plugins/repomanage.*
