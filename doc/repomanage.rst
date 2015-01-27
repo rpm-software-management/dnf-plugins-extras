@@ -25,7 +25,7 @@ Manage a directory of rpm packages.
 Synopsis
 --------
 
-``dnf repomanage [<optional-options>] <options> <path>``
+``dnf repomanage [<optional-options>] [<options>] <path>``
 
 -----------
 Description
@@ -39,7 +39,7 @@ Options
 
 Set what packages is displayed.
 
-The following are mutually exclusive, i.e. only one can be specified.
+The following are mutually exclusive, i.e. only one can be specified. If no options specified - ``--new`` activated.
 
 ``--old``
     Show older packages.
