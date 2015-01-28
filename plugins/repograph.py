@@ -88,11 +88,11 @@ class RepoGraphCommand(dnf.cli.Command):
             s = h + 0.1
             b = 1.0
 
-            print('"{}" [color="{} {} {}"];'.format(pkg, h, s, b))
+            print('"{}" [color="{:.12g} {:.12g} {}"];'.format(pkg, h, s, b))
             print('"{}" -> {{'.format(pkg))
             for req in deps[pkg]:
                 print('"{}"'.format(req))
-            print('}} [color="{} {} {}"];\n'.format(h, s, b))
+            print('}} [color="{:.12g} {:.12g} {}"];\n'.format(h, s, b))
         print("}")
 
     @staticmethod
