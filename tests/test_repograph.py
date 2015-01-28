@@ -47,7 +47,7 @@ class TestRepoGraphFunctions(support.TestCase):
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
             self.cmd.run(args)
             expected_graph = ["digraph packages {", repograph.DOT_HEADER, "}\n"]
-	    self.assertEqual(stdout.getvalue(), "\n".join(expected_graph))
+            self.assertEqual(stdout.getvalue(), "\n".join(expected_graph))
 
     def test_base(self):
         args = []
@@ -64,4 +64,4 @@ class TestRepoGraphFunctions(support.TestCase):
                 '"bar"',
                 '} [color="0.526086956522 0.626086956522 1.0"];\n',
                 "}\n"]
-	    self.assertEqual(stdout.getvalue(), "\n".join(expected_graph))
+        self.assertEqual(stdout.getvalue(), "\n".join(expected_graph))
