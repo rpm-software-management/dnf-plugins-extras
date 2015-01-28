@@ -21,6 +21,7 @@ BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
 Requires:	%{name}-local
+Requires:	%{name}-repoclosure
 Requires:	%{name}-repograph
 Requires:	%{name}-repomanage
 Requires:	%{name}-snapper
@@ -39,6 +40,7 @@ BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
 Requires:	python3-dnf-plugins-extras-local
+Requires:	python3-dnf-plugins-extras-repoclosure
 Requires:	python3-dnf-plugins-extras-repograph
 Requires:	python3-dnf-plugins-extras-repomanage
 Requires:	python3-dnf-plugins-extras-rpmconf
@@ -78,6 +80,22 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %description -n python3-dnf-plugins-extras-local
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
 packages to a repository on the local filesystem.
+
+%package repoclosure
+Summary:	RepoClosure Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+
+%description repoclosure
+RepoClosure Plugin for DNF. Display a list of unresolved dependencies for
+repositories.
+
+%package -n python3-dnf-plugins-extras-repoclosure
+Summary:	RepoClosure Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+
+%description -n python3-dnf-plugins-extras-repoclosure
+RepoClosure Plugin for DNF, Python 3 version. Display a list of unresolved
+dependencies for repositories.
 
 %package repograph
 Summary:	RepoGraph Plugin for DNF
@@ -206,6 +224,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
+
+%files repoclosure
+%{python_sitelib}/dnf-plugins/repoclosure.*
+
+%files -n python3-dnf-plugins-extras-repoclosure
+%{python3_sitelib}/dnf-plugins/repoclosure.*
+%{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
 
 %files repograph
 %{python_sitelib}/dnf-plugins/repograph.*

@@ -1,5 +1,5 @@
 ..
-  Copyright (C) 2014 Igor Gnatenko
+  Copyright (C) 2014-2015 Igor Gnatenko
 
   This copyrighted material is made available to anyone wishing to use,
   modify, copy, or redistribute it subject to the terms and conditions of
@@ -26,6 +26,7 @@ This documents extras plugins of DNF:
 
    release_notes
    local
+   repoclosure
    repograph
    repomanage
    rpmconf
