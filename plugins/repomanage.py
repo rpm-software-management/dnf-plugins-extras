@@ -23,10 +23,10 @@ from __future__ import unicode_literals
 
 import dnf
 import dnf.cli
-import dnfpluginscore
+import dnfpluginsextras
 import os
 
-_ = dnfpluginscore._
+_ = dnfpluginsextras._
 
 class RepoManage(dnf.Plugin):
 
@@ -71,7 +71,7 @@ class RepoManageCommand(dnf.cli.Command):
             try:
                 self.base.add_remote_rpm(pkg)
             except IOError:
-                dnfpluginscore.logger.warning(_("Could not open {}").format(pkg))
+                dnfpluginsextras.logger.warning(_("Could not open {}").format(pkg))
 
         packages = [x for x in self.base.sack.query().available()]
         packages.sort()
@@ -128,7 +128,7 @@ class RepoManageCommand(dnf.cli.Command):
     @staticmethod
     def _parse_args(args):
         alias = RepoManageCommand.aliases[0]
-        parser = dnfpluginscore.ArgumentParser(alias)
+        parser = dnfpluginsextras.ArgumentParser(alias)
         parser.add_argument("-o", "--old", action="store_true",
                             help=_("Print the older packages"))
         parser.add_argument("-n", "--new", action="store_true",
