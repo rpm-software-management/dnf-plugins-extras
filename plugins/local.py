@@ -144,7 +144,7 @@ class Local(dnf.Plugin):
         if not crepo["enabled"]:
             return
 
-        args = ["createrepo", "--update", "--unique-md-filenames"]
+        args = ["createrepo_c", "--update", "--unique-md-filenames"]
         if crepo["quiet"]:
             args.append("--quiet")
         if crepo["verbose"]:
@@ -154,4 +154,4 @@ class Local(dnf.Plugin):
             args.append(crepo["cachedir"])
         args.append(repodir)
         self.logger.debug("local: " + _("Rebuilding local repo"))
-        os.spawnvp(os.P_WAIT, "createrepo", args)
+        os.spawnvp(os.P_WAIT, "createrepo_c", args)
