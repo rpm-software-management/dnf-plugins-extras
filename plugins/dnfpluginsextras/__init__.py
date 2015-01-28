@@ -90,5 +90,5 @@ def is_erasing(transaction, pkg):
     # Don't run tracer when uninstalling it
     if pkg in erased - installed:
         return True
-    else
+    else:
         return False
