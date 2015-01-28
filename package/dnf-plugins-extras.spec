@@ -195,6 +195,8 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
+%{python3_sitelib}/dnfpluginsextras/
+%dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
 %files local
 %config %{_sysconfdir}/dnf/plugins/local.conf
@@ -204,9 +206,6 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
-
-%{python3_sitelib}/dnfpluginsextras/
-%dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
 %files repograph
 %{python_sitelib}/dnf-plugins/repograph.*
