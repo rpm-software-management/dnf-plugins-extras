@@ -22,6 +22,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.3 Release Notes
+====================
+
+Trivial fixes in packaging, few improvements for plugins, tests for plugins. Provides: :doc:`local`, :doc:`repograph` and :doc:`repoclosure`.
+
+Bugs fixed in 0.0.3:
+
+* :rhbug:`1177631`
+* :rhbug:`991014`
+
+====================
  0.0.2 Release Notes
 ====================
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>DNF rpmconf Plugin &mdash; dnf-plugins-extras 0.0.3-1 documentation</title>
+    <title>DNF local Plugin &mdash; dnf-plugins-extras 0.0.3-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="dnf-plugins-extras 0.0.3-1 documentation" href="index.html" />
-    <link rel="next" title="DNF snapper Plugin" href="snapper.html" />
-    <link rel="prev" title="DNF repomanage Plugin" href="repomanage.html" /> 
+    <link rel="next" title="DNF repoclosure Plugin" href="repoclosure.html" />
+    <link rel="prev" title="Extras DNF Plugins Release Notes" href="release_notes.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,10 +35,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="snapper.html" title="DNF snapper Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="repomanage.html" title="DNF repomanage Plugin"
+          <a href="release_notes.html" title="Extras DNF Plugins Release Notes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.3-1 documentation</a> &raquo;</li> 
       </ul>
@@ -49,9 +49,30 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dnf-rpmconf-plugin">
-<h1>DNF rpmconf Plugin<a class="headerlink" href="#dnf-rpmconf-plugin" title="Permalink to this headline">¶</a></h1>
-<p>Handles .rpmnew, .rpmsave after transactions. The user is not supposed to interact with the plugin in any way.</p>
+  <div class="section" id="dnf-local-plugin">
+<h1>DNF local Plugin<a class="headerlink" href="#dnf-local-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Automatically copy all downloaded packages to a repository on the local filesystem and generating repo metadata.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Generating repo metadata will work only if you have installed <tt class="docutils literal"><span class="pre">createrepo_c</span></tt> package.</p>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">/etc/dnf/plugins/local.conf</span></tt></p>
+<p>The minimal content of conf file should contain <tt class="docutils literal"><span class="pre">main</span></tt> and <tt class="docutils literal"><span class="pre">createrepo</span></tt> sections with <tt class="docutils literal"><span class="pre">enabled</span></tt> parameter, otherwise plugin will not work.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">main</span><span class="p">]</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+
+<span class="p">[</span><span class="n">createrepo</span><span class="p">]</span>
+<span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>For <tt class="docutils literal"><span class="pre">main</span></tt> section you can specify <tt class="docutils literal"><span class="pre">repodir</span></tt> paramater which sets path to local repository.</p>
+<p>Other options and comments you can find in configuration file.</p>
+</div>
 </div>
 
 
@@ -60,15 +81,24 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DNF local Plugin</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="repomanage.html"
-                        title="previous chapter">DNF repomanage Plugin</a></p>
+  <p class="topless"><a href="release_notes.html"
+                        title="previous chapter">Extras DNF Plugins Release Notes</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="snapper.html"
-                        title="next chapter">DNF snapper Plugin</a></p>
+  <p class="topless"><a href="repoclosure.html"
+                        title="next chapter">DNF repoclosure Plugin</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/rpmconf.txt"
+    <li><a href="_sources/local.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -95,10 +125,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="snapper.html" title="DNF snapper Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              >next</a> |</li>
         <li class="right" >
-          <a href="repomanage.html" title="DNF repomanage Plugin"
+          <a href="release_notes.html" title="Extras DNF Plugins Release Notes"
              >previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.3-1 documentation</a> &raquo;</li> 
       </ul>

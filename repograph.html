@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>DNF repomanage Plugin &mdash; dnf-plugins-extras 0.0.3-1 documentation</title>
+    <title>DNF repograph Plugin &mdash; dnf-plugins-extras 0.0.3-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="dnf-plugins-extras 0.0.3-1 documentation" href="index.html" />
-    <link rel="next" title="DNF rpmconf Plugin" href="rpmconf.html" />
-    <link rel="prev" title="DNF repograph Plugin" href="repograph.html" /> 
+    <link rel="next" title="DNF repomanage Plugin" href="repomanage.html" />
+    <link rel="prev" title="DNF repoclosure Plugin" href="repoclosure.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,10 +35,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="rpmconf.html" title="DNF rpmconf Plugin"
+          <a href="repomanage.html" title="DNF repomanage Plugin"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="repograph.html" title="DNF repograph Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.3-1 documentation</a> &raquo;</li> 
       </ul>
@@ -49,50 +49,38 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dnf-repomanage-plugin">
-<h1>DNF repomanage Plugin<a class="headerlink" href="#dnf-repomanage-plugin" title="Permalink to this headline">¶</a></h1>
-<p>Manage a directory of rpm packages.</p>
+  <div class="section" id="dnf-repograph-plugin">
+<h1>DNF repograph Plugin<a class="headerlink" href="#dnf-repograph-plugin" title="Permalink to this headline">¶</a></h1>
+<p>Output a full package dependency graph in dot format.</p>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">repomanage</span> <span class="pre">[&lt;optional-options&gt;]</span> <span class="pre">[&lt;options&gt;]</span> <span class="pre">&lt;path&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">repograph</span> <span class="pre">[&lt;options&gt;]</span></tt>
+<tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">repo-graph</span> <span class="pre">[&lt;options&gt;]</span></tt></p>
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p><cite>repomanage</cite> prints newest or oldest packages in specified directory for easy piping to xargs or similar programs.</p>
+<p><cite>repograph</cite> is a program that generates a full package dependency list from a repository and outputs it in dot format.</p>
 <div class="section" id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
-<p>Set what packages is displayed.</p>
-<p>The following are mutually exclusive, i.e. only one can be specified. If no options specified - <tt class="docutils literal"><span class="pre">--new</span></tt> activated.</p>
+<p>Set what repos should be processed.</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">--old</span></tt></dt>
-<dd>Show older packages.</dd>
-<dt><tt class="docutils literal"><span class="pre">--new</span></tt></dt>
-<dd>Show newest packages.</dd>
-</dl>
-</div>
-<div class="section" id="optional-options">
-<h3>Optional Options<a class="headerlink" href="#optional-options" title="Permalink to this headline">¶</a></h3>
-<p>Control how packages are displayed in the output.</p>
-<dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">-s</span></tt>, <tt class="docutils literal"><span class="pre">--space</span></tt></dt>
-<dd>Print resulting set separated by space instead of newline.</dd>
-<dt><tt class="docutils literal"><span class="pre">-k</span> <span class="pre">&lt;keep-number&gt;</span></tt>, <tt class="docutils literal"><span class="pre">--keep</span> <span class="pre">&lt;keep-number&gt;</span></tt></dt>
-<dd>Limit the resulting set to newest <tt class="docutils literal"><span class="pre">&lt;keep-number&gt;</span></tt> packages.</dd>
+<dt><tt class="docutils literal"><span class="pre">--repoid</span> <span class="pre">&lt;repoid&gt;</span></tt></dt>
+<dd>Specify repo ids to query, can be specified multiple times (default is all enabled).</dd>
 </dl>
 </div>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>Display newest packages in current directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>dnf repomanage --new .
+<p>Output dependency list from all enabled repositories:</p>
+<div class="highlight-python"><div class="highlight"><pre>dnf repograph
 </pre></div>
 </div>
-<p>Display 2 newest packages in requires &#8220;home&#8221; directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>dnf repomanage --new --keep 2 ~/
+<p>Output dependency list from rawhide repository:</p>
+<div class="highlight-python"><div class="highlight"><pre>dnf repograph --repoid rawhide
 </pre></div>
 </div>
-<p>Display older package separated by space in current directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>dnf repomanage --old --space .
+<p>Output dependency list from rawhide and koji repository:</p>
+<div class="highlight-python"><div class="highlight"><pre>dnf repo-graph --repoid rawhide --repoid koji
 </pre></div>
 </div>
 </div>
@@ -106,11 +94,10 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DNF repomanage Plugin</a><ul>
+<li><a class="reference internal" href="#">DNF repograph Plugin</a><ul>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#description">Description</a><ul>
 <li><a class="reference internal" href="#options">Options</a></li>
-<li><a class="reference internal" href="#optional-options">Optional Options</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
@@ -119,14 +106,14 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="repograph.html"
-                        title="previous chapter">DNF repograph Plugin</a></p>
+  <p class="topless"><a href="repoclosure.html"
+                        title="previous chapter">DNF repoclosure Plugin</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="rpmconf.html"
-                        title="next chapter">DNF rpmconf Plugin</a></p>
+  <p class="topless"><a href="repomanage.html"
+                        title="next chapter">DNF repomanage Plugin</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/repomanage.txt"
+    <li><a href="_sources/repograph.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -153,10 +140,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="rpmconf.html" title="DNF rpmconf Plugin"
+          <a href="repomanage.html" title="DNF repomanage Plugin"
              >next</a> |</li>
         <li class="right" >
-          <a href="repograph.html" title="DNF repograph Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              >previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.3-1 documentation</a> &raquo;</li> 
       </ul>

@@ -15,63 +15,47 @@
   License and may only be used or replicated with the express permission of
   Red Hat, Inc.
 
-=====================
-DNF repomanage Plugin
-=====================
+======================
+DNF repoclosure Plugin
+======================
 
-Manage a directory of rpm packages.
+Display a list of unresolved dependencies for repositories.
 
 --------
 Synopsis
 --------
 
-``dnf repomanage [<optional-options>] [<options>] <path>``
+``dnf repoclosure [<options>]``
 
 -----------
 Description
 -----------
 
-`repomanage` prints newest or oldest packages in specified directory for easy piping to xargs or similar programs.
+`repoclosure` is a program that reads package metadata from one or more repositories, checks all dependencies, and displays a list of packages with unresolved dependencies.
 
 
 Options
 -------
 
-Set what packages is displayed.
+``--repoid <repoid>``
+    Specify repo ids to query, can be specified multiple times (default is all enabled).
 
-The following are mutually exclusive, i.e. only one can be specified. If no options specified - ``--new`` activated.
-
-``--old``
-    Show older packages.
-
-``--new``
-    Show newest packages.
-
-
-Optional Options
-----------------
-
-Control how packages are displayed in the output.
-
-``-s``, ``--space``
-    Print resulting set separated by space instead of newline.
-
-``-k <keep-number>``, ``--keep <keep-number>``
-    Limit the resulting set to newest ``<keep-number>`` packages.
+``--pkg <pkg``
+    Check closure for this package only.
 
 
 --------
 Examples
 --------
 
-Display newest packages in current directory::
+Display list of unresolved dependencies for all enabled repositories::
 
-    dnf repomanage --new .
+    dnf repoclosure
 
-Display 2 newest packages in requires "home" directory::
+Display list of unresolved dependencies for rawhide repository::
 
-    dnf repomanage --new --keep 2 ~/
+    dnf repoclosure --repoid rawhide
 
-Display older package separated by space in current directory::
+Display list of unresolved dependencies for zmap package from rawhide repository::
 
-    dnf repomanage --old --space .
+    dnf repoclosure --repoid rawhide --pkg zmap
