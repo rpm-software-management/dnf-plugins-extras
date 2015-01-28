@@ -36,6 +36,7 @@ else:
 class BaseStub(object):
     def __init__(self):
         self.sack = dnf.sack.Sack()
+        self.repos = dnf.repodict.RepoDict()
 
     def add_remote_rpm(self, path):
         self.sack.create_cmdline_repo()
@@ -62,6 +63,27 @@ class CliStub(object):
 
 class DemandsStub(object):
     pass
+
+
+class RepoStub(object):
+    """A class mocking `dnf.repo.Repo`"""
+
+    enabled = True
+
+    def __init__(self, id_):
+        """Initialize the repository."""
+        self.id = id_
+
+    def valid(self):
+        """Return a message if the repository is not valid."""
+
+    def enable(self):
+        """Enable the repo"""
+        self.enabled = True
+
+    def disable(self):
+        """Disable the repo"""
+        self.enabled = False
 
 
 class TestCase(unittest.TestCase):
