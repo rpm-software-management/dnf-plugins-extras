@@ -91,8 +91,8 @@ class RepoClosureCommand(dnf.cli.Command):
                 if reqname.startswith("solvable:") or \
                         reqname.startswith("rpmlib("):
                     continue
-                deps.add(reqname)
-                unresolved[pkg].add(reqname)
+                deps.add(req)
+                unresolved[pkg].add(req)
 
         unresolved_deps = set(x for x in deps if not available.filter(provides=x))
 
