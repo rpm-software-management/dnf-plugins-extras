@@ -240,6 +240,20 @@ AUTHORS=[u'See AUTHORS in your Extras DNF Plugins distribution']
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
+    ('local', 'dnf.plugin.local',
+     u'DNF local Plugin', AUTHORS, 8),
+    ('repoclosure', 'dnf.plugin.repoclosure',
+     u'DNF repoclosure Plugin', AUTHORS, 8),
+    ('repograph', 'dnf.plugin.repograph',
+     u'DNF repograph Plugin', AUTHORS, 8),
+    ('repomanage', 'dnf.plugin.repomanage',
+     u'DNF repomanage Plugin', AUTHORS, 8),
+    ('rpmconf', 'dnf.plugin.rpmconf',
+     u'DNF rpmconf Plugin', AUTHORS, 8),
+    ('snapper', 'dnf.plugin.snapper',
+     u'DNF snapper Plugin', AUTHORS, 8),
+    ('tracer', 'dnf.plugin.tracer',
+     u'DNF tracer Plugin', AUTHORS, 8),
 ]
 
 # If true, show URL addresses after external links.

@@ -202,6 +202,7 @@ popd
 %if 0%{?fedora} <= 21
 rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/rpm_conf.*
 rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
 %check
@@ -226,52 +227,65 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %files local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python_sitelib}/dnf-plugins/local.*
+%{_mandir}/man8/dnf.plugin.local.*
 
 %files -n python3-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
+%{_mandir}/man8/dnf.plugin.local.*
 
 %files repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*
+%{_mandir}/man8/dnf.plugin.repoclosure.*
 
 %files -n python3-dnf-plugins-extras-repoclosure
 %{python3_sitelib}/dnf-plugins/repoclosure.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
+%{_mandir}/man8/dnf.plugin.repoclosure.*
 
 %files repograph
 %{python_sitelib}/dnf-plugins/repograph.*
+%{_mandir}/man8/dnf.plugin.repograph.*
 
 %files -n python3-dnf-plugins-extras-repograph
 %{python3_sitelib}/dnf-plugins/repograph.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
+%{_mandir}/man8/dnf.plugin.repograph.*
 
 %files repomanage
 %{python_sitelib}/dnf-plugins/repomanage.*
+%{_mandir}/man8/dnf.plugin.repomanage.*
 
 %files -n python3-dnf-plugins-extras-repomanage
 %{python3_sitelib}/dnf-plugins/repomanage.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
+%{_mandir}/man8/dnf.plugin.repomanage.*
 
 %if 0%{?fedora} > 21
 %files -n python3-dnf-plugins-extras-rpmconf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+%{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
 %files snapper
 %{python_sitelib}/dnf-plugins/snapper.*
+%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files -n python3-dnf-plugins-extras-snapper
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
+%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files tracer
 %{python_sitelib}/dnf-plugins/tracer.*
+%{_mandir}/man8/dnf.plugin.tracer.*
 
 %files -n python3-dnf-plugins-extras-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
+%{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
 * Thu Jan 29 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.3-1
