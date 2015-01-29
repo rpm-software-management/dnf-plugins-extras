@@ -2,5 +2,13 @@
     [
         1048541, 
         "[rfe] [plugins] manage local repo (yum-utils repomanage)"
+    ], 
+    [
+        1177631, 
+        "[abrt] dnf: connection.py:641:call_blocking:ValueError: Unable to guess signature from an empty dict"
+    ], 
+    [
+        991014, 
+        "[rfe] [plugins] yum-plugin-local"
     ]
 ]
