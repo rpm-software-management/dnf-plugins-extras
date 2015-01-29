@@ -94,7 +94,6 @@ class Local(dnf.Plugin):
         parser = LocalConfParse(conf)
         try:
             self.main, self.crepo = parser.parse_config()
-        # FIXME: https://bugzilla.redhat.com/show_bug.cgi?id=1186053
         except ini.Error:
             self.main["enabled"] = False
             self.crepo["enabled"] = False
