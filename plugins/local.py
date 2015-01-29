@@ -28,6 +28,7 @@ import dnfpluginsextras
 import iniparse.compat as ini
 import os
 import shutil
+import subprocess
 
 _ = dnfpluginsextras._
 
@@ -154,4 +155,7 @@ class Local(dnf.Plugin):
             args.append(crepo["cachedir"])
         args.append(repodir)
         self.logger.debug("local: " + _("Rebuilding local repo"))
-        os.spawnvp(os.P_WAIT, "createrepo_c", args)
+        p = subprocess.Popen(args, stdout=subprocess.PIPE,
+                             stderr=subprocess.STDOUT)
+        for line in p.stdout:
+            print(line.rstrip("\n"))
