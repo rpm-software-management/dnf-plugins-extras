@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 00:48+0300\n"
+"POT-Creation-Date: 2015-01-29 15:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,41 +21,6 @@ msgstr ""
 msgid "show this help about this tool"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:41
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
-
-#: ../plugins/tracer.py:65
-msgid "For more information run:"
-msgstr ""
-
-#: ../plugins/tracer.py:83
-msgid "You should restart:"
-msgstr ""
-
-#: ../plugins/tracer.py:84
-msgid "Nothing needs to be restarted"
-msgstr ""
-
-#: ../plugins/snapper.py:46
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr ""
-
-#: ../plugins/snapper.py:51
-msgid "creating snapshot"
-msgstr ""
-
-#: ../plugins/snapper.py:55
-#, python-format
-msgid "created snapshot %d"
-msgstr ""
-
-#: ../plugins/snapper.py:59
-#, python-format
-msgid "creating snapshot failed: %s"
-msgstr ""
-
 #: ../plugins/repograph.py:53
 msgid "Output a full package dependency graph in dot format"
 msgstr ""
@@ -65,7 +30,7 @@ msgstr ""
 msgid "Nothing provides: '%s'"
 msgstr ""
 
-#: ../plugins/repograph.py:140 ../plugins/repoclosure.py:114
+#: ../plugins/repograph.py:140 ../plugins/repoclosure.py:108
 msgid "Specify repositories to use"
 msgstr ""
 
@@ -105,26 +70,61 @@ msgstr ""
 msgid "Path to directory"
 msgstr ""
 
-#: ../plugins/local.py:125
-msgid "'{}' is not a directory"
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
+#: ../plugins/snapper.py:46
+#, python-format
+msgid "connect to snapperd failed: %s"
 msgstr ""
 
-#: ../plugins/local.py:138
-msgid "Can't write file '{}'"
+#: ../plugins/snapper.py:51
+msgid "creating snapshot"
 msgstr ""
 
-#: ../plugins/local.py:156
-msgid "Rebuilding local repo"
+#: ../plugins/snapper.py:55
+#, python-format
+msgid "created snapshot %d"
+msgstr ""
+
+#: ../plugins/snapper.py:59
+#, python-format
+msgid "creating snapshot failed: %s"
+msgstr ""
+
+#: ../plugins/tracer.py:65
+msgid "For more information run:"
+msgstr ""
+
+#: ../plugins/tracer.py:83
+msgid "You should restart:"
+msgstr ""
+
+#: ../plugins/tracer.py:84
+msgid "Nothing needs to be restarted"
 msgstr ""
 
 #: ../plugins/repoclosure.py:45
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr ""
 
-#: ../plugins/repoclosure.py:116
+#: ../plugins/repoclosure.py:110
 msgid "Check closure for this package only"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "'{}' is not a directory"
+msgstr ""
+
+#: ../plugins/local.py:127
+msgid "Copying '{}' to local repo"
+msgstr ""
+
+#: ../plugins/local.py:132
+msgid "Can't write file '{}'"
+msgstr ""
+
+#: ../plugins/local.py:150
+msgid "Rebuilding local repo"
 msgstr ""
