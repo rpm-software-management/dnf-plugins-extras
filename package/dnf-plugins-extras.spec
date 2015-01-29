@@ -1,8 +1,8 @@
-%global gitrev 7ded32f
+%global gitrev 9eb28b7
 %global dnf_version 0.6.3
 
 Name:		dnf-plugins-extras
-Version:	0.0.2
+Version:	0.0.3
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -274,6 +274,34 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
 
 %changelog
+* Thu Jan 29 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.3-1
+- po: update translations (Igor Gnatenko)
+- packaging: include rpmconf plugin only for F22+ (Igor Gnatenko)
+- trivial: drop note about bug (Igor Gnatenko)
+- local: prefer verbose option on quiet (Igor Gnatenko)
+- local: simplidy parsing code (Igor Gnatenko)
+- local: fix output from spawning createrepo (Igor Gnatenko)
+- doc: improve documentation for local plugin (Igor Gnatenko)
+- repoclosure: store requirements as is (Igor Gnatenko)
+- repoclosure: optimize performance and memory usage (Igor Gnatenko)
+- build: distribute forgotten files (Igor Gnatenko)
+- po: update translations (Igor Gnatenko)
+- plugins: add repoclosure plugin (Igor Gnatenko)
+- packaging: fix files for common subpkg after one of merges (Igor Gnatenko)
+- local: use createrepo_c instead of createrepo (Igor Gnatenko)
+- plugins: add local plugin (RhBug:991014) (Igor Gnatenko)
+- repograph: set decimal places to 12 for colors (Igor Gnatenko)
+- tests: fix indentation in repograph (Igor Gnatenko)
+- plugins: add repograph plugin (Igor Gnatenko)
+- repomanage: replace dnfpluginscore with dnfpluginsextras (Igor Gnatenko)
+- plugins: fix typo in if/else (Igor Gnatenko)
+- doc: add note that --new by default for repomanage (Igor Gnatenko)
+- snapper: don't make snapshots if user removing snapper (RhBug:1177631) (Igor Gnatenko)
+- tests: add tests for repomanage (Igor Gnatenko)
+- tests: add initial framework (Igor Gnatenko)
+- repomanage: use native pkg.location without path join (Igor Gnatenko)
+- packaging: obsolete and provide dnf-plugin-tracer correctly (Igor Gnatenko)
+
 * Sun Jan 25 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.2-1
 - po: update translations (Igor Gnatenko)
 - Revert "rename rpm_conf to rpmconf" (Igor Gnatenko)
