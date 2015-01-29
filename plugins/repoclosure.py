@@ -72,8 +72,7 @@ class RepoClosureCommand(dnf.cli.Command):
     def _get_unresolved(self):
         unresolved = {}
 
-        resolved_deps = set()
-        unresolved_deps = set()
+        deps = set()
 
         available = self.base.sack.query().available().filter(latest=True)
         if self.opts.pkglist:
@@ -82,29 +81,24 @@ class RepoClosureCommand(dnf.cli.Command):
                 for pkgs_filtered in available.filter(name=pkg):
                     pkgs.add(pkgs_filtered)
         else:
-            pkgs = available
+            pkgs = available.run()
 
         for pkg in pkgs:
             unresolved[pkg] = set()
             for req in pkg.requires:
                 reqname = str(req)
-                if reqname in resolved_deps:
-                    continue
-                if reqname in unresolved_deps:
-                    unresolved[pkg].add(reqname)
-
                 # XXX: https://bugzilla.redhat.com/show_bug.cgi?id=1186721
                 if reqname.startswith("solvable:") or \
                         reqname.startswith("rpmlib("):
-                    resolved_deps.add(reqname)
                     continue
-                provider = available.filter(provides=reqname)
-                if not provider:
-                    unresolved[pkg].add(reqname)
-                    unresolved_deps.add(reqname)
-                else:
-                    resolved_deps.add(reqname)
-        return dict((k, v) for k, v in iter(unresolved.items()) if v)
+                deps.add(reqname)
+                unresolved[pkg].add(reqname)
+
+        unresolved_deps = set(x for x in deps if not available.filter(provides=x))
+
+        unresolved_transition = {k: set(x for x in v if x in unresolved_deps)
+                                 for k, v in unresolved.items()}
+        return {k: v for k, v in unresolved_transition.items() if v}
 
     @staticmethod
     def _parse_args(args):
