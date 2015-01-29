@@ -71,7 +71,7 @@ Requires:	%{name}-common = %{version}-%{release}
 
 %description local
 Local Plugin for DNF. Automatically copy all downloaded packages to a
-repository on the local filesystem.
+repository on the local filesystem and generating repo metadata.
 
 %package -n python3-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
@@ -79,7 +79,7 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 
 %description -n python3-dnf-plugins-extras-local
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
-packages to a repository on the local filesystem.
+packages to a repository on the local filesystem and generating repo metadata.
 
 %package repoclosure
 Summary:	RepoClosure Plugin for DNF

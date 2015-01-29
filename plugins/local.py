@@ -1,6 +1,6 @@
 # local.py
 # Automatically copy all downloaded packages to a repository on the local
-# filesystem
+# filesystem and generating repo metadata.
 #
 # Copyright (C) 2015 Igor Gnatenko
 #

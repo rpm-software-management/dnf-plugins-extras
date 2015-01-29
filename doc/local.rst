@@ -19,4 +19,29 @@
 DNF local Plugin
 ================
 
-Automatically copy all downloaded packages to a repository on the local filesystem. The user is not supposed to interact with the plugin in any way.
+-----------
+Description
+-----------
+
+Automatically copy all downloaded packages to a repository on the local filesystem and generating repo metadata.
+
+.. note:: Generating repo metadata will work only if you have installed ``createrepo_c`` package.
+
+
+-------------
+Configuration
+-------------
+
+``/etc/dnf/plugins/local.conf``
+
+The minimal content of conf file should contain ``main`` and ``createrepo`` sections with ``enabled`` parameter, otherwise plugin will not work.::
+
+  [main]
+  enabled = true
+
+  [createrepo]
+  enabled = true
+
+For ``main`` section you can specify ``repodir`` paramater which sets path to local repository.
+
+Other options and comments you can find in configuration file.
