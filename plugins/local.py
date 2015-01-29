@@ -43,39 +43,33 @@ class LocalConfParse(object):
     def __init__(self, conf):
         self.conf = conf
 
-    def _get_bool(self, section, name):
-        tmp = self.conf.get(section, name)
-        if tmp == "false" or tmp == "0":
-            return False
-        else:
-            return True
+    def get_value(self, section, key, default=None):
+        try:
+            return self.conf.get(section, key)
+        except ini.Error:
+            return default
 
     def parse_config(self):
         conf = self.conf
         main = {}
         crepo = {}
 
-        main["enabled"] = self._get_bool("main", "enabled")
-        crepo["enabled"] = self._get_bool("createrepo", "enabled")
+        main["enabled"] = conf.getboolean("main", "enabled")
+        crepo["enabled"] = conf.getboolean("createrepo", "enabled")
 
         if main["enabled"]:
-            try:
-                main["repodir"] = conf.get("main", "repodir")
-            except ini.Error:
-                main["repodir"] = "/var/lib/dnf/plugins/local"
+            main["repodir"] = self.get_value("main", "repodir",
+                                             default="/var/lib/dnf/plugins/local")
 
         if crepo["enabled"]:
+            crepo["cachedir"] = self.get_value("createrepo", "cachedir")
             try:
-                crepo["cachedir"] = conf.get("createrepo", "cachedir")
-            except ini.Error:
-                crepo["cachedir"] = None
-            try:
-                crepo["quiet"] = self._get_bool("createrepo", "quiet")
-            except ini.Error:
+                crepo["quiet"] = conf.getboolean("createrepo", "quiet")
+            except ini.NoOptionError:
                 crepo["quiet"] = True
             try:
-                crepo["verbose"] = self._get_bool("createrepo", "verbose")
-            except ini.Error:
+                crepo["verbose"] = conf.getboolean("createrepo", "verbose")
+            except ini.NoOptionError:
                 crepo["verbose"] = False
 
         return main, crepo
