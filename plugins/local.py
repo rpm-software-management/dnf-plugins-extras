@@ -140,10 +140,10 @@ class Local(dnf.Plugin):
             return
 
         args = ["createrepo_c", "--update", "--unique-md-filenames"]
-        if crepo["quiet"]:
-            args.append("--quiet")
         if crepo["verbose"]:
             args.append("--verbose")
+        elif crepo["quiet"]:
+            args.append("--quiet")
         if crepo["cachedir"] is not None:
             args.append("--cachedir")
             args.append(crepo["cachedir"])
