@@ -126,6 +126,7 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %description -n python3-dnf-plugins-extras-repomanage
 RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
 
+%if 0%{?fedora} > 21
 %package -n python3-dnf-plugins-extras-rpmconf
 Summary:	RpmConf Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
@@ -134,6 +135,7 @@ Requires:	python3-rpmconf
 %description -n python3-dnf-plugins-extras-rpmconf
 RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
+%endif
 
 %package snapper
 Summary:	Snapper Plugin for DNF
@@ -197,6 +199,11 @@ pushd py3
 %make_install
 popd
 
+%if 0%{?fedora} <= 21
+rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/rpm_conf.*
+rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+%endif
+
 %check
 PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
 PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
@@ -246,9 +253,11 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/repomanage.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
+%if 0%{?fedora} > 21
 %files -n python3-dnf-plugins-extras-rpmconf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+%endif
 
 %files snapper
 %{python_sitelib}/dnf-plugins/snapper.*
