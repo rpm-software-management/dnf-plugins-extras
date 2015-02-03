@@ -43,7 +43,9 @@ Requires:	python3-dnf-plugins-extras-local
 Requires:	python3-dnf-plugins-extras-repoclosure
 Requires:	python3-dnf-plugins-extras-repograph
 Requires:	python3-dnf-plugins-extras-repomanage
+%if 0%{?fedora} > 21
 Requires:	python3-dnf-plugins-extras-rpmconf
+%endif
 Requires:	python3-dnf-plugins-extras-snapper
 Requires:	python3-dnf-plugins-extras-tracer
 
