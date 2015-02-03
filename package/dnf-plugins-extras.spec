@@ -1,5 +1,5 @@
-%global gitrev 9eb28b7
-%global dnf_version 0.6.3
+%{!?gitrev: %global gitrev 9eb28b7}
+%{!?dnf_version: %global dnf_version 0.6.3}
 
 Name:		dnf-plugins-extras
 Version:	0.0.3
