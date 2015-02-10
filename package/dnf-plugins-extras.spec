@@ -14,7 +14,7 @@ Source0:	dnf-plugins-extras-%{gitrev}.tar.xz
 
 BuildArch:	noarch
 BuildRequires:	cmake
-BuildRequires:	dnf = %{dnf_version}
+BuildRequires:	dnf >= %{dnf_version}
 BuildRequires:	gettext
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
@@ -35,7 +35,7 @@ tracer plugins.
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 BuildRequires:	python3-devel
-BuildRequires:	python3-dnf = %{dnf_version}
+BuildRequires:	python3-dnf >= %{dnf_version}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
@@ -55,14 +55,14 @@ repomanage, rpmconf, snapper and tracer plugins.
 
 %package common
 Summary:	Common files for Extras Plugins for DNF
-Requires:	dnf = %{dnf_version}
+Requires:	dnf >= %{dnf_version}
 
 %description common
 Common files for Extras Plugins.
 
 %package -n python3-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
-Requires:	python3-dnf = %{dnf_version}
+Requires:	python3-dnf >= %{dnf_version}
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
