@@ -20,6 +20,7 @@ BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
+Requires:	%{name}-debug
 Requires:	%{name}-local
 Requires:	%{name}-repoclosure
 Requires:	%{name}-repograph
@@ -39,6 +40,7 @@ BuildRequires:	python3-dnf >= %{dnf_version}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
+Requires:	python3-dnf-plugins-extras-debug
 Requires:	python3-dnf-plugins-extras-local
 Requires:	python3-dnf-plugins-extras-repoclosure
 Requires:	python3-dnf-plugins-extras-repograph
@@ -66,6 +68,22 @@ Requires:	python3-dnf >= %{dnf_version}
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
+
+%package debug
+Summary:	Debug Plugin for DNF
+Requires:	%{name}-common = %{version}-%{release}
+
+%description debug
+Debug Plugin for DNF. Writes system RPM configuration to a dump file
+and restores it.
+
+%package -n python3-dnf-plugins-extras-debug
+Summary:	Debug Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+
+%description -n python3-dnf-plugins-extras-debug
+Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
+a dump file and restores it.
 
 %package local
 Summary:	Local Plugin for DNF
@@ -225,6 +243,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %doc AUTHORS COPYING README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
+
+%files debug
+%{python_sitelib}/dnf-plugins/debug.*
+%{_mandir}/man8/dnf.plugin.debug.*
+
+%files -n python3-dnf-plugins-extras-debug
+%{python3_sitelib}/dnf-plugins/debug.*
+%{python3_sitelib}/dnf-plugins/__pycache__/debug.*
+%{_mandir}/man8/dnf.plugin.debug.*
 
 %files local
 %config %{_sysconfdir}/dnf/plugins/local.conf
