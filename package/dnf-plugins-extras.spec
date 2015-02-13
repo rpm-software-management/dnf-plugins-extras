@@ -1,8 +1,8 @@
-%{!?gitrev: %global gitrev 9eb28b7}
+%{!?gitrev: %global gitrev 90c1b49}
 %{!?dnf_version: %global dnf_version 0.6.3}
 
 Name:		dnf-plugins-extras
-Version:	0.0.3
+Version:	0.0.4
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -290,6 +290,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Fri Feb 13 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.4-1
+- packaging: require rpmconf plugin only for f22+ (Igor Gnatenko)
+- build: simple script to build test package (Michael Mraka)
+- build: more standard way to find out latest commit (Michael Mraka)
+- packaging: let gitrev be specified on rpmbuild commandline (Michael Mraka)
+- doc: include man pages (Igor Gnatenko)
+
 * Thu Jan 29 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.3-1
 - po: update translations (Igor Gnatenko)
 - packaging: include rpmconf plugin only for F22+ (Igor Gnatenko)
