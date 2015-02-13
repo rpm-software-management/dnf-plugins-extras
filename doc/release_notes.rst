@@ -22,6 +22,12 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.4 Release Notes
+====================
+
+Fixes in packaging, include man pages for plugins.
+
+====================
  0.0.3 Release Notes
 ====================
 
