@@ -56,6 +56,11 @@ class Tracer(dnf.Plugin):
         if self.base.conf.installroot != "/":
             return
 
+        installed = set([package.name for package in
+                         self.base.transaction.install_set])
+        erased = set([package.name for package in
+                      self.base.transaction.remove_set])
+
         args = ["tracer", "-n"] + list(installed | erased)
         process = subprocess.Popen(args, stdout=subprocess.PIPE)
         out = process.communicate()[0]
