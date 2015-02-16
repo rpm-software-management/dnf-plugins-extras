@@ -90,5 +90,5 @@ def _print_output(out):
         return
 
     # Last value is blank line
-    for line in out.split("\n")[:-1]:
+    for line in out.decode().split("\n")[:-1]:
         print(line)
