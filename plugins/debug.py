@@ -52,6 +52,10 @@ class DebugDumpCommand(dnf.cli.Command):
     summary = _('dump information about installed rpm packages to file')
     usage = '[%s] [%s]' % (_('OPTIONS'), _('KEYWORDS'))
 
+    def configure(self, args):
+        self.cli.demands.sack_activation = True
+        self.cli.demands.available_repos = True
+
     @staticmethod
     def _parse_args(args):
         parser = dnfpluginsextras.ArgumentParser(DebugDumpCommand.aliases[0])
@@ -129,8 +133,6 @@ class DebugDumpCommand(dnf.cli.Command):
 
 
     def dump_packages(self, fobj, load_repos):
-        self.base.fill_sack(load_system_repo=True,
-                            load_available_repos=load_repos)
         q = self.base.sack.query()
         # packages from rpmdb
         fobj.write("%%%%RPMDB\n")
@@ -174,6 +176,10 @@ class DebugRestoreCommand(dnf.cli.Command):
     summary = _('restore packages recorded in debug-dump file')
     usage = '[%s] [%s]' % (_('OPTIONS'), _('KEYWORDS'))
 
+    def configure(self, args):
+        self.cli.demands.sack_activation = True
+        self.cli.demands.available_repos = True
+
     @staticmethod
     def _parse_args(args):
         parser = dnfpluginsextras.ArgumentParser(DebugRestoreCommand.aliases[0])
@@ -210,8 +216,6 @@ class DebugRestoreCommand(dnf.cli.Command):
             opts.filter_types = set(
                 opts.filter_types.replace(",", " ").split())
 
-        self.base.fill_sack(load_system_repo=True,
-                            load_available_repos=True)
         installed = self.base.sack.query().installed()
         dump_pkgs = self.read_dump_file(opts.filename[0])
 
@@ -307,7 +311,6 @@ class DebugRestoreCommand(dnf.cli.Command):
         return pkgs
 
 def rpm_problems(base):
-    base.fill_sack(load_system_repo=True, load_available_repos=False)
     q = base.sack.query()
     allpkgs = q.installed()
 
@@ -320,9 +323,9 @@ def rpm_problems(base):
         conflicts.update([(conf, pkg) for conf in pkg.conflicts])
 
     missing_requires = [(req, pkg) for (req, pkg) in requires
-                        if not q.filter(provides=req)]
+                        if not allpkgs.filter(provides=req)]
     existing_conflicts = [(conf, pkg) for (conf, pkg) in conflicts
-                          if q.filter(provides=conf)]
+                          if allpkgs.filter(provides=conf)]
     return (missing_requires, existing_conflicts)
 
 def pkgspec(pkg):
