@@ -52,10 +52,9 @@ class DebugDumpCommand(dnf.cli.Command):
     summary = _('dump information about installed rpm packages to file')
     usage = '[%s] [%s]' % (_('OPTIONS'), _('KEYWORDS'))
 
-    def run(self, args):
-        """create debug txt file and compress it, if no filename specified
-           use dnf_debug_dump-<timestamp>.txt.gz by default"""
-        parser = dnfpluginsextras.ArgumentParser(self.aliases[0])
+    @staticmethod
+    def _parse_args(args):
+        parser = dnfpluginsextras.ArgumentParser(DebugDumpCommand.aliases[0])
         parser.add_argument(
             '--norepos', action="store_true", default=False,
             help=_('do not attempt to dump the repository contents.'))
@@ -63,9 +62,17 @@ class DebugDumpCommand(dnf.cli.Command):
             'filename', nargs='?',
             help=_('optional name of dump file'))
         opts = parser.parse_args(args)
-
         if opts.help_cmd:
             print(parser.format_help())
+            return
+        return opts
+
+    def run(self, args):
+        """create debug txt file and compress it, if no filename specified
+           use dnf_debug_dump-<timestamp>.txt.gz by default"""
+        opts = self._parse_args(args)
+
+        if not opts:
             return
 
         filename = opts.filename
@@ -167,10 +174,9 @@ class DebugRestoreCommand(dnf.cli.Command):
     summary = _('restore packages recorded in debug-dump file')
     usage = '[%s] [%s]' % (_('OPTIONS'), _('KEYWORDS'))
 
-    def run(self, args):
-        """Execute the command action here."""
-
-        parser = dnfpluginsextras.ArgumentParser(self.aliases[0])
+    @staticmethod
+    def _parse_args(args):
+        parser = dnfpluginsextras.ArgumentParser(DebugRestoreCommand.aliases[0])
         parser.add_argument(
             '--output', action="store_true",
             help=_('output commands that would be run to stdout.'))
@@ -187,11 +193,17 @@ class DebugRestoreCommand(dnf.cli.Command):
             help=_('limit to specified type'))
         parser.add_argument(
             'filename', nargs=1, help=_('name of dump file'))
-
         opts = parser.parse_args(args)
-
         if opts.help_cmd:
             print(parser.format_help())
+            return
+        return opts
+
+    def run(self, args):
+        """Execute the command action here."""
+        opts = self._parse_args(args)
+
+        if not opts:
             return
 
         if opts.filter_types:
