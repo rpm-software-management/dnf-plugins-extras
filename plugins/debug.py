@@ -26,7 +26,7 @@ import dnfpluginsextras
 import gzip
 import hawkey
 import os
-import subprocess
+import rpm
 import sys
 import time
 
@@ -104,9 +104,8 @@ class DebugDumpCommand(dnf.cli.Command):
     def dump_system_info(fobj):
         fobj.write("%%%%SYSTEM INFO\n")
         uname = os.uname()
-        rpm_ver = subprocess.check_output(["rpm", "--version"]).strip()
         fobj.write("  uname: %s, %s\n" % (uname[2], uname[4]))
-        fobj.write("  rpm ver: %s\n" % rpm_ver)
+        fobj.write("  rpm ver: %s\n" % rpm.__version__)
         fobj.write("  python ver: %s\n" % sys.version.replace('\n', ''))
         return
 
