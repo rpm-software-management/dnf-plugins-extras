@@ -18,12 +18,11 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
-from dnfpluginscore import _, logger
+from dnfpluginsextras import _, logger
 
 import dnf
 import dnf.cli
-import dnfpluginscore
-import dnfpluginscore.lib
+import dnfpluginsextras
 import gzip
 import hawkey
 import os
@@ -56,7 +55,7 @@ class DebugDumpCommand(dnf.cli.Command):
     def run(self, args):
         """create debug txt file and compress it, if no filename specified
            use dnf_debug_dump-<timestamp>.txt.gz by default"""
-        parser = dnfpluginscore.ArgumentParser(self.aliases[0])
+        parser = dnfpluginsextras.ArgumentParser(self.aliases[0])
         parser.add_argument(
             '--norepos', action="store_true", default=False,
             help=_('do not attempt to dump the repository contents.'))
@@ -171,7 +170,7 @@ class DebugRestoreCommand(dnf.cli.Command):
     def run(self, args):
         """Execute the command action here."""
 
-        parser = dnfpluginscore.ArgumentParser(self.aliases[0])
+        parser = dnfpluginsextras.ArgumentParser(self.aliases[0])
         parser.add_argument(
             '--output', action="store_true",
             help=_('output commands that would be run to stdout.'))
