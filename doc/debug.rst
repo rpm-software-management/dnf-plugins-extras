@@ -25,6 +25,9 @@ Description
 
 Writes system RPM configuration to a dump file and restore it.
 
+.. note:: DNF and Yum debug files are not compatible and thus can't be used
+          by the other program.
+
 --------
 Synopsis
 --------
@@ -32,7 +35,7 @@ Synopsis
 ``dnf debug-dump [--norepos] [<filename>]``
 
 ``dnf debug-restore [--output] [--install-latest] [--ignore-arch]
-                    --filter-types=[install,remove,replace] <filename>``
+[--filter-types = [install,remove,replace]] <filename>``
 
 ---------
 Arguments
