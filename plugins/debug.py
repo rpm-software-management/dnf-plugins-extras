@@ -178,6 +178,7 @@ class DebugRestoreCommand(dnf.cli.Command):
     def configure(self, args):
         self.cli.demands.sack_activation = True
         self.cli.demands.available_repos = True
+        self.cli.demands.root_user = True
 
     @staticmethod
     def _parse_args(args):
