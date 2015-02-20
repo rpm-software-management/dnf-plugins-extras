@@ -30,7 +30,6 @@ import rpm
 import sys
 import time
 
-
 DEBUG_VERSION = "dnf-debug-dump version 1\n"
 
 class Debug(dnf.Plugin):
@@ -51,6 +50,10 @@ class DebugDumpCommand(dnf.cli.Command):
     aliases = ['debug-dump']
     summary = _('dump information about installed rpm packages to file')
     usage = '[%s] [%s]' % (_('OPTIONS'), _('KEYWORDS'))
+
+    def __init__(self, cli):
+        super(DebugDumpCommand, self).__init__(cli)
+        self.dump_file = None
 
     def configure(self, args):
         self.cli.demands.sack_activation = True
@@ -86,62 +89,66 @@ class DebugDumpCommand(dnf.cli.Command):
 
         filename = os.path.abspath(filename)
         if filename.endswith('.gz'):
-            fobj = gzip.GzipFile(filename, 'w')
+            self.dump_file = gzip.GzipFile(filename, 'w')
         else:
-            fobj = open(filename, 'w')
+            self.dump_file = open(filename, 'w')
 
-        fobj.write(DEBUG_VERSION)
-        self.dump_system_info(fobj)
-        self.dump_dnf_config_info(fobj)
-        self.dump_rpm_problems(fobj)
-        self.dump_packages(fobj, not opts.norepos)
-        self.dump_rpmdb_versions(fobj)
-        fobj.close()
+        self.write(DEBUG_VERSION)
+        self.dump_system_info()
+        self.dump_dnf_config_info()
+        self.dump_rpm_problems()
+        self.dump_packages(not opts.norepos)
+        self.dump_rpmdb_versions()
+        self.dump_file.close()
 
         print(_("Output written to: %s") % filename)
 
-    @staticmethod
-    def dump_system_info(fobj):
-        fobj.write("%%%%SYSTEM INFO\n")
+    def write(self, msg):
+        if dnf.pycomp.PY3 and isinstance(self.dump_file, gzip.GzipFile):
+            msg = bytes(msg, 'utf8')
+        dnf.pycomp.write_to_file(self.dump_file, msg)
+
+    def dump_system_info(self):
+        self.write("%%%%SYSTEM INFO\n")
         uname = os.uname()
-        fobj.write("  uname: %s, %s\n" % (uname[2], uname[4]))
-        fobj.write("  rpm ver: %s\n" % rpm.__version__)
-        fobj.write("  python ver: %s\n" % sys.version.replace('\n', ''))
+        self.write("  uname: %s, %s\n" % (uname[2], uname[4]))
+        self.write("  rpm ver: %s\n" % rpm.__version__)
+        self.write("  python ver: %s\n" % sys.version.replace('\n', ''))
         return
 
-    def dump_dnf_config_info(self, fobj):
+    def dump_dnf_config_info(self):
         var = self.base.conf.substitutions
         plugins = ",".join([p.name for p in self.base.plugins.plugins])
-        fobj.write("%%%%DNF INFO\n")
-        fobj.write("  arch: %s\n" % var['arch'])
-        fobj.write("  basearch: %s\n" % var['basearch'])
-        fobj.write("  releasever: %s\n" % var['releasever'])
-        fobj.write("  dnf ver: %s\n" % dnf.const.VERSION)
-        fobj.write("  enabled plugins: %s\n" % plugins)
-        fobj.write("  global excludes: %s\n" % ",".join(self.base.conf.exclude))
+        self.write("%%%%DNF INFO\n")
+        self.write("  arch: %s\n" % var['arch'])
+        self.write("  basearch: %s\n" % var['basearch'])
+        self.write("  releasever: %s\n" % var['releasever'])
+        self.write("  dnf ver: %s\n" % dnf.const.VERSION)
+        self.write("  enabled plugins: %s\n" % plugins)
+        self.write("  global excludes: %s\n" % ",".join(self.base.conf.exclude))
         return
 
-    def dump_rpm_problems(self, fobj):
-        fobj.write("%%%%RPMDB PROBLEMS\n")
+    def dump_rpm_problems(self):
+        self.write("%%%%RPMDB PROBLEMS\n")
         (missing, conflicts) = rpm_problems(self.base)
-        fobj.writelines(["Package %s requires %s\n" % (unicode(pkg), unicode(req))
-                         for (req, pkg) in missing])
-        fobj.writelines(["Package %s conflicts with %s\n" % (unicode(pkg),
+        self.write(''.join(["Package %s requires %s\n" % (unicode(pkg), unicode(req))
+                            for (req, pkg) in missing]))
+        self.write(''.join(["Package %s conflicts with %s\n" % (unicode(pkg),
                                                              unicode(conf))
-                         for (conf, pkg) in conflicts])
+                            for (conf, pkg) in conflicts]))
 
 
-    def dump_packages(self, fobj, load_repos):
+    def dump_packages(self, load_repos):
         q = self.base.sack.query()
         # packages from rpmdb
-        fobj.write("%%%%RPMDB\n")
+        self.write("%%%%RPMDB\n")
         for p in sorted(q.installed()):
-            fobj.write('  %s\n' % pkgspec(p))
+            self.write('  %s\n' % pkgspec(p))
 
         if not load_repos:
             return
 
-        fobj.write("%%%%REPOS\n")
+        self.write("%%%%REPOS\n")
         available = q.available()
         for repo in sorted(self.base.repos.iter_enabled(), key=lambda x: x.id):
             try:
@@ -152,20 +159,20 @@ class DebugDumpCommand(dnf.cli.Command):
                     url = repo.mirrorlist
                 elif len(repo.baseurl) > 0:
                     url = repo.baseurl[0]
-                fobj.write('%%%s - %s\n' % (repo.id, url))
-                fobj.write('  excludes: %s\n' % ','.join(repo.exclude))
+                self.write('%%%s - %s\n' % (repo.id, url))
+                self.write('  excludes: %s\n' % ','.join(repo.exclude))
                 for po in sorted(available.filter(reponame=repo.id)):
-                    fobj.write('  %s\n' % pkgspec(po))
+                    self.write('  %s\n' % pkgspec(po))
 
             except dnf.exceptions.Error as e:
-                fobj.write("Error accessing repo %s: %s\n" % (repo, str(e)))
+                self.write("Error accessing repo %s: %s\n" % (repo, str(e)))
                 continue
         return
 
-    def dump_rpmdb_versions(self, fobj):
-        fobj.write("%%%%RPMDB VERSIONS\n")
+    def dump_rpmdb_versions(self):
+        self.write("%%%%RPMDB VERSIONS\n")
         version = self.base.sack.rpmdb_version(self.base.yumdb)
-        fobj.write('  all: %s\n' % version)
+        self.write('  all: %s\n' % version)
         return
 
 
