@@ -20,6 +20,8 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 from dnfpluginsextras import _, logger
 
+from dnf.i18n import ucd
+
 import dnf
 import dnf.cli
 import dnfpluginsextras
@@ -131,10 +133,10 @@ class DebugDumpCommand(dnf.cli.Command):
     def dump_rpm_problems(self):
         self.write("%%%%RPMDB PROBLEMS\n")
         (missing, conflicts) = rpm_problems(self.base)
-        self.write(''.join(["Package %s requires %s\n" % (unicode(pkg), unicode(req))
+        self.write(''.join(["Package %s requires %s\n" % (ucd(pkg), ucd(req))
                             for (req, pkg) in missing]))
-        self.write(''.join(["Package %s conflicts with %s\n" % (unicode(pkg),
-                                                             unicode(conf))
+        self.write(''.join(["Package %s conflicts with %s\n" % (ucd(pkg),
+                                                                ucd(conf))
                             for (conf, pkg) in conflicts]))
 
 
@@ -292,13 +294,14 @@ class DebugRestoreCommand(dnf.cli.Command):
         else:
             fobj = open(filename)
 
-        if fobj.readline() != DEBUG_VERSION:
+        if ucd(fobj.readline()) != DEBUG_VERSION:
             logger.error(_("Bad dnf debug file: %s"), filename)
-            sys.exit(1)
+            raise dnf.exceptions.Error()
 
         skip = True
         pkgs = {}
         for line in fobj:
+            line = ucd(line)
             if skip:
                 if line == '%%%%RPMDB\n':
                     skip = False
@@ -309,11 +312,11 @@ class DebugRestoreCommand(dnf.cli.Command):
 
             pkg_spec = line.strip()
             nevra = hawkey.split_nevra(pkg_spec)
-            pkgs[(nevra.name, nevra.arch)] = ['install', unicode(nevra.name),
-                                              unicode(nevra.arch),
-                                              unicode(nevra.epoch),
-                                              unicode(nevra.version),
-                                              unicode(nevra.release)]
+            pkgs[(nevra.name, nevra.arch)] = ['install', ucd(nevra.name),
+                                              ucd(nevra.arch),
+                                              ucd(nevra.epoch),
+                                              ucd(nevra.version),
+                                              ucd(nevra.release)]
 
         return pkgs
 
