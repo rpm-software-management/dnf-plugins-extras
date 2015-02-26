@@ -1,9 +1,9 @@
 %{!?gitrev: %global gitrev 90c1b49}
-%{!?dnf_version: %global dnf_version 0.6.3}
+%{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
 Version:	0.0.4
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -14,22 +14,36 @@ Source0:	dnf-plugins-extras-%{gitrev}.tar.xz
 
 BuildArch:	noarch
 BuildRequires:	cmake
-BuildRequires:	dnf >= %{dnf_version}
 BuildRequires:	gettext
+%if 0%{?fedora} >= 23
+Requires:   python3-dnf-plugins-extras = %{version}-%{release}
+%else
+Requires:   python-dnf-plugins-extras = %{version}-%{release}
+%endif
+
+%description
+Extras Plugins for DNF. This package enhance DNF with repomanage, snapper and
+tracer plugins.
+
+%package -n python-dnf-plugins-extras
+Summary:    Extras Plugins for DNF
+Group:      System Environment/Base
+BuildRequires:  python-dnf >= %{dnf_version}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
-Requires:	%{name}-debug
-Requires:	%{name}-local
-Requires:	%{name}-repoclosure
-Requires:	%{name}-repograph
-Requires:	%{name}-repomanage
-Requires:	%{name}-snapper
-Requires:	%{name}-tracer
+Requires:	python-dnf-plugins-extras-debug
+Requires:	python-dnf-plugins-extras-local
+Requires:	python-dnf-plugins-extras-repoclosure
+Requires:	python-dnf-plugins-extras-repograph
+Requires:	python-dnf-plugins-extras-repomanage
+Requires:	python-dnf-plugins-extras-snapper
+Requires:	python-dnf-plugins-extras-tracer
+Obsoletes:  dnf-plugins-extras <= 0.0.4-1
 
-%description
-Extras Plugins for DNF. This package enhance DNF with repomanage, snapper and
+%description -n python-dnf-plugins-extras
+Extras Plugins for DNF, Python 2 version. This package enhance DNF with repomanage, snapper and
 tracer plugins.
 
 %package -n python3-dnf-plugins-extras
@@ -50,17 +64,18 @@ Requires:	python3-dnf-plugins-extras-rpmconf
 %endif
 Requires:	python3-dnf-plugins-extras-snapper
 Requires:	python3-dnf-plugins-extras-tracer
+Obsoletes:  dnf-plugins-extras <= 0.0.4-1
 
 %description -n python3-dnf-plugins-extras
 Extras Plugins for DNF, Python 3 version. This package enhance DNF with
 repomanage, rpmconf, snapper and tracer plugins.
 
-%package common
+%package -n python-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
-Requires:	dnf >= %{dnf_version}
+Requires:	python-dnf >= %{dnf_version}
 
-%description common
-Common files for Extras Plugins.
+%description -n python-dnf-plugins-extras-common
+Common files for Extras Plugins, Python 2 version.
 
 %package -n python3-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
@@ -69,79 +84,119 @@ Requires:	python3-dnf >= %{dnf_version}
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
 
-%package debug
+%package -n python-dnf-plugins-extras-debug
 Summary:	Debug Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:  dnf-plugins-extras-debug = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-debug <= 0.0.4-1
+%endif
 
-%description debug
-Debug Plugin for DNF. Writes system RPM configuration to a dump file
+%description -n python-dnf-plugins-extras-debug
+Debug Plugin for DNF, Python 2 version. Writes system RPM configuration to a dump file
 and restores it.
 
 %package -n python3-dnf-plugins-extras-debug
 Summary:	Debug Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-debug = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-debug <= 0.0.4-1
+%endif
 
 %description -n python3-dnf-plugins-extras-debug
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
 a dump file and restores it.
 
-%package local
+%package -n python-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:  dnf-plugins-extras-local = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-local <= 0.0.4-1
+%endif
 
-%description local
-Local Plugin for DNF. Automatically copy all downloaded packages to a
+%description -n python-dnf-plugins-extras-local
+Local Plugin for DNF, Python 2 version. Automatically copy all downloaded packages to a
 repository on the local filesystem and generating repo metadata.
 
 %package -n python3-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-local = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-local <= 0.0.4-1
+%endif
 
 %description -n python3-dnf-plugins-extras-local
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
 packages to a repository on the local filesystem and generating repo metadata.
 
-%package repoclosure
+%package -n python-dnf-plugins-extras-repoclosure
 Summary:	RepoClosure Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:  dnf-plugins-extras-repoclosure = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repoclosure <= 0.0.4-1
+%endif
 
-%description repoclosure
-RepoClosure Plugin for DNF. Display a list of unresolved dependencies for
+%description -n python-dnf-plugins-extras-repoclosure
+RepoClosure Plugin for DNF, Python 2 version. Display a list of unresolved dependencies for
 repositories.
 
 %package -n python3-dnf-plugins-extras-repoclosure
 Summary:	RepoClosure Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-repoclosure = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repoclosure <= 0.0.4-1
+%endif
 
 %description -n python3-dnf-plugins-extras-repoclosure
 RepoClosure Plugin for DNF, Python 3 version. Display a list of unresolved
 dependencies for repositories.
 
-%package repograph
+%package -n python-dnf-plugins-extras-repograph
 Summary:	RepoGraph Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:  dnf-plugins-extras-repograph = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repograph <= 0.0.4-1
+%endif
 
-%description repograph
-RepoGraph Plugin for DNF. Output a full package dependency graph in dot format.
+%description -n python-dnf-plugins-extras-repograph
+RepoGraph Plugin for DNF, Python 2 version. Output a full package dependency graph in dot format.
 
 %package -n python3-dnf-plugins-extras-repograph
 Summary:	RepoGraph Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-repograph = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repograph <= 0.0.4-1
+%endif
 
 %description -n python3-dnf-plugins-extras-repograph
 RepoGraph Plugin for DNF, Python 3 version. Output a full package dependency
 graph in dot format.
 
-%package repomanage
+%package -n python-dnf-plugins-extras-repomanage
 Summary:	RepoManage Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:  dnf-plugins-extras-repomanage = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repomanage <= 0.0.4-1
+%endif
 
-%description repomanage
-RepoManage Plugin for DNF. Manage a directory of rpm packages.
+%description -n python-dnf-plugins-extras-repomanage
+RepoManage Plugin for DNF, Python 2 version. Manage a directory of rpm packages.
 
 %package -n python3-dnf-plugins-extras-repomanage
 Summary:	RepoManage Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-repomanage = %{version}-%{release}
+Obsoletes: dnf-plugins-extras-repomanage <= 0.0.4-1
+%endif
 
 %description -n python3-dnf-plugins-extras-repomanage
 RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
@@ -151,6 +206,9 @@ RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
 Summary:	RpmConf Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	python3-rpmconf
+%if 0%{?fedora} >= 23
+Provides:  dnf-plugins-extras-rpmconf = %{version}-%{release}
+%endif
 
 %description -n python3-dnf-plugins-extras-rpmconf
 RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
@@ -159,12 +217,12 @@ transaction.
 
 %package snapper
 Summary:	Snapper Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	dbus-python
 Requires:	snapper
 
 %description snapper
-Snapper Plugin for DNF. Creates snapshot every transaction.
+Snapper Plugin for DNF, Python 2 version. Creates snapshot every transaction.
 
 %package -n python3-dnf-plugins-extras-snapper
 Summary:	Snapper Plugin for DNF
@@ -177,13 +235,13 @@ Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 
 %package tracer
 Summary:	Tracer Plugin for DNF
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	tracer
 Obsoletes:	dnf-plugin-tracer < 0.5.6-2
 Provides:	dnf-plugin-tracer = 1:%{version}-%{release}
 
 %description tracer
-Tracer Plugin for DNF. Finds outdated running applications in your system
+Tracer Plugin for DNF, Python 2 version. Finds outdated running applications in your system
 every transaction.
 
 %package -n python3-dnf-plugins-extras-tracer
@@ -235,7 +293,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %files -n python3-dnf-plugins-extras
 # No files, metapackage
 
-%files common -f %{name}.lang
+%files -n python-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python_sitelib}/dnfpluginsextras/
 
@@ -244,7 +302,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
-%files debug
+%files -n python-dnf-plugins-extras-debug
 %{python_sitelib}/dnf-plugins/debug.*
 %{_mandir}/man8/dnf.plugin.debug.*
 
@@ -253,7 +311,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 %{_mandir}/man8/dnf.plugin.debug.*
 
-%files local
+%files -n python-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python_sitelib}/dnf-plugins/local.*
 %{_mandir}/man8/dnf.plugin.local.*
@@ -264,7 +322,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
 %{_mandir}/man8/dnf.plugin.local.*
 
-%files repoclosure
+%files -n python-dnf-plugins-extras-repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*
 %{_mandir}/man8/dnf.plugin.repoclosure.*
 
@@ -273,7 +331,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
 %{_mandir}/man8/dnf.plugin.repoclosure.*
 
-%files repograph
+%files -n python-dnf-plugins-extras-repograph
 %{python_sitelib}/dnf-plugins/repograph.*
 %{_mandir}/man8/dnf.plugin.repograph.*
 
@@ -282,7 +340,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
 %{_mandir}/man8/dnf.plugin.repograph.*
 
-%files repomanage
+%files -n python-dnf-plugins-extras-repomanage
 %{python_sitelib}/dnf-plugins/repomanage.*
 %{_mandir}/man8/dnf.plugin.repomanage.*
 
