@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnf-plugins-extras\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 15:43+0300\n"
-"PO-Revision-Date: 2015-01-28 21:48+0000\n"
+"POT-Creation-Date: 2015-02-27 15:57+0300\n"
+"PO-Revision-Date: 2015-02-27 12:57+0000\n"
 "Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dnf-plugins-extras/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -18,22 +18,114 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#: ../plugins/repoclosure.py:45
+msgid "Display a list of unresolved dependencies for repositories"
+msgstr ""
+
+#: ../plugins/repoclosure.py:108 ../plugins/repograph.py:140
+msgid "Specify repositories to use"
+msgstr ""
+
+#: ../plugins/repoclosure.py:110
+msgid "Check closure for this package only"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "'{}' is not a directory"
+msgstr ""
+
+#: ../plugins/local.py:127
+msgid "Copying '{}' to local repo"
+msgstr ""
+
+#: ../plugins/local.py:132
+msgid "Can't write file '{}'"
+msgstr ""
+
+#: ../plugins/local.py:150
+msgid "Rebuilding local repo"
+msgstr ""
+
+#: ../plugins/debug.py:55
+msgid "dump information about installed rpm packages to file"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187
+msgid "OPTIONS"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187
+msgid "KEYWORDS"
+msgstr ""
+
+#: ../plugins/debug.py:71
+msgid "do not attempt to dump the repository contents."
+msgstr ""
+
+#: ../plugins/debug.py:74
+msgid "optional name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:108
+#, python-format
+msgid "Output written to: %s"
+msgstr ""
+
+#: ../plugins/debug.py:186
+msgid "restore packages recorded in debug-dump file"
+msgstr ""
+
+#: ../plugins/debug.py:199
+msgid "output commands that would be run to stdout."
+msgstr ""
+
+#: ../plugins/debug.py:202
+msgid "Install the latest version of recorded packages."
+msgstr ""
+
+#: ../plugins/debug.py:205
+msgid ""
+"Ignore architecture and install missing packages matchingthe name, epoch, "
+"version and release."
+msgstr ""
+
+#: ../plugins/debug.py:210
+msgid "limit to specified type"
+msgstr ""
+
+#: ../plugins/debug.py:212
+msgid "name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:291
+#, python-format
+msgid "Package %s is not available"
+msgstr ""
+
+#: ../plugins/debug.py:301
+#, python-format
+msgid "Bad dnf debug file: %s"
+msgstr ""
+
+#: ../plugins/tracer.py:70
+msgid "For more information run:"
+msgstr "Для получения дополнительной информации, запустите:"
+
+#: ../plugins/tracer.py:88
+msgid "You should restart:"
+msgstr "Требуется перезапуск:"
+
+#: ../plugins/tracer.py:89
+msgid "Nothing needs to be restarted"
+msgstr "Ничего перезапускать не требуется"
+
 #: ../plugins/dnfpluginsextras/__init__.py:58
 msgid "show this help about this tool"
 msgstr "показать справку об этой программе"
 
-#: ../plugins/repograph.py:53
-msgid "Output a full package dependency graph in dot format"
-msgstr ""
-
-#: ../plugins/repograph.py:120
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr ""
-
-#: ../plugins/repograph.py:140 ../plugins/repoclosure.py:108
-msgid "Specify repositories to use"
-msgstr ""
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Добавление '{}' в список пакетов для обработки через rpmconf"
 
 #: ../plugins/repomanage.py:44
 msgid "Manage a directory of rpm packages"
@@ -71,10 +163,6 @@ msgstr "Оставить N новых пакетов - по умолчанию 1
 msgid "Path to directory"
 msgstr "Путь к директории"
 
-#: ../plugins/rpm_conf.py:41
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Добавление '{}' в список пакетов для обработки через rpmconf"
-
 #: ../plugins/snapper.py:46
 #, python-format
 msgid "connect to snapperd failed: %s"
@@ -94,38 +182,11 @@ msgstr "создан снимок %d"
 msgid "creating snapshot failed: %s"
 msgstr "не удалось создать снимок: %s"
 
-#: ../plugins/tracer.py:65
-msgid "For more information run:"
-msgstr "Для получения дополнительной информации, запустите:"
-
-#: ../plugins/tracer.py:83
-msgid "You should restart:"
-msgstr "Требуется перезапуск:"
-
-#: ../plugins/tracer.py:84
-msgid "Nothing needs to be restarted"
-msgstr "Ничего перезапускать не требуется"
-
-#: ../plugins/repoclosure.py:45
-msgid "Display a list of unresolved dependencies for repositories"
+#: ../plugins/repograph.py:53
+msgid "Output a full package dependency graph in dot format"
 msgstr ""
 
-#: ../plugins/repoclosure.py:110
-msgid "Check closure for this package only"
-msgstr ""
-
-#: ../plugins/local.py:119
-msgid "'{}' is not a directory"
-msgstr ""
-
-#: ../plugins/local.py:127
-msgid "Copying '{}' to local repo"
-msgstr ""
-
-#: ../plugins/local.py:132
-msgid "Can't write file '{}'"
-msgstr ""
-
-#: ../plugins/local.py:150
-msgid "Rebuilding local repo"
+#: ../plugins/repograph.py:120
+#, python-format
+msgid "Nothing provides: '%s'"
 msgstr ""

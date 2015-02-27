@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 15:43+0300\n"
+"POT-Creation-Date: 2015-02-27 15:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,113 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../plugins/repoclosure.py:45
+msgid "Display a list of unresolved dependencies for repositories"
+msgstr ""
+
+#: ../plugins/repoclosure.py:108 ../plugins/repograph.py:140
+msgid "Specify repositories to use"
+msgstr ""
+
+#: ../plugins/repoclosure.py:110
+msgid "Check closure for this package only"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "'{}' is not a directory"
+msgstr ""
+
+#: ../plugins/local.py:127
+msgid "Copying '{}' to local repo"
+msgstr ""
+
+#: ../plugins/local.py:132
+msgid "Can't write file '{}'"
+msgstr ""
+
+#: ../plugins/local.py:150
+msgid "Rebuilding local repo"
+msgstr ""
+
+#: ../plugins/debug.py:55
+msgid "dump information about installed rpm packages to file"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187
+msgid "OPTIONS"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187
+msgid "KEYWORDS"
+msgstr ""
+
+#: ../plugins/debug.py:71
+msgid "do not attempt to dump the repository contents."
+msgstr ""
+
+#: ../plugins/debug.py:74
+msgid "optional name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:108
+#, python-format
+msgid "Output written to: %s"
+msgstr ""
+
+#: ../plugins/debug.py:186
+msgid "restore packages recorded in debug-dump file"
+msgstr ""
+
+#: ../plugins/debug.py:199
+msgid "output commands that would be run to stdout."
+msgstr ""
+
+#: ../plugins/debug.py:202
+msgid "Install the latest version of recorded packages."
+msgstr ""
+
+#: ../plugins/debug.py:205
+msgid ""
+"Ignore architecture and install missing packages matchingthe name, epoch, "
+"version and release."
+msgstr ""
+
+#: ../plugins/debug.py:210
+msgid "limit to specified type"
+msgstr ""
+
+#: ../plugins/debug.py:212
+msgid "name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:291
+#, python-format
+msgid "Package %s is not available"
+msgstr ""
+
+#: ../plugins/debug.py:301
+#, python-format
+msgid "Bad dnf debug file: %s"
+msgstr ""
+
+#: ../plugins/tracer.py:70
+msgid "For more information run:"
+msgstr ""
+
+#: ../plugins/tracer.py:88
+msgid "You should restart:"
+msgstr ""
+
+#: ../plugins/tracer.py:89
+msgid "Nothing needs to be restarted"
+msgstr ""
+
 #: ../plugins/dnfpluginsextras/__init__.py:58
 msgid "show this help about this tool"
 msgstr ""
 
-#: ../plugins/repograph.py:53
-msgid "Output a full package dependency graph in dot format"
-msgstr ""
-
-#: ../plugins/repograph.py:120
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr ""
-
-#: ../plugins/repograph.py:140 ../plugins/repoclosure.py:108
-msgid "Specify repositories to use"
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 
 #: ../plugins/repomanage.py:44
@@ -70,10 +162,6 @@ msgstr ""
 msgid "Path to directory"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:41
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
-
 #: ../plugins/snapper.py:46
 #, python-format
 msgid "connect to snapperd failed: %s"
@@ -93,38 +181,11 @@ msgstr ""
 msgid "creating snapshot failed: %s"
 msgstr ""
 
-#: ../plugins/tracer.py:65
-msgid "For more information run:"
+#: ../plugins/repograph.py:53
+msgid "Output a full package dependency graph in dot format"
 msgstr ""
 
-#: ../plugins/tracer.py:83
-msgid "You should restart:"
-msgstr ""
-
-#: ../plugins/tracer.py:84
-msgid "Nothing needs to be restarted"
-msgstr ""
-
-#: ../plugins/repoclosure.py:45
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr ""
-
-#: ../plugins/repoclosure.py:110
-msgid "Check closure for this package only"
-msgstr ""
-
-#: ../plugins/local.py:119
-msgid "'{}' is not a directory"
-msgstr ""
-
-#: ../plugins/local.py:127
-msgid "Copying '{}' to local repo"
-msgstr ""
-
-#: ../plugins/local.py:132
-msgid "Can't write file '{}'"
-msgstr ""
-
-#: ../plugins/local.py:150
-msgid "Rebuilding local repo"
+#: ../plugins/repograph.py:120
+#, python-format
+msgid "Nothing provides: '%s'"
 msgstr ""
