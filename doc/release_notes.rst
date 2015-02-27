@@ -22,6 +22,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.5 Release Notes
+====================
+
+Adapt packaging to install Python 3 version for F23+. Provides: :doc:`debug`
+
+Bugs fixed in 0.0.5:
+
+* :rhbug:`1187763`
+* :rhbug:`1192779`
+
+====================
  0.0.4 Release Notes
 ====================
 

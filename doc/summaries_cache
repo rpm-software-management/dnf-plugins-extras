@@ -10,5 +10,13 @@
     [
         991014, 
         "[rfe] [plugins] yum-plugin-local"
+    ], 
+    [
+        1187763, 
+        "[abrt] dnf: tracer.py:59:transaction:NameError: global name 'installed' is not defined"
+    ], 
+    [
+        1192779, 
+        "[abrt] python3-dnf: tracer.py:93:_print_output:TypeError: Type str doesn't support the buffer API"
     ]
 ]
