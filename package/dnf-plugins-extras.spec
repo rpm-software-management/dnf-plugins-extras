@@ -215,13 +215,17 @@ RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
 %endif
 
-%package snapper
+%package -n python-dnf-plugins-extras-snapper
 Summary:	Snapper Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	dbus-python
 Requires:	snapper
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-snapper = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-snapper <= 0.0.4-2
+%endif
 
-%description snapper
+%description -n python-dnf-plugins-extras-snapper
 Snapper Plugin for DNF, Python 2 version. Creates snapshot every transaction.
 
 %package -n python3-dnf-plugins-extras-snapper
@@ -229,18 +233,26 @@ Summary:	Snapper Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	python3-dbus
 Requires:	snapper
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-snapper = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-snapper <= 0.0.4-2
+%endif
 
 %description -n python3-dnf-plugins-extras-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 
-%package tracer
+%package -n python-dnf-plugins-extras-tracer
 Summary:	Tracer Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	tracer
+%if 0%{?fedora} < 23
 Obsoletes:	dnf-plugin-tracer < 0.5.6-2
 Provides:	dnf-plugin-tracer = 1:%{version}-%{release}
+Provides:	dnf-plugins-extras-tracer = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-tracer <= 0.0.4-2
+%endif
 
-%description tracer
+%description -n python-dnf-plugins-extras-tracer
 Tracer Plugin for DNF, Python 2 version. Finds outdated running applications in your system
 every transaction.
 
@@ -248,6 +260,12 @@ every transaction.
 Summary:	Tracer Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	tracer
+%if 0%{?fedora} >= 23
+Obsoletes:	dnf-plugin-tracer < 0.5.6-2
+Provides:	dnf-plugin-tracer = 1:%{version}-%{release}
+Provides:	dnf-plugins-extras-tracer = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-tracer <= 0.0.4-2
+%endif
 
 %description -n python3-dnf-plugins-extras-tracer
 Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
@@ -356,7 +374,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
-%files snapper
+%files -n python-dnf-plugins-extras-snapper
 %{python_sitelib}/dnf-plugins/snapper.*
 %{_mandir}/man8/dnf.plugin.snapper.*
 
@@ -365,7 +383,7 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 %{_mandir}/man8/dnf.plugin.snapper.*
 
-%files tracer
+%files -n python-dnf-plugins-extras-tracer
 %{python_sitelib}/dnf-plugins/tracer.*
 %{_mandir}/man8/dnf.plugin.tracer.*
 
