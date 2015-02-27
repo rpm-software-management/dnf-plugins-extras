@@ -1,9 +1,9 @@
-%{!?gitrev: %global gitrev ff40670}
+%{!?gitrev: %global gitrev 9731aee}
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
 Version:	0.0.5
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -396,6 +396,9 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Fri Feb 27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.5-3
+- packaging: add real package python-dnf-plugins-extras (Igor Gnatenko)
+
 * Fri Feb 27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.5-2
 - packaging: handle tracer and snapper plugins (Igor Gnatenko)
 
