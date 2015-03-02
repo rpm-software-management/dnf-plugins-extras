@@ -1,9 +1,9 @@
-%{!?gitrev: %global gitrev 9731aee}
+%{!?gitrev: %global gitrev 8cc6dbb}
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
 Version:	0.0.5
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -404,6 +404,9 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Mon Mar 02 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.5-4
+- packaging: properly obsolete common subpkg for f23+ (Igor Gnatenko)
+
 * Fri Feb 27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.5-3
 - packaging: add real package python-dnf-plugins-extras (Igor Gnatenko)
 
