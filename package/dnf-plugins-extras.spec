@@ -73,6 +73,10 @@ repomanage, rpmconf, snapper and tracer plugins.
 %package -n python-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
 Requires:	python-dnf >= %{dnf_version}
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-common = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
+%endif
 
 %description -n python-dnf-plugins-extras-common
 Common files for Extras Plugins, Python 2 version.
@@ -80,6 +84,10 @@ Common files for Extras Plugins, Python 2 version.
 %package -n python3-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
 Requires:	python3-dnf >= %{dnf_version}
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-common = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
+%endif
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
