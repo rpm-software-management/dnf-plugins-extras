@@ -35,6 +35,7 @@ BuildRequires:	python2-devel
 
 Requires:	python-dnf-plugins-extras-debug
 Requires:	python-dnf-plugins-extras-local
+Requires:	python-dnf-plugins-extras-orphans
 Requires:	python-dnf-plugins-extras-repoclosure
 Requires:	python-dnf-plugins-extras-repograph
 Requires:	python-dnf-plugins-extras-repomanage
@@ -56,6 +57,7 @@ BuildRequires:	python3-sphinx
 
 Requires:	python3-dnf-plugins-extras-debug
 Requires:	python3-dnf-plugins-extras-local
+Requires:	python3-dnf-plugins-extras-orphans
 Requires:	python3-dnf-plugins-extras-repoclosure
 Requires:	python3-dnf-plugins-extras-repograph
 Requires:	python3-dnf-plugins-extras-repomanage
@@ -139,6 +141,30 @@ Obsoletes:	dnf-plugins-extras-local <= 0.0.4-2
 %description -n python3-dnf-plugins-extras-local
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
 packages to a repository on the local filesystem and generating repo metadata.
+
+%package -n python-dnf-plugins-extras-orphans
+Summary:	Orphans Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-orphans = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-orphans <= 0.0.4-2
+%endif
+
+%description -n python-dnf-plugins-extras-orphans
+Orphans Plugin for DNF, Python 2 version. List all installed packages
+not required by any other installed package.
+
+%package -n python3-dnf-plugins-extras-orphans
+Summary:	Orphans Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-orphans = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-orphans <= 0.0.4-2
+%endif
+
+%description -n python3-dnf-plugins-extras-orphans
+Orphans Plugin for DNF, Python 3 version. List all installed packages
+not required by any other installed package.
 
 %package -n python-dnf-plugins-extras-repoclosure
 Summary:	RepoClosure Plugin for DNF
@@ -350,6 +376,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
 %{_mandir}/man8/dnf.plugin.local.*
+
+%files -n python-dnf-plugins-extras-orphans
+%{python_sitelib}/dnf-plugins/orphans.*
+%{_mandir}/man8/dnf.plugin.orphans.*
+
+%files -n python3-dnf-plugins-extras-orphans
+%{python3_sitelib}/dnf-plugins/orphans.*
+%{python3_sitelib}/dnf-plugins/__pycache__/orphans.*
+%{_mandir}/man8/dnf.plugin.orphans.*
 
 %files -n python-dnf-plugins-extras-repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*
