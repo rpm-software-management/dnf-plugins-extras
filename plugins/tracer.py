@@ -62,9 +62,10 @@ class Tracer(dnf.Plugin):
                       self.base.transaction.remove_set])
 
         args = ["tracer", "-n"] + list(installed | erased)
-        process = subprocess.Popen(args, stdout=subprocess.PIPE)
-        out = process.communicate()[0]
-        _print_output(out)
+        process = subprocess.Popen(
+            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        _print_output(out, err)
 
         if len(out) != 0:
             print("\n" + _("For more information run:"))
@@ -78,12 +79,23 @@ class TracerCommand(dnf.cli.Command):
     def run(self, args):
         """Called after running `dnf tracer ...`"""
         args = ["tracer"] + args
-        process = subprocess.Popen(args, stdout=subprocess.PIPE)
-        out = process.communicate()[0]
-        _print_output(out)
+        process = subprocess.Popen(
+            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        _print_output(out, err)
 
 
-def _print_output(out):
+def _print_output(out, err):
+    if len(err) != 0:
+        print("Tracer:")
+        print("  " + _("Program 'tracer' crashed with following error:") + "\n")
+        print(err)
+        print(_("Please visit ") +
+              "https://github.com/FrostyX/tracer/issues " +
+              "and submit the issue. Thank you")
+        print(_("We apologize for any inconvenience"))
+        return
+
     if len(out) == 0:
         print(_("You should restart:"))
         print("  " + _("Nothing needs to be restarted"))
