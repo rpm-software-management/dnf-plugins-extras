@@ -12,8 +12,6 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
 # Public License for more details.
 #
-from collections import deque
-
 import dnf
 import dnf.sack
 import dnf.cli
@@ -33,99 +31,117 @@ class OrphansCommand(dnf.cli.Command):
     aliases = ('orphans',)
     summary = _('List installed packages not required by any other package')
 
-    def findorphans(self, onlytrueorphans=False):
+    def buildgraph(self):
+        """
+        Load the list of installed packages and their dependencies using
+        hawkey, and build the dependency graph and the graph of reverse
+        dependencies.
+        """
         sack = dnf.sack.rpmdb_sack(self.base)
-        allpackages = set(sack.query())
-        tmp = set()
+        pkgmap = dict()
+        packages = []
+        depends = []
+        rdepends = []
+        deps = set()
+        providers = set()
 
-        # build dependency graph and find true orphans
-        # (packages not required by any other package)
-        depends = dict()
-        orphans = allpackages.copy()
-        for pkg in allpackages:
-            deps = set()
+        for i, pkg in enumerate(sack.query()):
+            pkgmap[pkg] = i
+            packages.append(pkg)
+            rdepends.append([])
+
+        for i, pkg in enumerate(packages):
             for req in pkg.requires:
                 sreq = str(req)
                 if sreq.startswith('rpmlib(') or sreq == 'solvable:prereqmarker':
                     continue
-                tmp.clear()
-                tmp.update(sack.query().filter(provides=req))
-                if pkg not in tmp:
-                    deps.update(tmp)
-            depends[pkg] = deps
-            orphans.difference_update(deps)
+                for dpkg in sack.query().filter(provides=req):
+                    providers.add(pkgmap[dpkg])
+                if i not in providers:
+                    deps.update(providers)
+                providers.clear()
 
-        # convert the set of orphans to a list
-        orphans = list(orphans)
+            deplist = list(deps)
+            deps.clear()
+            depends.append(deplist)
+            for j in deplist:
+                rdepends[j].append(i)
 
-        # remove true orphans and all their recursive
-        # dependencies from allpackages
-        queue = deque()
-        for pkg in orphans:
-            allpackages.remove(pkg)
-            queue.append(pkg)
+        return (packages, depends, rdepends)
 
-        while len(queue) > 0:
-            deps = depends[queue.popleft()]
-            deps.intersection_update(allpackages)
-            for dpkg in deps:
-                allpackages.remove(dpkg)
-                queue.append(dpkg)
+    def kosaraju(self, graph, rgraph):
+        """
+        Run Kosaraju's algorithm to find strongly connected components
+        in the graph, and return the list of nodes in the components
+        without any incoming edges.
+        """
+        N = len(graph)
+        rstack = []
+        stack = []
+        tag = [False] * N
 
-        # if the true orphans and all their recursive
-        # dependencies account for all installed
-        # packages: great! we're done.
-        if len(allpackages) == 0 or onlytrueorphans:
-            return orphans
-
-        # otherwise the remaining packages must consist
-        # of one or more dependency cycles and their
-        # dependencies
-
-        # let's begin by cutting the graph down to just
-        # the remaining packages
-        for pkg, deps in depends.items():
-            if pkg in allpackages:
-                deps.intersection_update(allpackages)
-            else:
-                del depends[pkg]
-
-        # for each remaining package find its set of
-        # recursive dependencies (including itself).
-        # packages in dependency cycles must have the
-        # same such set of recursive dependencies,
-        # so let's group packages by this set.
-        rdepmap = dict()
-        for pkg in allpackages:
-            tmp.clear()
-            tmp.add(pkg)
-
-            queue.append(pkg)
-            while len(queue) > 0:
-                for dpkg in depends[queue.popleft()]:
-                    if dpkg not in tmp:
-                        tmp.add(dpkg)
-                        queue.append(dpkg)
-
-            rdeps = frozenset(tmp)
-            if rdeps in rdepmap:
-                rdepmap[rdeps].append(pkg)
-            else:
-                rdepmap[rdeps] = [pkg]
-
-        # add the packages of the "topmost" dependency
-        # cycles to the orphans list until all packages
-        # are accounted for
-        for rdeps in sorted(rdepmap.iterkeys(), key=len, reverse=True):
-            if rdepmap[rdeps][0] not in allpackages:
+        # do depth-first searches in the graph
+        # and push nodes to rstack "on the way up"
+        # until all nodes have been pushed.
+        # tag nodes so we don't visit them more than once
+        for u in range(N):
+            if tag[u]:
                 continue
 
-            orphans.extend(rdepmap[rdeps])
-            allpackages.difference_update(rdeps)
-            if len(allpackages) == 0:
-                break
+            stack.append(u)
+            tag[u] = True
+            while stack:
+                u = stack[-1]
+                if u >= 0:
+                    stack[-1] = -1 - u
+                    for v in graph[u]:
+                        if not tag[v]:
+                            stack.append(v)
+                            tag[v] = True
+                else:
+                    stack.pop()
+                    rstack.append(-1 - u)
+
+        # now searches beginning at nodes popped from
+        # rstack in the graph with all edges reversed
+        # will give us the strongly connected components.
+        # the incoming edges to each component is the
+        # union of incoming edges to each node in the
+        # component minus the incoming edges from
+        # component nodes themselves.
+        # now all nodes are tagged, so this time let's
+        # remove the tags as we visit each node.
+        orphans = []
+        scc = []
+        sccredges = set()
+        while rstack:
+            v = rstack.pop()
+            if not tag[v]:
+                continue
+
+            stack.append(v)
+            tag[v] = False
+            while stack:
+                v = stack.pop()
+                redges = rgraph[v]
+                scc.append(v)
+                sccredges.update(redges)
+                for u in redges:
+                    if tag[u]:
+                        stack.append(u)
+                        tag[u] = False
+
+            sccredges.difference_update(scc)
+            if not sccredges:
+                orphans.extend(scc)
+            del scc[:]
+            sccredges.clear()
 
         return orphans
+
+    def findorphans(self):
+        (packages, depends, rdepends) = self.buildgraph()
+        return [packages[i] for i in self.kosaraju(depends, rdepends)]
 
     def run(self, args):
         for pkg in sorted(map(str, self.findorphans())):
