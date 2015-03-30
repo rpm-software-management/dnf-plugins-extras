@@ -142,6 +142,30 @@ Obsoletes:	dnf-plugins-extras-local <= 0.0.4-2
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
 packages to a repository on the local filesystem and generating repo metadata.
 
+%package -n python-dnf-plugins-extras-migrate
+Summary:	Migrate Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-migrate = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
+%endif
+
+%description -n python-dnf-plugins-extras-migrate
+Migrate Plugin for DNF, Python 2 version. igrates yum's history, group and
+yumdb data to dnf.
+
+%package -n python3-dnf-plugins-extras-migrate
+Summary:	Migrate Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-migrate = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
+%endif
+
+%description -n python3-dnf-plugins-extras-migrate
+Migrate Plugin for DNF, Python 3 version. igrates yum's history, group and
+yumdb data to dnf.
+
 %package -n python-dnf-plugins-extras-orphans
 Summary:	Orphans Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
@@ -376,6 +400,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
 %{_mandir}/man8/dnf.plugin.local.*
+
+%files -n python-dnf-plugins-extras-migrate
+%{python_sitelib}/dnf-plugins/migrate.*
+%{_mandir}/man8/dnf.plugin.migrate.*
+
+%files -n python3-dnf-plugins-extras-migrate
+%{python3_sitelib}/dnf-plugins/migrate.*
+%{python3_sitelib}/dnf-plugins/__pycache__/migrate.*
+%{_mandir}/man8/dnf.plugin.migrate.*
 
 %files -n python-dnf-plugins-extras-orphans
 %{python_sitelib}/dnf-plugins/orphans.*
