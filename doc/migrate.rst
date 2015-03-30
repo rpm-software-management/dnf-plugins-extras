@@ -1,5 +1,5 @@
 ..
-  Copyright (C) 2014-2015 Igor Gnatenko
+  Copyright (C) 2015  Red Hat, Inc.
 
   This copyrighted material is made available to anyone wishing to use,
   modify, copy, or redistribute it subject to the terms and conditions of
@@ -15,39 +15,34 @@
   License and may only be used or replicated with the express permission of
   Red Hat, Inc.
 
-################################
-Extras DNF Plugins Documentation
-################################
+================
+DNF migrate Plugin
+================
 
-This documents extras plugins of DNF:
+-----------
+Description
+-----------
 
-.. toctree::
-   :maxdepth: 1
+Migrates yum's history, group and yumdb data to dnf.
 
-   release_notes
-   debug
-   local
-   migrate
-   repoclosure
-   repograph
-   repomanage
-   rpmconf
-   snapper
-   tracer
+--------
+Synopsis
+--------
 
+``dnf migrate [--nogroups] [--nohistory] [--noyumdb]``
 
-========
-See Also
-========
+-------
+Options
+-------
 
-* `DNF project homepage <https://github.com/rpm-software-management/dnf/>`_
-* `Core DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-core/>`_
-* `Extras DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-extras/>`_
+``dnf migrate``
 
-==================
-Indices and tables
-==================
+``--nogroups``
+    Do not migrate groups data.
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+``--nohistory``
+    Do not migrate history data.
+
+``--noyumdb``
+    Do not migrate yumdb data.
+

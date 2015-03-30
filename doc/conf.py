@@ -244,6 +244,8 @@ man_pages = [
      u'DNF debug Plugin', AUTHORS, 8),
     ('local', 'dnf.plugin.local',
      u'DNF local Plugin', AUTHORS, 8),
+    ('migrate', 'dnf.plugin.migrate',
+     u'DNF migrate Plugin', AUTHORS, 8),
     ('orphans', 'dnf.plugin.orphans',
      u'DNF orphans Plugin', AUTHORS, 8),
     ('repoclosure', 'dnf.plugin.repoclosure',
