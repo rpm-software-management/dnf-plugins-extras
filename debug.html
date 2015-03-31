@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DNF debug Plugin &mdash; dnf-plugins-extras 0.0.6-1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.6-1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="dnf-plugins-extras 0.0.6-1 documentation" href="index.html" />
+    <link rel="next" title="DNF local Plugin" href="local.html" />
+    <link rel="prev" title="Extras DNF Plugins Release Notes" href="release_notes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="local.html" title="DNF local Plugin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="release_notes.html" title="Extras DNF Plugins Release Notes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dnf-debug-plugin">
+<h1>DNF debug Plugin<a class="headerlink" href="#dnf-debug-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Writes system RPM configuration to a dump file and restore it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">DNF and Yum debug files are not compatible and thus can&#8217;t be used
+by the other program.</p>
+</div>
+</div>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">debug-dump</span> <span class="pre">[--norepos]</span> <span class="pre">[&lt;filename&gt;]</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">debug-restore</span> <span class="pre">[--output]</span> <span class="pre">[--install-latest]</span> <span class="pre">[--ignore-arch]</span>
+<span class="pre">[--filter-types</span> <span class="pre">=</span> <span class="pre">[install,remove,replace]]</span> <span class="pre">&lt;filename&gt;</span></tt></p>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">&lt;filename&gt;</span></tt></dt>
+<dd>File to write dump to or read from.</dd>
+</dl>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">debug-dump</span></tt></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">--norepos</span></tt></dt>
+<dd>Do not dump content of enabled repos.</dd>
+</dl>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">debug-restore</span></tt></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">--output</span></tt></dt>
+<dd>Only output list of packages which will be installed or removed.
+No actuall changes are done.</dd>
+<dt><tt class="docutils literal"><span class="pre">--install-latest</span></tt></dt>
+<dd>When installing use the latest package of the same name and architecture.</dd>
+<dt><tt class="docutils literal"><span class="pre">--ignore-arch</span></tt></dt>
+<dd>When installing package ignore architecture and install missing packages
+matching the name, epoch, version and release.</dd>
+<dt><tt class="docutils literal"><span class="pre">--filter-types=[install,remove,replace]</span></tt></dt>
+<dd>Limit package changes to specified type.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DNF debug Plugin</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li><a class="reference internal" href="#arguments">Arguments</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="release_notes.html"
+                        title="previous chapter">Extras DNF Plugins Release Notes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="local.html"
+                        title="next chapter">DNF local Plugin</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/debug.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="local.html" title="DNF local Plugin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="release_notes.html" title="Extras DNF Plugins Release Notes"
+             >previous</a> |</li>
+        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Igor Gnatenko, Licensed under GPLv2+.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

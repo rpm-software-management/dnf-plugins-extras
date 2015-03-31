@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>DNF local Plugin &mdash; dnf-plugins-extras 0.0.6-1 documentation</title>
+    <title>DNF orphans Plugin &mdash; dnf-plugins-extras 0.0.6-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="dnf-plugins-extras 0.0.6-1 documentation" href="index.html" />
-    <link rel="next" title="DNF migrate Plugin" href="migrate.html" />
-    <link rel="prev" title="DNF debug Plugin" href="debug.html" /> 
+    <link rel="next" title="DNF repoclosure Plugin" href="repoclosure.html" />
+    <link rel="prev" title="DNF migrate Plugin" href="migrate.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,10 +35,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="migrate.html" title="DNF migrate Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="debug.html" title="DNF debug Plugin"
+          <a href="migrate.html" title="DNF migrate Plugin"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
       </ul>
@@ -49,29 +49,26 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dnf-local-plugin">
-<h1>DNF local Plugin<a class="headerlink" href="#dnf-local-plugin" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dnf-orphans-plugin">
+<h1>DNF orphans Plugin<a class="headerlink" href="#dnf-orphans-plugin" title="Permalink to this headline">¶</a></h1>
+<p>List installed packages not required by any other installed package.</p>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">orphans</span></tt></p>
+</div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Automatically copy all downloaded packages to a repository on the local filesystem and generating repo metadata.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Generating repo metadata will work only if you have installed <tt class="docutils literal"><span class="pre">createrepo_c</span></tt> package.</p>
+<p><cite>orphans</cite> lists all the packages installed on your system which are not required as a dependency of another installed package. However two or more packages might depend on eachother in a dependency cycle. Packages in such cycles, which are not required by any other package, are also listed.</p>
 </div>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">/etc/dnf/plugins/local.conf</span></tt></p>
-<p>The minimal content of conf file should contain <tt class="docutils literal"><span class="pre">main</span></tt> and <tt class="docutils literal"><span class="pre">createrepo</span></tt> sections with <tt class="docutils literal"><span class="pre">enabled</span></tt> parameter, otherwise plugin will not work.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">main</span><span class="p">]</span>
-<span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
-
-<span class="p">[</span><span class="n">createrepo</span><span class="p">]</span>
-<span class="n">enabled</span> <span class="o">=</span> <span class="n">true</span>
-</pre></div>
-</div>
-<p>For <tt class="docutils literal"><span class="pre">main</span></tt> section you can specify <tt class="docutils literal"><span class="pre">repodir</span></tt> paramater which sets path to local repository.</p>
-<p>Other options and comments you can find in configuration file.</p>
+<div class="section" id="why-is-this-useful">
+<h2>Why is this useful?<a class="headerlink" href="#why-is-this-useful" title="Permalink to this headline">¶</a></h2>
+<p>The list gives you a nice overview of what is installed on your system without flooding you with anything required by the packages already shown.
+The following list of arguments basically says the same thing in different ways:</p>
+<ul class="simple">
+<li>All the packages on this list is either needed by you, other users of the system or not needed at all &#8211; if it was required by another installed package it would not be on the list.</li>
+<li>If you want to uninstall anything from your system (without breaking dependencies) it must involve at least one package on this list.</li>
+<li>If there is anything installed on the system which is not needed it must be on this list &#8211; otherwise it would be required as a dependency by another package.</li>
+</ul>
 </div>
 </div>
 
@@ -83,22 +80,23 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DNF local Plugin</a><ul>
+<li><a class="reference internal" href="#">DNF orphans Plugin</a><ul>
+<li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#why-is-this-useful">Why is this useful?</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="debug.html"
-                        title="previous chapter">DNF debug Plugin</a></p>
-  <h4>Next topic</h4>
   <p class="topless"><a href="migrate.html"
-                        title="next chapter">DNF migrate Plugin</a></p>
+                        title="previous chapter">DNF migrate Plugin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="repoclosure.html"
+                        title="next chapter">DNF repoclosure Plugin</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/local.txt"
+    <li><a href="_sources/orphans.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -125,10 +123,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="migrate.html" title="DNF migrate Plugin"
+          <a href="repoclosure.html" title="DNF repoclosure Plugin"
              >next</a> |</li>
         <li class="right" >
-          <a href="debug.html" title="DNF debug Plugin"
+          <a href="migrate.html" title="DNF migrate Plugin"
              >previous</a> |</li>
         <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
       </ul>
