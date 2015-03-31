@@ -22,6 +22,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.6 Release Notes
+====================
+
+Provides :doc:`migrate` and :doc:`orphans`.
+
+Bugs fixed in 0.0.6:
+
+* :rhbug:`1201471`
+
+====================
  0.0.5 Release Notes
 ====================
 

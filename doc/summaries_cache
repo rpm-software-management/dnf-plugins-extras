@@ -18,5 +18,9 @@
     [
         1192779, 
         "[abrt] python3-dnf: tracer.py:93:_print_output:TypeError: Type str doesn't support the buffer API"
+    ], 
+    [
+        1201471, 
+        "Tracer plugin ignores tracer errors"
     ]
 ]
