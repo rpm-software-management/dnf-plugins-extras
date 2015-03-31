@@ -147,6 +147,8 @@ packages to a repository on the local filesystem and generating repo metadata.
 %package -n python-dnf-plugins-extras-migrate
 Summary:	Migrate Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	yum
+Requires:	dnf >= 0.6.5
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-migrate = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
