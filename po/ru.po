@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnf-plugins-extras\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-27 15:57+0300\n"
-"PO-Revision-Date: 2015-02-27 12:57+0000\n"
+"POT-Creation-Date: 2015-03-31 14:27+0300\n"
+"PO-Revision-Date: 2015-03-31 11:27+0000\n"
 "Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dnf-plugins-extras/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -50,11 +50,11 @@ msgstr ""
 msgid "dump information about installed rpm packages to file"
 msgstr ""
 
-#: ../plugins/debug.py:56 ../plugins/debug.py:187
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:48
 msgid "OPTIONS"
 msgstr ""
 
-#: ../plugins/debug.py:56 ../plugins/debug.py:187
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:48
 msgid "KEYWORDS"
 msgstr ""
 
@@ -107,17 +107,37 @@ msgstr ""
 msgid "Bad dnf debug file: %s"
 msgstr ""
 
-#: ../plugins/tracer.py:70
+#: ../plugins/tracer.py:71
 msgid "For more information run:"
 msgstr "Для получения дополнительной информации, запустите:"
 
-#: ../plugins/tracer.py:88
+#: ../plugins/tracer.py:91
+msgid "Program 'tracer' crashed with following error:"
+msgstr ""
+
+#: ../plugins/tracer.py:93
+msgid "Please visit "
+msgstr ""
+
+#: ../plugins/tracer.py:96
+msgid "We apologize for any inconvenience"
+msgstr ""
+
+#: ../plugins/tracer.py:100
 msgid "You should restart:"
 msgstr "Требуется перезапуск:"
 
-#: ../plugins/tracer.py:89
+#: ../plugins/tracer.py:101
 msgid "Nothing needs to be restarted"
 msgstr "Ничего перезапускать не требуется"
+
+#: ../plugins/migrate.py:47
+msgid "migrate yum's history, group and yumdb data to dnf"
+msgstr ""
+
+#: ../plugins/migrate.py:60
+msgid "which kind of yum data migrate."
+msgstr ""
 
 #: ../plugins/dnfpluginsextras/__init__.py:58
 msgid "show this help about this tool"
@@ -126,6 +146,10 @@ msgstr "показать справку об этой программе"
 #: ../plugins/rpm_conf.py:41
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Добавление '{}' в список пакетов для обработки через rpmconf"
+
+#: ../plugins/orphans.py:32
+msgid "List installed packages not required by any other package"
+msgstr ""
 
 #: ../plugins/repomanage.py:44
 msgid "Manage a directory of rpm packages"
