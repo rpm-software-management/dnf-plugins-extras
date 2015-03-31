@@ -28,6 +28,7 @@ This documents extras plugins of DNF:
    debug
    local
    migrate
+   orphans
    repoclosure
    repograph
    repomanage
