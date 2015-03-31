@@ -1,9 +1,9 @@
-%{!?gitrev: %global gitrev 8cc6dbb}
+%{!?gitrev: %global gitrev d42291d}
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
-Version:	0.0.5
-Release:	4%{?dist}
+Version:	0.0.6
+Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -474,6 +474,14 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Tue Mar 31 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.6-1
+- doc: include orphans plugin to index (Igor Gnatenko)
+- po: update translations (Igor Gnatenko)
+- plugins: add migrate plugin (Michael Mraka)
+- orphans: use Kosaraju's algorithm (Emil Renner Berthing)
+- plugins: add orphans plugin (Emil Renner Berthing)
+- tracer: don't print 'nothing to restart' when traceback occurs (RhBug:1201471) (Jakub Kadlčík)
+
 * Mon Mar 02 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.5-4
 - packaging: properly obsolete common subpkg for f23+ (Igor Gnatenko)
 
