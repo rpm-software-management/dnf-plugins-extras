@@ -1,9 +1,9 @@
-%{!?gitrev: %global gitrev d42291d}
+%{!?gitrev: %global gitrev 73bb143}
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
 Version:	0.0.6
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -457,6 +457,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Tue Mar 31 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.6-2
+- migrate: set LANG env to C in system calls (Jan Silhan)
+- migrate: added logging to history and groups process (Jan Silhan)
+- doc: migrate: changed arguments to dnf migrate [all|groups|history|yumdb] (Radek Holy)
+- migrate: added YUMDB support (Radek Holy)
+- migrate: added groups support (Jan Silhan)
+
 * Tue Mar 31 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.6-1
 - doc: include orphans plugin to index (Igor Gnatenko)
 - po: update translations (Igor Gnatenko)
