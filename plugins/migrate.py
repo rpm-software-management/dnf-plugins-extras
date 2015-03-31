@@ -55,19 +55,19 @@ class MigrateCommand(dnf.cli.Command):
     @staticmethod
     def _parse_args(args):
         parser = dnfpluginsextras.ArgumentParser(MigrateCommand.aliases[0])
-        parser.add_argument(
-            "--nogroups", action="store_true", default=False,
-            help=_("do not migrate groups data."))
-        parser.add_argument(
-            "--nohistory", action="store_true", default=False,
-            help=_("do not migrate history data."))
-        parser.add_argument(
-            "--noyumdb", action="store_true", default=False,
-            help=_("do not migrate yumdb data."))
+        parser.add_argument("migrate", nargs="?", action="store",
+            choices=["all", "history", "groups", "yumdb"], default="all",
+            help=_("which kind of yum data migrate."))
         opts = parser.parse_args(args)
         if opts.help_cmd:
             print(parser.format_help())
             return
+
+        if opts.migrate == 'all':
+            opts.migrate = ['history', 'groups', 'yumdb']
+        else:
+            opts.migrate = [opts.migrate]
+
         return opts
 
     def run(self, args):
@@ -76,7 +76,7 @@ class MigrateCommand(dnf.cli.Command):
         if not opts:
             return
 
-        if not opts.nohistory:
+        if 'history' in opts.migrate:
             self.migrate_history()
 
     def migrate_history(self):
