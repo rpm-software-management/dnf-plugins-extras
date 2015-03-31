@@ -20,11 +20,12 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from dnf.yum.history import YumHistory, YumHistoryPackage
+from subprocess import check_output
 
 import dnf
 import dnf.cli
 import dnfpluginsextras
-
+import os.path
 
 _ = dnfpluginsextras._
 
@@ -50,6 +51,12 @@ class MigrateCommand(dnf.cli.Command):
     def __init__(self, cli):
         super(MigrateCommand, self).__init__(cli)
         self.dump_file = None
+
+    def configure(self, args):
+        demands = self.cli.demands
+        demands.available_repos = True
+        demands.sack_activation = True
+        demands.root_user = True
 
     @staticmethod
     def _parse_args(args):
@@ -78,6 +85,9 @@ class MigrateCommand(dnf.cli.Command):
 
         if "history" in opts.migrate:
             self.migrate_history()
+
+        if "groups" in opts.migrate:
+            self.migrate_groups()
 
     def migrate_history(self):
         yum_history = YumHistory("/var/lib/yum/history", None)
@@ -184,3 +194,37 @@ class MigrateCommand(dnf.cli.Command):
                                 (new_tid, old_tid))
             dnf_hist._commit()
 
+    def migrate_groups(self):
+        yum_exec = "/usr/bin/yum-deprecated"
+        if not os.path.exists(yum_exec):
+            yum_exec = "/usr/bin/yum"
+        convert_groups_cmd = ["groups", "mark-convert", "-C"]
+
+        # convert yum groups to objects
+        check_output([yum_exec,
+                      "--setopt=group_command=objects"]
+                     + convert_groups_cmd)
+
+        # mark yum installed groups in dnf
+        installed = self.get_yum_installed_groups(yum_exec)
+        group_cmd = dnf.cli.commands.group.GroupCommand(self.cli)
+        group_cmd._grp_setup()
+        group_cmd._mark_install(installed)
+
+        # restore group types from config
+        check_output([yum_exec] + convert_groups_cmd)
+
+    @staticmethod
+    def get_yum_installed_groups(yum_exec):
+        output = dnf.i18n.ucd(check_output([yum_exec, "group", "list",
+                                            "installed"]))
+        lines = iter(output.splitlines())
+        installed = []
+
+        for line in lines:
+            if line == "Installed groups:":
+                for group in lines:
+                    if group == "Done":
+                        return installed
+                    installed.append(group.lstrip())
+        raise dnf.exceptions.Error(_("Malformed yum output"))
