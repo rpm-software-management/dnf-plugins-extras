@@ -126,6 +126,7 @@ class MigrateCommand(dnf.cli.Command):
             self.migrate_groups()
 
     def migrate_history(self):
+        logger.info(_("Migrating history data..."))
         yum_history = YumHistory("/var/lib/yum/history", None)
         dnf_history = YumHistory(self.base.conf.persistdir + "/history", None)
 
@@ -235,6 +236,7 @@ class MigrateCommand(dnf.cli.Command):
         if not os.path.exists(yum_exec):
             yum_exec = "/usr/bin/yum"
         convert_groups_cmd = ["groups", "mark-convert", "-C"]
+        logger.info(_("Migrating groups data..."))
 
         # convert yum groups to objects
         check_output([yum_exec,
