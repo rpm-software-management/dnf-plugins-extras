@@ -60,6 +60,8 @@ class LocalConfParse(object):
         if main["enabled"]:
             main["repodir"] = self.get_value("main", "repodir",
                                              default="/var/lib/dnf/plugins/local")
+        else:
+            raise ini.Error("Disabled")
 
         if crepo["enabled"]:
             crepo["cachedir"] = self.get_value("createrepo", "cachedir")
