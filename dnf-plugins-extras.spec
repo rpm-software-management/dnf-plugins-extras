@@ -7,8 +7,7 @@ Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/dnf-plugins-extras
-
-Source0:	dnf-plugins-extras-%{version}.tar.xz
+Source0:	%{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:	noarch
 BuildRequires:	cmake
