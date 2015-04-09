@@ -1,4 +1,4 @@
-# orphans.py
+# leaves.py
 # DNF plugin for listing installed packages not required by any other
 # installed package.
 #
@@ -18,17 +18,17 @@ import dnf.cli
 from dnfpluginsextras import _
 
 
-class Orphans(dnf.Plugin):
-    name = 'orphans'
+class Leaves(dnf.Plugin):
+    name = 'leaves'
 
     def __init__(self, base, cli):
-        super(Orphans, self).__init__(base, cli)
+        super(Leaves, self).__init__(base, cli)
         if cli:
-            cli.register_command(OrphansCommand)
+            cli.register_command(LeavesCommand)
 
 
-class OrphansCommand(dnf.cli.Command):
-    aliases = ('orphans',)
+class LeavesCommand(dnf.cli.Command):
+    aliases = ('leaves',)
     summary = _('List installed packages not required by any other package')
 
     def buildgraph(self):
@@ -111,7 +111,7 @@ class OrphansCommand(dnf.cli.Command):
         # component nodes themselves.
         # now all nodes are tagged, so this time let's
         # remove the tags as we visit each node.
-        orphans = []
+        leaves = []
         scc = []
         sccredges = set()
         while rstack:
@@ -133,16 +133,16 @@ class OrphansCommand(dnf.cli.Command):
 
             sccredges.difference_update(scc)
             if not sccredges:
-                orphans.extend(scc)
+                leaves.extend(scc)
             del scc[:]
             sccredges.clear()
 
-        return orphans
+        return leaves
 
-    def findorphans(self):
+    def findleaves(self):
         (packages, depends, rdepends) = self.buildgraph()
         return [packages[i] for i in self.kosaraju(depends, rdepends)]
 
     def run(self, args):
-        for pkg in sorted(map(str, self.findorphans())):
+        for pkg in sorted(map(str, self.findleaves())):
             print(pkg)

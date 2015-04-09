@@ -32,8 +32,8 @@ BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 
 Requires:	python-dnf-plugins-extras-debug
+Requires:	python-dnf-plugins-extras-leaves
 Requires:	python-dnf-plugins-extras-local
-Requires:	python-dnf-plugins-extras-orphans
 Requires:	python-dnf-plugins-extras-repoclosure
 Requires:	python-dnf-plugins-extras-repograph
 Requires:	python-dnf-plugins-extras-repomanage
@@ -54,8 +54,8 @@ BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
 Requires:	python3-dnf-plugins-extras-debug
+Requires:	python3-dnf-plugins-extras-leaves
 Requires:	python3-dnf-plugins-extras-local
-Requires:	python3-dnf-plugins-extras-orphans
 Requires:	python3-dnf-plugins-extras-repoclosure
 Requires:	python3-dnf-plugins-extras-repograph
 Requires:	python3-dnf-plugins-extras-repomanage
@@ -116,6 +116,32 @@ Obsoletes:	dnf-plugins-extras-debug <= 0.0.4-2
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
 a dump file and restores it.
 
+%package -n python-dnf-plugins-extras-leaves
+Summary:	Leaves Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
+Obsoletes:	dnf-plugins-extras-migrate <= 0.0.7-1
+%endif
+
+%description -n python-dnf-plugins-extras-leaves
+Leaves Plugin for DNF, Python 2 version. List all installed packages
+not required by any other installed package.
+
+%package -n python3-dnf-plugins-extras-leaves
+Summary:	Leaves Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
+Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
+Obsoletes:	dnf-plugins-extras-migrate <= 0.0.7-1
+%endif
+
+%description -n python3-dnf-plugins-extras-leaves
+Leaves Plugin for DNF, Python 3 version. List all installed packages
+not required by any other installed package.
+
 %package -n python-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
@@ -153,30 +179,6 @@ Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
 %description -n python-dnf-plugins-extras-migrate
 Migrate Plugin for DNF, Python 2 version. igrates yum's history, group and
 yumdb data to dnf.
-
-%package -n python-dnf-plugins-extras-orphans
-Summary:	Orphans Plugin for DNF
-Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
-%if 0%{?fedora} < 23
-Provides:	dnf-plugins-extras-orphans = %{version}-%{release}
-Obsoletes:	dnf-plugins-extras-orphans <= 0.0.4-2
-%endif
-
-%description -n python-dnf-plugins-extras-orphans
-Orphans Plugin for DNF, Python 2 version. List all installed packages
-not required by any other installed package.
-
-%package -n python3-dnf-plugins-extras-orphans
-Summary:	Orphans Plugin for DNF
-Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
-%if 0%{?fedora} >= 23
-Provides:	dnf-plugins-extras-orphans = %{version}-%{release}
-Obsoletes:	dnf-plugins-extras-orphans <= 0.0.4-2
-%endif
-
-%description -n python3-dnf-plugins-extras-orphans
-Orphans Plugin for DNF, Python 3 version. List all installed packages
-not required by any other installed package.
 
 %package -n python-dnf-plugins-extras-repoclosure
 Summary:	RepoClosure Plugin for DNF
@@ -378,6 +380,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 %{_mandir}/man8/dnf.plugin.debug.*
 
+%files -n python-dnf-plugins-extras-leaves
+%{python_sitelib}/dnf-plugins/leaves.*
+%{_mandir}/man8/dnf.plugin.leaves.*
+
+%files -n python3-dnf-plugins-extras-leaves
+%{python3_sitelib}/dnf-plugins/leaves.*
+%{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
+%{_mandir}/man8/dnf.plugin.leaves.*
+
 %files -n python-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python_sitelib}/dnf-plugins/local.*
@@ -392,15 +403,6 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %files -n python-dnf-plugins-extras-migrate
 %{python_sitelib}/dnf-plugins/migrate.*
 %{_mandir}/man8/dnf.plugin.migrate.*
-
-%files -n python-dnf-plugins-extras-orphans
-%{python_sitelib}/dnf-plugins/orphans.*
-%{_mandir}/man8/dnf.plugin.orphans.*
-
-%files -n python3-dnf-plugins-extras-orphans
-%{python3_sitelib}/dnf-plugins/orphans.*
-%{python3_sitelib}/dnf-plugins/__pycache__/orphans.*
-%{_mandir}/man8/dnf.plugin.orphans.*
 
 %files -n python-dnf-plugins-extras-repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*
