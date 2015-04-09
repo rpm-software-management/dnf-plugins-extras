@@ -12,62 +12,19 @@ Source0:	%{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	gettext
-%if 0%{?fedora} >= 23
-Requires:	python3-dnf-plugins-extras = %{version}-%{release}
-%else
-Requires:	python-dnf-plugins-extras = %{version}-%{release}
-%endif
-
-%description
-Extras Plugins for DNF. This package enhance DNF with repomanage, snapper and
-tracer plugins.
-
-%package -n python-dnf-plugins-extras
-Summary:	Extras Plugins for DNF
-Group:		System Environment/Base
+# py2
 BuildRequires:	python-dnf >= %{dnf_version}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
-
-Requires:	python-dnf-plugins-extras-debug
-Requires:	python-dnf-plugins-extras-leaves
-Requires:	python-dnf-plugins-extras-local
-Requires:	python-dnf-plugins-extras-repoclosure
-Requires:	python-dnf-plugins-extras-repograph
-Requires:	python-dnf-plugins-extras-repomanage
-Requires:	python-dnf-plugins-extras-snapper
-Requires:	python-dnf-plugins-extras-tracer
-Obsoletes:	dnf-plugins-extras <= 0.0.4-2
-
-%description -n python-dnf-plugins-extras
-Extras Plugins for DNF, Python 2 version. This package enhance DNF with repomanage, snapper and
-tracer plugins.
-
-%package -n python3-dnf-plugins-extras
-Summary:	Extras Plugins for DNF
-Group:		System Environment/Base
+# py3
 BuildRequires:	python3-devel
 BuildRequires:	python3-dnf >= %{dnf_version}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
-Requires:	python3-dnf-plugins-extras-debug
-Requires:	python3-dnf-plugins-extras-leaves
-Requires:	python3-dnf-plugins-extras-local
-Requires:	python3-dnf-plugins-extras-repoclosure
-Requires:	python3-dnf-plugins-extras-repograph
-Requires:	python3-dnf-plugins-extras-repomanage
-%if 0%{?fedora} > 21
-Requires:	python3-dnf-plugins-extras-rpmconf
-%endif
-Requires:	python3-dnf-plugins-extras-snapper
-Requires:	python3-dnf-plugins-extras-tracer
-Obsoletes:	dnf-plugins-extras <= 0.0.4-2
-
-%description -n python3-dnf-plugins-extras
-Extras Plugins for DNF, Python 3 version. This package enhance DNF with
-repomanage, rpmconf, snapper and tracer plugins.
+%description
+Extras Plugins for DNF.
 
 %package -n python-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
@@ -75,7 +32,9 @@ Requires:	python-dnf >= %{dnf_version}
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-common = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
+Obsoletes:	dnf-plugins-extras < 0.0.6-3
 %endif
+Obsoletes:	python-dnf-plugins-extras < 0.0.6-3
 
 %description -n python-dnf-plugins-extras-common
 Common files for Extras Plugins, Python 2 version.
@@ -86,7 +45,9 @@ Requires:	python3-dnf >= %{dnf_version}
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-common = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
+Obsoletes:	dnf-plugins-extras < 0.0.6-3
 %endif
+Obsoletes:	python3-dnf-plugins-extras < 0.0.6-3
 
 %description -n python3-dnf-plugins-extras-common
 Common files for Extras Plugins for DNF, Python 3 version.
@@ -121,7 +82,7 @@ Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
-Obsoletes:	dnf-plugins-extras-migrate <= 0.0.7-1
+Obsoletes:	dnf-plugins-extras-migrate < 0.0.6-3
 %endif
 
 %description -n python-dnf-plugins-extras-leaves
@@ -134,7 +95,7 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
-Obsoletes:	dnf-plugins-extras-migrate <= 0.0.7-1
+Obsoletes:	dnf-plugins-extras-migrate < 0.0.6-3
 %endif
 
 %description -n python3-dnf-plugins-extras-leaves
@@ -351,15 +312,6 @@ rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.rpmconf.*
 %check
 PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
 PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
-
-%files
-# No files, metapackage
-
-%files -n python-dnf-plugins-extras
-# No files, metapackage
-
-%files -n python3-dnf-plugins-extras
-# No files, metapackage
 
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
