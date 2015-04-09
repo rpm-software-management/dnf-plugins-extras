@@ -1,4 +1,3 @@
-%{!?gitrev: %global gitrev 73bb143}
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
@@ -9,8 +8,7 @@ Group:		System Environment/Base
 License:	GPLv2+
 URL:		https://github.com/rpm-software-management/dnf-plugins-extras
 
-# source archive is created by running package/archive from a git checkout
-Source0:	dnf-plugins-extras-%{gitrev}.tar.xz
+Source0:	dnf-plugins-extras-%{version}.tar.xz
 
 BuildArch:	noarch
 BuildRequires:	cmake
@@ -320,7 +318,7 @@ Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
 your system every transaction.
 
 %prep
-%setup -q -n dnf-plugins-extras
+%setup -q
 rm -rf py3
 mkdir ../py3
 cp -a . ../py3/

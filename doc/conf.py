@@ -56,7 +56,7 @@ copyright = u'2014, Igor Gnatenko, Licensed under GPLv2+'
 # The short X.Y version.
 
 def version_readout():
-    fn = os.path.join(_dirname, '../package/dnf-plugins-extras.spec')
+    fn = os.path.join(_dirname, '../dnf-plugins-extras.spec')
     with open(fn) as f:
         lines = f.readlines()
     for line in lines:
