@@ -178,7 +178,8 @@ class MigrateCommand(dnf.cli.Command):
             if t.cmdline:
                 dnf_cur.execute("""insert into trans_cmdline
                     (tid, cmdline) values (?, ?)""", (dnf_tid, t.cmdline))
-            dnf_cur.execute("""insert into trans_end
+            if t.end_timestamp:
+                dnf_cur.execute("""insert into trans_end
                     (tid, timestamp, rpmdb_version, return_code)
                     values (?, ?, ?, ?)""",
                             (dnf_tid, t.end_timestamp, t.end_rpmdbversion,
