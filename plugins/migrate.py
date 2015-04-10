@@ -146,6 +146,7 @@ class MigrateCommand(dnf.cli.Command):
             pid = dnf_hist.pkg2pid(ypkg)
             self.migrate_history_pkgs_anydb(yum_hist, dnf_hist, pid, ypkg, "rpm")
             self.migrate_history_pkgs_anydb(yum_hist, dnf_hist, pid, ypkg, "yum")
+        dnf_hist._get_cursor()
         dnf_hist._commit()
 
     @staticmethod
