@@ -34,7 +34,7 @@ class TestRepoGraphFunctions(support.TestCase):
         self.path = os.path.join(os.path.dirname(__file__), "resources/repograph/")
 
     def test_repoid_option(self):
-        args = ["--repoid", "main"]
+        args = ["--repo", "main"]
         self.cmd.base.repos.add(support.RepoStub("main"))
         self.cmd.base.repos.add(support.RepoStub("main_fail"))
         self.cmd.configure(args)
