@@ -22,6 +22,7 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import argparse
 import dnf
 import dnf.cli
 import dnfpluginsextras
@@ -51,7 +52,7 @@ class RepoGraph(dnf.Plugin):
 class RepoGraphCommand(dnf.cli.Command):
     aliases = ("repograph", "repo-graph",)
     summary = _("Output a full package dependency graph in dot format")
-    usage = "[--repoid <repoid>]"
+    usage = "[--repo <repoid>]"
 
     def __init__(self, args):
         super(RepoGraphCommand, self).__init__(args)
@@ -62,9 +63,9 @@ class RepoGraphCommand(dnf.cli.Command):
         demands.sack_activation = True
         demands.available_repos = True
         opts = self._parse_args(args)
-        if len(opts.repoid) > 0:
+        if len(opts.repo) > 0:
             for repo in self.base.repos.all():
-                if repo.id not in opts.repoid:
+                if repo.id not in opts.repo:
                     repo.disable()
                 else:
                     repo.enable()
@@ -136,6 +137,9 @@ class RepoGraphCommand(dnf.cli.Command):
     def _parse_args(args):
         alias = RepoGraphCommand.aliases[0]
         parser = dnfpluginsextras.ArgumentParser(alias)
-        parser.add_argument("--repoid", default=[], action="append",
+        parser.add_argument("--repo", default=[], action="append",
                             help=_("Specify repositories to use"))
+        # make --repoid hidden compatibility alias for --repo
+        parser.add_argument("--repoid", default=[], action="append",
+                            dest='repo', help=argparse.SUPPRESS)
         return parser.parse_args(args)
