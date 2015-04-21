@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>DNF orphans Plugin &mdash; dnf-plugins-extras 0.0.6-1 documentation</title>
+    <title>DNF leaves Plugin &mdash; dnf-plugins-extras 0.0.7-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6-1',
+        VERSION:     '0.0.7-1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="dnf-plugins-extras 0.0.6-1 documentation" href="index.html" />
-    <link rel="next" title="DNF repoclosure Plugin" href="repoclosure.html" />
-    <link rel="prev" title="DNF migrate Plugin" href="migrate.html" /> 
+    <link rel="top" title="dnf-plugins-extras 0.0.7-1 documentation" href="index.html" />
+    <link rel="next" title="DNF local Plugin" href="local.html" />
+    <link rel="prev" title="DNF debug Plugin" href="debug.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +35,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="repoclosure.html" title="DNF repoclosure Plugin"
+          <a href="local.html" title="DNF local Plugin"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="migrate.html" title="DNF migrate Plugin"
+          <a href="debug.html" title="DNF debug Plugin"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">dnf-plugins-extras 0.0.7-1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,16 +49,16 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dnf-orphans-plugin">
-<h1>DNF orphans Plugin<a class="headerlink" href="#dnf-orphans-plugin" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dnf-leaves-plugin">
+<h1>DNF leaves Plugin<a class="headerlink" href="#dnf-leaves-plugin" title="Permalink to this headline">¶</a></h1>
 <p>List installed packages not required by any other installed package.</p>
 <div class="section" id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">orphans</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">dnf</span> <span class="pre">leaves</span></tt></p>
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p><cite>orphans</cite> lists all the packages installed on your system which are not required as a dependency of another installed package. However two or more packages might depend on eachother in a dependency cycle. Packages in such cycles, which are not required by any other package, are also listed.</p>
+<p><cite>leaves</cite> lists all the packages installed on your system which are not required as a dependency of another installed package. However two or more packages might depend on eachother in a dependency cycle. Packages in such cycles, which are not required by any other package, are also listed.</p>
 </div>
 <div class="section" id="why-is-this-useful">
 <h2>Why is this useful?<a class="headerlink" href="#why-is-this-useful" title="Permalink to this headline">¶</a></h2>
@@ -80,7 +80,7 @@ The following list of arguments basically says the same thing in different ways:
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">DNF orphans Plugin</a><ul>
+<li><a class="reference internal" href="#">DNF leaves Plugin</a><ul>
 <li><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#why-is-this-useful">Why is this useful?</a></li>
@@ -89,14 +89,14 @@ The following list of arguments basically says the same thing in different ways:
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="migrate.html"
-                        title="previous chapter">DNF migrate Plugin</a></p>
+  <p class="topless"><a href="debug.html"
+                        title="previous chapter">DNF debug Plugin</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="repoclosure.html"
-                        title="next chapter">DNF repoclosure Plugin</a></p>
+  <p class="topless"><a href="local.html"
+                        title="next chapter">DNF local Plugin</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/orphans.txt"
+    <li><a href="_sources/leaves.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -123,12 +123,12 @@ The following list of arguments basically says the same thing in different ways:
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="repoclosure.html" title="DNF repoclosure Plugin"
+          <a href="local.html" title="DNF local Plugin"
              >next</a> |</li>
         <li class="right" >
-          <a href="migrate.html" title="DNF migrate Plugin"
+          <a href="debug.html" title="DNF debug Plugin"
              >previous</a> |</li>
-        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">dnf-plugins-extras 0.0.7-1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

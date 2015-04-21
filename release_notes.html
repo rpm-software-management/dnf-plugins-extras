@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Extras DNF Plugins Release Notes &mdash; dnf-plugins-extras 0.0.6-1 documentation</title>
+    <title>Extras DNF Plugins Release Notes &mdash; dnf-plugins-extras 0.0.7-1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.6-1',
+        VERSION:     '0.0.7-1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="dnf-plugins-extras 0.0.6-1 documentation" href="index.html" />
+    <link rel="top" title="dnf-plugins-extras 0.0.7-1 documentation" href="index.html" />
     <link rel="next" title="DNF debug Plugin" href="debug.html" />
     <link rel="prev" title="Extras DNF Plugins Documentation" href="index.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="Extras DNF Plugins Documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">dnf-plugins-extras 0.0.7-1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,31 +50,42 @@
           <div class="body">
             
   <div class="section" id="extras-dnf-plugins-release-notes">
-<h1><a class="toc-backref" href="#id6">Extras DNF Plugins Release Notes</a><a class="headerlink" href="#extras-dnf-plugins-release-notes" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id7">Extras DNF Plugins Release Notes</a><a class="headerlink" href="#extras-dnf-plugins-release-notes" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#extras-dnf-plugins-release-notes" id="id6">Extras DNF Plugins Release Notes</a><ul>
-<li><a class="reference internal" href="#release-notes" id="id7">0.0.6 Release Notes</a></li>
-<li><a class="reference internal" href="#id1" id="id8">0.0.5 Release Notes</a></li>
-<li><a class="reference internal" href="#id2" id="id9">0.0.4 Release Notes</a></li>
-<li><a class="reference internal" href="#id3" id="id10">0.0.3 Release Notes</a></li>
-<li><a class="reference internal" href="#id4" id="id11">0.0.2 Release Notes</a></li>
-<li><a class="reference internal" href="#id5" id="id12">0.0.1 Release Notes</a></li>
+<li><a class="reference internal" href="#extras-dnf-plugins-release-notes" id="id7">Extras DNF Plugins Release Notes</a><ul>
+<li><a class="reference internal" href="#release-notes" id="id8">0.0.7 Release Notes</a></li>
+<li><a class="reference internal" href="#id1" id="id9">0.0.6 Release Notes</a></li>
+<li><a class="reference internal" href="#id2" id="id10">0.0.5 Release Notes</a></li>
+<li><a class="reference internal" href="#id3" id="id11">0.0.4 Release Notes</a></li>
+<li><a class="reference internal" href="#id4" id="id12">0.0.3 Release Notes</a></li>
+<li><a class="reference internal" href="#id5" id="id13">0.0.2 Release Notes</a></li>
+<li><a class="reference internal" href="#id6" id="id14">0.0.1 Release Notes</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="release-notes">
-<h2><a class="toc-backref" href="#id7">0.0.6 Release Notes</a><a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
-<p>Provides <a class="reference internal" href="migrate.html"><em>DNF migrate Plugin</em></a> and <a class="reference internal" href="orphans.html"><em>DNF orphans Plugin</em></a>.</p>
+<h2><a class="toc-backref" href="#id8">0.0.7 Release Notes</a><a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
+<p>Renamed orphans to <a class="reference internal" href="leaves.html"><em>DNF leaves Plugin</em></a>. Fixed some crashes in <a class="reference internal" href="tracer.html"><em>DNF tracer Plugin</em></a>, <a class="reference internal" href="migrate.html"><em>DNF migrate Plugin</em></a> and <a class="reference internal" href="local.html"><em>DNF local Plugin</em></a>. Renamed <tt class="docutils literal"><span class="pre">--repoid</span></tt> to <tt class="docutils literal"><span class="pre">--repo</span></tt> in <a class="reference internal" href="repoclosure.html"><em>DNF repoclosure Plugin</em></a> and <a class="reference internal" href="repograph.html"><em>DNF repograph Plugin</em></a>. Old option saved for compatibility.</p>
+<p>Bugs fixed in 0.0.7:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1208614">Bug 1208614 - disabling the dnf local plugin causes dnf to crash</a></li>
+<li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1209864">Bug 1209864 - The orphans plugin reports things as orphans that aren&#8217;t</a></li>
+<li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1209043">Bug 1209043 - dnf migrate command fails</a></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id9">0.0.6 Release Notes</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Provides <a class="reference internal" href="migrate.html"><em>DNF migrate Plugin</em></a> and <tt class="xref doc docutils literal"><span class="pre">orphans</span></tt>.</p>
 <p>Bugs fixed in 0.0.6:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1201471">Bug 1201471 - Tracer plugin ignores tracer errors</a></li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2><a class="toc-backref" href="#id8">0.0.5 Release Notes</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id10">0.0.5 Release Notes</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Adapt packaging to install Python 3 version for F23+. Provides: <a class="reference internal" href="debug.html"><em>DNF debug Plugin</em></a></p>
 <p>Bugs fixed in 0.0.5:</p>
 <ul class="simple">
@@ -82,12 +93,12 @@
 <li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1192779">Bug 1192779 - [abrt] python3-dnf: tracer.py:93:_print_output:TypeError: Type str doesn&#8217;t support the buffer API</a></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">0.0.4 Release Notes</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">0.0.4 Release Notes</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Fixes in packaging, include man pages for plugins.</p>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id10">0.0.3 Release Notes</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id12">0.0.3 Release Notes</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>Trivial fixes in packaging, few improvements for plugins, tests for plugins. Provides: <a class="reference internal" href="local.html"><em>DNF local Plugin</em></a>, <a class="reference internal" href="repograph.html"><em>DNF repograph Plugin</em></a> and <a class="reference internal" href="repoclosure.html"><em>DNF repoclosure Plugin</em></a>.</p>
 <p>Bugs fixed in 0.0.3:</p>
 <ul class="simple">
@@ -95,16 +106,16 @@
 <li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=991014">Bug 991014 - [rfe] [plugins] yum-plugin-local</a></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id11">0.0.2 Release Notes</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id13">0.0.2 Release Notes</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Provides <a class="reference internal" href="repomanage.html"><em>DNF repomanage Plugin</em></a>, <a class="reference internal" href="rpmconf.html"><em>DNF rpmconf Plugin</em></a> and <a class="reference internal" href="tracer.html"><em>DNF tracer Plugin</em></a>.</p>
 <p>Bugs fixed in 0.0.2:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1048541">Bug 1048541 - [rfe] [plugins] manage local repo (yum-utils repomanage)</a></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id12">0.0.1 Release Notes</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id14">0.0.1 Release Notes</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>Provides <a class="reference internal" href="snapper.html"><em>DNF snapper Plugin</em></a>.</p>
 </div>
 </div>
@@ -118,12 +129,13 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Extras DNF Plugins Release Notes</a><ul>
-<li><a class="reference internal" href="#release-notes">0.0.6 Release Notes</a></li>
-<li><a class="reference internal" href="#id1">0.0.5 Release Notes</a></li>
-<li><a class="reference internal" href="#id2">0.0.4 Release Notes</a></li>
-<li><a class="reference internal" href="#id3">0.0.3 Release Notes</a></li>
-<li><a class="reference internal" href="#id4">0.0.2 Release Notes</a></li>
-<li><a class="reference internal" href="#id5">0.0.1 Release Notes</a></li>
+<li><a class="reference internal" href="#release-notes">0.0.7 Release Notes</a></li>
+<li><a class="reference internal" href="#id1">0.0.6 Release Notes</a></li>
+<li><a class="reference internal" href="#id2">0.0.5 Release Notes</a></li>
+<li><a class="reference internal" href="#id3">0.0.4 Release Notes</a></li>
+<li><a class="reference internal" href="#id4">0.0.3 Release Notes</a></li>
+<li><a class="reference internal" href="#id5">0.0.2 Release Notes</a></li>
+<li><a class="reference internal" href="#id6">0.0.1 Release Notes</a></li>
 </ul>
 </li>
 </ul>
@@ -168,7 +180,7 @@
         <li class="right" >
           <a href="index.html" title="Extras DNF Plugins Documentation"
              >previous</a> |</li>
-        <li><a href="index.html">dnf-plugins-extras 0.0.6-1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">dnf-plugins-extras 0.0.7-1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

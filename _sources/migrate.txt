@@ -29,20 +29,20 @@ Migrates yum's history, group and yumdb data to dnf.
 Synopsis
 --------
 
-``dnf migrate [--nogroups] [--nohistory] [--noyumdb]``
+``dnf migrate [all|history|groups|yumdb]``
 
--------
-Options
--------
+--------
+Commands
+--------
 
-``dnf migrate``
+``dnf migrate [all]``
+    Migrate all the data.
 
-``--nogroups``
-    Do not migrate groups data.
+``dnf migrate history``
+    Migrate only the history.
 
-``--nohistory``
-    Do not migrate history data.
+``dnf migrate groups``
+    Migrate only the groups.
 
-``--noyumdb``
-    Do not migrate yumdb data.
-
+``dnf migrate yumdb``
+    Migrate only the yumdb.

@@ -9,9 +9,9 @@
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
   Public License for more details.
 
-======================
-DNF orphans Plugin
-======================
+==================
+DNF leaves Plugin
+==================
 
 List installed packages not required by any other installed package.
 
@@ -19,13 +19,13 @@ List installed packages not required by any other installed package.
 Synopsis
 --------
 
-``dnf orphans``
+``dnf leaves``
 
 -----------
 Description
 -----------
 
-`orphans` lists all the packages installed on your system which are not required as a dependency of another installed package. However two or more packages might depend on eachother in a dependency cycle. Packages in such cycles, which are not required by any other package, are also listed.
+`leaves` lists all the packages installed on your system which are not required as a dependency of another installed package. However two or more packages might depend on eachother in a dependency cycle. Packages in such cycles, which are not required by any other package, are also listed.
 
 -------------------
 Why is this useful?
