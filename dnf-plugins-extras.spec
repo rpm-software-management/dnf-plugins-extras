@@ -1,4 +1,5 @@
-%{!?dnf_version: %global dnf_version 0.6.4-2}
+%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 0.6.4-2}
+%{!?dnf_not_compatible: %global dnf_not_compatible 1.0}
 
 Name:		dnf-plugins-extras
 Version:	0.0.7
@@ -13,13 +14,15 @@ BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	gettext
 # py2
-BuildRequires:	python-dnf >= %{dnf_version}
+BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
+BuildRequires:	python-dnf < %{dnf_not_compatible}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
 # py3
 BuildRequires:	python3-devel
-BuildRequires:	python3-dnf >= %{dnf_version}
+BuildRequires:	python3-dnf >= %{dnf_lowest_compatible}
+BuildRequires:	python3-dnf < %{dnf_not_compatible}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
 
@@ -28,7 +31,8 @@ Extras Plugins for DNF.
 
 %package -n python-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
-Requires:	python-dnf >= %{dnf_version}
+Requires:	python-dnf >= %{dnf_lowest_compatible}
+Requires:	python-dnf < %{dnf_not_compatible}
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-common = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
@@ -41,7 +45,8 @@ Common files for Extras Plugins, Python 2 version.
 
 %package -n python3-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
-Requires:	python3-dnf >= %{dnf_version}
+Requires:	python3-dnf >= %{dnf_lowest_compatible}
+Requires:	python3-dnf < %{dnf_not_compatible}
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-common = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
