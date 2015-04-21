@@ -118,6 +118,7 @@ not required by any other installed package.
 %package -n python-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	/usr/bin/createrepo_c
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-local = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-local <= 0.0.4-2
@@ -130,6 +131,7 @@ repository on the local filesystem and generating repo metadata.
 %package -n python3-dnf-plugins-extras-local
 Summary:	Local Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	/usr/bin/createrepo_c
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-local = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-local <= 0.0.4-2
