@@ -86,8 +86,6 @@ class Local(dnf.Plugin):
         self.base = base
         self.main = {}
         self.crepo = {}
-        # To store original keepcache param
-        self.keepcache = None
         self.logger = dnfpluginsextras.logger
 
     def config(self):
@@ -104,10 +102,6 @@ class Local(dnf.Plugin):
         local_repo = dnf.repo.Repo("_local", self.base.conf.cachedir)
         local_repo.baseurl = "file://{}".format(self.main["repodir"])
         self.base.repos.add(local_repo)
-
-        # FIXME: https://bugzilla.redhat.com/show_bug.cgi?id=1185977
-        self.keepcache = self.base.conf.keepcache
-        self.base.conf.keepcache = True
 
     def transaction(self):
         main, crepo = self.main, self.crepo
@@ -133,9 +127,6 @@ class Local(dnf.Plugin):
                 self.logger.error(
                     "local: " + _("Can't write file '{}'").format(os.path.join(
                         repodir, os.path.basename(path))))
-
-        if not self.keepcache:
-            self.base.clean_used_packages()
 
         if not crepo["enabled"]:
             return
