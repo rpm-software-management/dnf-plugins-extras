@@ -56,6 +56,8 @@ Common files for Extras Plugins for DNF, Python 3 version.
 Summary:	Debug Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
+Provides:	dnf-command(debug-dump)
+Provides:	dnf-command(debug-restore)
 Provides:	dnf-plugins-extras-debug = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-debug <= 0.0.4-2
 %endif
@@ -68,6 +70,8 @@ and restores it.
 Summary:	Debug Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
+Provides:	dnf-command(debug-dump)
+Provides:	dnf-command(debug-restore)
 Provides:	dnf-plugins-extras-debug = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-debug <= 0.0.4-2
 %endif
@@ -80,6 +84,7 @@ a dump file and restores it.
 Summary:	Leaves Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
+Provides:	dnf-command(leaves)
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
 Obsoletes:	dnf-plugins-extras-orphans < 0.0.6-3
@@ -94,6 +99,7 @@ not required by any other installed package.
 Summary:	Leaves Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
+Provides:	dnf-command(leaves)
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
 Obsoletes:	dnf-plugins-extras-orphans < 0.0.6-3
@@ -134,6 +140,7 @@ Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	yum
 Requires:	python-dnf >= 0.6.5
 %if 0%{?fedora} < 23
+Provides:	dnf-command(migrate)
 Provides:	dnf-plugins-extras-migrate = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
 %endif
@@ -146,6 +153,7 @@ yumdb data to dnf.
 Summary:	RepoClosure Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
+Provides:	dnf-command(repoclosure)
 Provides:	dnf-plugins-extras-repoclosure = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repoclosure <= 0.0.4-2
 %endif
@@ -158,6 +166,7 @@ repositories.
 Summary:	RepoClosure Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
+Provides:	dnf-command(repoclosure)
 Provides:	dnf-plugins-extras-repoclosure = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repoclosure <= 0.0.4-2
 %endif
@@ -170,6 +179,7 @@ dependencies for repositories.
 Summary:	RepoGraph Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
+Provides:	dnf-command(repograph)
 Provides:	dnf-plugins-extras-repograph = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repograph <= 0.0.4-2
 %endif
@@ -181,6 +191,7 @@ RepoGraph Plugin for DNF, Python 2 version. Output a full package dependency gra
 Summary:	RepoGraph Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
+Provides:	dnf-command(repograph)
 Provides:	dnf-plugins-extras-repograph = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repograph <= 0.0.4-2
 %endif
@@ -193,6 +204,7 @@ graph in dot format.
 Summary:	RepoManage Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
+Provides:	dnf-command(repomanage)
 Provides:	dnf-plugins-extras-repomanage = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repomanage <= 0.0.4-2
 %endif
@@ -204,6 +216,7 @@ RepoManage Plugin for DNF, Python 2 version. Manage a directory of rpm packages.
 Summary:	RepoManage Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
+Provides:	dnf-command(repomanage)
 Provides:	dnf-plugins-extras-repomanage = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-repomanage <= 0.0.4-2
 %endif
@@ -257,6 +270,7 @@ Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	tracer
 %if 0%{?fedora} < 23
 Obsoletes:	dnf-plugin-tracer < 0.5.6-2
+Provides:	dnf-command(tracer)
 Provides:	dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:	dnf-plugins-extras-tracer = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-tracer <= 0.0.4-2
@@ -272,6 +286,7 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	tracer
 %if 0%{?fedora} >= 23
 Obsoletes:	dnf-plugin-tracer < 0.5.6-2
+Provides:	dnf-command(tracer)
 Provides:	dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:	dnf-plugins-extras-tracer = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-tracer <= 0.0.4-2
