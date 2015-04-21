@@ -22,5 +22,17 @@
     [
         1201471, 
         "Tracer plugin ignores tracer errors"
+    ], 
+    [
+        1208614, 
+        "disabling the dnf local plugin causes dnf to crash"
+    ], 
+    [
+        1209864, 
+        "The orphans plugin reports things as orphans that aren't"
+    ], 
+    [
+        1209043, 
+        "dnf migrate command fails"
     ]
 ]

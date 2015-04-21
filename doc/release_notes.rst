@@ -22,6 +22,18 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.7 Release Notes
+====================
+
+Renamed orphans to :doc:`leaves`. Fixed some crashes in :doc:`tracer`, :doc:`migrate` and :doc:`local`. Renamed ``--repoid`` to ``--repo`` in :doc:`repoclosure` and :doc:`repograph`. Old option saved for compatibility.
+
+Bugs fixed in 0.0.7:
+
+* :rhbug:`1208614`
+* :rhbug:`1209864`
+* :rhbug:`1209043`
+
+====================
  0.0.6 Release Notes
 ====================
 
