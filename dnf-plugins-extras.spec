@@ -82,7 +82,8 @@ Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
-Obsoletes:	dnf-plugins-extras-migrate < 0.0.6-3
+Obsoletes:	dnf-plugins-extras-orphans < 0.0.6-3
+Obsoletes:	python-dnf-plugins-extras-orphans < 0.0.6-3
 %endif
 
 %description -n python-dnf-plugins-extras-leaves
@@ -95,7 +96,8 @@ Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-leaves = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-leaves <= 0.0.4-2
-Obsoletes:	dnf-plugins-extras-migrate < 0.0.6-3
+Obsoletes:	dnf-plugins-extras-orphans < 0.0.6-3
+Obsoletes:	python3-dnf-plugins-extras-orphans < 0.0.6-3
 %endif
 
 %description -n python3-dnf-plugins-extras-leaves
