@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 23:57+0300\n"
+"POT-Creation-Date: 2015-04-21 11:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../plugins/repoclosure.py:45
+#: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr ""
 
-#: ../plugins/repoclosure.py:108 ../plugins/repograph.py:140
+#: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
 msgstr ""
 
-#: ../plugins/repoclosure.py:110
+#: ../plugins/repoclosure.py:114
 msgid "Check closure for this package only"
 msgstr ""
 
@@ -147,33 +147,33 @@ msgstr ""
 msgid "Migrating history data..."
 msgstr ""
 
-#: ../plugins/migrate.py:240
+#: ../plugins/migrate.py:241
 msgid "Migrating groups data..."
 msgstr ""
 
-#: ../plugins/migrate.py:261
+#: ../plugins/migrate.py:262
 msgid "Malformed yum output"
 msgstr ""
 
-#: ../plugins/migrate.py:271
+#: ../plugins/migrate.py:272
 msgid "Migrating YUMDB data..."
 msgstr ""
 
-#: ../plugins/migrate.py:290
+#: ../plugins/migrate.py:291
 msgid "YUMDB access denied"
 msgstr ""
 
-#: ../plugins/migrate.py:294
+#: ../plugins/migrate.py:295
 #, python-format
 msgid "%s of %s not found"
 msgstr ""
 
-#: ../plugins/migrate.py:297
+#: ../plugins/migrate.py:298
 #, python-format
 msgid "%s of %s migrated"
 msgstr ""
 
-#: ../plugins/migrate.py:302
+#: ../plugins/migrate.py:303
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
@@ -245,11 +245,11 @@ msgstr ""
 msgid "creating snapshot failed: %s"
 msgstr ""
 
-#: ../plugins/repograph.py:53
+#: ../plugins/repograph.py:54
 msgid "Output a full package dependency graph in dot format"
 msgstr ""
 
-#: ../plugins/repograph.py:120
+#: ../plugins/repograph.py:121
 #, python-format
 msgid "Nothing provides: '%s'"
 msgstr ""
