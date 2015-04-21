@@ -1,8 +1,8 @@
 %{!?dnf_version: %global dnf_version 0.6.4-2}
 
 Name:		dnf-plugins-extras
-Version:	0.0.6
-Release:	2%{?dist}
+Version:	0.0.7
+Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
 License:	GPLv2+
@@ -410,6 +410,23 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Tue Apr 21 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.7-1
+- doc: release notes 0.0.7 (Igor Gnatenko)
+- packaging: fix orphans for leaves subpkg (Igor Gnatenko)
+- po: update translations (Igor Gnatenko)
+- plugins: rename --repoid to --repo (Michael Mraka)
+- tracer: decode subprocess output explicitly from utf8 (Jakub Kadlčík)
+- migrate: initialize cursor before commit (Michael Mraka)
+- po: update translations (Igor Gnatenko)
+- packaging: remove main package which requires others (Igor Gnatenko)
+- packaging: fix url for new releases (Igor Gnatenko)
+- migrate: do not convert group types (Jan Silhan)
+- packaging: migrate requires python-dnf (Jan Silhan)
+- migrate: trans_end record may not exist (RhBug:1209043) (Michael Mraka)
+- plugins: rename orphans to leaves (RhBug:1209864) (Igor Gnatenko)
+- Initialized to use tito. (Igor Gnatenko)
+- local: fix crashing if plugin disabled in main section (RhBug:1208614) (Igor Gnatenko)
+
 * Tue Mar 31 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.0.6-2
 - migrate: set LANG env to C in system calls (Jan Silhan)
 - migrate: added logging to history and groups process (Jan Silhan)
