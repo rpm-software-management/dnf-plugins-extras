@@ -237,7 +237,6 @@ class MigrateCommand(dnf.cli.Command):
         yum_exec = "/usr/bin/yum-deprecated"
         if not os.path.exists(yum_exec):
             yum_exec = "/usr/bin/yum"
-        env_config = dict(os.environ, LANG="C", LC_ALL="C")
         logger.info(_("Migrating groups data..."))
 
         # mark yum installed groups in dnf
@@ -248,8 +247,9 @@ class MigrateCommand(dnf.cli.Command):
 
     @staticmethod
     def get_yum_installed_groups(yum_exec):
+        env_config = dict(os.environ, LANG="C", LC_ALL="C")
         output = dnf.i18n.ucd(check_output([yum_exec, "group", "list",
-                                            "installed"]))
+                                            "installed"], env=env_config))
         lines = iter(output.splitlines())
         installed = []
 
