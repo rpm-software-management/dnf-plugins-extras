@@ -239,8 +239,12 @@ class MigrateCommand(dnf.cli.Command):
             yum_exec = "/usr/bin/yum"
         logger.info(_("Migrating groups data..."))
 
-        # mark yum installed groups in dnf
         installed = self.get_yum_installed_groups(yum_exec)
+        if not installed:
+            logger.info(_("No groups to migrate from Yum"))
+            return
+
+        # mark installed groups in dnf
         group_cmd = dnf.cli.commands.group.GroupCommand(self.cli)
         group_cmd._grp_setup()
         group_cmd._mark_install(installed)
@@ -248,18 +252,10 @@ class MigrateCommand(dnf.cli.Command):
     @staticmethod
     def get_yum_installed_groups(yum_exec):
         env_config = dict(os.environ, LANG="C", LC_ALL="C")
-        output = dnf.i18n.ucd(check_output([yum_exec, "group", "list",
-                                            "installed"], env=env_config))
-        lines = iter(output.splitlines())
-        installed = []
-
-        for line in lines:
-            if line == "Installed groups:":
-                for group in lines:
-                    if group == "Done":
-                        return installed
-                    installed.append(group.lstrip())
-        raise dnf.exceptions.Error(_("Malformed yum output"))
+        output = dnf.i18n.ucd(check_output(
+            [yum_exec, "-q", "group", "list", "installed", "-C"],
+            env=env_config))
+        return map(lambda l: l.lstrip(), output.splitlines())
 
     def migrate_yumdb(self):
         """Migrate YUMDB data."""
