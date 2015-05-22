@@ -2,7 +2,7 @@
 %{!?dnf_not_compatible: %global dnf_not_compatible 2.0}
 
 Name:		dnf-plugins-extras
-Version:	0.0.7
+Version:	0.0.8
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -432,6 +432,17 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.tracer.*
 
 %changelog
+* Fri May 22 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.8-1
+- migrate: use Unicodes when migrating YUMDB (RhBug:1223034) (Radek Holy)
+- migrate: don't raise error when no groups installed by yum (RhBug:1214807)
+  (Jan Silhan)
+- migrate: use of LANG C env in yum output (Jan Silhan)
+- packaging: allow DNF 1.x.x (Radek Holy)
+- packaging: add createrepo_c to requires (RhBug:1211596) (Igor Gnatenko)
+- local: drop hook to keep packages cache (Igor Gnatenko)
+- packaging: dnf version upper boundaries (Jan Silhan)
+- packaging: added plugin command provides (Related:RhBug:1208773) (Jan Silhan)
+
 * Tue Apr 21 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.7-1
 - doc: release notes 0.0.7 (Igor Gnatenko)
 - packaging: fix orphans for leaves subpkg (Igor Gnatenko)
