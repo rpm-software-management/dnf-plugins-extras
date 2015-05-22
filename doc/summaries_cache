@@ -34,5 +34,21 @@
     [
         1209043, 
         "dnf migrate command fails"
+    ], 
+    [
+        1208773, 
+        "[RFE] Define virtual provides for DNF commands and suggest installing the appropriate one if a command was not found"
+    ], 
+    [
+        1211596, 
+        "local: Missing Requires: /usr/bin/createrepo_c"
+    ], 
+    [
+        1214807, 
+        "\"Malformed yum output\" message when doing \"dnf migrate\""
+    ], 
+    [
+        1223034, 
+        "[abrt] python-dnf: pycomp.py:88:write_to_file:UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 24: ordinal not in range(128)"
     ]
 ]

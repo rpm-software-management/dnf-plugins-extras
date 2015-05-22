@@ -1,5 +1,5 @@
 ..
-  Copyright (C) 2014 Igor Gnatenko
+  Copyright (C) 2014-2015 Igor Gnatenko
 
   This copyrighted material is made available to anyone wishing to use,
   modify, copy, or redistribute it subject to the terms and conditions of
@@ -20,6 +20,19 @@ Extras DNF Plugins Release Notes
 ################################
 
 .. contents::
+
+====================
+ 0.0.8 Release Notes
+====================
+
+Many fixes in :doc:`migrate` plugin. Few cleanups in packagingi, now you can install `dnf-command(migrate)` to get `dnf-plugins-extras-migrare` installed.
+
+Bugs fixed in 0.0.8:
+
+* :rhbug:`1208773`
+* :rhbug:`1211596`
+* :rhbug:`1214807`
+* :rhbug:`1223034`
 
 ====================
  0.0.7 Release Notes
