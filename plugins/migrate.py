@@ -282,17 +282,23 @@ class MigrateCommand(dnf.cli.Command):
                     for attribute, mandat in attribute2mandatory.items():
                         try:
                             value = getattr(yumdata, attribute)
-                            setattr(dnfdata, attribute, value)
-                        except OSError:
-                            msg = _("YUMDB access denied")
-                            raise dnf.exceptions.Error(msg)
                         except AttributeError:
                             lvl = logging.WARNING if mandat else logging.DEBUG
                             msg = _("%s of %s not found")
                             logger.log(lvl, msg, attribute, nevra)
-                        else:
-                            msg = _("%s of %s migrated")
-                            logger.debug(msg, attribute, nevra)
+                            continue
+                        if isinstance(value, bytes):
+                            value = value.decode("utf-8", "replace")
+                            if '\ufffd' in value:
+                                msg = _(
+                                    "replacing unknown characters in %s of %s")
+                                logger.warning(msg, attribute, nevra)
+                        try:
+                            setattr(dnfdata, attribute, value)
+                        except (OSError, IOError):
+                            msg = _("DNFDB access denied")
+                            raise dnf.exceptions.Error(msg)
+                        logger.debug(_("%s of %s migrated"), attribute, nevra)
                     migrated += 1
         finally:
             logger.info(
