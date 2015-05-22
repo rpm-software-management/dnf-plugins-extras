@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 11:50+0300\n"
+"POT-Creation-Date: 2015-05-22 19:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,19 +29,19 @@ msgstr ""
 msgid "Check closure for this package only"
 msgstr ""
 
-#: ../plugins/local.py:121
+#: ../plugins/local.py:115
 msgid "'{}' is not a directory"
 msgstr ""
 
-#: ../plugins/local.py:129
+#: ../plugins/local.py:123
 msgid "Copying '{}' to local repo"
 msgstr ""
 
-#: ../plugins/local.py:134
+#: ../plugins/local.py:128
 msgid "Can't write file '{}'"
 msgstr ""
 
-#: ../plugins/local.py:152
+#: ../plugins/local.py:143
 msgid "Rebuilding local repo"
 msgstr ""
 
@@ -147,33 +147,38 @@ msgstr ""
 msgid "Migrating history data..."
 msgstr ""
 
-#: ../plugins/migrate.py:241
+#: ../plugins/migrate.py:240
 msgid "Migrating groups data..."
 msgstr ""
 
-#: ../plugins/migrate.py:262
-msgid "Malformed yum output"
+#: ../plugins/migrate.py:244
+msgid "No groups to migrate from Yum"
 msgstr ""
 
-#: ../plugins/migrate.py:272
+#: ../plugins/migrate.py:268
 msgid "Migrating YUMDB data..."
 msgstr ""
 
-#: ../plugins/migrate.py:291
-msgid "YUMDB access denied"
-msgstr ""
-
-#: ../plugins/migrate.py:295
+#: ../plugins/migrate.py:287
 #, python-format
 msgid "%s of %s not found"
 msgstr ""
 
-#: ../plugins/migrate.py:298
+#: ../plugins/migrate.py:294
+#, python-format
+msgid "replacing unknown characters in %s of %s"
+msgstr ""
+
+#: ../plugins/migrate.py:299
+msgid "DNFDB access denied"
+msgstr ""
+
+#: ../plugins/migrate.py:301
 #, python-format
 msgid "%s of %s migrated"
 msgstr ""
 
-#: ../plugins/migrate.py:303
+#: ../plugins/migrate.py:305
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
