@@ -36,6 +36,9 @@ class ShowLeaves(dnf.Plugin):
         self.cli = cli
 
     def resolved(self):
+        tx = self.base.transaction
+        if not tx.install_set and not tx.remove_set:
+            return
         leaves_command = self.cli.cli_commands.get("leaves")
         if not leaves_command:
             return
