@@ -248,6 +248,7 @@ transaction.
 %package -n python-dnf-plugins-extras-show-leaves
 Summary:	Leaves Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-leaves = %{version}-%{release}
 %if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-show-leaves = %{version}-%{release}
 %endif
@@ -260,6 +261,7 @@ after a transaction.
 %package -n python3-dnf-plugins-extras-show-leaves
 Summary:	Show-leaves Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python3-dnf-plugins-extras-leaves = %{version}-%{release}
 %if 0%{?fedora} >= 23
 Provides:	dnf-plugins-extras-show-leaves = %{version}-%{release}
 %endif
