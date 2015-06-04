@@ -35,6 +35,7 @@ This documents extras plugins of DNF:
    rpmconf
    snapper
    tracer
+   versionlock
 
 
 ========

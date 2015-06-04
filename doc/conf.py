@@ -260,6 +260,8 @@ man_pages = [
      u'DNF snapper Plugin', AUTHORS, 8),
     ('tracer', 'dnf.plugin.tracer',
      u'DNF tracer Plugin', AUTHORS, 8),
+    ('versionlock', 'dnf.plugin.versionlock',
+     u'DNF versionlock Plugin', AUTHORS, 8),
 ]
 
 # If true, show URL addresses after external links.
