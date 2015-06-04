@@ -303,6 +303,34 @@ Obsoletes:	dnf-plugins-extras-tracer <= 0.0.4-2
 Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
 your system every transaction.
 
+%package -n python-dnf-plugins-extras-versionlock
+Summary:	Versionlock Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:	dnf-command(versionlock)
+Provides:	dnf-plugin-versionlock = 1:%{version}-%{release}
+Provides:	dnf-plugins-extras-versionlock = %{version}-%{release}
+%endif
+
+%description -n python-dnf-plugins-extras-versionlock
+Versionlock plugin takes a set of name/versions for packages and excludes all other
+versions of those packages. This allows you to e.g. protect packages from being
+updated by newer versions.
+
+%package -n python3-dnf-plugins-extras-versionlock
+Summary:	Versionlock Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:	dnf-command(versionlock)
+Provides:	dnf-plugin-versionlock = 1:%{version}-%{release}
+Provides:	dnf-plugins-extras-versionlock = %{version}-%{release}
+%endif
+
+%description -n python3-dnf-plugins-extras-versionlock
+Versionlock plugin takes a set of name/versions for packages and excludes all other
+versions of those packages. This allows you to e.g. protect packages from being
+updated by newer versions.
+
 %prep
 %setup -q
 rm -rf py3
@@ -430,6 +458,19 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/tracer.*
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
 %{_mandir}/man8/dnf.plugin.tracer.*
+
+%files -n python-dnf-plugins-extras-versionlock
+%config %{_sysconfdir}/dnf/plugins/versionlock.conf
+%config %{_sysconfdir}/dnf/plugins/versionlock.list
+%{python_sitelib}/dnf-plugins/versionlock.*
+%{_mandir}/man8/dnf.plugin.versionlock.*
+
+%files -n python3-dnf-plugins-extras-versionlock
+%config %{_sysconfdir}/dnf/plugins/versionlock.conf
+%config %{_sysconfdir}/dnf/plugins/versionlock.list
+%{python3_sitelib}/dnf-plugins/versionlock.*
+%{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
+%{_mandir}/man8/dnf.plugin.versionlock.*
 
 %changelog
 * Fri May 22 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.8-1
