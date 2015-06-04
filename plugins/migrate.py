@@ -20,7 +20,7 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from dnf.yum.history import YumHistory, YumHistoryPackage
-from subprocess import check_output
+import subprocess
 
 import contextlib
 import dnf
@@ -239,7 +239,12 @@ class MigrateCommand(dnf.cli.Command):
             yum_exec = "/usr/bin/yum"
         logger.info(_("Migrating groups data..."))
 
-        installed = self.get_yum_installed_groups(yum_exec)
+        try:
+            installed = self.get_yum_installed_groups(yum_exec)
+        except subprocess.CalledProcessError:
+            logger.warning(_("Execution of Yum failed. "
+                             "Could not retrieve installed groups."))
+            return
         if not installed:
             logger.info(_("No groups to migrate from Yum"))
             return
@@ -252,7 +257,7 @@ class MigrateCommand(dnf.cli.Command):
     @staticmethod
     def get_yum_installed_groups(yum_exec):
         env_config = dict(os.environ, LANG="C", LC_ALL="C")
-        output = dnf.i18n.ucd(check_output(
+        output = dnf.i18n.ucd(subprocess.check_output(
             [yum_exec, "-q", "group", "list", "installed", "-C",
              "--setopt=*.skip_if_unavailable=1"], env=env_config))
         return map(lambda l: l.lstrip(), output.splitlines())
