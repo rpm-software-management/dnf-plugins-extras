@@ -18,15 +18,24 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
-from dnfpluginsextras import _
+from dnfpluginsextras import _, logger
 
 import dnf
 import dnf.exceptions
+import fnmatch
+import hawkey
 import os
+import tempfile
+import time
 
 PLUGIN_CONF = 'versionlock'
 NOT_READABLE = _('Unable to read version lock configuration: %s')
 NO_LOCKLIST = _('Locklist not set')
+ADDING_SPEC = _('Adding versionlock on:')
+EXCLUDING_SPEC = _('Adding exclude on:')
+DELETING_SPEC =_('Deleting versionlock for:')
+
+locklist_fn = None
 
 class VersionLock(dnf.Plugin):
 
@@ -36,18 +45,20 @@ class VersionLock(dnf.Plugin):
         super(VersionLock, self).__init__(base, cli)
         self.base = base
         self.cli = cli
-        self.locklist = None
+        if self.cli is not None:
+            self.cli.register_command(VersionLockCommand)
 
     def config(self):
+        global locklist_fn
         cp = self.read_config(self.base.conf, PLUGIN_CONF)
-        self.locklist = cp.get('main','locklist')
+        locklist_fn = cp.get('main','locklist')
 
     def sack(self):
-        if not self.locklist:
+        if not locklist_fn:
             raise dnf.exceptions.Error(NO_LOCKLIST)
 
         locked = set()
-        for pat in self._read_locklist():
+        for pat in _read_locklist():
             excl = False
             if pat and pat[0] == '!':
                 pat = pat[1:]
@@ -67,15 +78,120 @@ class VersionLock(dnf.Plugin):
             other_versions = all_versions.difference(locked)
             self.base.sack.add_excludes(other_versions)
 
-    def _read_locklist(self):
-        locklist = []
-        try:
-            with open(self.locklist) as llfile:
-                for line in llfile.readlines():
-                    if line.startswith('#') or line.strip() == '':
-                        continue
-                    locklist.append(line.strip())
-        except IOError as e:
-            raise dnf.exceptions.Error(NOT_READABLE % e)
-        return locklist
+EXC_CMDS = ['exclude', 'add-!', 'add!', 'blacklist']
+DEL_CMDS = ['delete', 'del']
+ALL_CMDS = ['add', 'clear', 'list'] + EXC_CMDS + DEL_CMDS
 
+class VersionLockCommand(dnf.cli.Command):
+
+    aliases = ("versionlock",)
+    summary = _("control package version locks")
+    usage = "[add|exclude|list|delete|clear] [<package-nevr-spec>]"
+
+    def __init__(self, cli):
+        super(VersionLockCommand, self).__init__(cli)
+        self.cli = cli
+
+    def configure(self, args):
+        self.cli.demands.sack_activation = True
+        self.cli.demands.available_repos = True
+
+    def run(self, args):
+        cmd = 'list'
+        if args:
+            if args[0] not in ALL_CMDS:
+                cmd = 'add'
+            elif args[0] in EXC_CMDS:
+                cmd = 'exclude'
+                args = args[1:]
+            elif args[0] in DEL_CMDS:
+                cmd = 'delete'
+                args = args[1:]
+            else:
+                cmd = args[0]
+                args = args[1:]
+
+        if cmd == 'add':
+            _write_locklist(self.base, args,
+                            "\n# Added locks on %s\n" % time.ctime(),
+                            ADDING_SPEC, '')
+        elif cmd == 'exclude':
+            _write_locklist(self.base, args,
+                            "\n# Added exclude on %s\n" % time.ctime(),
+                            EXCLUDING_SPEC, '!')
+        elif cmd == 'list':
+            for pat in _read_locklist():
+               logger.info(pat)
+        elif cmd == 'clear':
+            with open(locklist_fn) as f:
+                pass
+        elif cmd == 'delete':
+            dirname = os.path.dirname(locklist_fn)
+            (out, tmpfilename) = tempfile.mkstemp(dir=dirname, suffix='.tmp')
+            locked_specs = _read_locklist()
+            count = 0
+            with os.fdopen(out, 'w', -1) as out:
+                for ent in locked_specs:
+                    if _match(ent, args):
+                        logger.info("%s %s", DELETING_SPEC, ent)
+                        count += 1
+                        continue
+                    out.write(ent)
+                    out.write('\n')
+            if not count:
+                os.unlink(tmpfilename)
+            else:
+                os.chmod(tmpfilename, 0o644)
+                os.rename(tmpfilename, locklist_fn)
+
+
+def _read_locklist():
+    locklist = []
+    try:
+        with open(locklist_fn) as llfile:
+            for line in llfile.readlines():
+                if line.startswith('#') or line.strip() == '':
+                    continue
+                locklist.append(line.strip())
+    except IOError as e:
+        raise dnf.exceptions.Error(NOT_READABLE % e)
+    return locklist
+
+def _write_locklist(base, args, comment, info, prefix):
+    specs = set()
+    for pat in args:
+        subj = dnf.subject.Subject(pat)
+        pkgs = subj.get_best_query(base.sack)
+
+        for pkg in pkgs:
+            specs.add(pkgtup2spec(*pkg.pkgtup))
+
+    with open(locklist_fn, 'a') as f:
+        f.write(comment)
+        for spec in specs:
+            logger.info("%s %s", info, spec)
+            f.write("%s%s\n" % (prefix, spec))
+
+def _match(ent, patterns):
+    try:
+        n = hawkey.split_nevra(ent)
+    except hawkey.ValueException:
+        return False
+    for name in (
+        '%s' % n.name,
+        '%s.%s' % (n.name, n.arch),
+        '%s-%s' % (n.name, n.version),
+        '%s-%s-%s' % (n.name, n.version, n.release),
+        '%s-%s-%s.%s' % (n.name, n.version, n.release, n.arch),
+        '%s:%s-%s-%s.%s' % (n.epoch, n.name, n.version, n.release, n.arch),
+        '%s-%s:%s-%s.%s' % (n.name, n.epoch, n.version, n.release, n.arch),
+    ):
+        for pat in patterns:
+            if fnmatch.fnmatch(name, pat):
+                return True
+    return False
+
+def pkgtup2spec(name, arch, epoch, version, release):
+    # we ignore arch
+    e = "" if epoch in (None, "") else "%s:" % epoch
+    return "%s-%s%s-%s.*" % (name, e, version, release)
