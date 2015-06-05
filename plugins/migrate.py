@@ -257,9 +257,11 @@ class MigrateCommand(dnf.cli.Command):
     @staticmethod
     def get_yum_installed_groups(yum_exec):
         env_config = dict(os.environ, LANG="C", LC_ALL="C")
-        output = dnf.i18n.ucd(subprocess.check_output(
-            [yum_exec, "-q", "group", "list", "installed", "-C",
-             "--setopt=*.skip_if_unavailable=1"], env=env_config))
+        with open(os.devnull, 'w') as devnull:
+            output = dnf.i18n.ucd(subprocess.check_output(
+                [yum_exec, "-q", "group", "list", "installed", "-C",
+                 "--setopt=*.skip_if_unavailable=1"], stderr=devnull,
+                env=env_config))
         return map(lambda l: l.lstrip(), output.splitlines())
 
     def migrate_yumdb(self):
