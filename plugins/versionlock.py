@@ -112,11 +112,11 @@ class VersionLockCommand(dnf.cli.Command):
                 args = args[1:]
 
         if cmd == 'add':
-            _write_locklist(self.base, args,
+            _write_locklist(self.base, args, True,
                             "\n# Added locks on %s\n" % time.ctime(),
                             ADDING_SPEC, '')
         elif cmd == 'exclude':
-            _write_locklist(self.base, args,
+            _write_locklist(self.base, args, False,
                             "\n# Added exclude on %s\n" % time.ctime(),
                             EXCLUDING_SPEC, '!')
         elif cmd == 'list':
@@ -158,11 +158,15 @@ def _read_locklist():
         raise dnf.exceptions.Error(NOT_READABLE % e)
     return locklist
 
-def _write_locklist(base, args, comment, info, prefix):
+def _write_locklist(base, args, try_installed, comment, info, prefix):
     specs = set()
     for pat in args:
         subj = dnf.subject.Subject(pat)
-        pkgs = subj.get_best_query(base.sack)
+        pkgs = None
+        if try_installed:
+            pkgs = subj.get_best_query(dnf.sack.rpmdb_sack(base))
+        if not pkgs:
+            pkgs = subj.get_best_query(base.sack)
 
         for pkg in pkgs:
             specs.add(pkgtup2spec(*pkg.pkgtup))
