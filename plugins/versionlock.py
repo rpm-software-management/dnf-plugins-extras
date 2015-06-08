@@ -123,7 +123,8 @@ class VersionLockCommand(dnf.cli.Command):
             for pat in _read_locklist():
                logger.info(pat)
         elif cmd == 'clear':
-            with open(locklist_fn) as f:
+            with open(locklist_fn, 'w') as f:
+                # open in write mode truncates file
                 pass
         elif cmd == 'delete':
             dirname = os.path.dirname(locklist_fn)
