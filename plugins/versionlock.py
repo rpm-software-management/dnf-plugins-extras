@@ -33,7 +33,8 @@ NOT_READABLE = _('Unable to read version lock configuration: %s')
 NO_LOCKLIST = _('Locklist not set')
 ADDING_SPEC = _('Adding versionlock on:')
 EXCLUDING_SPEC = _('Adding exclude on:')
-DELETING_SPEC =_('Deleting versionlock for:')
+DELETING_SPEC = _('Deleting versionlock for:')
+NOTFOUND_SPEC = _('No package found for:')
 
 locklist_fn = None
 
@@ -167,6 +168,8 @@ def _write_locklist(base, args, try_installed, comment, info, prefix):
             pkgs = subj.get_best_query(dnf.sack.rpmdb_sack(base))
         if not pkgs:
             pkgs = subj.get_best_query(base.sack)
+        if not pkgs:
+            logger.info("%s %s", NOTFOUND_SPEC, pat)
 
         for pkg in pkgs:
             specs.add(pkgtup2spec(*pkg.pkgtup))
