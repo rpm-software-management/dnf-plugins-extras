@@ -137,7 +137,7 @@ class RepoManageCommand(dnf.cli.Command):
                             help=_("Space separated output, not newline"))
         parser.add_argument("-k", "--keep", action="store", metavar="KEEP",
                             help=_("Newest N packages to keep - defaults to 1"),
-                            default=1)
+                            default=1, type=int)
         parser.add_argument("path", action="store",
                             help=_("Path to directory"))
 
