@@ -2,7 +2,7 @@
 %{!?dnf_not_compatible: %global dnf_not_compatible 2.0}
 
 Name:		dnf-plugins-extras
-Version:	0.0.8
+Version:	0.0.9
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -508,6 +508,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.versionlock.*
 
 %changelog
+* Tue Jun 30 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.9-1
+- repomanage: specify that keep is int (RhBug:1230503) (Igor Gnatenko)
+- migrate: hide stderr of yum (RhBug:1225282) (Jan Silhan)
+- migrate: don't throw error when yum execution failed (Jan Silhan)
+- migrate: stop yum from crushing by setting skip_if_unavailable=1
+  (RhBug:1226607) (Jan Silhan)
+- implemented package (version)locking (Michael Mraka)
+- Initial DNF port of the yum show-leaves plugin (Ville Skyttä)
+
 * Fri May 22 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.8-1
 - migrate: use Unicodes when migrating YUMDB (RhBug:1223034) (Radek Holy)
 - migrate: don't raise error when no groups installed by yum (RhBug:1214807)
