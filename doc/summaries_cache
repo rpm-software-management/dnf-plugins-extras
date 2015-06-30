@@ -50,5 +50,17 @@
     [
         1223034, 
         "[abrt] python-dnf: pycomp.py:88:write_to_file:UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 24: ordinal not in range(128)"
+    ], 
+    [
+        1226607, 
+        "[abrt] dnf: subprocess.py:573:check_output:CalledProcessError: Command '[u'/usr/bin/yum-deprecated', u'-q', u'group', u'list', u'installed', u'-C']' returned non-zero exit status 1"
+    ], 
+    [
+        1225282, 
+        "Hide warnings from yum when executed from dnf"
+    ], 
+    [
+        1230503, 
+        "[abrt] dnf: repomanage.py:65:run:ValueError: invalid literal for int() with base 10: 'KEEP'"
     ]
 ]

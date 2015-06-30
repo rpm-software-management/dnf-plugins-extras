@@ -22,6 +22,18 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.9 Release Notes
+====================
+
+Provides :doc:`show-leaves` and :doc:`versionlock`. Fixed some crashes in :doc:`migrate` and :doc:`repomanage`.
+
+Bugs fixed in 0.0.9:
+
+* :rhbug:`1226607`
+* :rhbug:`1225282`
+* :rhbug:`1230503`
+
+====================
  0.0.8 Release Notes
 ====================
 
