@@ -33,6 +33,7 @@ This documents extras plugins of DNF:
    repograph
    repomanage
    rpmconf
+   show-leaves
    snapper
    tracer
    versionlock

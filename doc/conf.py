@@ -256,6 +256,8 @@ man_pages = [
      u'DNF repomanage Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf.plugin.rpmconf',
      u'DNF rpmconf Plugin', AUTHORS, 8),
+    ('show-leaves', 'dnf.plugin.show-leaves',
+     u'DNF show-leaves Plugin', AUTHORS, 8),
     ('snapper', 'dnf.plugin.snapper',
      u'DNF snapper Plugin', AUTHORS, 8),
     ('tracer', 'dnf.plugin.tracer',
