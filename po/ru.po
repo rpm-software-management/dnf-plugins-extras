@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dnf-plugins-extras\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 19:51+0300\n"
-"PO-Revision-Date: 2015-05-22 16:51+0000\n"
+"POT-Creation-Date: 2015-06-30 13:21+0300\n"
+"PO-Revision-Date: 2015-06-30 10:20+0000\n"
 "Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dnf-plugins-extras/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr ""
 
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
@@ -152,34 +156,38 @@ msgstr ""
 msgid "Migrating groups data..."
 msgstr ""
 
-#: ../plugins/migrate.py:244
+#: ../plugins/migrate.py:245
+msgid "Execution of Yum failed. Could not retrieve installed groups."
+msgstr ""
+
+#: ../plugins/migrate.py:249
 msgid "No groups to migrate from Yum"
 msgstr ""
 
-#: ../plugins/migrate.py:268
+#: ../plugins/migrate.py:275
 msgid "Migrating YUMDB data..."
-msgstr ""
-
-#: ../plugins/migrate.py:287
-#, python-format
-msgid "%s of %s not found"
 msgstr ""
 
 #: ../plugins/migrate.py:294
 #, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr ""
-
-#: ../plugins/migrate.py:299
-msgid "DNFDB access denied"
+msgid "%s of %s not found"
 msgstr ""
 
 #: ../plugins/migrate.py:301
 #, python-format
+msgid "replacing unknown characters in %s of %s"
+msgstr ""
+
+#: ../plugins/migrate.py:306
+msgid "DNFDB access denied"
+msgstr ""
+
+#: ../plugins/migrate.py:308
+#, python-format
 msgid "%s of %s migrated"
 msgstr ""
 
-#: ../plugins/migrate.py:305
+#: ../plugins/migrate.py:312
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
@@ -227,6 +235,35 @@ msgstr "Оставить N новых пакетов - по умолчанию 1
 #: ../plugins/repomanage.py:142
 msgid "Path to directory"
 msgstr "Путь к директории"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr ""
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr ""
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:89
+msgid "control package version locks"
+msgstr ""
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
