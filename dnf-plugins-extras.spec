@@ -245,6 +245,32 @@ RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
 %endif
 
+%package -n python-dnf-plugins-extras-show-leaves
+Summary:	Leaves Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python-dnf-plugins-extras-leaves = %{version}-%{release}
+%if 0%{?fedora} < 23
+Provides:	dnf-plugins-extras-show-leaves = %{version}-%{release}
+%endif
+
+%description -n python-dnf-plugins-extras-show-leaves
+Show-leaves Plugin for DNF, Python 2 version. List all installed
+packages that are no longer required by any other installed package
+after a transaction.
+
+%package -n python3-dnf-plugins-extras-show-leaves
+Summary:	Show-leaves Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python3-dnf-plugins-extras-leaves = %{version}-%{release}
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugins-extras-show-leaves = %{version}-%{release}
+%endif
+
+%description -n python3-dnf-plugins-extras-show-leaves
+Show-leaves Plugin for DNF, Python 3 version. List all installed
+packages that are no longer required by any other installed package
+after a transaction.
+
 %package -n python-dnf-plugins-extras-snapper
 Summary:	Snapper Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
@@ -440,6 +466,15 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 %{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
+
+%files -n python-dnf-plugins-extras-show-leaves
+%{python_sitelib}/dnf-plugins/show_leaves.*
+%{_mandir}/man8/dnf.plugin.show-leaves.*
+
+%files -n python3-dnf-plugins-extras-show-leaves
+%{python3_sitelib}/dnf-plugins/show_leaves.*
+%{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
+%{_mandir}/man8/dnf.plugin.show-leaves.*
 
 %files -n python-dnf-plugins-extras-snapper
 %{python_sitelib}/dnf-plugins/snapper.*
