@@ -252,7 +252,13 @@ class MigrateCommand(dnf.cli.Command):
         # mark installed groups in dnf
         group_cmd = dnf.cli.commands.group.GroupCommand(self.cli)
         group_cmd._grp_setup()
-        group_cmd._mark_install(installed)
+        for group in installed:
+            try:
+                group_cmd._mark_install([group])
+            except dnf.exceptions.CompsError as e:
+                # skips not found groups, i.e. after fedup
+                # when the group name changes / disappears in new distro
+                logger.warning("%s, %s", dnf.i18n.ucd(e)[:-1], _("skipping."))
 
     @staticmethod
     def get_yum_installed_groups(yum_exec):
