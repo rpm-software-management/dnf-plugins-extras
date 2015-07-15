@@ -56,6 +56,10 @@ class Tracer(dnf.Plugin):
         if self.base.conf.installroot != "/":
             return
 
+        # Don't run tracer when "nothing to do"
+        if not len(self.base.transaction):
+            return
+
         installed = set([package.name for package in
                          self.base.transaction.install_set])
         erased = set([package.name for package in
