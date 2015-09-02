@@ -78,6 +78,7 @@ class LeavesCommand(dnf.cli.Command):
         N = len(graph)
         rstack = []
         stack = []
+        idx = []
         tag = [False] * N
 
         # do depth-first searches in the graph
@@ -89,18 +90,24 @@ class LeavesCommand(dnf.cli.Command):
                 continue
 
             stack.append(u)
+            idx.append(len(graph[u]))
             tag[u] = True
             while stack:
                 u = stack[-1]
-                if u >= 0:
-                    stack[-1] = -1 - u
-                    for v in graph[u]:
-                        if not tag[v]:
-                            stack.append(v)
-                            tag[v] = True
+                i = idx[-1]
+
+                if i:
+                    i-=1
+                    idx[-1]=i
+                    v = graph[u][i]
+                    if not tag[v]:
+                        stack.append(v)
+                        idx.append(len(graph[v]))
+                        tag[v] = True
                 else:
                     stack.pop()
-                    rstack.append(-1 - u)
+                    idx.pop()
+                    rstack.append(u)
 
         # now searches beginning at nodes popped from
         # rstack in the graph with all edges reversed
