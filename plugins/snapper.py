@@ -33,6 +33,9 @@ class Snapper(dnf.Plugin):
         self.description = " ".join(sys.argv)
 
     def transaction(self):
+        if not len(self.base.transaction):
+            return
+
         if dnfpluginsextras.is_erasing(self.base.transaction,
                                        "snapper"):
             return
