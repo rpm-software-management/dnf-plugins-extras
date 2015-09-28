@@ -53,7 +53,8 @@ class Snapper(dnf.Plugin):
             logger.debug(
                 "snapper: " + _("creating snapshot")
             )
-            snap = snapper.CreateSingleSnapshot("root", self.description, "", {})
+            snap = snapper.CreateSingleSnapshot("root", self.description,
+                                                "number", {})
             logger.debug(
                 "snapper: " + _("created snapshot %d"), snap
             )
