@@ -41,6 +41,24 @@ class TestRepoClosureFunctions(support.TestCase):
         repos = [repo.id for repo in self.cmd.base.repos.iter_enabled()]
         self.assertEqual(["main"], repos)
 
+    def test_check_option(self):
+        args = ["--check", "@commandline"]
+        self.cmd.base.repos.add(support.RepoStub("main"))
+        self.cmd.base.add_remote_rpm(os.path.join(self.path,
+            "noarch/foo-4-6.noarch.rpm"))
+        self.cmd.configure(args)
+        with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
+            self.cmd.run(args)
+            expected_out = ["package: foo-4-6.noarch from @commandline",
+                            "  unresolved deps:",
+                            "    bar = 4-6"]
+            self.assertEqual(stdout.getvalue()[:-1], "\n".join(expected_out))
+        args = ["--check", "main"]
+        self.cmd.configure(args)
+        with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
+            self.cmd.run(args)
+            self.assertEmpty(stdout.getvalue())
+
     def test_pkg_option(self):
         args = ["--pkg", "foo"]
         self.cmd.base.add_remote_rpm(os.path.join(self.path,
