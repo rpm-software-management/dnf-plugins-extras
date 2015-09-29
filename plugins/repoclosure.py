@@ -44,7 +44,7 @@ class RepoClosure(dnf.Plugin):
 class RepoClosureCommand(dnf.cli.Command):
     aliases = ("repoclosure",)
     summary = _("Display a list of unresolved dependencies for repositories")
-    usage = "[--repo <repoid>] [--pkg <pkg>]"
+    usage = "[--repo <repoid>] [--check <repoid>] [--pkg <pkg>]"
 
     def __init__(self, args):
         super(RepoClosureCommand, self).__init__(args)
@@ -57,7 +57,7 @@ class RepoClosureCommand(dnf.cli.Command):
         self.opts = self._parse_args(args)
         if len(self.opts.repo) > 0:
             for repo in self.base.repos.all():
-                if repo.id not in self.opts.repo:
+                if repo.id not in self.opts.repo and repo.id not in self.opts.check:
                     repo.disable()
                 else:
                     repo.enable()
@@ -82,7 +82,16 @@ class RepoClosureCommand(dnf.cli.Command):
                 for pkgs_filtered in available.filter(name=pkg):
                     pkgs.add(pkgs_filtered)
         else:
-            pkgs = available.run()
+            pkgs = set()
+            for pkgs_filtered in available.filter(latest=True):
+                pkgs.add(pkgs_filtered)
+
+        if self.opts.check:
+            checkpkgs = set()
+            for repo in self.opts.check:
+                for pkgs_filtered in available.filter(reponame=repo):
+                    checkpkgs.add(pkgs_filtered)
+            pkgs.intersection_update(checkpkgs)
 
         for pkg in pkgs:
             unresolved[pkg] = set()
@@ -107,6 +116,8 @@ class RepoClosureCommand(dnf.cli.Command):
         parser = dnfpluginsextras.ArgumentParser(alias)
         parser.add_argument("--repo", default=[], action="append",
                             help=_("Specify repositories to use"))
+        parser.add_argument("--check", default=[], action="append",
+                            help=_("Specify repositories to check"))
         # make --repoid hidden compatibility alias for --repo
         parser.add_argument("--repoid", default=[], action="append",
                             dest='repo', help=argparse.SUPPRESS)

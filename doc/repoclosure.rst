@@ -40,6 +40,9 @@ Options
 ``--repo <repoid>``
     Specify repo ids to query, can be specified multiple times (default is all enabled).
 
+``--check <repoid>``
+    Specify repo ids to check, can be specified multiple times (default is all enabled).
+
 ``--pkg <pkg``
     Check closure for this package only.
 
@@ -59,3 +62,8 @@ Display list of unresolved dependencies for rawhide repository::
 Display list of unresolved dependencies for zmap package from rawhide repository::
 
     dnf repoclosure --repoid rawhide --pkg zmap
+
+Display list of unresolved dependencies for myrepo, an add-on for the rawhide repository::
+
+    dnf repoclosure --repoid rawhide --check myrepo
+
