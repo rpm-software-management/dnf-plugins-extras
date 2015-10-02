@@ -1,4 +1,4 @@
-%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 0.6.4-2}
+%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 1.1.2}
 %{!?dnf_not_compatible: %global dnf_not_compatible 2.0}
 
 Name:		dnf-plugins-extras
@@ -14,8 +14,13 @@ BuildArch:	noarch
 BuildRequires:	cmake
 BuildRequires:	gettext
 # py2
+%if 0%{?fedora} < 23
 BuildRequires:	python-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	python-dnf < %{dnf_not_compatible}
+%else
+BuildRequires:	python2-dnf >= %{dnf_lowest_compatible}
+BuildRequires:	python2-dnf < %{dnf_not_compatible}
+%endif
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
@@ -31,12 +36,15 @@ Extras Plugins for DNF.
 
 %package -n python-dnf-plugins-extras-common
 Summary:	Common files for Extras Plugins for DNF
+%if 0%{?fedora} < 23
 Requires:	python-dnf >= %{dnf_lowest_compatible}
 Requires:	python-dnf < %{dnf_not_compatible}
-%if 0%{?fedora} < 23
 Provides:	dnf-plugins-extras-common = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-common <= 0.0.4-2
 Obsoletes:	dnf-plugins-extras < 0.0.6-3
+%else
+Requires:	python2-dnf >= %{dnf_lowest_compatible}
+Requires:	python2-dnf < %{dnf_not_compatible}
 %endif
 Obsoletes:	python-dnf-plugins-extras < 0.0.6-3
 
@@ -145,11 +153,13 @@ packages to a repository on the local filesystem and generating repo metadata.
 Summary:	Migrate Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:	yum
-Requires:	python-dnf >= 0.6.5
 %if 0%{?fedora} < 23
+Requires:	python-dnf >= %{dnf_lowest_compatible}
 Provides:	dnf-command(migrate)
 Provides:	dnf-plugins-extras-migrate = %{version}-%{release}
 Obsoletes:	dnf-plugins-extras-migrate <= 0.0.4-2
+%else
+Requires:   python2-dnf >= %{dnf_lowest_compatible}
 %endif
 
 %description -n python-dnf-plugins-extras-migrate
