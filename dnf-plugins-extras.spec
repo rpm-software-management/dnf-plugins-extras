@@ -1,6 +1,8 @@
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 1.1.2}
 %{!?dnf_not_compatible: %global dnf_not_compatible 2.0}
 
+%bcond_with py3_kickstart
+
 Name:		dnf-plugins-extras
 Version:	0.0.9
 Release:	1%{?dist}
@@ -186,11 +188,18 @@ BuildRequires:   pykickstart
 Provides:	dnf-command(kickstart)
 Provides:	dnf-plugins-extras-kickstart = %{version}-%{release}
 %endif
+%if 0%{?fedora} >= 23
+%if %{without py3_kickstart}
+Provides:       dnf-command(kickstart)
+Provides:       dnf-plugins-extras-kickstart = %{version}-%{release}
+%endif
+%endif
 
 %description -n python-dnf-plugins-extras-kickstart
 Kickstart Plugin for DNF, Python 2 version. Install packages listed in a
 Kickstart file.
 
+%if %{with py3_kickstart}
 %if 0%{?fedora} >= 23
 %package -n python3-dnf-plugins-extras-kickstart
 Summary:	Kickstart Plugin for DNF
@@ -203,6 +212,7 @@ Provides:	dnf-plugins-extras-kickstart = %{version}-%{release}
 Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
 Kickstart file.
 
+%endif
 %endif
 
 %package -n python-dnf-plugins-extras-repoclosure
@@ -436,6 +446,11 @@ rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
+%if %{without py3_kickstart}
+rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/kickstart.*
+rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
+%endif
+
 %check
 PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
 PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
@@ -487,10 +502,12 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.kickstart.*
 
 %if 0%{?fedora} >= 23
+%if %{with py3_kickstart}
 %files -n python3-dnf-plugins-extras-kickstart
 %{python3_sitelib}/dnf-plugins/kickstart.*
 %{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
 %{_mandir}/man8/dnf.plugin.kickstart.*
+%endif
 %endif
 
 %files -n python-dnf-plugins-extras-repoclosure
