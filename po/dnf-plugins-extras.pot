@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 13:21+0300\n"
+"POT-Creation-Date: 2015-10-12 18:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,15 @@ msgstr ""
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr ""
 
-#: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
+#: ../plugins/repoclosure.py:118 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
 msgstr ""
 
-#: ../plugins/repoclosure.py:114
+#: ../plugins/repoclosure.py:120
+msgid "Specify repositories to check"
+msgstr ""
+
+#: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
 msgstr ""
 
@@ -110,27 +114,27 @@ msgstr ""
 msgid "Bad dnf debug file: %s"
 msgstr ""
 
-#: ../plugins/tracer.py:71
+#: ../plugins/tracer.py:75
 msgid "For more information run:"
 msgstr ""
 
-#: ../plugins/tracer.py:91
+#: ../plugins/tracer.py:95
 msgid "Program 'tracer' crashed with following error:"
 msgstr ""
 
-#: ../plugins/tracer.py:93
+#: ../plugins/tracer.py:97
 msgid "Please visit "
 msgstr ""
 
-#: ../plugins/tracer.py:96
+#: ../plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr ""
 
-#: ../plugins/tracer.py:100
+#: ../plugins/tracer.py:104
 msgid "You should restart:"
 msgstr ""
 
-#: ../plugins/tracer.py:101
+#: ../plugins/tracer.py:105
 msgid "Nothing needs to be restarted"
 msgstr ""
 
@@ -163,30 +167,34 @@ msgstr ""
 msgid "No groups to migrate from Yum"
 msgstr ""
 
-#: ../plugins/migrate.py:275
+#: ../plugins/migrate.py:261
+msgid "skipping."
+msgstr ""
+
+#: ../plugins/migrate.py:281
 msgid "Migrating YUMDB data..."
 msgstr ""
 
-#: ../plugins/migrate.py:294
+#: ../plugins/migrate.py:300
 #, python-format
 msgid "%s of %s not found"
 msgstr ""
 
-#: ../plugins/migrate.py:301
+#: ../plugins/migrate.py:307
 #, python-format
 msgid "replacing unknown characters in %s of %s"
 msgstr ""
 
-#: ../plugins/migrate.py:306
+#: ../plugins/migrate.py:312
 msgid "DNFDB access denied"
 msgstr ""
 
-#: ../plugins/migrate.py:308
+#: ../plugins/migrate.py:314
 #, python-format
 msgid "%s of %s migrated"
 msgstr ""
 
-#: ../plugins/migrate.py:312
+#: ../plugins/migrate.py:318
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
@@ -264,38 +272,6 @@ msgstr ""
 msgid "control package version locks"
 msgstr ""
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr ""
-
-#: ../plugins/snapper.py:46
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr ""
-
-#: ../plugins/snapper.py:51
-msgid "creating snapshot"
-msgstr ""
-
-#: ../plugins/snapper.py:55
-#, python-format
-msgid "created snapshot %d"
-msgstr ""
-
-#: ../plugins/snapper.py:59
-#, python-format
-msgid "creating snapshot failed: %s"
-msgstr ""
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr ""
-
-#: ../plugins/repograph.py:121
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr ""
-
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
 msgstr ""
@@ -324,4 +300,36 @@ msgstr ""
 
 #: ../plugins/kickstart.py:117
 msgid "Nothing to do."
+msgstr ""
+
+#: ../plugins/leaves.py:32
+msgid "List installed packages not required by any other package"
+msgstr ""
+
+#: ../plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr ""
+
+#: ../plugins/snapper.py:54
+msgid "creating snapshot"
+msgstr ""
+
+#: ../plugins/snapper.py:59
+#, python-format
+msgid "created snapshot %d"
+msgstr ""
+
+#: ../plugins/snapper.py:63
+#, python-format
+msgid "creating snapshot failed: %s"
+msgstr ""
+
+#: ../plugins/repograph.py:54
+msgid "Output a full package dependency graph in dot format"
+msgstr ""
+
+#: ../plugins/repograph.py:121
+#, python-format
+msgid "Nothing provides: '%s'"
 msgstr ""
