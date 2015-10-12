@@ -42,6 +42,40 @@ class BaseStub(object):
         self.sack.create_cmdline_repo()
         return self.sack.add_cmdline_package(path)
 
+class BaseCliStub(object):
+    """A class mocking `dnf.cli.cli.BaseCli`."""
+
+    def __init__(self, available_pkgs=(), available_groups=()):
+        """Initialize the base."""
+        self._available_pkgs = set(available_pkgs)
+        self._available_groups = set(available_groups)
+        self.installed_groups = set()
+        self.installed_pkgs = set()
+        self.repos = dnf.repodict.RepoDict()
+
+    def install_grouplist(self, names):
+        """Install given groups."""
+        to_install = (set(names) & self._available_groups)\
+                     - self.installed_groups
+        if not to_install:
+            raise dnf.exceptions.Error('nothing to do')
+        self.installed_groups.update(to_install)
+
+    def install(self, pattern):
+        """Install given package."""
+        if pattern not in self._available_pkgs or \
+           pattern in self.installed_pkgs:
+            raise dnf.exceptions.MarkingError('no package matched')
+        self.installed_pkgs.add(pattern)
+
+    def read_all_repos(self):
+        """Read repositories information."""
+        self.repos.add(RepoStub('main'))
+
+    def read_comps(self):
+        """Read groups information."""
+        if not self._available_groups:
+            raise dnf.exceptions.CompsError('no group available')
 
 class CliStub(object):
     """A class mocking `dnf.cli.Cli`."""
@@ -84,7 +118,6 @@ class RepoStub(object):
     def disable(self):
         """Disable the repo"""
         self.enabled = False
-
 
 class TestCase(unittest.TestCase):
     def assertEmpty(self, collection):
