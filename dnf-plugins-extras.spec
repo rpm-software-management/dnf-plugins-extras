@@ -4,7 +4,7 @@
 %bcond_with py3_kickstart
 
 Name:		dnf-plugins-extras
-Version:	0.0.9
+Version:	0.0.10
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -585,6 +585,20 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.versionlock.*
 
 %changelog
+* Mon Oct 12 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.10-1
+- Add BaseCliStub() class to tests/support.py (Neal Gompa (ニール・ゴンパ))
+- Disable kickstart plugin for Python 3 (Neal Gompa (ニール・ゴンパ))
+- Add kickstart plugin to extra plugins (Neal Gompa (ニール・ゴンパ))
+- Add repoclosure --check option (Paul Howarth)
+- leaves: fix depth-first search (Emil Renner Berthing)
+- snapper: set cleanup type to avoid snapshots accumulating indefinitely
+  (RhBug:1263699) (Daniel Miranda)
+- snapper: don't run if nothing in transaction (Igor Gnatenko)
+- spec: adapt to dnf-1.1.2 packaging in F23 (Jan Silhan)
+- tracer: don't run tracer when nothing to do; Fix FrostyX/tracer#38 (Jakub
+  Kadlčík)
+- migrate: groups: skips not found group (RhBug:1225894) (Jan Silhan)
+
 * Tue Jun 30 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.9-1
 - repomanage: specify that keep is int (RhBug:1230503) (Igor Gnatenko)
 - migrate: hide stderr of yum (RhBug:1225282) (Jan Silhan)
