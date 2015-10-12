@@ -24,12 +24,20 @@ BuildRequires:	python2-dnf < %{dnf_not_compatible}
 BuildRequires:	python-nose
 BuildRequires:	python-sphinx
 BuildRequires:	python2-devel
+%if 0%{?fedora} >= 23
+BuildRequires:   python-kickstart
+%else
+BuildRequires:   pykickstart
+%endif
 # py3
 BuildRequires:	python3-devel
 BuildRequires:	python3-dnf >= %{dnf_lowest_compatible}
 BuildRequires:	python3-dnf < %{dnf_not_compatible}
 BuildRequires:	python3-nose
 BuildRequires:	python3-sphinx
+%if 0%{?fedora} >= 23
+BuildRequires:	python3-kickstart
+%endif
 
 %description
 Extras Plugins for DNF.
@@ -165,6 +173,37 @@ Requires:   python2-dnf >= %{dnf_lowest_compatible}
 %description -n python-dnf-plugins-extras-migrate
 Migrate Plugin for DNF, Python 2 version. igrates yum's history, group and
 yumdb data to dnf.
+
+%package -n python-dnf-plugins-extras-kickstart
+Summary:	Kickstart Plugin for DNF
+Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+%if 0%{?fedora} >= 23
+BuildRequires:   python-kickstart
+%else
+BuildRequires:   pykickstart
+%endif
+%if 0%{?fedora} < 23
+Provides:	dnf-command(kickstart)
+Provides:	dnf-plugins-extras-kickstart = %{version}-%{release}
+%endif
+
+%description -n python-dnf-plugins-extras-kickstart
+Kickstart Plugin for DNF, Python 2 version. Install packages listed in a
+Kickstart file.
+
+%if 0%{?fedora} >= 23
+%package -n python3-dnf-plugins-extras-kickstart
+Summary:	Kickstart Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:	python3-kickstart
+Provides:	dnf-command(kickstart)
+Provides:	dnf-plugins-extras-kickstart = %{version}-%{release}
+
+%description -n python3-dnf-plugins-extras-kickstart
+Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
+Kickstart file.
+
+%endif
 
 %package -n python-dnf-plugins-extras-repoclosure
 Summary:	RepoClosure Plugin for DNF
@@ -442,6 +481,17 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %files -n python-dnf-plugins-extras-migrate
 %{python_sitelib}/dnf-plugins/migrate.*
 %{_mandir}/man8/dnf.plugin.migrate.*
+
+%files -n python-dnf-plugins-extras-kickstart
+%{python_sitelib}/dnf-plugins/kickstart.*
+%{_mandir}/man8/dnf.plugin.kickstart.*
+
+%if 0%{?fedora} >= 23
+%files -n python3-dnf-plugins-extras-kickstart
+%{python3_sitelib}/dnf-plugins/kickstart.*
+%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
+%{_mandir}/man8/dnf.plugin.kickstart.*
+%endif
 
 %files -n python-dnf-plugins-extras-repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*

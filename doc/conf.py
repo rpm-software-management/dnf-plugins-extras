@@ -248,6 +248,8 @@ man_pages = [
      u'DNF migrate Plugin', AUTHORS, 8),
     ('leaves', 'dnf.plugin.leaves',
      u'DNF leaves Plugin', AUTHORS, 8),
+    ('kickstart', 'dnf.plugin.kickstart', 
+     u'DNF kickstart Plugin', AUTHORS, 8),
     ('repoclosure', 'dnf.plugin.repoclosure',
      u'DNF repoclosure Plugin', AUTHORS, 8),
     ('repograph', 'dnf.plugin.repograph',
