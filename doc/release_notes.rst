@@ -22,6 +22,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+ 0.0.10 Release Notes
+====================
+
+Provides :doc:`kickstart`. Bugfixes in some plugins.
+
+Bugs fixed in 0.0.10:
+
+* :rhbug:`1263699`
+* :rhbug:`1225894`
+
+====================
  0.0.9 Release Notes
 ====================
 

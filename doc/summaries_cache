@@ -62,5 +62,13 @@
     [
         1230503, 
         "[abrt] dnf: repomanage.py:65:run:ValueError: invalid literal for int() with base 10: 'KEEP'"
+    ], 
+    [
+        1263699, 
+        "dnf-plugin-snapper does not set cleanup type for snapshots"
+    ], 
+    [
+        1225894, 
+        "dnf-2 migrate: Error: Group 'fedora-release-nonproduct' does not exist."
     ]
 ]
