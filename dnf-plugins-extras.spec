@@ -4,7 +4,7 @@
 %bcond_with py3_kickstart
 
 Name:		dnf-plugins-extras
-Version:	0.0.10
+Version:	0.0.11
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -587,6 +587,9 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.versionlock.*
 
 %changelog
+* Tue Oct 13 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.11-1
+- spec: kickstart conflicts with previous version of plugins core (Jan Silhan)
+
 * Mon Oct 12 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.10-1
 - Add BaseCliStub() class to tests/support.py (Neal Gompa (ニール・ゴンパ))
 - Disable kickstart plugin for Python 3 (Neal Gompa (ニール・ゴンパ))
