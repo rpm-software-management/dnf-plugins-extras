@@ -179,6 +179,7 @@ yumdb data to dnf.
 %package -n python-dnf-plugins-extras-kickstart
 Summary:	Kickstart Plugin for DNF
 Requires:	python-dnf-plugins-extras-common = %{version}-%{release}
+Conflicts:	python-dnf-plugins-core <= 0.1.12
 %if 0%{?fedora} >= 23
 BuildRequires:   python-kickstart
 %else
