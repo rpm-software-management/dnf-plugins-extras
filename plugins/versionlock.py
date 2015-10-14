@@ -21,6 +21,7 @@ from __future__ import unicode_literals
 from dnfpluginsextras import _, logger
 
 import dnf
+import dnf.cli
 import dnf.exceptions
 import fnmatch
 import hawkey
