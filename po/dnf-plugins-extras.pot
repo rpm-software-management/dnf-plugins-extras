@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-12 18:32+0200\n"
+"POT-Creation-Date: 2015-11-07 18:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,32 +243,32 @@ msgstr ""
 msgid "Path to directory"
 msgstr ""
 
-#: ../plugins/versionlock.py:32
+#: ../plugins/versionlock.py:33
 #, python-format
 msgid "Unable to read version lock configuration: %s"
 msgstr ""
 
-#: ../plugins/versionlock.py:33
+#: ../plugins/versionlock.py:34
 msgid "Locklist not set"
 msgstr ""
 
-#: ../plugins/versionlock.py:34
+#: ../plugins/versionlock.py:35
 msgid "Adding versionlock on:"
 msgstr ""
 
-#: ../plugins/versionlock.py:35
+#: ../plugins/versionlock.py:36
 msgid "Adding exclude on:"
 msgstr ""
 
-#: ../plugins/versionlock.py:36
+#: ../plugins/versionlock.py:37
 msgid "Deleting versionlock for:"
 msgstr ""
 
-#: ../plugins/versionlock.py:37
+#: ../plugins/versionlock.py:38
 msgid "No package found for:"
 msgstr ""
 
-#: ../plugins/versionlock.py:89
+#: ../plugins/versionlock.py:90
 msgid "control package version locks"
 msgstr ""
 

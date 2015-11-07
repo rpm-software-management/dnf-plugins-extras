@@ -1,0 +1,264 @@
+# Yuri Chornoivan <yurchor@ukr.net>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-22 19:51+0300\n"
+"PO-Revision-Date: 2015-06-24 07:32-0400\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Zanata 3.7.3\n"
+
+#: ../plugins/repoclosure.py:46
+msgid "Display a list of unresolved dependencies for repositories"
+msgstr "Показати список нерозв’язаних залежностей для сховищ"
+
+#: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
+msgid "Specify repositories to use"
+msgstr "Вкажіть сховища для використання"
+
+#: ../plugins/repoclosure.py:114
+msgid "Check closure for this package only"
+msgstr "Перевірити замкненість лише для цього пакунка"
+
+#: ../plugins/local.py:115
+msgid "'{}' is not a directory"
+msgstr "'{}' не є каталогом"
+
+#: ../plugins/local.py:123
+msgid "Copying '{}' to local repo"
+msgstr "Копіюємо '{}' до локального сховища"
+
+#: ../plugins/local.py:128
+msgid "Can't write file '{}'"
+msgstr "Не вдалося записати файл '{}'"
+
+#: ../plugins/local.py:143
+msgid "Rebuilding local repo"
+msgstr "Перезбираємо локальне сховище"
+
+#: ../plugins/debug.py:55
+msgid "dump information about installed rpm packages to file"
+msgstr "створити дамп даних щодо встановлених пакунків rpm у файлі"
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
+msgid "OPTIONS"
+msgstr "ПАРАМЕТРИ"
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
+msgid "KEYWORDS"
+msgstr "КЛЮЧОВІ СЛОВА"
+
+#: ../plugins/debug.py:71
+msgid "do not attempt to dump the repository contents."
+msgstr "не намагатися створити дамп вмісту сховища."
+
+#: ../plugins/debug.py:74
+msgid "optional name of dump file"
+msgstr "необов’язкова назва файла дампу"
+
+#: ../plugins/debug.py:108
+#, python-format
+msgid "Output written to: %s"
+msgstr "Результат записано до %s"
+
+#: ../plugins/debug.py:186
+msgid "restore packages recorded in debug-dump file"
+msgstr "відновити пакунки, записані до файла debug-dump"
+
+#: ../plugins/debug.py:199
+msgid "output commands that would be run to stdout."
+msgstr "вивести команди, які буде віддано, до stdout."
+
+#: ../plugins/debug.py:202
+msgid "Install the latest version of recorded packages."
+msgstr "Встановити найсвіжішу версію записаних пакунків."
+
+#: ../plugins/debug.py:205
+msgid ""
+"Ignore architecture and install missing packages matchingthe name, epoch, "
+"version and release."
+msgstr ""
+"Ігнорувати архітектуру і встановити усі пакунки, яких не вистачає, за "
+"відповідністю назви, епохи, версії та випуску."
+
+#: ../plugins/debug.py:210
+msgid "limit to specified type"
+msgstr "обмежитися вказаним типом"
+
+#: ../plugins/debug.py:212
+msgid "name of dump file"
+msgstr "назва файла дампу"
+
+#: ../plugins/debug.py:291
+#, python-format
+msgid "Package %s is not available"
+msgstr "Пакунок %s недоступний"
+
+#: ../plugins/debug.py:301
+#, python-format
+msgid "Bad dnf debug file: %s"
+msgstr "Помилковий файл діагностики dnf: %s"
+
+#: ../plugins/tracer.py:71
+msgid "For more information run:"
+msgstr "Щоб отримати більше відомостей, віддайте таку команду:"
+
+#: ../plugins/tracer.py:91
+msgid "Program 'tracer' crashed with following error:"
+msgstr ""
+"Програма «tracer» завершила роботу у аварійному режимі із таким "
+"повідомленням про помилку:"
+
+#: ../plugins/tracer.py:93
+msgid "Please visit "
+msgstr "Будь ласка, відвідайте "
+
+#: ../plugins/tracer.py:96
+msgid "We apologize for any inconvenience"
+msgstr "Вибачте за незручності"
+
+#: ../plugins/tracer.py:100
+msgid "You should restart:"
+msgstr "Вам слід перезапустити:"
+
+#: ../plugins/tracer.py:101
+msgid "Nothing needs to be restarted"
+msgstr "Нічого не потрібно перезапускати"
+
+#: ../plugins/migrate.py:57
+#, python-format
+msgid "failed to parse package NEVRA from: %s"
+msgstr "не вдалося обробити NEVRA пакунка з %s"
+
+#: ../plugins/migrate.py:78
+msgid "migrate yum's history, group and yumdb data to dnf"
+msgstr "перенести журнал yum, дані щодо груп та yumdb до dnf"
+
+#: ../plugins/migrate.py:97
+msgid "which kind of yum data migrate."
+msgstr "тип даних yum, які слід перенести."
+
+#: ../plugins/migrate.py:129
+msgid "Migrating history data..."
+msgstr "Переносимо дані журналу…"
+
+#: ../plugins/migrate.py:240
+msgid "Migrating groups data..."
+msgstr "Переносимо дані щодо груп…"
+
+#: ../plugins/migrate.py:244
+msgid "No groups to migrate from Yum"
+msgstr "Немає записів груп для перенесення з Yum"
+
+#: ../plugins/migrate.py:268
+msgid "Migrating YUMDB data..."
+msgstr "Переносимо дані YUMDB…"
+
+#: ../plugins/migrate.py:287
+#, python-format
+msgid "%s of %s not found"
+msgstr "%s з %s не знайдено"
+
+#: ../plugins/migrate.py:294
+#, python-format
+msgid "replacing unknown characters in %s of %s"
+msgstr "замінюємо невідомі символи у %s з %s"
+
+#: ../plugins/migrate.py:299
+msgid "DNFDB access denied"
+msgstr "Доступ до DNFDB заборонено"
+
+#: ../plugins/migrate.py:301
+#, python-format
+msgid "%s of %s migrated"
+msgstr "перенесено %s з %s"
+
+#: ../plugins/migrate.py:305
+#, python-format
+msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
+msgstr "Знайдено %d записів YUMDB, перенесено %d, пропущено/збережено %d"
+
+#: ../plugins/dnfpluginsextras/__init__.py:58
+msgid "show this help about this tool"
+msgstr "показати ці довідкові повідомлення щодо цієї програми"
+
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Додаємо '{}' до списку пакунків для обробки rpmconf"
+
+#: ../plugins/repomanage.py:44
+msgid "Manage a directory of rpm packages"
+msgstr "Керування каталогом пакунків rpm"
+
+#: ../plugins/repomanage.py:58
+msgid "Pass either --old or --new, not both!"
+msgstr "Слід передавати --old або --new, не обидва одразу!"
+
+#: ../plugins/repomanage.py:68
+msgid "No files to process"
+msgstr "Немає файлів для обробки"
+
+#: ../plugins/repomanage.py:74
+msgid "Could not open {}"
+msgstr "Не вдалося відкрити {}"
+
+#: ../plugins/repomanage.py:133
+msgid "Print the older packages"
+msgstr "Вивести старіші пакунки"
+
+#: ../plugins/repomanage.py:135
+msgid "Print the newest packages"
+msgstr "Вивести найновіші пакунки"
+
+#: ../plugins/repomanage.py:137
+msgid "Space separated output, not newline"
+msgstr ""
+"Відокремлювати записи у виведених даних пробілами, а не символами розриву "
+"рядка"
+
+#: ../plugins/repomanage.py:139
+msgid "Newest N packages to keep - defaults to 1"
+msgstr "Зберігати N найновіших пакунків. Типове значення — 1"
+
+#: ../plugins/repomanage.py:142
+msgid "Path to directory"
+msgstr "Шлях до каталогу"
+
+#: ../plugins/leaves.py:32
+msgid "List installed packages not required by any other package"
+msgstr ""
+"Вивести список пакунків, які не потрібні для роботи будь-яких інших пакунків"
+
+#: ../plugins/snapper.py:46
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr "спроба встановити зв’язок із snapperd зазнала невдачі: %s"
+
+#: ../plugins/snapper.py:51
+msgid "creating snapshot"
+msgstr "створюємо знімок"
+
+#: ../plugins/snapper.py:55
+#, python-format
+msgid "created snapshot %d"
+msgstr "створено знімок %d"
+
+#: ../plugins/snapper.py:59
+#, python-format
+msgid "creating snapshot failed: %s"
+msgstr "спроба створення знімка зазнала невдачі: %s"
+
+#: ../plugins/repograph.py:54
+msgid "Output a full package dependency graph in dot format"
+msgstr "Вивести повний граф залежностей пакунків у форматі dot"
+
+#: ../plugins/repograph.py:121
+#, python-format
+msgid "Nothing provides: '%s'"
+msgstr "Нічого не надає: «%s»"

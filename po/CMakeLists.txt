@@ -3,10 +3,10 @@ SET(SRC_PO ${CMAKE_SOURCE_DIR}/po)
 ADD_CUSTOM_TARGET (gettext-export
                    cd ${SRC_PO} && find ../plugins -iname "*.py" |
                    xargs xgettext --from-code=UTF-8 --output=${SRC_PO}/dnf-plugins-extras.pot &&
-                   tx push -s
+                   zanata po push
                    COMMENT "Pushing translation source file to transifex")
 ADD_CUSTOM_TARGET (gettext-update
-                   tx pull -f
+                   zanata po pull
                    DEPENDS gettext-export
                    COMMENT "Updating translation files from transifex")
 

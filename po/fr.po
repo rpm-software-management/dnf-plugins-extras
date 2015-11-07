@@ -1,261 +1,265 @@
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
+# David Snel-Larochette <David.SnelLarochette@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 19:51+0300\n"
-"PO-Revision-Date: 2015-09-30 09:52-0400\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan\n"
+"PO-Revision-Date: 2015-09-11 06:54-0400\n"
+"Last-Translator: David Snel-Larochette <David.SnelLarochette@gmail.com>\n"
+"Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "X-Generator: Zanata 3.7.3\n"
 
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Mostra un llistat de les dependències sense resoldre per als dipòsits"
+msgstr "Affiche la liste des dépendances non résolues pour certains dépôts"
 
 #: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
-msgstr "Especifica els dipòsits a utilitzar"
+msgstr "Spécifie les dépôts à utiliser"
 
 #: ../plugins/repoclosure.py:114
 msgid "Check closure for this package only"
-msgstr "Comprova la conclusió per tan sols aquest paquet"
+msgstr "Vérifie la connexité pour ce paquet seulement"
 
 #: ../plugins/local.py:115
 msgid "'{}' is not a directory"
-msgstr "'{}' no és un directori"
+msgstr "'{}' n'est pas un répertoire"
 
 #: ../plugins/local.py:123
 msgid "Copying '{}' to local repo"
-msgstr "Es copia '{}' al dipòsit local"
+msgstr "Copie de '{}' vers le dépôt local"
 
 #: ../plugins/local.py:128
 msgid "Can't write file '{}'"
-msgstr "No es pot escriure el fitxer '{}'"
+msgstr "Impossible d'écrire dans le fichier '{}'"
 
 #: ../plugins/local.py:143
 msgid "Rebuilding local repo"
-msgstr "Es reconstrueix el dipòsit local"
+msgstr "Reconstruction du dépôt local"
 
 #: ../plugins/debug.py:55
 msgid "dump information about installed rpm packages to file"
-msgstr "bolca al fitxer la informació quant als paquets rpm instal·lats"
+msgstr "Lister des données sur des paquets rpm installés dans un fichier"
 
 #: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
 msgid "OPTIONS"
-msgstr "OPCIONS"
+msgstr "OPTIONS"
 
 #: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
 msgid "KEYWORDS"
-msgstr "PARAULES_CLAU"
+msgstr "MOTS CLÉS"
 
 #: ../plugins/debug.py:71
 msgid "do not attempt to dump the repository contents."
-msgstr "no provis de bolcar el contingut dels dipòsits."
+msgstr "ne pas essayer de lister le contenu du dépôt."
 
 #: ../plugins/debug.py:74
 msgid "optional name of dump file"
-msgstr "nom opcional del fitxer del blocat"
+msgstr "nom du fichier listing (optionnel)"
 
 #: ../plugins/debug.py:108
 #, python-format
 msgid "Output written to: %s"
-msgstr "La sortida es va escriure a: %s"
+msgstr "Sortie écrite dans : %s"
 
 #: ../plugins/debug.py:186
 msgid "restore packages recorded in debug-dump file"
-msgstr "restaura els paquets registrats al fitxer de depuració de bolcat"
+msgstr ""
+"restaurer les paquets enregistrés dans un fichier de listing de déboguage"
 
 #: ../plugins/debug.py:199
 msgid "output commands that would be run to stdout."
-msgstr "imprimeix les ordres que s'executen per la sortida estàndard."
+msgstr "liste les commandes qui devraient être exécutées dans stdout."
 
 #: ../plugins/debug.py:202
 msgid "Install the latest version of recorded packages."
-msgstr "Instal·la la darrera versió dels paquets registrats."
+msgstr "Installe la version la plus récente des paquets enregistrés."
 
 #: ../plugins/debug.py:205
 msgid ""
 "Ignore architecture and install missing packages matchingthe name, epoch, "
 "version and release."
 msgstr ""
-"No facis cas de l'arquitectura i instal·la els paquets que facin falta que "
-"coincideixin amb el nom, l'època, la versió i el llançament."
+"Ignore l'architecture et installe les paquets manquants correspondant aux "
+"nom, époque, version et version majeure."
 
 #: ../plugins/debug.py:210
 msgid "limit to specified type"
-msgstr "limita-ho al tipus especificat"
+msgstr "Limiter au type spécifié"
 
 #: ../plugins/debug.py:212
 msgid "name of dump file"
-msgstr "nom del fitxer del blocat"
+msgstr "nom du fichier de listing"
 
 #: ../plugins/debug.py:291
 #, python-format
 msgid "Package %s is not available"
-msgstr "El paquet %s no està disponible"
+msgstr "Le paquet %s n'est pas disponible"
 
 #: ../plugins/debug.py:301
 #, python-format
 msgid "Bad dnf debug file: %s"
-msgstr "Fitxer incorrecte de depuració dnf: %s"
+msgstr "Fichier de débogage de dnf invalide : %s "
 
 #: ../plugins/tracer.py:71
 msgid "For more information run:"
-msgstr "Per a més informació executeu:"
+msgstr "Pour plus d'information, lancez : "
 
 #: ../plugins/tracer.py:91
 msgid "Program 'tracer' crashed with following error:"
-msgstr "Pana del programa «tracer» amb el següent error:"
+msgstr "Le programme 'tracer' s'est interrompu avec l'erreur suivante : "
 
 #: ../plugins/tracer.py:93
 msgid "Please visit "
-msgstr "Si us plau, visiteu"
+msgstr "Veuillez visiter"
 
 #: ../plugins/tracer.py:96
 msgid "We apologize for any inconvenience"
-msgstr "Us demanem disculpes per qualsevol inconvenient"
+msgstr "Nous nous excusons pour tout désagrément"
 
 #: ../plugins/tracer.py:100
 msgid "You should restart:"
-msgstr "Hauríeu de reiniciar:"
+msgstr "Vous devriez redémarrer : "
 
 #: ../plugins/tracer.py:101
 msgid "Nothing needs to be restarted"
-msgstr "No hi ha res que s'hagi de reiniciar"
+msgstr "Rien n'a besoin d'être redémarré"
 
 #: ../plugins/migrate.py:57
 #, python-format
 msgid "failed to parse package NEVRA from: %s"
-msgstr "ha fallat l'anàlisi sintàctica NEVRA del paquet: %s"
+msgstr "impossible de parcourir le paquet NEVRA depuis : %s"
 
 #: ../plugins/migrate.py:78
 msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migra l'històric, els grups, i les dades de la yumdb, del yum al dnf"
+msgstr "migrer les données d'historique, de groupe et yumdb de yum vers dnf"
 
 #: ../plugins/migrate.py:97
 msgid "which kind of yum data migrate."
-msgstr "el tipus de dades del yum que han de migrar-se."
+msgstr "type de données yum à migrer."
 
 #: ../plugins/migrate.py:129
 msgid "Migrating history data..."
-msgstr "Es migren les dades de l'històric..."
+msgstr "Migration des données d'historique..."
 
 #: ../plugins/migrate.py:240
 msgid "Migrating groups data..."
-msgstr "Es migren les dades dels grups..."
+msgstr "Migration des données de groupes..."
 
 #: ../plugins/migrate.py:244
 msgid "No groups to migrate from Yum"
-msgstr "No hi ha grups a migrar del Yum"
+msgstr "Aucun groupe à migrer depuis Yum"
 
 #: ../plugins/migrate.py:268
 msgid "Migrating YUMDB data..."
-msgstr "Es migren les dades de la YUMDB..."
+msgstr "Migration des données YUMDB..."
 
 #: ../plugins/migrate.py:287
 #, python-format
 msgid "%s of %s not found"
-msgstr "%s de %s no trobats"
+msgstr "%s de %s non trouvé"
 
 #: ../plugins/migrate.py:294
 #, python-format
 msgid "replacing unknown characters in %s of %s"
-msgstr "s'estan substituint els caràcters desconeguts en %s de %s"
+msgstr "remplacement de caractères inconnus dans %s de %s"
 
 #: ../plugins/migrate.py:299
 msgid "DNFDB access denied"
-msgstr "S'ha denegat l'accés a la DNFDB"
+msgstr "accès à DNFDB refusé"
 
 #: ../plugins/migrate.py:301
 #, python-format
 msgid "%s of %s migrated"
-msgstr "%s de %s migrats"
+msgstr "%s de %s migré"
 
 #: ../plugins/migrate.py:305
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d registres trobats de la YUMDB, %d migrats, %d ignorats/preservats"
+msgstr ""
+"%d enregistrements YUMDB trouvé(s), %d migré(s), %d ignoré(s) / préservé(s)"
 
 #: ../plugins/dnfpluginsextras/__init__.py:58
 msgid "show this help about this tool"
-msgstr "mostra aquest missatge d'ajuda quant a aquesta eina"
+msgstr "montrer cette aide à propos de cet outil"
 
 #: ../plugins/rpm_conf.py:41
+#, fuzzy
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "S'afegeix '{}' a la llista dels paquets tractats pel rpmconf"
+msgstr "Ajout de '{}' à la liste de paquets gérant pour rpmconf"
 
 #: ../plugins/repomanage.py:44
 msgid "Manage a directory of rpm packages"
-msgstr "Gestiona un directori de paquets rpm"
+msgstr "Gérer un répertoire de paquets rpm"
 
 #: ../plugins/repomanage.py:58
 msgid "Pass either --old or --new, not both!"
-msgstr "Passeu --old o --new, però no ambdós!"
+msgstr "Passez soit --old, soit --news, mais pas les deux !"
 
 #: ../plugins/repomanage.py:68
+#, fuzzy
 msgid "No files to process"
-msgstr "Sense fitxers per processar"
+msgstr "Pas de fichier à gérer"
 
 #: ../plugins/repomanage.py:74
 msgid "Could not open {}"
-msgstr "No es pot obrir {}"
+msgstr "Impossible d'ouvrir {}"
 
 #: ../plugins/repomanage.py:133
 msgid "Print the older packages"
-msgstr "Imprimeix els paquets més antics"
+msgstr "Lister les paquets plus anciens"
 
 #: ../plugins/repomanage.py:135
 msgid "Print the newest packages"
-msgstr "Imprimeix els paquets més nous"
+msgstr "Lister les paquets les plus récents"
 
 #: ../plugins/repomanage.py:137
 msgid "Space separated output, not newline"
-msgstr "Sortida separada amb espais, no línies noves"
+msgstr "Sorties séparées par des espaces plutôt que des retours-ligne"
 
 #: ../plugins/repomanage.py:139
 msgid "Newest N packages to keep - defaults to 1"
-msgstr "Els N paquets més recents a conservar - per defecte 1"
+msgstr "N paquets les plus récents à conserver - par défaut 1"
 
 #: ../plugins/repomanage.py:142
 msgid "Path to directory"
-msgstr "Camí al directori"
+msgstr "Chemin vers le répertoire"
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr ""
-"Llista els paquets instal·lats que no es requereixin per cap altre paquet"
+"Lister les paquets installés qui ne sont pas requis par un autre paquet"
 
 #: ../plugins/snapper.py:46
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr "la connexió amb el snapperd ha fallat: %s"
+msgstr "erreur de connexion à snapperd : %s"
 
 #: ../plugins/snapper.py:51
 msgid "creating snapshot"
-msgstr "es crea la instantània"
+msgstr "création de l'instantané"
 
 #: ../plugins/snapper.py:55
 #, python-format
 msgid "created snapshot %d"
-msgstr "s'ha creat la instantània %d"
+msgstr "instantané %d créé"
 
 #: ../plugins/snapper.py:59
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr "la creació de la instantània ha fallat: %s"
+msgstr "erreur de création de l'instantané : %s"
 
 #: ../plugins/repograph.py:54
 msgid "Output a full package dependency graph in dot format"
 msgstr ""
-"Sortida d'un gràfic de totes les dependències del paquet en format dot"
+"Sortie d'un graphe de dépendance des paquets complet dans le format dot"
 
 #: ../plugins/repograph.py:121
 #, python-format
 msgid "Nothing provides: '%s'"
-msgstr "No hi ha res que proporcioni: '%s'"
+msgstr "Rien ne fournit : '%s'"

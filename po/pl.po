@@ -1,261 +1,269 @@
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Piotr Drąg <piotrdrag@gmail.com>, 2015
+# Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-22 19:51+0300\n"
-"PO-Revision-Date: 2015-09-30 09:52-0400\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan\n"
+"PO-Revision-Date: 2015-08-27 03:58-0400\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 3.7.3\n"
 
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Mostra un llistat de les dependències sense resoldre per als dipòsits"
+msgstr "Wyświetla listę nierozwiązanych zależności dla repozytoriów"
 
 #: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
-msgstr "Especifica els dipòsits a utilitzar"
+msgstr "Podaje używane repozytoria"
 
 #: ../plugins/repoclosure.py:114
 msgid "Check closure for this package only"
-msgstr "Comprova la conclusió per tan sols aquest paquet"
+msgstr "Sprawdza domknięcie tylko tego pakietu"
 
 #: ../plugins/local.py:115
 msgid "'{}' is not a directory"
-msgstr "'{}' no és un directori"
+msgstr "„{}” nie jest katalogiem"
 
 #: ../plugins/local.py:123
 msgid "Copying '{}' to local repo"
-msgstr "Es copia '{}' al dipòsit local"
+msgstr "Kopiowanie „{}” do lokalnego repozytorium"
 
 #: ../plugins/local.py:128
 msgid "Can't write file '{}'"
-msgstr "No es pot escriure el fitxer '{}'"
+msgstr "Nie można zapisać pliku „{}”"
 
 #: ../plugins/local.py:143
 msgid "Rebuilding local repo"
-msgstr "Es reconstrueix el dipòsit local"
+msgstr "Ponowne budowanie lokalnego repozytorium"
 
 #: ../plugins/debug.py:55
 msgid "dump information about installed rpm packages to file"
-msgstr "bolca al fitxer la informació quant als paquets rpm instal·lats"
+msgstr "zrzuca informacje o zainstalowanych pakietach RPM do pliku"
 
 #: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
 msgid "OPTIONS"
-msgstr "OPCIONS"
+msgstr "OPCJE"
 
 #: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
 msgid "KEYWORDS"
-msgstr "PARAULES_CLAU"
+msgstr "SŁOWA-KLUCZOWE"
 
 #: ../plugins/debug.py:71
 msgid "do not attempt to dump the repository contents."
-msgstr "no provis de bolcar el contingut dels dipòsits."
+msgstr "bez próbowania zrzucenia zawartości repozytorium."
 
 #: ../plugins/debug.py:74
 msgid "optional name of dump file"
-msgstr "nom opcional del fitxer del blocat"
+msgstr "opcjonalna nazwa pliku zrzutu"
 
 #: ../plugins/debug.py:108
 #, python-format
 msgid "Output written to: %s"
-msgstr "La sortida es va escriure a: %s"
+msgstr "Wyjście zapisano do: %s"
 
 #: ../plugins/debug.py:186
 msgid "restore packages recorded in debug-dump file"
-msgstr "restaura els paquets registrats al fitxer de depuració de bolcat"
+msgstr "przywraca pakiety zapisane w pliku debug-dump"
 
 #: ../plugins/debug.py:199
 msgid "output commands that would be run to stdout."
-msgstr "imprimeix les ordres que s'executen per la sortida estàndard."
+msgstr ""
+"wyświetla polecenia, które zostałyby wykonane do standardowego wyjścia."
 
 #: ../plugins/debug.py:202
 msgid "Install the latest version of recorded packages."
-msgstr "Instal·la la darrera versió dels paquets registrats."
+msgstr "Instaluje najnowsze wersje zapisanych pakietów."
 
 #: ../plugins/debug.py:205
 msgid ""
 "Ignore architecture and install missing packages matchingthe name, epoch, "
 "version and release."
 msgstr ""
-"No facis cas de l'arquitectura i instal·la els paquets que facin falta que "
-"coincideixin amb el nom, l'època, la versió i el llançament."
+"Ignoruje architekturę i instaluje brakujące pakiety pasujące do nazwy, "
+"epoki, wersji i wydania."
 
 #: ../plugins/debug.py:210
 msgid "limit to specified type"
-msgstr "limita-ho al tipus especificat"
+msgstr "ogranicza do podanego typu"
 
 #: ../plugins/debug.py:212
 msgid "name of dump file"
-msgstr "nom del fitxer del blocat"
+msgstr "nazwa pliku zrzutu"
 
 #: ../plugins/debug.py:291
 #, python-format
 msgid "Package %s is not available"
-msgstr "El paquet %s no està disponible"
+msgstr "Pakiet %s jest niedostępny"
 
 #: ../plugins/debug.py:301
 #, python-format
 msgid "Bad dnf debug file: %s"
-msgstr "Fitxer incorrecte de depuració dnf: %s"
+msgstr "Błędny plik debugowania programu dnf: %s"
 
 #: ../plugins/tracer.py:71
 msgid "For more information run:"
-msgstr "Per a més informació executeu:"
+msgstr "Więcej informacji:"
 
 #: ../plugins/tracer.py:91
 msgid "Program 'tracer' crashed with following error:"
-msgstr "Pana del programa «tracer» amb el següent error:"
+msgstr "Program „tracer” uległ awarii:"
 
 #: ../plugins/tracer.py:93
 msgid "Please visit "
-msgstr "Si us plau, visiteu"
+msgstr "Proszę odwiedzić"
 
 #: ../plugins/tracer.py:96
 msgid "We apologize for any inconvenience"
-msgstr "Us demanem disculpes per qualsevol inconvenient"
+msgstr "Przepraszamy za niedogodności"
 
 #: ../plugins/tracer.py:100
 msgid "You should restart:"
-msgstr "Hauríeu de reiniciar:"
+msgstr "Należy uruchomić ponownie:"
 
 #: ../plugins/tracer.py:101
 msgid "Nothing needs to be restarted"
-msgstr "No hi ha res que s'hagi de reiniciar"
+msgstr "Nic nie wymaga ponownego uruchomienia"
 
 #: ../plugins/migrate.py:57
 #, python-format
 msgid "failed to parse package NEVRA from: %s"
-msgstr "ha fallat l'anàlisi sintàctica NEVRA del paquet: %s"
+msgstr "nie powiodło się przetworzenie NEVRA pakietu z: %s"
 
 #: ../plugins/migrate.py:78
 msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migra l'històric, els grups, i les dades de la yumdb, del yum al dnf"
+msgstr "migruje historię, grupy i dane yumdb programu yum do programu dnf"
 
 #: ../plugins/migrate.py:97
 msgid "which kind of yum data migrate."
-msgstr "el tipus de dades del yum que han de migrar-se."
+msgstr "który rodzaj danych programu yum migrować."
 
 #: ../plugins/migrate.py:129
 msgid "Migrating history data..."
-msgstr "Es migren les dades de l'històric..."
+msgstr "Migrowanie danych historii…"
 
 #: ../plugins/migrate.py:240
 msgid "Migrating groups data..."
-msgstr "Es migren les dades dels grups..."
+msgstr "Migrowanie danych grup…"
 
 #: ../plugins/migrate.py:244
 msgid "No groups to migrate from Yum"
-msgstr "No hi ha grups a migrar del Yum"
+msgstr "Brak grup do migrowania z programu yum"
 
 #: ../plugins/migrate.py:268
 msgid "Migrating YUMDB data..."
-msgstr "Es migren les dades de la YUMDB..."
+msgstr "Migrowanie danych bazy YUMDB…"
 
 #: ../plugins/migrate.py:287
 #, python-format
 msgid "%s of %s not found"
-msgstr "%s de %s no trobats"
+msgstr "Nie odnaleziono %s z %s"
 
 #: ../plugins/migrate.py:294
 #, python-format
 msgid "replacing unknown characters in %s of %s"
-msgstr "s'estan substituint els caràcters desconeguts en %s de %s"
+msgstr "zastępowanie nieznanych znaków w %s z %s"
 
 #: ../plugins/migrate.py:299
 msgid "DNFDB access denied"
-msgstr "S'ha denegat l'accés a la DNFDB"
+msgstr "Odmowa dostępu do bazy DNFDB"
 
 #: ../plugins/migrate.py:301
 #, python-format
 msgid "%s of %s migrated"
-msgstr "%s de %s migrats"
+msgstr "Migrowano %s z %s"
 
 #: ../plugins/migrate.py:305
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d registres trobats de la YUMDB, %d migrats, %d ignorats/preservats"
+msgstr ""
+"Odnalezione wpisy bazy YUMDB: %d, migrowano: %d, pominięto/zachowano: %d"
 
 #: ../plugins/dnfpluginsextras/__init__.py:58
 msgid "show this help about this tool"
-msgstr "mostra aquest missatge d'ajuda quant a aquesta eina"
+msgstr "wyświetla pomoc dla tego narzędzia"
 
 #: ../plugins/rpm_conf.py:41
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "S'afegeix '{}' a la llista dels paquets tractats pel rpmconf"
+msgstr "Dodawanie „{}” do listy obsługiwanych pakietów dla rpmconf"
 
 #: ../plugins/repomanage.py:44
 msgid "Manage a directory of rpm packages"
-msgstr "Gestiona un directori de paquets rpm"
+msgstr "Zarządza katalogiem pakietów RPM"
 
 #: ../plugins/repomanage.py:58
 msgid "Pass either --old or --new, not both!"
-msgstr "Passeu --old o --new, però no ambdós!"
+msgstr "Należy podać --old lub --new."
 
 #: ../plugins/repomanage.py:68
 msgid "No files to process"
-msgstr "Sense fitxers per processar"
+msgstr "Brak plików do przetworzenia"
 
 #: ../plugins/repomanage.py:74
 msgid "Could not open {}"
-msgstr "No es pot obrir {}"
+msgstr "Nie można otworzyć {}"
 
 #: ../plugins/repomanage.py:133
 msgid "Print the older packages"
-msgstr "Imprimeix els paquets més antics"
+msgstr "Wyświetla listę poprzednich pakietów"
 
 #: ../plugins/repomanage.py:135
 msgid "Print the newest packages"
-msgstr "Imprimeix els paquets més nous"
+msgstr "Wyświetla listę najnowszych pakietów"
 
 #: ../plugins/repomanage.py:137
 msgid "Space separated output, not newline"
-msgstr "Sortida separada amb espais, no línies noves"
+msgstr "Wyjście powinno być rozdzielane spacjami, nie nowymi wierszami"
 
 #: ../plugins/repomanage.py:139
 msgid "Newest N packages to keep - defaults to 1"
-msgstr "Els N paquets més recents a conservar - per defecte 1"
+msgstr "N najnowszych pakietów do zatrzymania — domyślnie 1"
 
 #: ../plugins/repomanage.py:142
 msgid "Path to directory"
-msgstr "Camí al directori"
+msgstr "Ścieżka do katalogu"
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr ""
-"Llista els paquets instal·lats que no es requereixin per cap altre paquet"
+"Wyświetla listę zainstalowanych pakietów, które nie są wymagane przez inne "
+"pakiety"
 
 #: ../plugins/snapper.py:46
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr "la connexió amb el snapperd ha fallat: %s"
+msgstr "połączenie z snapperd się nie powiodło: %s"
 
 #: ../plugins/snapper.py:51
 msgid "creating snapshot"
-msgstr "es crea la instantània"
+msgstr "tworzenie migawki"
 
 #: ../plugins/snapper.py:55
 #, python-format
 msgid "created snapshot %d"
-msgstr "s'ha creat la instantània %d"
+msgstr "utworzono migawkę %d"
 
 #: ../plugins/snapper.py:59
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr "la creació de la instantània ha fallat: %s"
+msgstr "utworzenie migawki się nie powiodło: %s"
 
 #: ../plugins/repograph.py:54
 msgid "Output a full package dependency graph in dot format"
-msgstr ""
-"Sortida d'un gràfic de totes les dependències del paquet en format dot"
+msgstr "Wyświetla pełny wykres zależności pakietu w formacie programu dot"
 
 #: ../plugins/repograph.py:121
 #, python-format
 msgid "Nothing provides: '%s'"
-msgstr "No hi ha res que proporcioni: '%s'"
+msgstr "Nic nie dostarcza: „%s”"
