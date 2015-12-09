@@ -144,4 +144,4 @@ class Local(dnf.Plugin):
         p = subprocess.Popen(args, stdout=subprocess.PIPE,
                              stderr=subprocess.STDOUT)
         for line in p.stdout:
-            print(line.rstrip("\n"))
+            print(line.decode().rstrip("\n"))
