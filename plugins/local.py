@@ -115,6 +115,7 @@ class Local(dnf.Plugin):
                 "local: " + _("'{}' is not a directory").format(repodir))
             return
 
+        needs_rebuild = False
         for pkg in self.base.transaction.install_set:
             path = pkg.localPkg()
             if os.path.dirname(path) == repodir:
@@ -123,12 +124,13 @@ class Local(dnf.Plugin):
                 "local: " + _("Copying '{}' to local repo").format(path))
             try:
                 shutil.copy2(path, repodir)
+                needs_rebuild = True
             except IOError:
                 self.logger.error(
                     "local: " + _("Can't write file '{}'").format(os.path.join(
                         repodir, os.path.basename(path))))
 
-        if not crepo["enabled"]:
+        if not crepo["enabled"] or not needs_rebuild:
             return
 
         args = ["createrepo_c", "--update", "--unique-md-filenames"]
