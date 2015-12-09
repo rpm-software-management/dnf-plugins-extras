@@ -116,9 +116,9 @@ class Local(dnf.Plugin):
             return
 
         for pkg in self.base.transaction.install_set:
-            if pkg.repo.pkgdir == repodir:
+            path = pkg.localPkg()
+            if os.path.dirname(path) == repodir:
                 continue
-            path = os.path.join(pkg.repo.pkgdir, pkg.location.split("/")[-1])
             self.logger.debug(
                 "local: " + _("Copying '{}' to local repo").format(path))
             try:
