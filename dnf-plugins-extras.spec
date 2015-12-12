@@ -458,7 +458,7 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
 %license python2/COPYING
 %doc python2/AUTHORS python2/README.rst
-%{python_sitelib}/dnfpluginsextras/
+%{python2_sitelib}/dnfpluginsextras/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
 %license python3/COPYING
@@ -467,14 +467,14 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
 %files -n python-dnf-plugins-extras-debug
-%{python_sitelib}/dnf-plugins/debug.*
+%{python2_sitelib}/dnf-plugins/debug.*
 
 %files -n python3-dnf-plugins-extras-debug
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 
 %files -n python-dnf-plugins-extras-leaves
-%{python_sitelib}/dnf-plugins/leaves.*
+%{python2_sitelib}/dnf-plugins/leaves.*
 
 %files -n python3-dnf-plugins-extras-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
@@ -482,7 +482,7 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 
 %files -n python-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
-%{python_sitelib}/dnf-plugins/local.*
+%{python2_sitelib}/dnf-plugins/local.*
 
 %files -n python3-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
@@ -490,10 +490,10 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
 
 %files -n python-dnf-plugins-extras-migrate
-%{python_sitelib}/dnf-plugins/migrate.*
+%{python2_sitelib}/dnf-plugins/migrate.*
 
 %files -n python-dnf-plugins-extras-kickstart
-%{python_sitelib}/dnf-plugins/kickstart.*
+%{python2_sitelib}/dnf-plugins/kickstart.*
 
 %if 0%{?fedora} >= 23
 %if %{with py3_kickstart}
@@ -504,21 +504,21 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %endif
 
 %files -n python-dnf-plugins-extras-repoclosure
-%{python_sitelib}/dnf-plugins/repoclosure.*
+%{python2_sitelib}/dnf-plugins/repoclosure.*
 
 %files -n python3-dnf-plugins-extras-repoclosure
 %{python3_sitelib}/dnf-plugins/repoclosure.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
 
 %files -n python-dnf-plugins-extras-repograph
-%{python_sitelib}/dnf-plugins/repograph.*
+%{python2_sitelib}/dnf-plugins/repograph.*
 
 %files -n python3-dnf-plugins-extras-repograph
 %{python3_sitelib}/dnf-plugins/repograph.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
 
 %files -n python-dnf-plugins-extras-repomanage
-%{python_sitelib}/dnf-plugins/repomanage.*
+%{python2_sitelib}/dnf-plugins/repomanage.*
 
 %files -n python3-dnf-plugins-extras-repomanage
 %{python3_sitelib}/dnf-plugins/repomanage.*
@@ -529,21 +529,21 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 
 %files -n python-dnf-plugins-extras-show-leaves
-%{python_sitelib}/dnf-plugins/show_leaves.*
+%{python2_sitelib}/dnf-plugins/show_leaves.*
 
 %files -n python3-dnf-plugins-extras-show-leaves
 %{python3_sitelib}/dnf-plugins/show_leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
 
 %files -n python-dnf-plugins-extras-snapper
-%{python_sitelib}/dnf-plugins/snapper.*
+%{python2_sitelib}/dnf-plugins/snapper.*
 
 %files -n python3-dnf-plugins-extras-snapper
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 
 %files -n python-dnf-plugins-extras-tracer
-%{python_sitelib}/dnf-plugins/tracer.*
+%{python2_sitelib}/dnf-plugins/tracer.*
 
 %files -n python3-dnf-plugins-extras-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
@@ -552,7 +552,7 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %files -n python-dnf-plugins-extras-versionlock
 %config %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config %{_sysconfdir}/dnf/plugins/versionlock.list
-%{python_sitelib}/dnf-plugins/versionlock.*
+%{python2_sitelib}/dnf-plugins/versionlock.*
 
 %files -n python3-dnf-plugins-extras-versionlock
 %config %{_sysconfdir}/dnf/plugins/versionlock.conf
