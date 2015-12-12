@@ -461,11 +461,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.*
 
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
-%doc AUTHORS COPYING README.rst
+%license COPYING
+%doc AUTHORS README.rst
 %{python_sitelib}/dnfpluginsextras/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
-%doc AUTHORS COPYING README.rst
+%license COPYING
+%doc AUTHORS README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
