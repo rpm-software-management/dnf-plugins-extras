@@ -292,7 +292,6 @@ Obsoletes:	dnf-plugins-extras-repomanage <= 0.0.4-2
 %description -n python3-dnf-plugins-extras-repomanage
 RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
 
-%if 0%{?fedora} > 21
 %package -n python3-dnf-plugins-extras-rpmconf
 Summary:	RpmConf Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
@@ -304,7 +303,6 @@ Provides:	dnf-plugins-extras-rpmconf = %{version}-%{release}
 %description -n python3-dnf-plugins-extras-rpmconf
 RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
-%endif
 
 %package -n python-dnf-plugins-extras-show-leaves
 Summary:	Leaves Plugin for DNF
@@ -442,11 +440,6 @@ pushd py3
 %make_install
 popd
 
-%if 0%{?fedora} <= 21
-rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/rpm_conf.*
-rm -f %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
-rm -f %{buildroot}%{_mandir}/man8/dnf.plugin.rpmconf.*
-%endif
 
 %if %{without py3_kickstart}
 rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/kickstart.*
@@ -529,11 +522,9 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{python3_sitelib}/dnf-plugins/repomanage.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
-%if 0%{?fedora} > 21
 %files -n python3-dnf-plugins-extras-rpmconf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
-%endif
 
 %files -n python-dnf-plugins-extras-show-leaves
 %{python_sitelib}/dnf-plugins/show_leaves.*
