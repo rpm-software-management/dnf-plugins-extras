@@ -4,7 +4,7 @@
 %bcond_with py3_kickstart
 
 Name:		dnf-plugins-extras
-Version:	0.0.11
+Version:	0.0.12
 Release:	1%{?dist}
 Summary:	Extras Plugins for DNF
 Group:		System Environment/Base
@@ -561,6 +561,28 @@ PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
 
 %changelog
+* Sat Dec 12 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.12-1
+- relnotes: 0.0.1[12] (Igor Gnatenko)
+- spec: python2_sitelib (Igor Gnatenko)
+- spec: nosetests fixup (Igor Gnatenko)
+- spec: python3 sourcedir (Igor Gnatenko)
+- spec: drop hooks for f21 (Igor Gnatenko)
+- spec: python2-nose (Igor Gnatenko)
+- local: use _dnf_local as name (RhBug:1237237) (Igor Gnatenko)
+- spec: use %%license macro (Igor Gnatenko)
+- spec: move mans to one package (RhBug:1210002) (Igor Gnatenko)
+- po: update from zanata (Igor Gnatenko)
+- po: fix message text (Igor Gnatenko)
+- usage of dnf.i18n.translation (Igor Gnatenko)
+- local: do not rebuild the repo unnecessarily. (Quy Tonthat)
+- local: fixed crashing when installing from rpm files (localinstall). (Quy
+  Tonthat)
+- local: Fixed a crashing bug with python3. (Quy Tonthat)
+- pull translations (Igor Gnatenko)
+- versionlock: add missing import (Alon Bar-Lev)
+- add Catalan (Robert Antoni Buj Gelonch)
+- add zanata.xml (Robert Antoni Buj Gelonch)
+
 * Tue Oct 13 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.11-1
 - spec: kickstart conflicts with previous version of plugins core (Jan Silhan)
 
