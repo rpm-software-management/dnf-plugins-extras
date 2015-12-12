@@ -417,9 +417,8 @@ versions of those packages. This allows you to e.g. protect packages from being
 updated by newer versions.
 
 %prep
-%autosetup -c
-mv %{name}-%{version} python2
-cp -a python2 python3
+%autosetup
+mkdir python2 python3
 
 %build
 pushd python2
@@ -449,20 +448,20 @@ rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
 %endif
 
 %check
-PYTHONPATH=./plugins nosetests-%{python2_version} -s tests/
-PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
+PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/
+PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
 
 %files
 %{_mandir}/man8/dnf.plugin.*
 
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
-%license python2/COPYING
-%doc python2/AUTHORS python2/README.rst
+%license COPYING
+%doc AUTHORS README.rst
 %{python2_sitelib}/dnfpluginsextras/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
-%license python3/COPYING
-%doc python3/AUTHORS python3/README.rst
+%license COPYING
+%doc AUTHORS README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
