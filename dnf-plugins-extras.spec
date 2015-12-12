@@ -417,29 +417,31 @@ versions of those packages. This allows you to e.g. protect packages from being
 updated by newer versions.
 
 %prep
-%setup -q
-rm -rf py3
-mkdir ../py3
-cp -a . ../py3/
-mv ../py3 ./
+%autosetup -c
+mv %{name}-%{version} python2
+cp -a python2 python3
 
 %build
-%cmake .
-make %{?_smp_mflags}
-make doc-man
-pushd py3
-%cmake -DPYTHON_DESIRED:str=3 .
-make %{?_smp_mflags}
-make doc-man
+pushd python2
+  %cmake ..
+  %make_build
+  make doc-man
+popd
+pushd python3
+  %cmake -DPYTHON_DESIRED:str=3 ..
+  %make_build
+  make doc-man
 popd
 
 %install
-%make_install
-%find_lang %{name}
-pushd py3
-%make_install
+pushd python2
+  %make_install
+popd
+pushd python3
+  %make_install
 popd
 
+%find_lang %{name}
 
 %if %{without py3_kickstart}
 rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/kickstart.*
@@ -454,13 +456,13 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 %{_mandir}/man8/dnf.plugin.*
 
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
-%license COPYING
-%doc AUTHORS README.rst
+%license python2/COPYING
+%doc python2/AUTHORS python2/README.rst
 %{python_sitelib}/dnfpluginsextras/
 
 %files -n python3-dnf-plugins-extras-common -f %{name}.lang
-%license COPYING
-%doc AUTHORS README.rst
+%license python3/COPYING
+%doc python3/AUTHORS python3/README.rst
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 
