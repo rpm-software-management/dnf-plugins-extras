@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-07 18:03+0100\n"
+"POT-Creation-Date: 2015-12-12 20:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,15 +41,15 @@ msgstr ""
 msgid "'{}' is not a directory"
 msgstr ""
 
-#: ../plugins/local.py:123
+#: ../plugins/local.py:124
 msgid "Copying '{}' to local repo"
 msgstr ""
 
-#: ../plugins/local.py:128
+#: ../plugins/local.py:130
 msgid "Can't write file '{}'"
 msgstr ""
 
-#: ../plugins/local.py:143
+#: ../plugins/local.py:145
 msgid "Rebuilding local repo"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
 
-#: ../plugins/dnfpluginsextras/__init__.py:58
+#: ../plugins/dnfpluginsextras/__init__.py:44
 msgid "show this help about this tool"
 msgstr ""
 

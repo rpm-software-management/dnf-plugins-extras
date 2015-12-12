@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Igor Gnatenko <i.gnatenko.brain@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
-"Project-Id-Version: dnf-plugins-extras\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-12 18:32+0200\n"
-"PO-Revision-Date: 2015-10-12 16:31+0000\n"
-"Last-Translator: Igor Gnatenko <i.gnatenko.brain@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/dnf-plugins-extras/dnf-plugins-extras/language/ru/)\n"
+"POT-Creation-Date: 2015-12-12 20:08+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../plugins/show_leaves.py:56
 msgid "New leaves:"
@@ -42,15 +42,15 @@ msgstr ""
 msgid "'{}' is not a directory"
 msgstr ""
 
-#: ../plugins/local.py:123
+#: ../plugins/local.py:124
 msgid "Copying '{}' to local repo"
 msgstr ""
 
-#: ../plugins/local.py:128
+#: ../plugins/local.py:130
 msgid "Can't write file '{}'"
 msgstr ""
 
-#: ../plugins/local.py:143
+#: ../plugins/local.py:145
 msgid "Rebuilding local repo"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 
 #: ../plugins/tracer.py:75
 msgid "For more information run:"
-msgstr "Для получения дополнительной информации, запустите:"
+msgstr ""
 
 #: ../plugins/tracer.py:95
 msgid "Program 'tracer' crashed with following error:"
@@ -133,11 +133,11 @@ msgstr ""
 
 #: ../plugins/tracer.py:104
 msgid "You should restart:"
-msgstr "Требуется перезапуск:"
+msgstr ""
 
 #: ../plugins/tracer.py:105
 msgid "Nothing needs to be restarted"
-msgstr "Ничего перезапускать не требуется"
+msgstr ""
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -200,76 +200,76 @@ msgstr ""
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
 
-#: ../plugins/dnfpluginsextras/__init__.py:58
+#: ../plugins/dnfpluginsextras/__init__.py:44
 msgid "show this help about this tool"
-msgstr "показать справку об этой программе"
+msgstr ""
 
 #: ../plugins/rpm_conf.py:41
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Добавление '{}' в список пакетов для обработки через rpmconf"
+msgstr ""
 
 #: ../plugins/repomanage.py:44
 msgid "Manage a directory of rpm packages"
-msgstr "Обработка директории с rpm пакетами"
+msgstr ""
 
 #: ../plugins/repomanage.py:58
 msgid "Pass either --old or --new, not both!"
-msgstr "Введите либо --old, либо --new!"
+msgstr ""
 
 #: ../plugins/repomanage.py:68
 msgid "No files to process"
-msgstr "Нет файлов для обработки"
+msgstr ""
 
 #: ../plugins/repomanage.py:74
 msgid "Could not open {}"
-msgstr "Невозможно открыть {}"
+msgstr ""
 
 #: ../plugins/repomanage.py:133
 msgid "Print the older packages"
-msgstr "Показывать старые пакеты"
+msgstr ""
 
 #: ../plugins/repomanage.py:135
 msgid "Print the newest packages"
-msgstr "Показывать новые пакеты"
+msgstr ""
 
 #: ../plugins/repomanage.py:137
 msgid "Space separated output, not newline"
-msgstr "Выводить через пробел, а не через новую строку"
+msgstr ""
 
 #: ../plugins/repomanage.py:139
 msgid "Newest N packages to keep - defaults to 1"
-msgstr "Оставить N новых пакетов - по умолчанию 1"
+msgstr ""
 
 #: ../plugins/repomanage.py:142
 msgid "Path to directory"
-msgstr "Путь к директории"
+msgstr ""
 
-#: ../plugins/versionlock.py:32
+#: ../plugins/versionlock.py:33
 #, python-format
 msgid "Unable to read version lock configuration: %s"
 msgstr ""
 
-#: ../plugins/versionlock.py:33
+#: ../plugins/versionlock.py:34
 msgid "Locklist not set"
 msgstr ""
 
-#: ../plugins/versionlock.py:34
+#: ../plugins/versionlock.py:35
 msgid "Adding versionlock on:"
 msgstr ""
 
-#: ../plugins/versionlock.py:35
+#: ../plugins/versionlock.py:36
 msgid "Adding exclude on:"
 msgstr ""
 
-#: ../plugins/versionlock.py:36
+#: ../plugins/versionlock.py:37
 msgid "Deleting versionlock for:"
 msgstr ""
 
-#: ../plugins/versionlock.py:37
+#: ../plugins/versionlock.py:38
 msgid "No package found for:"
 msgstr ""
 
-#: ../plugins/versionlock.py:89
+#: ../plugins/versionlock.py:90
 msgid "control package version locks"
 msgstr ""
 
@@ -310,21 +310,21 @@ msgstr ""
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr "не удалось соединиться с snapperd: %s"
+msgstr ""
 
 #: ../plugins/snapper.py:54
 msgid "creating snapshot"
-msgstr "создание снимка"
+msgstr ""
 
 #: ../plugins/snapper.py:59
 #, python-format
 msgid "created snapshot %d"
-msgstr "создан снимок %d"
+msgstr ""
 
 #: ../plugins/snapper.py:63
 #, python-format
 msgid "creating snapshot failed: %s"
-msgstr "не удалось создать снимок: %s"
+msgstr ""
 
 #: ../plugins/repograph.py:54
 msgid "Output a full package dependency graph in dot format"

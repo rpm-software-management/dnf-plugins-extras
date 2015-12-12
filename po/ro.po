@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-12 20:08+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Romanian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Generator: Zanata 3.7.3\n"
+
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr ""
+
+#: ../plugins/repoclosure.py:46
+msgid "Display a list of unresolved dependencies for repositories"
+msgstr ""
+
+#: ../plugins/repoclosure.py:118 ../plugins/repograph.py:141
+msgid "Specify repositories to use"
+msgstr ""
+
+#: ../plugins/repoclosure.py:120
+msgid "Specify repositories to check"
+msgstr ""
+
+#: ../plugins/repoclosure.py:125
+msgid "Check closure for this package only"
+msgstr ""
+
+#: ../plugins/local.py:115
+msgid "'{}' is not a directory"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "Copying '{}' to local repo"
+msgstr ""
+
+#: ../plugins/local.py:130
+msgid "Can't write file '{}'"
+msgstr ""
+
+#: ../plugins/local.py:145
+msgid "Rebuilding local repo"
+msgstr ""
+
+#: ../plugins/debug.py:55
+msgid "dump information about installed rpm packages to file"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
+msgid "OPTIONS"
+msgstr ""
+
+#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
+msgid "KEYWORDS"
+msgstr ""
+
+#: ../plugins/debug.py:71
+msgid "do not attempt to dump the repository contents."
+msgstr ""
+
+#: ../plugins/debug.py:74
+msgid "optional name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:108
+#, python-format
+msgid "Output written to: %s"
+msgstr ""
+
+#: ../plugins/debug.py:186
+msgid "restore packages recorded in debug-dump file"
+msgstr ""
+
+#: ../plugins/debug.py:199
+msgid "output commands that would be run to stdout."
+msgstr ""
+
+#: ../plugins/debug.py:202
+msgid "Install the latest version of recorded packages."
+msgstr ""
+
+#: ../plugins/debug.py:205
+msgid ""
+"Ignore architecture and install missing packages matchingthe name, epoch, "
+"version and release."
+msgstr ""
+
+#: ../plugins/debug.py:210
+msgid "limit to specified type"
+msgstr ""
+
+#: ../plugins/debug.py:212
+msgid "name of dump file"
+msgstr ""
+
+#: ../plugins/debug.py:291
+#, python-format
+msgid "Package %s is not available"
+msgstr ""
+
+#: ../plugins/debug.py:301
+#, python-format
+msgid "Bad dnf debug file: %s"
+msgstr ""
+
+#: ../plugins/tracer.py:75
+msgid "For more information run:"
+msgstr ""
+
+#: ../plugins/tracer.py:95
+msgid "Program 'tracer' crashed with following error:"
+msgstr ""
+
+#: ../plugins/tracer.py:97
+msgid "Please visit "
+msgstr ""
+
+#: ../plugins/tracer.py:100
+msgid "We apologize for any inconvenience"
+msgstr ""
+
+#: ../plugins/tracer.py:104
+msgid "You should restart:"
+msgstr ""
+
+#: ../plugins/tracer.py:105
+msgid "Nothing needs to be restarted"
+msgstr ""
+
+#: ../plugins/migrate.py:57
+#, python-format
+msgid "failed to parse package NEVRA from: %s"
+msgstr ""
+
+#: ../plugins/migrate.py:78
+msgid "migrate yum's history, group and yumdb data to dnf"
+msgstr ""
+
+#: ../plugins/migrate.py:97
+msgid "which kind of yum data migrate."
+msgstr ""
+
+#: ../plugins/migrate.py:129
+msgid "Migrating history data..."
+msgstr ""
+
+#: ../plugins/migrate.py:240
+msgid "Migrating groups data..."
+msgstr ""
+
+#: ../plugins/migrate.py:245
+msgid "Execution of Yum failed. Could not retrieve installed groups."
+msgstr ""
+
+#: ../plugins/migrate.py:249
+msgid "No groups to migrate from Yum"
+msgstr ""
+
+#: ../plugins/migrate.py:261
+msgid "skipping."
+msgstr ""
+
+#: ../plugins/migrate.py:281
+msgid "Migrating YUMDB data..."
+msgstr ""
+
+#: ../plugins/migrate.py:300
+#, python-format
+msgid "%s of %s not found"
+msgstr ""
+
+#: ../plugins/migrate.py:307
+#, python-format
+msgid "replacing unknown characters in %s of %s"
+msgstr ""
+
+#: ../plugins/migrate.py:312
+msgid "DNFDB access denied"
+msgstr ""
+
+#: ../plugins/migrate.py:314
+#, python-format
+msgid "%s of %s migrated"
+msgstr ""
+
+#: ../plugins/migrate.py:318
+#, python-format
+msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
+msgstr ""
+
+#: ../plugins/dnfpluginsextras/__init__.py:44
+msgid "show this help about this tool"
+msgstr ""
+
+#: ../plugins/rpm_conf.py:41
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr ""
+
+#: ../plugins/repomanage.py:44
+msgid "Manage a directory of rpm packages"
+msgstr ""
+
+#: ../plugins/repomanage.py:58
+msgid "Pass either --old or --new, not both!"
+msgstr ""
+
+#: ../plugins/repomanage.py:68
+msgid "No files to process"
+msgstr ""
+
+#: ../plugins/repomanage.py:74
+msgid "Could not open {}"
+msgstr ""
+
+#: ../plugins/repomanage.py:133
+msgid "Print the older packages"
+msgstr ""
+
+#: ../plugins/repomanage.py:135
+msgid "Print the newest packages"
+msgstr ""
+
+#: ../plugins/repomanage.py:137
+msgid "Space separated output, not newline"
+msgstr ""
+
+#: ../plugins/repomanage.py:139
+msgid "Newest N packages to keep - defaults to 1"
+msgstr ""
+
+#: ../plugins/repomanage.py:142
+msgid "Path to directory"
+msgstr ""
+
+#: ../plugins/versionlock.py:33
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr ""
+
+#: ../plugins/versionlock.py:34
+msgid "Locklist not set"
+msgstr ""
+
+#: ../plugins/versionlock.py:35
+msgid "Adding versionlock on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:36
+msgid "Adding exclude on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:37
+msgid "Deleting versionlock for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:38
+msgid "No package found for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr ""
+
+#: ../plugins/kickstart.py:58
+msgid "Install packages defined in a kickstart file on your system"
+msgstr ""
+
+#: ../plugins/kickstart.py:59
+msgid "FILE"
+msgstr ""
+
+#: ../plugins/kickstart.py:68
+msgid "Error: Requires exactly one path to a kickstart file"
+msgstr ""
+
+#: ../plugins/kickstart.py:71
+msgid "exactly one path to a kickstart file required"
+msgstr ""
+
+#: ../plugins/kickstart.py:95
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr ""
+
+#: ../plugins/kickstart.py:112
+#, python-format
+msgid "No package %s available."
+msgstr ""
+
+#: ../plugins/kickstart.py:117
+msgid "Nothing to do."
+msgstr ""
+
+#: ../plugins/leaves.py:32
+msgid "List installed packages not required by any other package"
+msgstr ""
+
+#: ../plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr ""
+
+#: ../plugins/snapper.py:54
+msgid "creating snapshot"
+msgstr ""
+
+#: ../plugins/snapper.py:59
+#, python-format
+msgid "created snapshot %d"
+msgstr ""
+
+#: ../plugins/snapper.py:63
+#, python-format
+msgid "creating snapshot failed: %s"
+msgstr ""
+
+#: ../plugins/repograph.py:54
+msgid "Output a full package dependency graph in dot format"
+msgstr ""
+
+#: ../plugins/repograph.py:121
+#, python-format
+msgid "Nothing provides: '%s'"
+msgstr ""

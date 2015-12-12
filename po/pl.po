@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 19:51+0300\n"
-"PO-Revision-Date: 2015-08-27 03:58-0400\n"
+"POT-Creation-Date: 2015-12-12 20:08+0100\n"
+"PO-Revision-Date: 2015-11-08 02:34-0500\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,23 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 3.7.3\n"
 
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr "Nowe pozostałości:"
+
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr "Wyświetla listę nierozwiązanych zależności dla repozytoriów"
 
-#: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
+#: ../plugins/repoclosure.py:118 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
 msgstr "Podaje używane repozytoria"
 
-#: ../plugins/repoclosure.py:114
+#: ../plugins/repoclosure.py:120
+msgid "Specify repositories to check"
+msgstr "Podaje repozytoria do sprawdzenia"
+
+#: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
 msgstr "Sprawdza domknięcie tylko tego pakietu"
 
@@ -36,15 +44,15 @@ msgstr "Sprawdza domknięcie tylko tego pakietu"
 msgid "'{}' is not a directory"
 msgstr "„{}” nie jest katalogiem"
 
-#: ../plugins/local.py:123
+#: ../plugins/local.py:124
 msgid "Copying '{}' to local repo"
 msgstr "Kopiowanie „{}” do lokalnego repozytorium"
 
-#: ../plugins/local.py:128
+#: ../plugins/local.py:130
 msgid "Can't write file '{}'"
 msgstr "Nie można zapisać pliku „{}”"
 
-#: ../plugins/local.py:143
+#: ../plugins/local.py:145
 msgid "Rebuilding local repo"
 msgstr "Ponowne budowanie lokalnego repozytorium"
 
@@ -112,27 +120,27 @@ msgstr "Pakiet %s jest niedostępny"
 msgid "Bad dnf debug file: %s"
 msgstr "Błędny plik debugowania programu dnf: %s"
 
-#: ../plugins/tracer.py:71
+#: ../plugins/tracer.py:75
 msgid "For more information run:"
 msgstr "Więcej informacji:"
 
-#: ../plugins/tracer.py:91
+#: ../plugins/tracer.py:95
 msgid "Program 'tracer' crashed with following error:"
 msgstr "Program „tracer” uległ awarii:"
 
-#: ../plugins/tracer.py:93
+#: ../plugins/tracer.py:97
 msgid "Please visit "
 msgstr "Proszę odwiedzić"
 
-#: ../plugins/tracer.py:96
+#: ../plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Przepraszamy za niedogodności"
 
-#: ../plugins/tracer.py:100
+#: ../plugins/tracer.py:104
 msgid "You should restart:"
 msgstr "Należy uruchomić ponownie:"
 
-#: ../plugins/tracer.py:101
+#: ../plugins/tracer.py:105
 msgid "Nothing needs to be restarted"
 msgstr "Nic nie wymaga ponownego uruchomienia"
 
@@ -157,40 +165,50 @@ msgstr "Migrowanie danych historii…"
 msgid "Migrating groups data..."
 msgstr "Migrowanie danych grup…"
 
-#: ../plugins/migrate.py:244
+#: ../plugins/migrate.py:245
+msgid "Execution of Yum failed. Could not retrieve installed groups."
+msgstr ""
+"Wykonanie polecenia yum się nie powiodło. Nie można pobrać zainstalowanych "
+"grup."
+
+#: ../plugins/migrate.py:249
 msgid "No groups to migrate from Yum"
 msgstr "Brak grup do migrowania z programu yum"
 
-#: ../plugins/migrate.py:268
+#: ../plugins/migrate.py:261
+msgid "skipping."
+msgstr "pomijanie."
+
+#: ../plugins/migrate.py:281
 msgid "Migrating YUMDB data..."
 msgstr "Migrowanie danych bazy YUMDB…"
 
-#: ../plugins/migrate.py:287
+#: ../plugins/migrate.py:300
 #, python-format
 msgid "%s of %s not found"
 msgstr "Nie odnaleziono %s z %s"
 
-#: ../plugins/migrate.py:294
+#: ../plugins/migrate.py:307
 #, python-format
 msgid "replacing unknown characters in %s of %s"
 msgstr "zastępowanie nieznanych znaków w %s z %s"
 
-#: ../plugins/migrate.py:299
+#: ../plugins/migrate.py:312
 msgid "DNFDB access denied"
 msgstr "Odmowa dostępu do bazy DNFDB"
 
-#: ../plugins/migrate.py:301
+#: ../plugins/migrate.py:314
 #, python-format
 msgid "%s of %s migrated"
 msgstr "Migrowano %s z %s"
 
-#: ../plugins/migrate.py:305
+#: ../plugins/migrate.py:318
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr ""
 "Odnalezione wpisy bazy YUMDB: %d, migrowano: %d, pominięto/zachowano: %d"
 
-#: ../plugins/dnfpluginsextras/__init__.py:58
+#: ../plugins/dnfpluginsextras/__init__.py:44
 msgid "show this help about this tool"
 msgstr "wyświetla pomoc dla tego narzędzia"
 
@@ -234,27 +252,86 @@ msgstr "N najnowszych pakietów do zatrzymania — domyślnie 1"
 msgid "Path to directory"
 msgstr "Ścieżka do katalogu"
 
+#: ../plugins/versionlock.py:33
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Nie można odczytać konfiguracji blokady wersji: %s"
+
+#: ../plugins/versionlock.py:34
+msgid "Locklist not set"
+msgstr "Nie ustawiono listy blokad"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding versionlock on:"
+msgstr "Dodawanie blokady wersji na:"
+
+#: ../plugins/versionlock.py:36
+msgid "Adding exclude on:"
+msgstr "Dodawanie wykluczenia na:"
+
+#: ../plugins/versionlock.py:37
+msgid "Deleting versionlock for:"
+msgstr "Usuwanie blokady wersji dla:"
+
+#: ../plugins/versionlock.py:38
+msgid "No package found for:"
+msgstr "Nie odnaleziono pakietu dla:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "kontroluje blokady wersji pakietów"
+
+#: ../plugins/kickstart.py:58
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Instaluje pakiety podane w pliku kickstart w systemie"
+
+#: ../plugins/kickstart.py:59
+msgid "FILE"
+msgstr "PLIK"
+
+#: ../plugins/kickstart.py:68
+msgid "Error: Requires exactly one path to a kickstart file"
+msgstr "Błąd: wymagana jest dokładnie jedna ścieżka do pliku kickstart"
+
+#: ../plugins/kickstart.py:71
+msgid "exactly one path to a kickstart file required"
+msgstr "wymagana jest dokładnie jedna ścieżka do pliku kickstart"
+
+#: ../plugins/kickstart.py:95
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "nie można przetworzyć pliku: %s"
+
+#: ../plugins/kickstart.py:112
+#, python-format
+msgid "No package %s available."
+msgstr "Pakiet %s jest niedostępny."
+
+#: ../plugins/kickstart.py:117
+msgid "Nothing to do."
+msgstr "Nie ma niczego do zrobienia."
+
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr ""
 "Wyświetla listę zainstalowanych pakietów, które nie są wymagane przez inne "
 "pakiety"
 
-#: ../plugins/snapper.py:46
+#: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
 msgstr "połączenie z snapperd się nie powiodło: %s"
 
-#: ../plugins/snapper.py:51
+#: ../plugins/snapper.py:54
 msgid "creating snapshot"
 msgstr "tworzenie migawki"
 
-#: ../plugins/snapper.py:55
+#: ../plugins/snapper.py:59
 #, python-format
 msgid "created snapshot %d"
 msgstr "utworzono migawkę %d"
 
-#: ../plugins/snapper.py:59
+#: ../plugins/snapper.py:63
 #, python-format
 msgid "creating snapshot failed: %s"
 msgstr "utworzenie migawki się nie powiodło: %s"

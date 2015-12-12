@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 19:51+0300\n"
-"PO-Revision-Date: 2015-06-24 07:32-0400\n"
+"POT-Creation-Date: 2015-12-12 20:08+0100\n"
+"PO-Revision-Date: 2015-11-08 09:46-0500\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
@@ -14,15 +14,23 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Zanata 3.7.3\n"
 
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr "Нові листки:"
+
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr "Показати список нерозв’язаних залежностей для сховищ"
 
-#: ../plugins/repoclosure.py:109 ../plugins/repograph.py:141
+#: ../plugins/repoclosure.py:118 ../plugins/repograph.py:141
 msgid "Specify repositories to use"
 msgstr "Вкажіть сховища для використання"
 
-#: ../plugins/repoclosure.py:114
+#: ../plugins/repoclosure.py:120
+msgid "Specify repositories to check"
+msgstr "Вказати сховища для перевірки"
+
+#: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
 msgstr "Перевірити замкненість лише для цього пакунка"
 
@@ -30,15 +38,15 @@ msgstr "Перевірити замкненість лише для цього �
 msgid "'{}' is not a directory"
 msgstr "'{}' не є каталогом"
 
-#: ../plugins/local.py:123
+#: ../plugins/local.py:124
 msgid "Copying '{}' to local repo"
 msgstr "Копіюємо '{}' до локального сховища"
 
-#: ../plugins/local.py:128
+#: ../plugins/local.py:130
 msgid "Can't write file '{}'"
 msgstr "Не вдалося записати файл '{}'"
 
-#: ../plugins/local.py:143
+#: ../plugins/local.py:145
 msgid "Rebuilding local repo"
 msgstr "Перезбираємо локальне сховище"
 
@@ -105,29 +113,29 @@ msgstr "Пакунок %s недоступний"
 msgid "Bad dnf debug file: %s"
 msgstr "Помилковий файл діагностики dnf: %s"
 
-#: ../plugins/tracer.py:71
+#: ../plugins/tracer.py:75
 msgid "For more information run:"
 msgstr "Щоб отримати більше відомостей, віддайте таку команду:"
 
-#: ../plugins/tracer.py:91
+#: ../plugins/tracer.py:95
 msgid "Program 'tracer' crashed with following error:"
 msgstr ""
 "Програма «tracer» завершила роботу у аварійному режимі із таким "
 "повідомленням про помилку:"
 
-#: ../plugins/tracer.py:93
+#: ../plugins/tracer.py:97
 msgid "Please visit "
 msgstr "Будь ласка, відвідайте "
 
-#: ../plugins/tracer.py:96
+#: ../plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Вибачте за незручності"
 
-#: ../plugins/tracer.py:100
+#: ../plugins/tracer.py:104
 msgid "You should restart:"
 msgstr "Вам слід перезапустити:"
 
-#: ../plugins/tracer.py:101
+#: ../plugins/tracer.py:105
 msgid "Nothing needs to be restarted"
 msgstr "Нічого не потрібно перезапускати"
 
@@ -152,39 +160,48 @@ msgstr "Переносимо дані журналу…"
 msgid "Migrating groups data..."
 msgstr "Переносимо дані щодо груп…"
 
-#: ../plugins/migrate.py:244
+#: ../plugins/migrate.py:245
+msgid "Execution of Yum failed. Could not retrieve installed groups."
+msgstr ""
+"Не вдалося виконати Yum. Не вдалося отримати список встановлених груп."
+
+#: ../plugins/migrate.py:249
 msgid "No groups to migrate from Yum"
 msgstr "Немає записів груп для перенесення з Yum"
 
-#: ../plugins/migrate.py:268
+#: ../plugins/migrate.py:261
+msgid "skipping."
+msgstr "пропускаємо."
+
+#: ../plugins/migrate.py:281
 msgid "Migrating YUMDB data..."
 msgstr "Переносимо дані YUMDB…"
 
-#: ../plugins/migrate.py:287
+#: ../plugins/migrate.py:300
 #, python-format
 msgid "%s of %s not found"
 msgstr "%s з %s не знайдено"
 
-#: ../plugins/migrate.py:294
+#: ../plugins/migrate.py:307
 #, python-format
 msgid "replacing unknown characters in %s of %s"
 msgstr "замінюємо невідомі символи у %s з %s"
 
-#: ../plugins/migrate.py:299
+#: ../plugins/migrate.py:312
 msgid "DNFDB access denied"
 msgstr "Доступ до DNFDB заборонено"
 
-#: ../plugins/migrate.py:301
+#: ../plugins/migrate.py:314
 #, python-format
 msgid "%s of %s migrated"
 msgstr "перенесено %s з %s"
 
-#: ../plugins/migrate.py:305
+#: ../plugins/migrate.py:318
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr "Знайдено %d записів YUMDB, перенесено %d, пропущено/збережено %d"
 
-#: ../plugins/dnfpluginsextras/__init__.py:58
+#: ../plugins/dnfpluginsextras/__init__.py:44
 msgid "show this help about this tool"
 msgstr "показати ці довідкові повідомлення щодо цієї програми"
 
@@ -230,26 +247,85 @@ msgstr "Зберігати N найновіших пакунків. Типове
 msgid "Path to directory"
 msgstr "Шлях до каталогу"
 
+#: ../plugins/versionlock.py:33
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Не вдалося прочитати налаштування блокування версії: %s"
+
+#: ../plugins/versionlock.py:34
+msgid "Locklist not set"
+msgstr "Список блокування не встановлено"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding versionlock on:"
+msgstr "Додаємо блокування версії для:"
+
+#: ../plugins/versionlock.py:36
+msgid "Adding exclude on:"
+msgstr "Додаємо виключення для:"
+
+#: ../plugins/versionlock.py:37
+msgid "Deleting versionlock for:"
+msgstr "Вилучаємо блокування версії для:"
+
+#: ../plugins/versionlock.py:38
+msgid "No package found for:"
+msgstr "Не знайдено пакунка для:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "керування блокуванням версій пакунків"
+
+#: ../plugins/kickstart.py:58
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Встановити пакунки, визначені у файлі kickstart у вашій системі"
+
+#: ../plugins/kickstart.py:59
+msgid "FILE"
+msgstr "ФАЙЛ"
+
+#: ../plugins/kickstart.py:68
+msgid "Error: Requires exactly one path to a kickstart file"
+msgstr "Помилка: мало бути вказано лише один шлях до файла kickstart"
+
+#: ../plugins/kickstart.py:71
+msgid "exactly one path to a kickstart file required"
+msgstr "мало бути вказано точно один шлях до файла kickstart"
+
+#: ../plugins/kickstart.py:95
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "не вдалося обробити файл: %s"
+
+#: ../plugins/kickstart.py:112
+#, python-format
+msgid "No package %s available."
+msgstr "Немає доступного пакунка %s."
+
+#: ../plugins/kickstart.py:117
+msgid "Nothing to do."
+msgstr "Нічого виконувати."
+
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr ""
 "Вивести список пакунків, які не потрібні для роботи будь-яких інших пакунків"
 
-#: ../plugins/snapper.py:46
+#: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
 msgstr "спроба встановити зв’язок із snapperd зазнала невдачі: %s"
 
-#: ../plugins/snapper.py:51
+#: ../plugins/snapper.py:54
 msgid "creating snapshot"
 msgstr "створюємо знімок"
 
-#: ../plugins/snapper.py:55
+#: ../plugins/snapper.py:59
 #, python-format
 msgid "created snapshot %d"
 msgstr "створено знімок %d"
 
-#: ../plugins/snapper.py:59
+#: ../plugins/snapper.py:63
 #, python-format
 msgid "creating snapshot failed: %s"
 msgstr "спроба створення знімка зазнала невдачі: %s"

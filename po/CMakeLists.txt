@@ -6,6 +6,7 @@ ADD_CUSTOM_TARGET (gettext-export
                    zanata po push
                    COMMENT "Pushing translation source file to zanata")
 ADD_CUSTOM_TARGET (gettext-update
+                   cd ${SRC_PO} &&
                    zanata po pull
                    DEPENDS gettext-export
                    COMMENT "Updating translation files from zanata")
