@@ -4,11 +4,11 @@ ADD_CUSTOM_TARGET (gettext-export
                    cd ${SRC_PO} && find ../plugins -iname "*.py" |
                    xargs xgettext --from-code=UTF-8 --output=${SRC_PO}/dnf-plugins-extras.pot &&
                    zanata po push
-                   COMMENT "Pushing translation source file to transifex")
+                   COMMENT "Pushing translation source file to zanata")
 ADD_CUSTOM_TARGET (gettext-update
                    zanata po pull
                    DEPENDS gettext-export
-                   COMMENT "Updating translation files from transifex")
+                   COMMENT "Updating translation files from zanata")
 
 FIND_PACKAGE(Gettext)
 IF (GETTEXT_FOUND)
