@@ -449,8 +449,8 @@ rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
 %endif
 
 %check
-PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
-PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
+PYTHONPATH=./plugins nosetests-%{python2_version} -s tests/
+PYTHONPATH=./plugins nosetests-%{python3_version} -s tests/
 
 %files
 %{_mandir}/man8/dnf.plugin.*
