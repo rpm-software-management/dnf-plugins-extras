@@ -21,9 +21,21 @@ Extras DNF Plugins Release Notes
 
 .. contents::
 
-====================
+=====================
+ 0.0.12 Release Notes
+=====================
+
+Bugfixes in :doc:`local` plugin. Fixes in packaging.
+
+=====================
+ 0.0.11 Release Notes
+=====================
+
+Bugfix in :doc:`kickstart` packaging plugin.
+
+=====================
  0.0.10 Release Notes
-====================
+=====================
 
 Provides :doc:`kickstart`. Bugfixes in some plugins.
 
