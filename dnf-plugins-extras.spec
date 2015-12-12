@@ -457,6 +457,9 @@ rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
 PYTHONPATH=./plugins /usr/bin/nosetests-2.* -s tests/
 PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
+%files
+%{_mandir}/man8/dnf.plugin.*
+
 %files -n python-dnf-plugins-extras-common -f %{name}.lang
 %doc AUTHORS COPYING README.rst
 %{python_sitelib}/dnfpluginsextras/
@@ -468,123 +471,99 @@ PYTHONPATH=./plugins /usr/bin/nosetests-3.* -s tests/
 
 %files -n python-dnf-plugins-extras-debug
 %{python_sitelib}/dnf-plugins/debug.*
-%{_mandir}/man8/dnf.plugin.debug.*
 
 %files -n python3-dnf-plugins-extras-debug
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
-%{_mandir}/man8/dnf.plugin.debug.*
 
 %files -n python-dnf-plugins-extras-leaves
 %{python_sitelib}/dnf-plugins/leaves.*
-%{_mandir}/man8/dnf.plugin.leaves.*
 
 %files -n python3-dnf-plugins-extras-leaves
 %{python3_sitelib}/dnf-plugins/leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
-%{_mandir}/man8/dnf.plugin.leaves.*
 
 %files -n python-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python_sitelib}/dnf-plugins/local.*
-%{_mandir}/man8/dnf.plugin.local.*
 
 %files -n python3-dnf-plugins-extras-local
 %config %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
-%{_mandir}/man8/dnf.plugin.local.*
 
 %files -n python-dnf-plugins-extras-migrate
 %{python_sitelib}/dnf-plugins/migrate.*
-%{_mandir}/man8/dnf.plugin.migrate.*
 
 %files -n python-dnf-plugins-extras-kickstart
 %{python_sitelib}/dnf-plugins/kickstart.*
-%{_mandir}/man8/dnf.plugin.kickstart.*
 
 %if 0%{?fedora} >= 23
 %if %{with py3_kickstart}
 %files -n python3-dnf-plugins-extras-kickstart
 %{python3_sitelib}/dnf-plugins/kickstart.*
 %{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
-%{_mandir}/man8/dnf.plugin.kickstart.*
 %endif
 %endif
 
 %files -n python-dnf-plugins-extras-repoclosure
 %{python_sitelib}/dnf-plugins/repoclosure.*
-%{_mandir}/man8/dnf.plugin.repoclosure.*
 
 %files -n python3-dnf-plugins-extras-repoclosure
 %{python3_sitelib}/dnf-plugins/repoclosure.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
-%{_mandir}/man8/dnf.plugin.repoclosure.*
 
 %files -n python-dnf-plugins-extras-repograph
 %{python_sitelib}/dnf-plugins/repograph.*
-%{_mandir}/man8/dnf.plugin.repograph.*
 
 %files -n python3-dnf-plugins-extras-repograph
 %{python3_sitelib}/dnf-plugins/repograph.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
-%{_mandir}/man8/dnf.plugin.repograph.*
 
 %files -n python-dnf-plugins-extras-repomanage
 %{python_sitelib}/dnf-plugins/repomanage.*
-%{_mandir}/man8/dnf.plugin.repomanage.*
 
 %files -n python3-dnf-plugins-extras-repomanage
 %{python3_sitelib}/dnf-plugins/repomanage.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
-%{_mandir}/man8/dnf.plugin.repomanage.*
 
 %if 0%{?fedora} > 21
 %files -n python3-dnf-plugins-extras-rpmconf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
-%{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
 %files -n python-dnf-plugins-extras-show-leaves
 %{python_sitelib}/dnf-plugins/show_leaves.*
-%{_mandir}/man8/dnf.plugin.show-leaves.*
 
 %files -n python3-dnf-plugins-extras-show-leaves
 %{python3_sitelib}/dnf-plugins/show_leaves.*
 %{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
-%{_mandir}/man8/dnf.plugin.show-leaves.*
 
 %files -n python-dnf-plugins-extras-snapper
 %{python_sitelib}/dnf-plugins/snapper.*
-%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files -n python3-dnf-plugins-extras-snapper
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
-%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files -n python-dnf-plugins-extras-tracer
 %{python_sitelib}/dnf-plugins/tracer.*
-%{_mandir}/man8/dnf.plugin.tracer.*
 
 %files -n python3-dnf-plugins-extras-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
-%{_mandir}/man8/dnf.plugin.tracer.*
 
 %files -n python-dnf-plugins-extras-versionlock
 %config %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python_sitelib}/dnf-plugins/versionlock.*
-%{_mandir}/man8/dnf.plugin.versionlock.*
 
 %files -n python3-dnf-plugins-extras-versionlock
 %config %{_sysconfdir}/dnf/plugins/versionlock.conf
 %config %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
-%{_mandir}/man8/dnf.plugin.versionlock.*
 
 %changelog
 * Tue Oct 13 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.11-1
