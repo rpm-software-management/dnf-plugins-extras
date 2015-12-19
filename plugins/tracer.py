@@ -60,10 +60,10 @@ class Tracer(dnf.Plugin):
         if not len(self.base.transaction):
             return
 
-        installed = set([package.name for package in
-                         self.base.transaction.install_set])
-        erased = set([package.name for package in
-                      self.base.transaction.remove_set])
+        installed = set(package.name for package in
+                        self.base.transaction.install_set)
+        erased = set(package.name for package in
+                     self.base.transaction.remove_set)
 
         args = ["tracer", "-n"] + list(installed | erased)
         process = subprocess.Popen(
