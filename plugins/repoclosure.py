@@ -99,9 +99,12 @@ class RepoClosureCommand(dnf.cli.Command):
         if self.opts.check:
             checkpkgs = set()
             for repo in self.opts.check:
-                for pkgs_filtered in available.filter(reponame=repo):
+                for pkgs_filtered in self.base.sack.query().available().filter(reponame=repo):
                     checkpkgs.add(pkgs_filtered)
-            pkgs.intersection_update(checkpkgs)
+            if self.opts.pkglist:
+                pkgs.intersection_update(checkpkgs)
+            else:
+                pkgs = checkpkgs
 
         for pkg in pkgs:
             unresolved[pkg] = set()
