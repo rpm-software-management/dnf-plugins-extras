@@ -75,6 +75,19 @@ class RepoClosureCommand(dnf.cli.Command):
         if arch is not None:
             available = available.filter(arch=arch)
         pkgs = set()
+
+        # available seems to contain latest-per-repo but we want the latest
+        # version of a package across all repos
+        na_dict = {}
+        for na in available:
+            key = (na.name, na.arch)
+            na_dict.setdefault(key, []).append(na)
+        latests = []
+        for pkg_list in na_dict.values():
+            pkg_list.sort(reverse=True)
+            latests.extend(pkg_list[0:1])
+        available = self.base.sack.query().available().filter(pkg=latests)
+
         if self.opts.pkglist:
             for pkg in self.opts.pkglist:
                 for pkgs_filtered in available.filter(name=pkg):
