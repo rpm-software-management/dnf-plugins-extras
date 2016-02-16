@@ -415,6 +415,20 @@ Versionlock plugin takes a set of name/versions for packages and excludes all ot
 versions of those packages. This allows you to e.g. protect packages from being
 updated by newer versions.
 
+%package -n python3-dnf-plugins-extras-torproxy
+Summary:	Torproxy Plugin for DNF
+Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
+Requires:   python3-pycurl
+%if 0%{?fedora} >= 23
+Provides:	dnf-plugin-torproxy = %{version}-%{release}
+Provides:	dnf-plugins-extras-torproxy = %{version}-%{release}
+%endif
+
+%description -n python3-dnf-plugins-extras-torproxy
+Torproxy plugin force dnf to use tor to download packages. It make sure that
+tor is working and avoid leaking hostname by using the proper sock5 interface.
+
+
 %prep
 %autosetup
 mkdir python2 python3
@@ -557,6 +571,12 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %config %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
+
+%files -n python3-dnf-plugins-extras-torproxy
+%config %{_sysconfdir}/dnf/plugins/torproxy.conf
+%{python3_sitelib}/dnf-plugins/torproxy.*
+%{python3_sitelib}/dnf-plugins/__pycache__/torproxy.*
+
 
 %changelog
 * Sat Dec 12 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> 0.0.12-1
