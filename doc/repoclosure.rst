@@ -37,14 +37,17 @@ Description
 Options
 -------
 
-``--repo <repoid>``
-    Specify repo ids to query, can be specified multiple times (default is all enabled).
+``--arch <arch>``
+    Query only packages for specified architecture, can be specified multiple times (default is all architectures).
 
 ``--check <repoid>``
     Specify repo ids to check, can be specified multiple times (default is all enabled).
 
 ``--pkg <pkg``
     Check closure for this package only.
+
+``--repo <repoid>``
+    Specify repo ids to query, can be specified multiple times (default is all enabled).
 
 
 --------
@@ -55,9 +58,9 @@ Display list of unresolved dependencies for all enabled repositories::
 
     dnf repoclosure
 
-Display list of unresolved dependencies for rawhide repository::
+Display list of unresolved dependencies for rawhide repository and packages with architecture noarch and x86_64::
 
-    dnf repoclosure --repoid rawhide
+    dnf repoclosure --repoid rawhide --arch noarch --arch x86_64
 
 Display list of unresolved dependencies for zmap package from rawhide repository::
 
