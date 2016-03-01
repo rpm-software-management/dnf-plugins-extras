@@ -63,19 +63,24 @@ class RepoClosureCommand(dnf.cli.Command):
                     repo.enable()
 
     def run(self, args):
-        unresolved = self._get_unresolved()
+        if self.opts.arch:
+            unresolved = self._get_unresolved(self.opts.arch)
+        else:
+            unresolved = self._get_unresolved()
         for pkg in sorted(unresolved.keys()):
             print("package: {} from {}".format(str(pkg), pkg.reponame))
             print("  unresolved deps:")
             for dep in unresolved[pkg]:
                 print("    {}".format(dep))
 
-    def _get_unresolved(self):
+    def _get_unresolved(self, arch=None):
         unresolved = {}
 
         deps = set()
-
-        available = self.base.sack.query().available().filter(latest=True)
+        if arch:
+            available = self.base.sack.query().available().filter(latest=True).filter(arch=arch)
+        else:
+            available = self.base.sack.query().available().filter(latest=True)
         if self.opts.pkglist:
             pkgs = set()
             for pkg in self.opts.pkglist:
@@ -114,6 +119,8 @@ class RepoClosureCommand(dnf.cli.Command):
     def _parse_args(args):
         alias = RepoClosureCommand.aliases[0]
         parser = dnfpluginsextras.ArgumentParser(alias)
+        parser.add_argument("--arch", default=[], action='append',
+                            help='check packages of the given archs, can be specified multiple times')
         parser.add_argument("--repo", default=[], action="append",
                             help=_("Specify repositories to use"))
         parser.add_argument("--check", default=[], action="append",
