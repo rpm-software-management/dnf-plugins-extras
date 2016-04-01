@@ -77,17 +77,15 @@ class RepoClosureCommand(dnf.cli.Command):
         unresolved = {}
 
         deps = set()
-        if arch:
-            available = self.base.sack.query().available().filter(latest=True).filter(arch=arch)
-        else:
-            available = self.base.sack.query().available().filter(latest=True)
+        available = self.base.sack.query().available().filter(latest=True)
+        if arch is not None:
+            available = available.filter(arch=arch)
+        pkgs = set()
         if self.opts.pkglist:
-            pkgs = set()
             for pkg in self.opts.pkglist:
                 for pkgs_filtered in available.filter(name=pkg):
                     pkgs.add(pkgs_filtered)
         else:
-            pkgs = set()
             for pkgs_filtered in available.filter(latest=True):
                 pkgs.add(pkgs_filtered)
 
