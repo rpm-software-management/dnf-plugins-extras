@@ -86,7 +86,7 @@ class RepoClosureCommand(dnf.cli.Command):
                 for pkgs_filtered in available.filter(name=pkg):
                     pkgs.add(pkgs_filtered)
         else:
-            for pkgs_filtered in available.filter(latest=True):
+            for pkgs_filtered in available:
                 pkgs.add(pkgs_filtered)
 
         if self.opts.check:
