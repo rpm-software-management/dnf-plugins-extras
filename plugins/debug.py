@@ -202,8 +202,8 @@ class DebugRestoreCommand(dnf.cli.Command):
             help=_("Install the latest version of recorded packages."))
         parser.add_argument(
             "--ignore-arch", action="store_true",
-            help=_("Ignore architecture and install missing packages matching"
-                   + "the name, epoch, version and release."))
+            help=_("Ignore architecture and install missing packages matching "
+                   "the name, epoch, version and release."))
         parser.add_argument(
             "--filter-types", metavar="[install, remove, replace]",
             default="install, remove, replace",
