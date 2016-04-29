@@ -42,16 +42,10 @@ class RepoManage(dnf.Plugin):
 class RepoManageCommand(dnf.cli.Command):
     aliases = ("repomanage",)
     summary = _("Manage a directory of rpm packages")
-    usage = "[--old] [--new] path"
-
-    def __init__(self, args):
-        super(RepoManageCommand, self).__init__(args)
-        self.opts = None
 
     def configure(self, args):
         demands = self.cli.demands
         demands.sack_activation = True
-        self.opts = self._parse_args(args)
 
     def run(self, *kwargs):
         if self.opts.new and self.opts.old:
@@ -125,9 +119,7 @@ class RepoManageCommand(dnf.cli.Command):
                 print(pkg)
 
     @staticmethod
-    def _parse_args(args):
-        alias = RepoManageCommand.aliases[0]
-        parser = dnfpluginsextras.ArgumentParser(alias)
+    def set_argparser(parser):
         parser.add_argument("-o", "--old", action="store_true",
                             help=_("Print the older packages"))
         parser.add_argument("-n", "--new", action="store_true",
@@ -139,8 +131,6 @@ class RepoManageCommand(dnf.cli.Command):
                             default=1, type=int)
         parser.add_argument("path", action="store",
                             help=_("Path to directory"))
-
-        return parser.parse_args(args)
 
     @staticmethod
     def _get_file_list(path, ext):
