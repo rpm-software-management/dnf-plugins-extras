@@ -56,38 +56,24 @@ class KickstartCommand(dnf.cli.Command):
 
     aliases = ('kickstart',)
     summary = _("Install packages defined in a kickstart file on your system")
-    usage = _("FILE")
 
-    def doCheck(self, basecmd, extcmds):
-        """Verify that conditions are met so that this command can run."""
-        dnf.cli.commands.checkGPGKey(self.base, self.cli)
-        try:
-            self.parse_extcmds(extcmds)
-        except ValueError:
-            logger.critical(
-                _('Error: Requires exactly one path to a kickstart file'))
-            dnf.cli.commands.err_mini_usage(self.cli, basecmd)
-            raise dnf.cli.CliError(
-                _('exactly one path to a kickstart file required'))
-        dnf.cli.commands.checkEnabledRepo(self.base, extcmds)
-
-    @classmethod
-    def parse_extcmds(cls, extcmds):
-        """Parse command arguments *extcmds*."""
-        path, = extcmds
-        return path
+    @staticmethod
+    def set_argparser(parser):
+        parser.add_argument("filename", nargs=1,
+                                  help=_("kickstart file"))
 
     def configure(self, args):
         demands = self.cli.demands
         demands.resolving = True
         demands.root_user = True
         demands.sack_activation = True
+        dnf.cli.commands.checkGPGKey(self.base, self.cli)
+        dnf.cli.commands.checkEnabledRepo(self.base, self.opts.filename[0])
+
 
     def run(self, extcmds):
         """Execute the command."""
-        self.doCheck(self.base.basecmd, extcmds)
-
-        path = self.parse_extcmds(extcmds)
+        path = self.opts.filename[0]
 
         try:
             packages = parse_kickstart_packages(path)
