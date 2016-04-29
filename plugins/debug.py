@@ -53,7 +53,6 @@ class DebugDumpCommand(dnf.cli.Command):
 
     aliases = ("debug-dump",)
     summary = _("dump information about installed rpm packages to file")
-    usage = "[%s] [%s]" % (_("OPTIONS"), _("KEYWORDS"))
 
     def __init__(self, cli):
         super(DebugDumpCommand, self).__init__(cli)
@@ -64,29 +63,19 @@ class DebugDumpCommand(dnf.cli.Command):
         self.cli.demands.available_repos = True
 
     @staticmethod
-    def _parse_args(args):
-        parser = dnfpluginsextras.ArgumentParser(DebugDumpCommand.aliases[0])
+    def set_argparser(parser):
         parser.add_argument(
             "--norepos", action="store_true", default=False,
             help=_("do not attempt to dump the repository contents."))
         parser.add_argument(
             "filename", nargs="?",
             help=_("optional name of dump file"))
-        opts = parser.parse_args(args)
-        if opts.help_cmd:
-            print(parser.format_help())
-            return
-        return opts
 
     def run(self, args):
         """create debug txt file and compress it, if no filename specified
            use dnf_debug_dump-<timestamp>.txt.gz by default"""
-        opts = self._parse_args(args)
 
-        if not opts:
-            return
-
-        filename = opts.filename
+        filename = self.opts.filename
         if not filename:
             now = time.strftime("%Y-%m-%d_%T", time.localtime(time.time()))
             filename = "dnf_debug_dump-%s-%s.txt.gz" % (os.uname()[1], now)
@@ -101,7 +90,7 @@ class DebugDumpCommand(dnf.cli.Command):
         self.dump_system_info()
         self.dump_dnf_config_info()
         self.dump_rpm_problems()
-        self.dump_packages(not opts.norepos)
+        self.dump_packages(not self.opts.norepos)
         self.dump_rpmdb_versions()
         self.dump_file.close()
 
@@ -184,7 +173,6 @@ class DebugRestoreCommand(dnf.cli.Command):
 
     aliases = ("debug-restore",)
     summary = _("restore packages recorded in debug-dump file")
-    usage = "[%s] [%s]" % (_("OPTIONS"), _("KEYWORDS"))
 
     def configure(self, args):
         self.cli.demands.sack_activation = True
@@ -192,8 +180,7 @@ class DebugRestoreCommand(dnf.cli.Command):
         self.cli.demands.root_user = True
 
     @staticmethod
-    def _parse_args(args):
-        parser = dnfpluginsextras.ArgumentParser(DebugRestoreCommand.aliases[0])
+    def set_argparser(parser):
         parser.add_argument(
             "--output", action="store_true",
             help=_("output commands that would be run to stdout."))
@@ -210,31 +197,21 @@ class DebugRestoreCommand(dnf.cli.Command):
             help=_("limit to specified type"))
         parser.add_argument(
             "filename", nargs=1, help=_("name of dump file"))
-        opts = parser.parse_args(args)
-        if opts.help_cmd:
-            print(parser.format_help())
-            return
-        return opts
 
     def run(self, args):
         """Execute the command action here."""
-        opts = self._parse_args(args)
-
-        if not opts:
-            return
-
-        if opts.filter_types:
-            opts.filter_types = set(
-                opts.filter_types.replace(",", " ").split())
+        if self.opts.filter_types:
+            self.opts.filter_types = set(
+                self.opts.filter_types.replace(",", " ").split())
 
         installed = self.base.sack.query().installed()
-        dump_pkgs = self.read_dump_file(opts.filename[0])
+        dump_pkgs = self.read_dump_file(self.opts.filename[0])
 
-        self.process_installed(installed, dump_pkgs, opts)
+        self.process_installed(installed, dump_pkgs, self.opts)
 
-        self.process_dump(dump_pkgs, opts)
+        self.process_dump(dump_pkgs, self.opts)
 
-        if not opts.output:
+        if not self.opts.output:
             self.base.resolve()
             self.base.do_transaction()
 
