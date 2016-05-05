@@ -39,9 +39,8 @@ class TestRepoManageFunctions(support.TestCase):
 
     def test_old_option(self):
         args = ["--old", self.path]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_list = ["foo-4-6.src.rpm",
                              "foo-4-7.src.rpm",
                              "noarch/foo-4-6.noarch.rpm",
@@ -51,9 +50,8 @@ class TestRepoManageFunctions(support.TestCase):
 
     def test_new_option(self):
         args = ["--new", self.path]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_list = ["foo-4-8.src.rpm",
                              "noarch/foo-4-8.noarch.rpm"]
             self.assertEqual(stdout.getvalue().split(),
@@ -61,9 +59,8 @@ class TestRepoManageFunctions(support.TestCase):
 
     def test_keep_option(self):
         args = ["--new", "--keep", "2", self.path]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_list = ["foo-4-7.src.rpm",
                              "foo-4-8.src.rpm",
                              "noarch/foo-4-7.noarch.rpm",
@@ -73,9 +70,8 @@ class TestRepoManageFunctions(support.TestCase):
 
     def test_space_option(self):
         args = ["--new", "--space", self.path]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_list = ["foo-4-8.src.rpm",
                              "noarch/foo-4-8.noarch.rpm"]
             self.assertEqual(stdout.getvalue()[:-1],
