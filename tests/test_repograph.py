@@ -37,15 +37,14 @@ class TestRepoGraphFunctions(support.TestCase):
         args = ["--repo", "main"]
         self.cmd.base.repos.add(support.RepoStub("main"))
         self.cmd.base.repos.add(support.RepoStub("main_fail"))
-        self.cmd.configure(args)
+        support.command_configure(self.cmd, args)
         repos = [repo.id for repo in self.cmd.base.repos.iter_enabled()]
         self.assertEqual(["main"], repos)
 
     def test_header(self):
         args = []
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_graph = ["digraph packages {", repograph.DOT_HEADER, "}\n"]
             self.assertEqual(stdout.getvalue(), "\n".join(expected_graph))
 
@@ -55,9 +54,8 @@ class TestRepoGraphFunctions(support.TestCase):
             "noarch/foo-4-6.noarch.rpm")])
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/bar-4-6.noarch.rpm")])
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_graph = ["digraph packages {", repograph.DOT_HEADER,
                 '"foo" [color="0.526086956522 0.626086956522 1.0"];',
                 '"foo" -> {',
