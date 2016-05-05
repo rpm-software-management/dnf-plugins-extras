@@ -97,11 +97,11 @@ class VersionLockCommand(dnf.cli.Command):
                             metavar="[<package-nevr-spec>]")
 
 
-    def configure(self, args):
+    def configure(self):
         self.cli.demands.sack_activation = True
         self.cli.demands.available_repos = True
 
-    def run(self, args):
+    def run(self):
         cmd = 'list'
         if self.opts.subcommand:
             if self.opts.subcommand not in ALL_CMDS:

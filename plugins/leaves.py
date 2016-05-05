@@ -150,6 +150,6 @@ class LeavesCommand(dnf.cli.Command):
         (packages, depends, rdepends) = self.buildgraph()
         return [packages[i] for i in self.kosaraju(depends, rdepends)]
 
-    def run(self, args):
+    def run(self):
         for pkg in sorted(map(str, self.findleaves())):
             print(pkg)

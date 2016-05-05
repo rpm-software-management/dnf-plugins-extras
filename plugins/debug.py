@@ -58,7 +58,7 @@ class DebugDumpCommand(dnf.cli.Command):
         super(DebugDumpCommand, self).__init__(cli)
         self.dump_file = None
 
-    def configure(self, args):
+    def configure(self):
         self.cli.demands.sack_activation = True
         self.cli.demands.available_repos = True
 
@@ -71,7 +71,7 @@ class DebugDumpCommand(dnf.cli.Command):
             "filename", nargs="?",
             help=_("optional name of dump file"))
 
-    def run(self, args):
+    def run(self):
         """create debug txt file and compress it, if no filename specified
            use dnf_debug_dump-<timestamp>.txt.gz by default"""
 
@@ -174,7 +174,7 @@ class DebugRestoreCommand(dnf.cli.Command):
     aliases = ("debug-restore",)
     summary = _("restore packages recorded in debug-dump file")
 
-    def configure(self, args):
+    def configure(self):
         self.cli.demands.sack_activation = True
         self.cli.demands.available_repos = True
         self.cli.demands.root_user = True
@@ -198,7 +198,7 @@ class DebugRestoreCommand(dnf.cli.Command):
         parser.add_argument(
             "filename", nargs=1, help=_("name of dump file"))
 
-    def run(self, args):
+    def run(self):
         """Execute the command action here."""
         if self.opts.filter_types:
             self.opts.filter_types = set(

@@ -43,11 +43,11 @@ class RepoManageCommand(dnf.cli.Command):
     aliases = ("repomanage",)
     summary = _("Manage a directory of rpm packages")
 
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.sack_activation = True
 
-    def run(self, *kwargs):
+    def run(self):
         if self.opts.new and self.opts.old:
             raise dnf.exceptions.Error(_("Pass either --old or --new, not both!"))
 

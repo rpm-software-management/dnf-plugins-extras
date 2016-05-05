@@ -62,7 +62,7 @@ class KickstartCommand(dnf.cli.Command):
         parser.add_argument("filename", nargs=1,
                                   help=_("kickstart file"))
 
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.resolving = True
         demands.root_user = True
@@ -71,7 +71,7 @@ class KickstartCommand(dnf.cli.Command):
         dnf.cli.commands.checkEnabledRepo(self.base, self.opts.filename[0])
 
 
-    def run(self, extcmds):
+    def run(self):
         """Execute the command."""
         path = self.opts.filename[0]
 

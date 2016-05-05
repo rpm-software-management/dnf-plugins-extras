@@ -45,7 +45,7 @@ class RepoClosureCommand(dnf.cli.Command):
     aliases = ("repoclosure",)
     summary = _("Display a list of unresolved dependencies for repositories")
 
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.sack_activation = True
         demands.available_repos = True
@@ -56,7 +56,7 @@ class RepoClosureCommand(dnf.cli.Command):
                 else:
                     repo.enable()
 
-    def run(self, args):
+    def run(self):
         if self.opts.arch:
             unresolved = self._get_unresolved(self.opts.arch)
         else:

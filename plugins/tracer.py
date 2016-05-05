@@ -84,7 +84,7 @@ class TracerCommand(dnf.cli.Command):
     def set_argparser(parser):
         parser.add_argument("args", nargs="*")
 
-    def run(self, args):
+    def run(self):
         """Called after running `dnf tracer ...`"""
         args = ["tracer"] + self.opts.args
         process = subprocess.Popen(

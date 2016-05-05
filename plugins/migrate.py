@@ -77,7 +77,7 @@ class MigrateCommand(dnf.cli.Command):
     aliases = ("migrate",)
     summary = _("migrate yum's history, group and yumdb data to dnf")
 
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.available_repos = True
         demands.sack_activation = True
@@ -94,7 +94,7 @@ class MigrateCommand(dnf.cli.Command):
                             default="all",
                             help=_("which kind of yum data migrate."))
 
-    def run(self, args):
+    def run(self):
         if "history" in self.opts.migrate:
             self.migrate_history()
 

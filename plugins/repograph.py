@@ -53,7 +53,7 @@ class RepoGraphCommand(dnf.cli.Command):
     aliases = ("repograph", "repo-graph",)
     summary = _("Output a full package dependency graph in dot format")
 
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.sack_activation = True
         demands.available_repos = True
@@ -64,7 +64,7 @@ class RepoGraphCommand(dnf.cli.Command):
                 else:
                     repo.enable()
 
-    def run(self, args):
+    def run(self):
         self.do_dot(DOT_HEADER)
 
     def do_dot(self, header):
