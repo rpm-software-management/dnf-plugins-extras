@@ -20,6 +20,7 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import dnf
+import dnf.cli.option_parser
 import logging
 import sys
 import unittest
@@ -32,6 +33,17 @@ if PY3:
     from unittest import mock
 else:
     from . import mock
+
+def command_configure(cmd, args):
+    parser = dnf.cli.option_parser.OptionParser()
+    args = [cmd.basecmd] + args
+    parser.parse_main_args(args)
+    parser.parse_command_args(cmd, args)
+    return cmd.configure()
+
+def command_run(cmd, args):
+    command_configure(cmd, args)
+    return cmd.run()
 
 class BaseStub(object):
     def __init__(self):

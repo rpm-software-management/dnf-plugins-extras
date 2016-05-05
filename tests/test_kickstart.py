@@ -98,34 +98,22 @@ class KickstartCommandTest(_KickstartCommandFixture, unittest.TestCase):
         super(KickstartCommandTest, self).tearDown()
         self._command.cli.logger.removeHandler(self._log_handler)
 
-    @support.mock.patch('dnf.cli.commands._', dnf.pycomp.NullTranslations().ugettext)
-    def test_doCheck_moreextcmds(self):
-        """Test whether it fails if multiple arguments are given."""
-        self.assertRaises(
-                dnf.cli.CliError,
-                self._command.doCheck, 'kickstart', ('path1.ks', 'path2.ks'))
-        self.assertEqual(
-            self._log_handler.stream.getvalue(),
-            u'Error: Requires exactly one path to a kickstart file\n '
-            u'Mini usage:\n\nkickstart FILE\n\n'
-            u'Install packages defined in a kickstart file on your system\n')
-
     def test_run_group(self):
         """Test whether the group is installed."""
-        self._command.run([self._path])
+        support.command_run(self._command, [self._path])
         self.assertEqual(self._command.cli.base.installed_groups, {self.KICKSTART_GROUP})
 
     def test_run_morepaths(self):
         """Test whether it fails if multiple paths are given."""
-        self.assertRaises(dnf.cli.CliError, self._command.run, ['path1.ks', 'path2.ks'])
+        self.assertRaises(SystemExit, support.command_run, self._command, ['path1.ks', 'path2.ks'])
 
     def test_run_notfound(self):
         """Test whether it fails if the path does not exist."""
-        self.assertRaises(dnf.exceptions.Error, self._command.run, ['non-existent.ks'])
+        self.assertRaises(dnf.exceptions.Error, support.command_run, self._command, ['non-existent.ks'])
 
     def test_run_package(self):
         """Test whether the package is installed."""
-        self._command.run([self._path])
+        support.command_run(self._command, [self._path])
         self.assertEqual(self._command.cli.base.installed_pkgs, {self.KICKSTART_PACKAGE})
 
 @unittest.skipIf(support.PY3, "pykickstart not available in Py3")
@@ -136,7 +124,7 @@ class KickstartCommandNoCompAGroupTest(_KickstartCommandFixture, unittest.TestCa
 
     def test_run(self):
         """Test whether it fails."""
-        self.assertRaises(dnf.exceptions.Error, self._command.run, [self._path])
+        self.assertRaises(dnf.exceptions.Error, support.command_run, self._command, [self._path])
 
 @unittest.skipIf(support.PY3, "pykickstart not available in Py3")
 class KickstartCommandNoCompNoGroupTest(_KickstartCommandFixture, unittest.TestCase):
@@ -149,7 +137,7 @@ class KickstartCommandNoCompNoGroupTest(_KickstartCommandFixture, unittest.TestC
     def test_run(self):
         """Test whether it does not fail."""
         try:
-            self._command.run([self._path])
+            support.command_run(self._command, [self._path])
         except dnf.exceptions.Error:
             self.fail()
 
@@ -175,7 +163,7 @@ class KickstartCommandNotAvailableTest(_KickstartCommandFixture, unittest.TestCa
 
     def test_run(self):
         """Test whether it fails."""
-        self.assertRaises(dnf.exceptions.Error, self._command.run, [self._path])
+        self.assertRaises(dnf.exceptions.Error, support.command_run, self._command, [self._path])
 
         self.assertEqual(
             self._log_handler.stream.getvalue(),
