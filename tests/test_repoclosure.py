@@ -37,7 +37,7 @@ class TestRepoClosureFunctions(support.TestCase):
         args = ["--repo", "main"]
         self.cmd.base.repos.add(support.RepoStub("main"))
         self.cmd.base.repos.add(support.RepoStub("main_fail"))
-        self.cmd.configure(args)
+        support.command_configure(self.cmd, args)
         repos = [repo.id for repo in self.cmd.base.repos.iter_enabled()]
         self.assertEqual(["main"], repos)
 
@@ -46,43 +46,38 @@ class TestRepoClosureFunctions(support.TestCase):
         self.cmd.base.repos.add(support.RepoStub("main"))
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
             self.assertEqual(stdout.getvalue()[:-1], "\n".join(expected_out))
         args = ["--check", "main"]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             self.assertEmpty(stdout.getvalue())
 
     def test_pkg_option(self):
         args = ["--pkg", "foo"]
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
             self.assertEqual(stdout.getvalue()[:-1], "\n".join(expected_out))
         args = ["--pkg", "bar"]
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             self.assertEmpty(stdout.getvalue())
 
     def test_base(self):
         args = []
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
-        self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            self.cmd.run(args)
+            support.command_run(self.cmd, args)
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
