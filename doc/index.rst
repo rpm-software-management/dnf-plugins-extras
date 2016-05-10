@@ -46,6 +46,9 @@ See Also
 * `DNF project homepage <https://github.com/rpm-software-management/dnf/>`_
 * `Core DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-core/>`_
 * `Extras DNF Plugins project homepage <https://github.com/rpm-software-management/dnf-plugins-extras/>`_
+* `DNF documentation <https://dnf.readthedocs.org/en/latest/>`_
+* `DNF Plugins Core documentation <https://dnf-plugins-core.readthedocs.org/en/latest/>`_
+* `Hawkey documentation <https://hawkey.readthedocs.org/en/latest/>`_
 
 ==================
 Indices and tables
