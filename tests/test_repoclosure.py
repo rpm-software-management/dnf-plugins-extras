@@ -44,8 +44,8 @@ class TestRepoClosureFunctions(support.TestCase):
     def test_check_option(self):
         args = ["--check", "@commandline"]
         self.cmd.base.repos.add(support.RepoStub("main"))
-        self.cmd.base.add_remote_rpm(os.path.join(self.path,
-            "noarch/foo-4-6.noarch.rpm"))
+        self.cmd.base.add_remote_rpms([os.path.join(self.path,
+            "noarch/foo-4-6.noarch.rpm")])
         self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
             self.cmd.run(args)
@@ -61,8 +61,8 @@ class TestRepoClosureFunctions(support.TestCase):
 
     def test_pkg_option(self):
         args = ["--pkg", "foo"]
-        self.cmd.base.add_remote_rpm(os.path.join(self.path,
-            "noarch/foo-4-6.noarch.rpm"))
+        self.cmd.base.add_remote_rpms([os.path.join(self.path,
+            "noarch/foo-4-6.noarch.rpm")])
         self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
             self.cmd.run(args)
@@ -78,8 +78,8 @@ class TestRepoClosureFunctions(support.TestCase):
 
     def test_base(self):
         args = []
-        self.cmd.base.add_remote_rpm(os.path.join(self.path,
-            "noarch/foo-4-6.noarch.rpm"))
+        self.cmd.base.add_remote_rpms([os.path.join(self.path,
+            "noarch/foo-4-6.noarch.rpm")])
         self.cmd.configure(args)
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
             self.cmd.run(args)

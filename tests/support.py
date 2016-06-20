@@ -38,9 +38,12 @@ class BaseStub(object):
         self.sack = dnf.sack.Sack()
         self.repos = dnf.repodict.RepoDict()
 
-    def add_remote_rpm(self, path):
+    def add_remote_rpms(self, path_list):
         self.sack.create_cmdline_repo()
-        return self.sack.add_cmdline_package(path)
+        pkgs = []
+        for path in path_list:
+            pkgs.append(self.sack.add_cmdline_package(path))
+        return pkgs
 
 class BaseCliStub(object):
     """A class mocking `dnf.cli.cli.BaseCli`."""
