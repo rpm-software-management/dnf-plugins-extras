@@ -67,11 +67,10 @@ class RepoManageCommand(dnf.cli.Command):
         if len(rpm_list) == 0:
             raise dnf.exceptions.Error(_("No files to process"))
 
-        for pkg in rpm_list:
-            try:
-                self.base.add_remote_rpm(pkg)
-            except IOError:
-                dnfpluginsextras.logger.warning(_("Could not open {}").format(pkg))
+        try:
+            self.base.add_remote_rpms(rpm_list)
+        except IOError:
+            dnfpluginsextras.logger.warning(_("Could not open {}").format(', '.join(rpm_list)))
 
         packages = [x for x in self.base.sack.query().available()]
         packages.sort()
