@@ -17,6 +17,7 @@
 # Red Hat, Inc.
 #
 
+import sys
 from dnfpluginsextras import _, logger
 
 import dnf
@@ -30,8 +31,30 @@ class Rpmconf(dnf.Plugin):
         super().__init__(base, cli)
         self.base = base
         self.packages = []
+        self.frontend = None
+        self.diff = None
+
+    def config(self):
+        self._interactive = True
+        if (not sys.stdin or not sys.stdin.isatty()):
+            self._interactive = False
+
+        conf = self.read_config(self.base.conf)
+
+        if conf.has_option('main', 'diff'):
+            self.diff = conf.getboolean('main', 'diff')
+        else:
+            self.diff = False
+
+        if conf.has_option('main', 'frontend'):
+            self.frontend = conf.get('main', 'frontend')
+        else:
+            self.frontend = None
 
     def resolved(self):
+        if not self._interactive:
+            return
+
         tmp = []
         for trans_item in self.base.transaction:
             tmp.append(trans_item.installs())
@@ -43,5 +66,13 @@ class Rpmconf(dnf.Plugin):
                 self.packages.append(pkg.name)
 
     def transaction(self):
-        rconf = rpmconf.RpmConf(packages=self.packages)
+        if not self._interactive:
+            logger.debug(_("rpmconf plugin will not run "
+                           "in non-interactive mode"))
+            return
+
+        rconf = rpmconf.RpmConf(
+            packages=self.packages,
+            frontend=self.frontend,
+            diff=self.diff)
         rconf.run()

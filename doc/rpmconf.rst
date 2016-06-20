@@ -20,7 +20,7 @@
 DNF rpmconf Plugin
 ==================
 
-Handles .rpmnew, .rpmsave after transactions. The user is not supposed to interact with the plugin in any way.
+Handles .rpmnew, .rpmsave and .rpmorig after transactions.
 
 -------------
 Configuration
@@ -32,3 +32,23 @@ The minimal plugin configuration file should consists of `[main]` section with `
 
   [main]
   enabled = 1
+
+[main] section optional parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``frontend``
+    string, default: ``env``
+
+    Defines which frontend should be used for merging. For list of valid frontends see :manpage:`rpmconf(8)`.
+    When set to ``env``, the command to use is taken from the environment variable $MERGE.
+
+``diff``
+    boolean, default: False
+
+    Defines whether plugin should only display file differences.
+
+--------
+See Also
+--------
+
+:manpage:`rpmconf(8)`.
