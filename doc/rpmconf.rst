@@ -21,3 +21,14 @@ DNF rpmconf Plugin
 ==================
 
 Handles .rpmnew, .rpmsave after transactions. The user is not supposed to interact with the plugin in any way.
+
+-------------
+Configuration
+-------------
+
+``/etc/dnf/plugins/rpmconf.conf``
+
+The minimal plugin configuration file should consists of `[main]` section with `enabled` parameter.::
+
+  [main]
+  enabled = 1
