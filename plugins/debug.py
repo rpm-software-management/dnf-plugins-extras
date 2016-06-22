@@ -175,7 +175,7 @@ class DebugDumpCommand(dnf.cli.Command):
 
     def dump_rpmdb_versions(self):
         self.write("%%%%RPMDB VERSIONS\n")
-        version = self.base.sack.rpmdb_version(self.base.yumdb)
+        version = self.base.sack._rpmdb_version(self.base.yumdb)
         self.write("  all: %s\n" % version)
         return
 
