@@ -36,7 +36,9 @@ class Rpmconf(dnf.Plugin):
 
     def config(self):
         self._interactive = True
-        if (not sys.stdin or not sys.stdin.isatty()):
+        if (not sys.stdin or not sys.stdin.isatty()) \
+                or self.base.conf.assumeyes \
+                or self.base.conf.assumeno:
             self._interactive = False
 
         conf = self.read_config(self.base.conf)
