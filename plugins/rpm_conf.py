@@ -77,4 +77,14 @@ class Rpmconf(dnf.Plugin):
             packages=self.packages,
             frontend=self.frontend,
             diff=self.diff)
-        rconf.run()
+        try:
+            rconf.run()
+        except SystemExit as e:
+            if e.code == 2:
+                logger.debug(
+                    _("ignoring sys.exit from rpmconf "
+                      "due to missing MERGE variable"))
+            elif e.code == 4:
+                logger.debug(
+                    _("ignoring sys.exit from rpmconf "
+                      "due to missing file"))
