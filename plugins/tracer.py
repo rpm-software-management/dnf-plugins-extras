@@ -94,9 +94,8 @@ def _print_output(out, err):
         print("Tracer:")
         print("  " + _("Program 'tracer' crashed with following error:") + "\n")
         print(err)
-        print(_("Please visit ") +
-              "https://github.com/FrostyX/tracer/issues " +
-              "and submit the issue. Thank you")
+        print(_("Please visit https://github.com/FrostyX/tracer/issues "
+                "and submit the issue. Thank you"))
         print(_("We apologize for any inconvenience"))
         return
 
