@@ -18,6 +18,7 @@
 #
 
 import sys
+import errno
 from dnfpluginsextras import _, logger
 
 import dnf
@@ -80,11 +81,11 @@ class Rpmconf(dnf.Plugin):
         try:
             rconf.run()
         except SystemExit as e:
-            if e.code == 2:
+            if e.code == errno.ENOENT:
                 logger.debug(
                     _("ignoring sys.exit from rpmconf "
                       "due to missing MERGE variable"))
-            elif e.code == 4:
+            elif e.code == errno.EINTR:
                 logger.debug(
                     _("ignoring sys.exit from rpmconf "
                       "due to missing file"))

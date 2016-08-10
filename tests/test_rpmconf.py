@@ -18,6 +18,7 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import errno
 import os
 from shutil import rmtree
 
@@ -143,7 +144,7 @@ class TestRpmConf(unittest.TestCase):
                 rpmconf.frontent = 'env'
                 rpmconf.run()
             except SystemExit as e:
-                if e.code in (2, 4):
+                if e.code in (errno.ENOENT, errno.EINTR):
                     self.fail("rpmconf has exited prematurely in the merge phase")
                 else:
                     self.fail(
