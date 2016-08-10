@@ -89,7 +89,7 @@ class Local(dnf.Plugin):
         self.logger = dnfpluginsextras.logger
 
     def config(self):
-        conf = self.read_config(self.base.conf, "local")
+        conf = self.read_config(self.base.conf)
 
         parser = LocalConfParse(conf)
         try:

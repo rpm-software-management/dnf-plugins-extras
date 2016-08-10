@@ -29,7 +29,6 @@ import os
 import tempfile
 import time
 
-PLUGIN_CONF = 'versionlock'
 NOT_READABLE = _('Unable to read version lock configuration: %s')
 NO_LOCKLIST = _('Locklist not set')
 ADDING_SPEC = _('Adding versionlock on:')
@@ -52,7 +51,7 @@ class VersionLock(dnf.Plugin):
 
     def config(self):
         global locklist_fn
-        cp = self.read_config(self.base.conf, PLUGIN_CONF)
+        cp = self.read_config(self.base.conf)
         locklist_fn = cp.get('main','locklist')
 
     def sack(self):
