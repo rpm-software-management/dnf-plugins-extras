@@ -17,6 +17,8 @@
 # Red Hat, Inc.
 #
 
+import sys
+import errno
 from dnfpluginsextras import _, logger
 
 import dnf
@@ -30,8 +32,32 @@ class Rpmconf(dnf.Plugin):
         super().__init__(base, cli)
         self.base = base
         self.packages = []
+        self.frontend = None
+        self.diff = None
+
+    def config(self):
+        self._interactive = True
+        if (not sys.stdin or not sys.stdin.isatty()) \
+                or self.base.conf.assumeyes \
+                or self.base.conf.assumeno:
+            self._interactive = False
+
+        conf = self.read_config(self.base.conf)
+
+        if conf.has_option('main', 'diff'):
+            self.diff = conf.getboolean('main', 'diff')
+        else:
+            self.diff = False
+
+        if conf.has_option('main', 'frontend'):
+            self.frontend = conf.get('main', 'frontend')
+        else:
+            self.frontend = None
 
     def resolved(self):
+        if not self._interactive:
+            return
+
         tmp = []
         for trans_item in self.base.transaction:
             tmp.append(trans_item.installs())
@@ -43,5 +69,23 @@ class Rpmconf(dnf.Plugin):
                 self.packages.append(pkg.name)
 
     def transaction(self):
-        rconf = rpmconf.RpmConf(packages=self.packages)
-        rconf.run()
+        if not self._interactive:
+            logger.debug(_("rpmconf plugin will not run "
+                           "in non-interactive mode"))
+            return
+
+        rconf = rpmconf.RpmConf(
+            packages=self.packages,
+            frontend=self.frontend,
+            diff=self.diff)
+        try:
+            rconf.run()
+        except SystemExit as e:
+            if e.code == errno.ENOENT:
+                logger.debug(
+                    _("ignoring sys.exit from rpmconf "
+                      "due to missing MERGE variable"))
+            elif e.code == errno.EINTR:
+                logger.debug(
+                    _("ignoring sys.exit from rpmconf "
+                      "due to missing file"))
