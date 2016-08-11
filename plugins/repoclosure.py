@@ -44,25 +44,19 @@ class RepoClosure(dnf.Plugin):
 class RepoClosureCommand(dnf.cli.Command):
     aliases = ("repoclosure",)
     summary = _("Display a list of unresolved dependencies for repositories")
-    usage = "[--arch <arch>] [--check <repoid>] [--pkg <pkg>] [--repo <repoid>]"
 
-    def __init__(self, args):
-        super(RepoClosureCommand, self).__init__(args)
-        self.opts = None
-
-    def configure(self, args):
+    def configure(self):
         demands = self.cli.demands
         demands.sack_activation = True
         demands.available_repos = True
-        self.opts = self._parse_args(args)
-        if len(self.opts.repo) > 0:
+        if self.opts.repo:
             for repo in self.base.repos.all():
                 if repo.id not in self.opts.repo and repo.id not in self.opts.check:
                     repo.disable()
                 else:
                     repo.enable()
 
-    def run(self, args):
+    def run(self):
         if self.opts.arch:
             unresolved = self._get_unresolved(self.opts.arch)
         else:
@@ -114,19 +108,11 @@ class RepoClosureCommand(dnf.cli.Command):
         return {k: v for k, v in unresolved_transition.items() if v}
 
     @staticmethod
-    def _parse_args(args):
-        alias = RepoClosureCommand.aliases[0]
-        parser = dnfpluginsextras.ArgumentParser(alias)
+    def set_argparser(parser):
         parser.add_argument("--arch", default=[], action="append",
                             help="check packages of the given archs, can be specified multiple times")
-        parser.add_argument("--repo", default=[], action="append",
-                            help=_("Specify repositories to use"))
         parser.add_argument("--check", default=[], action="append",
                             help=_("Specify repositories to check"))
-        # make --repoid hidden compatibility alias for --repo
-        parser.add_argument("--repoid", default=[], action="append",
-                            dest="repo", help=argparse.SUPPRESS)
         parser.add_argument("--pkg", default=[], action="append",
                             help=_("Check closure for this package only"),
                             dest="pkglist")
-        return parser.parse_args(args)

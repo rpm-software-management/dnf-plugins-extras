@@ -89,35 +89,37 @@ class VersionLockCommand(dnf.cli.Command):
     summary = _("control package version locks")
     usage = "[add|exclude|list|delete|clear] [<package-nevr-spec>]"
 
-    def __init__(self, cli):
-        super(VersionLockCommand, self).__init__(cli)
-        self.cli = cli
+    @staticmethod
+    def set_argparser(parser):
+        parser.add_argument("subcommand", nargs='?',
+                            metavar="[add|exclude|list|delete|clear]")
+        parser.add_argument("package", nargs='*',
+                            metavar="[<package-nevr-spec>]")
 
-    def configure(self, args):
+
+    def configure(self):
         self.cli.demands.sack_activation = True
         self.cli.demands.available_repos = True
 
-    def run(self, args):
+    def run(self):
         cmd = 'list'
-        if args:
-            if args[0] not in ALL_CMDS:
+        if self.opts.subcommand:
+            if self.opts.subcommand not in ALL_CMDS:
                 cmd = 'add'
-            elif args[0] in EXC_CMDS:
+                self.opts.package.insert(0, self.opts.subcommand)
+            elif self.opts.subcommand in EXC_CMDS:
                 cmd = 'exclude'
-                args = args[1:]
-            elif args[0] in DEL_CMDS:
+            elif self.opts.subcommand in DEL_CMDS:
                 cmd = 'delete'
-                args = args[1:]
             else:
-                cmd = args[0]
-                args = args[1:]
+                cmd = self.opts.subcommand
 
         if cmd == 'add':
-            _write_locklist(self.base, args, True,
+            _write_locklist(self.base, self.opts.package, True,
                             "\n# Added locks on %s\n" % time.ctime(),
                             ADDING_SPEC, '')
         elif cmd == 'exclude':
-            _write_locklist(self.base, args, False,
+            _write_locklist(self.base, self.opts.package, False,
                             "\n# Added exclude on %s\n" % time.ctime(),
                             EXCLUDING_SPEC, '!')
         elif cmd == 'list':
@@ -134,7 +136,7 @@ class VersionLockCommand(dnf.cli.Command):
             count = 0
             with os.fdopen(out, 'w', -1) as out:
                 for ent in locked_specs:
-                    if _match(ent, args):
+                    if _match(ent, self.opts.package):
                         logger.info("%s %s", DELETING_SPEC, ent)
                         count += 1
                         continue

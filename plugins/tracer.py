@@ -80,9 +80,13 @@ class TracerCommand(dnf.cli.Command):
     """DNF tracer plugin"""
     aliases = ["tracer"]
 
-    def run(self, args):
+    @staticmethod
+    def set_argparser(parser):
+        parser.add_argument("args", nargs="*")
+
+    def run(self):
         """Called after running `dnf tracer ...`"""
-        args = ["tracer"] + args
+        args = ["tracer"] + self.opts.args
         process = subprocess.Popen(
             args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
