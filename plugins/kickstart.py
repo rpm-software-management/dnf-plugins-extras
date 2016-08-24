@@ -67,7 +67,7 @@ class KickstartCommand(dnf.cli.Command):
         demands.resolving = True
         demands.root_user = True
         demands.sack_activation = True
-        dnf.cli.commands.checkGPGKey(self.base, self.cli)
+        dnf.cli.commands._checkGPGKey(self.base, self.cli)
         dnf.cli.commands.checkEnabledRepo(self.base, self.opts.filename[0])
 
 
