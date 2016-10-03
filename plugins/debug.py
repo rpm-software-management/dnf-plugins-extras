@@ -111,7 +111,7 @@ class DebugDumpCommand(dnf.cli.Command):
 
     def dump_dnf_config_info(self):
         var = self.base.conf.substitutions
-        plugins = ",".join([p.name for p in self.base.plugins.plugins])
+        plugins = ",".join(p.name for p in self.base.plugins.plugins)
         self.write("%%%%DNF INFO\n")
         self.write("  arch: %s\n" % var["arch"])
         self.write("  basearch: %s\n" % var["basearch"])
@@ -124,11 +124,11 @@ class DebugDumpCommand(dnf.cli.Command):
     def dump_rpm_problems(self):
         self.write("%%%%RPMDB PROBLEMS\n")
         (missing, conflicts) = rpm_problems(self.base)
-        self.write("".join(["Package %s requires %s\n" % (ucd(pkg), ucd(req))
-                            for (req, pkg) in missing]))
-        self.write("".join(["Package %s conflicts with %s\n" % (ucd(pkg),
-                                                                ucd(conf))
-                            for (conf, pkg) in conflicts]))
+        self.write("".join("Package %s requires %s\n" % (ucd(pkg), ucd(req))
+                           for (req, pkg) in missing))
+        self.write("".join("Package %s conflicts with %s\n" % (ucd(pkg),
+                                                               ucd(conf))
+                           for (conf, pkg) in conflicts))
 
 
     def dump_packages(self, load_repos):
@@ -307,10 +307,10 @@ def rpm_problems(base):
     requires = set()
     conflicts = set()
     for pkg in allpkgs:
-        requires.update([(req, pkg) for req in pkg.requires
-                         if not str(req) == "solvable:prereqmarker"
-                         and not str(req).startswith("rpmlib(")])
-        conflicts.update([(conf, pkg) for conf in pkg.conflicts])
+        requires.update((req, pkg) for req in pkg.requires
+                        if not str(req) == "solvable:prereqmarker"
+                        and not str(req).startswith("rpmlib("))
+        conflicts.update((conf, pkg) for conf in pkg.conflicts)
 
     missing_requires = [(req, pkg) for (req, pkg) in requires
                         if not allpkgs.filter(provides=req)]

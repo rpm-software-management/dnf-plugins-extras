@@ -39,8 +39,8 @@ def is_erasing(transaction, pkg):
       bool: True if pkg removes by transaction, False otherwise.
 
     """
-    installed = set([package.name for package in transaction.install_set])
-    erased = set([package.name for package in transaction.remove_set])
+    installed = set(package.name for package in transaction.install_set)
+    erased = set(package.name for package in transaction.remove_set)
 
     # Don't run tracer when uninstalling it
     if pkg in erased - installed:
