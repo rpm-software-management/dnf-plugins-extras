@@ -23,9 +23,12 @@
 from __future__ import absolute_import
 
 import time
+import traceback
 import dnf.cli
+import dnf.util
 import dnfpluginsextras
-import subprocess
+from tracer import Query, Package
+from tracer.views.default import DefaultView
 
 _ = dnfpluginsextras._
 
@@ -64,16 +67,18 @@ class Tracer(dnf.Plugin):
                          self.base.transaction.install_set])
         erased = set([package.name for package in
                       self.base.transaction.remove_set])
+        packages = [Package(p, time.time()) for p in list(installed | erased)]
 
-        args = ["tracer", "-n"] + list(installed | erased)
-        process = subprocess.Popen(
-            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        out, err = process.communicate()
-        _print_output(out, err)
+        try:
+            tracer = TracerFacade(packages)
+            tracer.render()
 
-        if len(out) != 0:
-            print("\n" + _("For more information run:"))
-            print("    sudo tracer -iat " + str(self.timestamp))
+            if len(tracer.apps) != 0:
+                print("\n" + _("For more information run:"))
+                print("    sudo tracer -iat " + str(self.timestamp))
+
+        except Exception:
+            render_error(traceback.format_exc())
 
 
 class TracerCommand(dnf.cli.Command):
@@ -93,21 +98,33 @@ class TracerCommand(dnf.cli.Command):
         _print_output(out, err)
 
 
-def _print_output(out, err):
-    if len(err) != 0:
-        print("Tracer:")
-        print("  " + _("Program 'tracer' crashed with following error:") + "\n")
-        print(err)
-        print(_("Please visit https://github.com/FrostyX/tracer/issues "
-                "and submit the issue. Thank you"))
-        print(_("We apologize for any inconvenience"))
-        return
+class TracerFacade(object):
+    def __init__(self, packages, args=None):
+        self.apps = self.get_apps(packages)
+        self.args = args
 
-    if len(out) == 0:
-        print(_("You should restart:"))
-        print("  " + _("Nothing needs to be restarted"))
-        return
+    def get_apps(self, packages):
+        query = Query()
+        return query.from_packages(packages).now().affected_applications().get()
 
-    # Last value is blank line
-    for line in out.decode("utf8").split("\n")[:-1]:
-        print(line)
+    def render(self):
+        if len(self.apps) == 0:
+            print(_("You should restart:"))
+            print("  " + _("Nothing needs to be restarted"))
+            return
+
+        # @TODO It is not in the Tracer API yet
+        args = self.args if self.args else dnf.util.Bunch(all=False, quiet=False)
+        view = DefaultView()
+        view.assign("applications", self.apps)
+        view.assign("args", args)
+        return view.render()
+
+
+def render_error(err):
+    print("Tracer:")
+    print("  " + _("Program 'tracer' crashed with following error:") + "\n")
+    print(err)
+    print(_("Please visit https://github.com/FrostyX/tracer/issues "
+            "and submit the issue. Thank you"))
+    print(_("We apologize for any inconvenience"))
