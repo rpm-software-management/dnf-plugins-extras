@@ -85,17 +85,10 @@ class TracerCommand(dnf.cli.Command):
     """DNF tracer plugin"""
     aliases = ["tracer"]
 
-    @staticmethod
-    def set_argparser(parser):
-        parser.add_argument("args", nargs="*")
-
     def run(self):
         """Called after running `dnf tracer ...`"""
-        args = ["tracer"] + self.opts.args
-        process = subprocess.Popen(
-            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        out, err = process.communicate()
-        _print_output(out, err)
+        print("This plugin calls Tracer after every successful transaction.\n"
+              "If you want to check outdated applications manually, please run standalone `tracer` command.")
 
 
 class TracerFacade(object):
