@@ -116,7 +116,7 @@ class TracerFacade(object):
 
 def render_error(err):
     print("Tracer:")
-    print("  " + _("Program 'tracer' crashed with following error:") + "\n")
+    print(" " + _("Call to Tracer API ended up unexpectedly:") + "\n")
     print(err)
     print(_("Please visit https://github.com/FrostyX/tracer/issues "
             "and submit the issue. Thank you"))
