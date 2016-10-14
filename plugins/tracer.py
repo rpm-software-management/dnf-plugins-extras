@@ -101,11 +101,6 @@ class TracerFacade(object):
         return query.from_packages(packages).now().affected_applications().get()
 
     def render(self):
-        if len(self.apps) == 0:
-            print(_("You should restart:"))
-            print("  " + _("Nothing needs to be restarted"))
-            return
-
         # @TODO It is not in the Tracer API yet
         args = self.args if self.args else dnf.util.Bunch(all=False, quiet=False)
         view = DefaultView()
