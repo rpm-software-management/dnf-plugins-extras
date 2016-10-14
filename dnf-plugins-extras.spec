@@ -361,7 +361,6 @@ Requires:       python-dnf-plugins-extras-common = %{version}-%{release}
 Requires:       python2-tracer > 0.6.11
 %if 0%{?fedora} < 23
 Obsoletes:      dnf-plugin-tracer < 0.5.6-2
-Provides:       dnf-command(tracer)
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       dnf-plugins-extras-tracer = %{version}-%{release}
 Obsoletes:      dnf-plugins-extras-tracer <= 0.0.4-2
@@ -377,7 +376,6 @@ Requires:       python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:       python3-tracer > 0.6.11
 %if 0%{?fedora} >= 23
 Obsoletes:      dnf-plugin-tracer < 0.5.6-2
-Provides:       dnf-command(tracer)
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       dnf-plugins-extras-tracer = %{version}-%{release}
 Obsoletes:      dnf-plugins-extras-tracer <= 0.0.4-2
