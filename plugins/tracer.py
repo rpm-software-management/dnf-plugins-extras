@@ -42,8 +42,6 @@ class Tracer(dnf.Plugin):
         self.timestamp = time.time()
         self.base = base
         self.cli = cli
-        if self.cli is not None:
-            self.cli.register_command(TracerCommand)
 
     def transaction(self):
         """
@@ -79,16 +77,6 @@ class Tracer(dnf.Plugin):
 
         except Exception:
             render_error(traceback.format_exc())
-
-
-class TracerCommand(dnf.cli.Command):
-    """DNF tracer plugin"""
-    aliases = ["tracer"]
-
-    def run(self):
-        """Called after running `dnf tracer ...`"""
-        print("This plugin calls Tracer after every successful transaction.\n"
-              "If you want to check outdated applications manually, please run standalone `tracer` command.")
 
 
 class TracerFacade(object):
