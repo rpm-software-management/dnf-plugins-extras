@@ -46,18 +46,3 @@ There you can see DNF output with ``dnf-plugins-extras-tracer`` installed:
     Done!
 
 It is a good idea to restart those applications, because they can be potentially dangerous. They can contain old security issues, which are fixed in new version.
-
-
-Command
--------
-
-DNF command for tracer does only one thing. Directly executes tracer with passed arguments.
-
-::
-
-    # You can choose which one you like better
-    sudo tracer <arguments>
-    # or
-    sudo dnf tracer <arguments>
-
-For example `usage <http://docs.tracer-package.com/en/latest/user-guide/>`_ or possible `arguments <http://docs.tracer-package.com/en/latest/manpage/>`_ please visit it's `documentation <http://docs.tracer-package.com>`_.
