@@ -72,7 +72,9 @@ class RepoClosureCommand(dnf.cli.Command):
 
         deps = set()
         available = self.base.sack.query().available()
-        if self.opts.newest:
+        if self.base.conf.best and not self.opts.check:
+            available.latest()
+        elif self.opts.newest or self.base.conf.best:
             available.filter(latest=True)
         if arch is not None:
             available = available.filter(arch=arch)
@@ -112,11 +114,13 @@ class RepoClosureCommand(dnf.cli.Command):
     @staticmethod
     def set_argparser(parser):
         parser.add_argument("--arch", default=[], action="append",
-                            help="check packages of the given archs, can be specified multiple times")
+                            help=_("check packages of the given archs, can be "
+                                   "specified multiple times"))
         parser.add_argument("--check", default=[], action="append",
                             help=_("Specify repositories to check"))
         parser.add_argument("-n", "--newest", action="store_true",
-                            help=_("Check only the newest packages in the repos"))
+                            help=_("Check only the newest packages in the "
+                                   "repos"))
         parser.add_argument("--pkg", default=[], action="append",
                             help=_("Check closure for this package only"),
                             dest="pkglist")
