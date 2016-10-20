@@ -47,7 +47,7 @@ Options
     Specify repo ids to check, can be specified multiple times (default is all enabled).
 
 ``--newest``
-    Check only the newest packages in the repos
+    Check only the newest packages in the repos.
 
 ``--pkg <pkg``
     Check closure for this package only.
