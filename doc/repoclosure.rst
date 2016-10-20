@@ -41,7 +41,7 @@ Options
     Query only packages for specified architecture, can be specified multiple times (default is all architectures).
 
 ``--best``
-    Check only the newest packages per arch
+    Check only the newest packages per arch.
 
 ``--check <repoid>``
     Specify repo ids to check, can be specified multiple times (default is all enabled).
