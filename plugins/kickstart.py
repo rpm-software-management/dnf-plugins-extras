@@ -68,7 +68,7 @@ class KickstartCommand(dnf.cli.Command):
         demands.root_user = True
         demands.sack_activation = True
         dnf.cli.commands._checkGPGKey(self.base, self.cli)
-        dnf.cli.commands.checkEnabledRepo(self.base, self.opts.filename[0])
+        dnf.cli.commands._checkEnabledRepo(self.base, self.opts.filename[0])
 
 
     def run(self):

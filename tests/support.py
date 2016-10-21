@@ -36,7 +36,7 @@ else:
 
 def command_configure(cmd, args):
     parser = dnf.cli.option_parser.OptionParser()
-    args = [cmd.basecmd] + args
+    args = [cmd._basecmd] + args
     parser.parse_main_args(args)
     parser.parse_command_args(cmd, args)
     return cmd.configure()
@@ -125,7 +125,7 @@ class RepoStub(object):
         self.priority = 99
         self.cost = 1000
 
-    def valid(self):
+    def _valid(self):
         """Return a message if the repository is not valid."""
 
     def enable(self):
