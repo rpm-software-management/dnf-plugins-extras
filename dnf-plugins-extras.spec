@@ -293,6 +293,7 @@ RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
 
 %package -n python3-dnf-plugins-extras-rpmconf
 Summary:        RpmConf Plugin for DNF
+BuildRequires:  python3-rpmconf
 Requires:       python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:       python3-rpmconf
 %if 0%{?fedora} >= 23
