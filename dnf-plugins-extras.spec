@@ -454,6 +454,9 @@ popd
 
 %find_lang %{name}
 
+# no python2-torproxy
+rm -rf %{buildroot}%{python2_sitelib}/dnf-plugins/torproxy.*
+
 %if %{without py3_kickstart}
 rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/kickstart.*
 rm -rf %{buildroot}%{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
