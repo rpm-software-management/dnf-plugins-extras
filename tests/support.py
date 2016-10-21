@@ -45,6 +45,56 @@ def command_run(cmd, args):
     command_configure(cmd, args)
     return cmd.run()
 
+
+class FakeConf(dnf.conf.Conf):
+    def __init__(self, **kwargs):
+        super(FakeConf, self).__init__()
+        self.substitutions['releasever'] = 'Fedora69'
+        for optname, val in [
+                ('assumeyes', None),
+                ('best', False),
+                ('cachedir', dnf.const.TMPDIR),
+                ('clean_requirements_on_remove', False),
+                ('color', 'never'),
+                ('color_update_installed', 'normal'),
+                ('color_update_remote', 'normal'),
+                ('color_list_available_downgrade', 'dim'),
+                ('color_list_available_install', 'normal'),
+                ('color_list_available_reinstall', 'bold'),
+                ('color_list_available_upgrade', 'bold'),
+                ('color_list_installed_extra', 'bold'),
+                ('color_list_installed_newer', 'bold'),
+                ('color_list_installed_older', 'bold'),
+                ('color_list_installed_reinstall', 'normal'),
+                ('color_update_local', 'bold'),
+                ('debug_solver', False),
+                ('debuglevel', 2),
+                ('defaultyes', False),
+                ('disable_excludes', []),
+                ('diskspacecheck', True),
+                ('exclude', []),
+                ('include', []),
+                ('install_weak_deps', True),
+                ('history_record', False),
+                ('installonly_limit', 0),
+                ('installonlypkgs', ['kernel']),
+                ('installroot', '/'),
+                ('ip_resolve', None),
+                ('multilib_policy', 'best'),
+                ('obsoletes', True),
+                ('persistdir', '/should-not-exist-bad-test/persist'),
+                ('protected_packages', ["dnf"]),
+                ('plugins', False),
+                ('showdupesfromrepos', False),
+                ('tsflags', []),
+                ('strict', True),
+                ] + list(kwargs.items()):
+            setattr(self, optname, dnf.conf.Value(val, dnf.conf.PRIO_DEFAULT))
+
+    @property
+    def releasever(self):
+        return self.substitutions['releasever']
+
 class BaseStub(object):
     def __init__(self):
         self.sack = dnf.sack.Sack()
@@ -67,6 +117,7 @@ class BaseCliStub(object):
         self.installed_groups = set()
         self.installed_pkgs = set()
         self.repos = dnf.repodict.RepoDict()
+        self.conf = FakeConf()
 
     def install_grouplist(self, names):
         """Install given groups."""
