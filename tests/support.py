@@ -45,6 +45,7 @@ def command_run(cmd, args):
     command_configure(cmd, args)
     return cmd.run()
 
+
 class FakeConf(dnf.conf.Conf):
     def __init__(self, **kwargs):
         super(FakeConf, self).__init__()
