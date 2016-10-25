@@ -66,7 +66,7 @@ class TorProxy(dnf.Plugin):
         return result
 
     def config(self):
-        conf = self.read_config(self.base.conf, "torproxy")
+        conf = self.read_config(self.base.conf)
         # TODO try/catch if the config no longer exist (but then, what
         # should the default be ?)
         if not conf.getboolean("main", "enabled"):
