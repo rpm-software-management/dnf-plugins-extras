@@ -359,7 +359,7 @@ Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 %package -n python-dnf-plugins-extras-tracer
 Summary:        Tracer Plugin for DNF
 Requires:       python-dnf-plugins-extras-common = %{version}-%{release}
-Requires:       python2-tracer > 0.6.11
+Requires:       python2-tracer >= 0.6.11
 %if 0%{?fedora} < 23
 Obsoletes:      dnf-plugin-tracer < 0.5.6-2
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
@@ -374,7 +374,7 @@ every transaction.
 %package -n python3-dnf-plugins-extras-tracer
 Summary:        Tracer Plugin for DNF
 Requires:       python3-dnf-plugins-extras-common = %{version}-%{release}
-Requires:       python3-tracer > 0.6.11
+Requires:       python3-tracer >= 0.6.11
 %if 0%{?fedora} >= 23
 Obsoletes:      dnf-plugin-tracer < 0.5.6-2
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
