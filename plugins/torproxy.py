@@ -28,7 +28,7 @@ import iniparse.compat as ini
 
 from dnfpluginscore import _
 
-MSG = _('It seems that tor is not working, network operations may fail.')
+MSG = _('Disabling torproxy plugin: cannot connect to the Tor network')
 
 
 class TorProxy(dnf.Plugin):
@@ -82,13 +82,13 @@ class TorProxy(dnf.Plugin):
         except ini.Error:
             self._host = '127.0.0.1'
 
-        if not self._check_tor_working():
+        if self._check_tor_working():
+            for name, repo in self.base.repos.items():
+                if not repo.proxy:
+                    repo.proxy = 'socks5h://{}:{}'.format(self._host, self._port)
+                    # set a password to use IsolateSOCKSAuth, see
+                    # https://github.com/diocles/apt-transport-tor
+                    repo.proxy_username = 'dnf_' + name
+                    repo.proxy_password = 'dnf_' + name
+        else:
             self.logger.error(MSG)
-
-        for name, repo in self.base.repos.items():
-            if not repo.proxy:
-                repo.proxy = 'socks5h://{}:{}'.format(self._host, self._port)
-                # set a password to use IsolateSOCKSAuth, see
-                # https://github.com/diocles/apt-transport-tor
-                repo.proxy_username = 'dnf_' + name
-                repo.proxy_password = 'dnf_' + name
