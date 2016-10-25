@@ -37,7 +37,7 @@ class LeavesCommand(dnf.cli.Command):
         hawkey, and build the dependency graph and the graph of reverse
         dependencies.
         """
-        query = dnf.sack.rpmdb_sack(self.base).query()
+        query = dnf.sack._rpmdb_sack(self.base).query()
         pkgmap = dict()
         packages = []
         depends = []
