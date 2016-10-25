@@ -35,10 +35,12 @@ Configuration
 
 ``/etc/dnf/plugins/torproxy.conf``
 
-The minimal content of conf file should contain ``main`` sections with ``enabled`` parameter, otherwise plugin will not work.::
+The minimal content of conf file should contain ``main`` sections with parameters ``enabled`` and
+``strict``, otherwise plugin will not work. If the ``strict`` parameter is set to ``True``, torproxy plugin will halt DNF in the case of Tor network unavailability.::
 
   [main]
   enabled = true
+  strict = false
 
 If you do not want to use the default setup of tor, ie running it on the localhost, you can also specify
 the port and host of the tor client in a torproxy section like this::

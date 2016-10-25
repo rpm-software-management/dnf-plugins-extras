@@ -92,3 +92,5 @@ class TorProxy(dnf.Plugin):
                     repo.proxy_password = 'dnf_' + name
         else:
             self.logger.error(MSG)
+            if conf.getboolean('main', 'strict'):
+                raise dnf.exceptions.Error
