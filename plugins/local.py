@@ -99,7 +99,7 @@ class Local(dnf.Plugin):
             self.crepo["enabled"] = False
             return
 
-        local_repo = dnf.repo.Repo("_dnf_local", self.base.conf.cachedir)
+        local_repo = dnf.repo.Repo("_dnf_local", self.base.conf)
         local_repo.baseurl = "file://{}".format(self.main["repodir"])
         self.base.repos.add(local_repo)
 
