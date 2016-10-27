@@ -99,6 +99,7 @@ class BaseStub(object):
     def __init__(self):
         self.sack = dnf.sack.Sack()
         self.repos = dnf.repodict.RepoDict()
+        self.conf = FakeConf()
 
     def add_remote_rpms(self, path_list):
         self.sack.create_cmdline_repo()
