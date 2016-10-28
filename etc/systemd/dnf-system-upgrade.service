@@ -1,0 +1,20 @@
+[Unit]
+Description=System Upgrade
+ConditionPathExists=/system-update/.dnf-system-upgrade
+Documentation=http://www.freedesktop.org/wiki/Software/systemd/SystemUpdates
+
+[Service]
+# Upgrade output goes to journal and on-screen.
+StandardOutput=journal+console
+# This won't exist after we delete the symlink; don't consider that an error.
+EnvironmentFile=-/system-update/.dnf-system-upgrade
+# We need the --releasever junk because there's no way for DNF plugins to
+# change $releasever - see https://bugzilla.redhat.com/show_bug.cgi?id=1212341
+ExecStart=/usr/bin/dnf --releasever=${RELEASEVER} system-upgrade upgrade
+# Remove the symlink if it's still there, to protect against reboot loops.
+ExecStopPost=/usr/bin/rm -fv /system-update
+# If anything goes wrong, reboot back to the normal system.
+FailureAction=reboot
+
+[Install]
+WantedBy=system-update.target
