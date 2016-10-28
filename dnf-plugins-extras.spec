@@ -317,6 +317,46 @@ packages and excludes all other versions of those packages. This allows you to
 e.g. protect packages from being updated by newer versions.
 
 
+%package -n python2-%{name}-system-upgrade
+Summary:        System Upgrade Plugin for DNF
+Requires:       python2-%{name}-common = %{?epoch:%{?epoch}:}%{version}-%{release}
+Requires:       python2-systemd
+%{?python_provide:%python_provide python2-%{name}-system-upgrade}
+
+Obsoletes:	fedup < 0.9.4
+Obsoletes:	dnf-plugin-system-upgrade < 0.10
+Obsoletes:	python2-dnf-plugin-system-upgrade < 0.10
+
+BuildRequires:  pkgconfig(systemd)
+BuildRequires:  systemd
+BuildRequires:  python2-systemd
+%{?system_requires}
+
+%description -n python2-%{name}-system-upgrade
+System Upgrade Plugin for DNF. This package provides the "system-upgrade" command.
+
+%package -n python3-%{name}-system-upgrade
+Summary:        System Upgrade Plugin for DNF
+Requires:       python3-%{name}-common = %{?epoch:%{?epoch}:}%{version}-%{release}
+Requires:       python3-systemd
+%{?python_provide:%python_provide python3-%{name}-system-upgrade}
+Provides:       dnf-command(system-upgrade)
+Provides:       %{name}-system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
+
+Obsoletes:	fedup < 0.9.4
+Obsoletes:	dnf-plugin-system-upgrade < 0.10
+Obsoletes:	python3-dnf-plugin-system-upgrade < 0.10
+
+BuildRequires:  pkgconfig(systemd)
+BuildRequires:  systemd
+BuildRequires:  python3-systemd
+%{?systemd_requires}
+
+%description -n python3-%{name}-system-upgrade
+System Upgrade Plugin for DNF. This package provides the "system-upgrade" command.
+
+
 %package -n python3-%{name}-torproxy
 Summary:        Torproxy Plugin for DNF
 Requires:       python3-%{name}-common = %{?epoch:%{?epoch}:}%{version}-%{release}
@@ -353,6 +393,11 @@ pushd python2
 popd
 pushd python3
   %make_install
+popd
+
+mkdir -p %{buildroot}%{_unitdir}/system-update.target.wants/
+pushd %{buildroot}%{_unitdir}/system-update.target.wants/
+  ln -sr ../dnf-system-upgrade.service
 popd
 
 # no python2-torproxy
@@ -470,6 +515,17 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.py
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
+
+%files -n python2-%{name}-system-upgrade
+%{_unitdir}/dnf-system-upgrade.service
+%{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
+%{python2_sitelib}/dnf-plugins/system_upgrade.*
+
+%files -n python3-%{name}-system-upgrade
+%{_unitdir}/dnf-system-upgrade.service
+%{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
+%{python3_sitelib}/dnf-plugins/system_upgrade.py
+%{python3_sitelib}/dnf-plugins/__pycache__/system_upgrade.*
 
 %files -n python3-%{name}-torproxy
 %config(noreplace) %{_sysconfdir}/dnf/plugins/torproxy.conf
