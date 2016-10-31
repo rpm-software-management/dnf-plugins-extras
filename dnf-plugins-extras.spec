@@ -305,7 +305,7 @@ Summary:	Torproxy Plugin for DNF
 Requires:	python3-dnf-plugins-extras-common = %{version}-%{release}
 Requires:   python3-pycurl
 Provides:	dnf-plugin-torproxy = %{version}-%{release}
-Provides:	dnf-plugins-extras-torproxy = %{version}-%{release}f
+Provides:	dnf-plugins-extras-torproxy = %{version}-%{release}
 
 %description -n python3-dnf-plugins-extras-torproxy
 Torproxy plugin force dnf to use tor to download packages. It make sure that
