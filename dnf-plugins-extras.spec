@@ -1,3 +1,4 @@
+#test
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 2.0}
 %{!?dnf_not_compatible: %global dnf_not_compatible 3.0}
 
