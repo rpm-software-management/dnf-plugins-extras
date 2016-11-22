@@ -301,7 +301,7 @@ class DebugRestoreCommand(dnf.cli.Command):
         return pkgs
 
 def rpm_problems(base):
-    rpmdb = dnf.sack.rpmdb_sack(base)
+    rpmdb = dnf.sack._rpmdb_sack(base)
     allpkgs = rpmdb.query().installed()
 
     requires = set()

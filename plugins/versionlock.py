@@ -167,7 +167,7 @@ def _write_locklist(base, args, try_installed, comment, info, prefix):
         subj = dnf.subject.Subject(pat)
         pkgs = None
         if try_installed:
-            pkgs = subj.get_best_query(dnf.sack.rpmdb_sack(base))
+            pkgs = subj.get_best_query(dnf.sack._rpmdb_sack(base))
         if not pkgs:
             pkgs = subj.get_best_query(base.sack)
         if not pkgs:
