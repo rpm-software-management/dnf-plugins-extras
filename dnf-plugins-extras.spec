@@ -75,7 +75,6 @@ Requires:	python3-%{name}-common = %{version}-%{release}
 Provides:       dnf-command(debug-dump)
 Provides:       dnf-command(debug-restore)
 Provides:       %{name}-debug = %{version}-%{release}
-Obsoletes:      %{name}-debug < %{version}-%{release}
 
 %description -n python3-%{name}-debug
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
@@ -96,7 +95,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-leaves}
 Provides:       dnf-command(leaves)
 Provides:       %{name}-leaves = %{version}-%{release}
-Obsoletes:      %{name}-leaves < %{version}-%{release}
 
 %description -n python3-%{name}-leaves
 Leaves Plugin for DNF, Python 3 version. List all installed packages
@@ -118,7 +116,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       /usr/bin/createrepo_c
 %{?python_provide:%python_provide python3-%{name}-local}
 Provides:       %{name}-local = %{version}-%{release}
-Obsoletes:      %{name}-local < %{version}-%{release}
 
 %description -n python3-%{name}-local
 Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
@@ -174,7 +171,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-repoclosure}
 Provides:       dnf-command(repoclosure)
 Provides:       %{name}-repoclosure = %{version}-%{release}
-Obsoletes:      %{name}-repoclosure < %{version}-%{release}
 
 %description -n python3-%{name}-repoclosure
 RepoClosure Plugin for DNF, Python 3 version. Display a list of unresolved
@@ -194,7 +190,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-repograph}
 Provides:       dnf-command(repograph)
 Provides:       %{name}-repograph = %{version}-%{release}
-Obsoletes:      %{name}-repograph < %{version}-%{release}
 
 %description -n python3-%{name}-repograph
 RepoGraph Plugin for DNF, Python 3 version. Output a full package dependency
@@ -214,7 +209,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-repomanage}
 Provides:       dnf-command(repomanage)
 Provides:       %{name}-repomanage = %{version}-%{release}
-Obsoletes:      %{name}-repomanage < %{version}-%{release}
 
 %description -n python3-%{name}-repomanage
 RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
@@ -248,7 +242,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-show-leaves}
 Requires:       python3-%{name}-leaves = %{version}-%{release}
 Provides:       %{name}-show-leaves = %{version}-%{release}
-Obsoletes:      %{name}-show-leaves < %{version}-%{release}
 
 %description -n python3-%{name}-show-leaves
 Show-leaves Plugin for DNF, Python 3 version. List all installed
@@ -272,7 +265,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       python3-dbus
 Requires:       snapper
 Provides:       %{name}-snapper = %{version}-%{release}
-Obsoletes:      %{name}-snapper < %{version}-%{release}
 
 %description -n python3-%{name}-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
@@ -294,7 +286,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       python3-tracer >= 0.6.12
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       %{name}-tracer = %{version}-%{release}
-Obsoletes:      %{name}-tracer < %{version}-%{release}
 
 %description -n python3-%{name}-tracer
 Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
