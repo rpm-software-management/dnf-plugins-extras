@@ -97,7 +97,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Provides:       dnf-command(leaves)
 Provides:       %{name}-leaves = %{version}-%{release}
 Obsoletes:      %{name}-leaves < %{version}-%{release}
-Obsoletes:      %{name}-orphans < %{version}-%{release}
 
 %description -n python3-%{name}-leaves
 Leaves Plugin for DNF, Python 3 version. List all installed packages
@@ -140,7 +139,6 @@ yumdb data from yum to dnf.
 Summary:        Kickstart Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-kickstart}
-Conflicts:      python-dnf-plugins-core <= 0.1.12
 BuildRequires:  python-kickstart
 Requires:       python-kickstart
 
@@ -154,7 +152,6 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-kickstart}
 BuildRequires:  python3-kickstart
 Requires:       python3-kickstart
-Conflicts:      python3-dnf-plugins-core <= 0.1.12
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
 
@@ -295,7 +292,6 @@ Summary:        Tracer Plugin for DNF
 Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-tracer}
 Requires:       python3-tracer >= 0.6.12
-Obsoletes:      dnf-plugin-tracer < 0.5.6-2
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       %{name}-tracer = %{version}-%{release}
 Obsoletes:      %{name}-tracer < %{version}-%{release}
@@ -363,11 +359,6 @@ pushd python3
   %make_install
 popd
 
-mkdir -p %{buildroot}%{_unitdir}/system-update.target.wants/
-pushd %{buildroot}%{_unitdir}/system-update.target.wants/
-  ln -sr ../dnf-system-upgrade.service
-popd
-
 %find_lang %{name}
 
 # no python2-torproxy
@@ -404,11 +395,11 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
 
 %files -n python2-%{name}-local
-%config %{_sysconfdir}/dnf/plugins/local.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python2_sitelib}/dnf-plugins/local.*
 
 %files -n python3-%{name}-local
-%config %{_sysconfdir}/dnf/plugins/local.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python3_sitelib}/dnf-plugins/local.*
 %{python3_sitelib}/dnf-plugins/__pycache__/local.*
 
@@ -444,7 +435,7 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
 %files -n python3-%{name}-rpmconf
-%config %{_sysconfdir}/dnf/plugins/rpmconf.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/rpmconf.conf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
 
@@ -470,18 +461,18 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
 
 %files -n python2-%{name}-versionlock
-%config %{_sysconfdir}/dnf/plugins/versionlock.conf
-%config %{_sysconfdir}/dnf/plugins/versionlock.list
+%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python2_sitelib}/dnf-plugins/versionlock.*
 
 %files -n python3-%{name}-versionlock
-%config %{_sysconfdir}/dnf/plugins/versionlock.conf
-%config %{_sysconfdir}/dnf/plugins/versionlock.list
+%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
 %{python3_sitelib}/dnf-plugins/versionlock.*
 %{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
 
 %files -n python3-%{name}-torproxy
-%config %{_sysconfdir}/dnf/plugins/torproxy.conf
+%config(noreplace) %{_sysconfdir}/dnf/plugins/torproxy.conf
 %{python3_sitelib}/dnf-plugins/torproxy.*
 %{python3_sitelib}/dnf-plugins/__pycache__/torproxy.*
 
