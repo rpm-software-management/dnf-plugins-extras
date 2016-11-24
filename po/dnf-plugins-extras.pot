@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:19+0100\n"
+"POT-Creation-Date: 2016-11-24 11:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,6 +239,91 @@ msgstr ""
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:54
+msgid "the color of the sky"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:73
+msgid "No new kernel packages were found."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:75
+msgid "Need a --releasever greater than the current system version."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:77
+msgid ""
+"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:79
+msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:112
+msgid "--datadir: File exists"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:257
+msgid "The following boots appear to contain upgrade logs:"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:267
+msgid "-- no logs were found --"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:282
+msgid "Cannot find logs with this index."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:305
+msgid "Prepare system for upgrade to a new release"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:314
+msgid "save downloaded data to this location"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:317
+msgid "keep installed packages if the new release's version is older"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:398
+msgid "system is not ready for upgrade"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:400
+msgid "upgrade is already scheduled"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:406
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:408
+msgid "another upgrade tool is running. exiting quietly."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:432
+msgid "Rebooting to perform upgrade."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
+msgid "Starting system upgrade. This will take a while."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:496
+msgid "Cleaning up downloaded data..."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:527
+msgid "Download finished."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
+msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 
 #: ../plugins/debug.py:55

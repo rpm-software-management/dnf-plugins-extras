@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-12 20:08+0100\n"
+"POT-Creation-Date: 2016-11-24 11:34+0100\n"
 "PO-Revision-Date: 2015-06-23 10:56-0400\n"
 "Last-Translator: Momcilo Medic <medicmomcilo@gmail.com>\n"
 "Language-Team: Serbian\n"
@@ -12,132 +12,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Zanata 3.7.3\n"
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
-msgstr ""
+"X-Generator: Zanata 3.9.6\n"
 
 #: ../plugins/repoclosure.py:46
 msgid "Display a list of unresolved dependencies for repositories"
 msgstr "Прикажи списак неразрешених програмских зависности за ризнице"
 
-#: ../plugins/repoclosure.py:118 ../plugins/repograph.py:141
-msgid "Specify repositories to use"
-msgstr "Назначи које ризнице треба користити"
+#: ../plugins/repoclosure.py:117
+msgid "check packages of the given archs, can be specified multiple times"
+msgstr ""
 
 #: ../plugins/repoclosure.py:120
 msgid "Specify repositories to check"
+msgstr ""
+
+#: ../plugins/repoclosure.py:122
+msgid "Check only the newest packages in the repos"
 msgstr ""
 
 #: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
 msgstr "Провери затвореност само за овај пакет"
 
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' није директоријум"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Копирам '{}' у локалну ризницу"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Не могу да упишем датотеку '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Поновно изграђивање локалне ризнице"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr "избаци информације о инсталираним rpm пакетима у датотеку"
-
-#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
-msgid "OPTIONS"
-msgstr "ОПЦИЈЕ"
-
-#: ../plugins/debug.py:56 ../plugins/debug.py:187 ../plugins/migrate.py:79
-msgid "KEYWORDS"
-msgstr "КЉУЧНЕ РЕЧИ"
-
-#: ../plugins/debug.py:71
-msgid "do not attempt to dump the repository contents."
-msgstr "немој покушавати да избациш садржај ризнице."
-
-#: ../plugins/debug.py:74
-msgid "optional name of dump file"
-msgstr "опционо име датотеке у коју ће бити избачено"
-
-#: ../plugins/debug.py:108
+#: ../plugins/versionlock.py:32
 #, python-format
-msgid "Output written to: %s"
-msgstr "Излаз исписан у: %s"
-
-#: ../plugins/debug.py:186
-msgid "restore packages recorded in debug-dump file"
+msgid "Unable to read version lock configuration: %s"
 msgstr ""
-"поврати пакете снимљене у датотеку за избацивање и отклањање програмских "
-"грешака"
 
-#: ../plugins/debug.py:199
-msgid "output commands that would be run to stdout."
-msgstr "испиши команде које би биле извршене на стандардни излаз."
-
-#: ../plugins/debug.py:202
-msgid "Install the latest version of recorded packages."
-msgstr "Инсталирај најновију верзију снимљених пакета."
-
-#: ../plugins/debug.py:205
-msgid ""
-"Ignore architecture and install missing packages matchingthe name, epoch, "
-"version and release."
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
 msgstr ""
-"Занемари архитектуру и инсталирај недостајуће пакете чије се име, епоха, "
-"верзија и издање подударају."
 
-#: ../plugins/debug.py:210
-msgid "limit to specified type"
-msgstr "ограничи на одређени тип"
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr ""
 
-#: ../plugins/debug.py:212
-msgid "name of dump file"
-msgstr "име датотеке у коју ће бити избачено"
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr ""
 
-#: ../plugins/debug.py:291
-#, python-format
-msgid "Package %s is not available"
-msgstr "Пакет %s није доступан"
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr ""
 
-#: ../plugins/debug.py:301
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Неисправна dnf датотека за отклањање програмских грешака: %s"
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr ""
 
-#: ../plugins/tracer.py:75
-msgid "For more information run:"
-msgstr "За више информација извршите:"
-
-#: ../plugins/tracer.py:95
-msgid "Program 'tracer' crashed with following error:"
-msgstr "Програм 'tracer' се срушио са следећом грешком:"
-
-#: ../plugins/tracer.py:97
-msgid "Please visit "
-msgstr "Молим посетите"
-
-#: ../plugins/tracer.py:100
-msgid "We apologize for any inconvenience"
-msgstr "Извињавамо се због нелагодности"
-
-#: ../plugins/tracer.py:104
-msgid "You should restart:"
-msgstr "Требали би да поново покренете:"
-
-#: ../plugins/tracer.py:105
-msgid "Nothing needs to be restarted"
-msgstr "Ништа није потребно поново покренути"
+#: ../plugins/versionlock.py:89
+msgid "control package version locks"
+msgstr ""
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -148,164 +72,92 @@ msgstr "неуспешно обрађивање ИЕВИЗ пакета из: %s
 msgid "migrate yum's history, group and yumdb data to dnf"
 msgstr "пресели yum податке историја, група и yumdb у dnf"
 
-#: ../plugins/migrate.py:97
+#: ../plugins/migrate.py:95
 msgid "which kind of yum data migrate."
 msgstr "која врста преселења yum података"
 
-#: ../plugins/migrate.py:129
+#: ../plugins/migrate.py:111
 msgid "Migrating history data..."
 msgstr "Селим податке историје..."
 
-#: ../plugins/migrate.py:240
+#: ../plugins/migrate.py:222
 msgid "Migrating groups data..."
 msgstr "Селим податке о групама..."
 
-#: ../plugins/migrate.py:245
+#: ../plugins/migrate.py:227
 msgid "Execution of Yum failed. Could not retrieve installed groups."
 msgstr ""
 
-#: ../plugins/migrate.py:249
+#: ../plugins/migrate.py:231
 msgid "No groups to migrate from Yum"
 msgstr "Нема група за селидбу из Yum-а"
 
-#: ../plugins/migrate.py:261
+#: ../plugins/migrate.py:243
 msgid "skipping."
 msgstr ""
 
-#: ../plugins/migrate.py:281
+#: ../plugins/migrate.py:263
 msgid "Migrating YUMDB data..."
 msgstr "Селим YUMDB податке..."
 
-#: ../plugins/migrate.py:300
+#: ../plugins/migrate.py:282
 #, python-format
 msgid "%s of %s not found"
 msgstr "%s од %s није пронађено"
 
-#: ../plugins/migrate.py:307
+#: ../plugins/migrate.py:289
 #, python-format
 msgid "replacing unknown characters in %s of %s"
 msgstr "замењујем непознате карактере у %s од %s"
 
-#: ../plugins/migrate.py:312
+#: ../plugins/migrate.py:294
 msgid "DNFDB access denied"
 msgstr "DNFDB приступ одбијен"
 
-#: ../plugins/migrate.py:314
+#: ../plugins/migrate.py:296
 #, python-format
 msgid "%s of %s migrated"
 msgstr "%s од %s пресељено"
 
-#: ../plugins/migrate.py:318
+#: ../plugins/migrate.py:300
 #, python-format
 msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
 msgstr "%d YUMDB записа пронађено, %d пресељено, %d прескочено/очувано"
 
-#: ../plugins/dnfpluginsextras/__init__.py:44
-msgid "show this help about this tool"
-msgstr "прикажи ову помоћ за овај алат"
+#: ../plugins/repograph.py:54
+msgid "Output a full package dependency graph in dot format"
+msgstr "Исцртај потпуну програмску зависност пакета у dot формату"
 
-#: ../plugins/rpm_conf.py:41
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Додајем '{}' на списак пакета за управљање за rpmconf"
-
-#: ../plugins/repomanage.py:44
-msgid "Manage a directory of rpm packages"
-msgstr "Управља директоријумом rpm пакета"
-
-#: ../plugins/repomanage.py:58
-msgid "Pass either --old or --new, not both!"
-msgstr "Проследите или --old или --new, не оба!"
-
-#: ../plugins/repomanage.py:68
-msgid "No files to process"
-msgstr "Нема датотека за обраду"
-
-#: ../plugins/repomanage.py:74
-msgid "Could not open {}"
-msgstr "Не могу да отворим {}"
-
-#: ../plugins/repomanage.py:133
-msgid "Print the older packages"
-msgstr "Испиши старије пакете"
-
-#: ../plugins/repomanage.py:135
-msgid "Print the newest packages"
-msgstr "Испиши најновије пакете"
-
-#: ../plugins/repomanage.py:137
-msgid "Space separated output, not newline"
-msgstr "Излаз одвојен размаком, не новим редом"
-
-#: ../plugins/repomanage.py:139
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "Сачувати N најновијих пакета - подразумевано 1"
-
-#: ../plugins/repomanage.py:142
-msgid "Path to directory"
-msgstr "Путања до директоријума"
-
-#: ../plugins/versionlock.py:33
+#: ../plugins/repograph.py:115
 #, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:38
-msgid "No package found for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
+msgid "Nothing provides: '%s'"
+msgstr "Ништа не обезбеђује: '%s'"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
 msgstr ""
 
-#: ../plugins/kickstart.py:59
-msgid "FILE"
+#: ../plugins/kickstart.py:63
+msgid "kickstart file"
 msgstr ""
 
-#: ../plugins/kickstart.py:68
-msgid "Error: Requires exactly one path to a kickstart file"
-msgstr ""
-
-#: ../plugins/kickstart.py:71
-msgid "exactly one path to a kickstart file required"
-msgstr ""
-
-#: ../plugins/kickstart.py:95
+#: ../plugins/kickstart.py:81
 #, python-format
 msgid "file cannot be parsed: %s"
 msgstr ""
 
-#: ../plugins/kickstart.py:112
+#: ../plugins/kickstart.py:98
 #, python-format
 msgid "No package %s available."
 msgstr ""
 
-#: ../plugins/kickstart.py:117
+#: ../plugins/kickstart.py:103
 msgid "Nothing to do."
 msgstr ""
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "Списак инсталираних пакета које не захтева ниједан други пакет"
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr ""
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -326,11 +178,236 @@ msgstr "направљен снимак стања %d"
 msgid "creating snapshot failed: %s"
 msgstr "неуспешно прављење снимка стања: %s"
 
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "Исцртај потпуну програмску зависност пакета у dot формату"
+#: ../plugins/repomanage.py:44
+msgid "Manage a directory of rpm packages"
+msgstr "Управља директоријумом rpm пакета"
 
-#: ../plugins/repograph.py:121
+#: ../plugins/repomanage.py:52
+msgid "Pass either --old or --new, not both!"
+msgstr "Проследите или --old или --new, не оба!"
+
+#: ../plugins/repomanage.py:62
+msgid "No files to process"
+msgstr "Нема датотека за обраду"
+
+#: ../plugins/repomanage.py:67
+msgid "Could not open {}"
+msgstr "Не могу да отворим {}"
+
+#: ../plugins/repomanage.py:124
+msgid "Print the older packages"
+msgstr "Испиши старије пакете"
+
+#: ../plugins/repomanage.py:126
+msgid "Print the newest packages"
+msgstr "Испиши најновије пакете"
+
+#: ../plugins/repomanage.py:128
+msgid "Space separated output, not newline"
+msgstr "Излаз одвојен размаком, не новим редом"
+
+#: ../plugins/repomanage.py:130
+msgid "Newest N packages to keep - defaults to 1"
+msgstr "Сачувати N најновијих пакета - подразумевано 1"
+
+#: ../plugins/repomanage.py:133
+msgid "Path to directory"
+msgstr "Путања до директоријума"
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr ""
+
+#: ../plugins/rpm_conf.py:67
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Додајем '{}' на списак пакета за управљање за rpmconf"
+
+#: ../plugins/rpm_conf.py:73
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr ""
+
+#: ../plugins/rpm_conf.py:86
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr ""
+
+#: ../plugins/rpm_conf.py:90
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr ""
+
+#: ../plugins/leaves.py:32
+msgid "List installed packages not required by any other package"
+msgstr "Списак инсталираних пакета које не захтева ниједан други пакет"
+
+#: ../plugins/system_upgrade.py:54
+msgid "the color of the sky"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:73
+msgid "No new kernel packages were found."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:75
+msgid "Need a --releasever greater than the current system version."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:77
+msgid ""
+"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:79
+msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:112
+msgid "--datadir: File exists"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:257
+msgid "The following boots appear to contain upgrade logs:"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:267
+msgid "-- no logs were found --"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:282
+msgid "Cannot find logs with this index."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:305
+msgid "Prepare system for upgrade to a new release"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:314
+msgid "save downloaded data to this location"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:317
+msgid "keep installed packages if the new release's version is older"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:398
+msgid "system is not ready for upgrade"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:400
+msgid "upgrade is already scheduled"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:406
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:408
+msgid "another upgrade tool is running. exiting quietly."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:432
+msgid "Rebooting to perform upgrade."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
+msgid "Starting system upgrade. This will take a while."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:496
+msgid "Cleaning up downloaded data..."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:527
+msgid "Download finished."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
+msgid "Upgrade complete! Cleaning up and rebooting..."
+msgstr ""
+
+#: ../plugins/debug.py:55
+msgid "dump information about installed rpm packages to file"
+msgstr "избаци информације о инсталираним rpm пакетима у датотеку"
+
+#: ../plugins/debug.py:69
+msgid "do not attempt to dump the repository contents."
+msgstr "немој покушавати да избациш садржај ризнице."
+
+#: ../plugins/debug.py:72
+msgid "optional name of dump file"
+msgstr "опционо име датотеке у коју ће бити избачено"
+
+#: ../plugins/debug.py:97
 #, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Ништа не обезбеђује: '%s'"
+msgid "Output written to: %s"
+msgstr "Излаз исписан у: %s"
+
+#: ../plugins/debug.py:175
+msgid "restore packages recorded in debug-dump file"
+msgstr ""
+"поврати пакете снимљене у датотеку за избацивање и отклањање програмских "
+"грешака"
+
+#: ../plugins/debug.py:186
+msgid "output commands that would be run to stdout."
+msgstr "испиши команде које би биле извршене на стандардни излаз."
+
+#: ../plugins/debug.py:189
+msgid "Install the latest version of recorded packages."
+msgstr "Инсталирај најновију верзију снимљених пакета."
+
+#: ../plugins/debug.py:192
+msgid ""
+"Ignore architecture and install missing packages matching the name, epoch, "
+"version and release."
+msgstr ""
+
+#: ../plugins/debug.py:197
+msgid "limit to specified type"
+msgstr "ограничи на одређени тип"
+
+#: ../plugins/debug.py:199
+msgid "name of dump file"
+msgstr "име датотеке у коју ће бити избачено"
+
+#: ../plugins/debug.py:268
+#, python-format
+msgid "Package %s is not available"
+msgstr "Пакет %s није доступан"
+
+#: ../plugins/debug.py:278
+#, python-format
+msgid "Bad dnf debug file: %s"
+msgstr "Неисправна dnf датотека за отклањање програмских грешака: %s"
+
+#: ../plugins/local.py:115
+msgid "'{}' is not a directory"
+msgstr "'{}' није директоријум"
+
+#: ../plugins/local.py:124
+msgid "Copying '{}' to local repo"
+msgstr "Копирам '{}' у локалну ризницу"
+
+#: ../plugins/local.py:130
+msgid "Can't write file '{}'"
+msgstr "Не могу да упишем датотеку '{}'"
+
+#: ../plugins/local.py:145
+msgid "Rebuilding local repo"
+msgstr "Поновно изграђивање локалне ризнице"
+
+#: ../plugins/tracer.py:75
+msgid "For more information run:"
+msgstr "За више информација извршите:"
+
+#: ../plugins/tracer.py:102
+msgid "Call to Tracer API ended unexpectedly:"
+msgstr ""
+
+#: ../plugins/tracer.py:104
+msgid ""
+"Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
+"Thank you"
+msgstr ""
+
+#: ../plugins/tracer.py:106
+msgid "We apologize for any inconvenience"
+msgstr "Извињавамо се због нелагодности"
