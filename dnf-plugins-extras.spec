@@ -69,8 +69,8 @@ Debug Plugin for DNF, Python 2 version. Writes system RPM configuration to a dum
 and restores it.
 
 %package -n python3-%{name}-debug
-Summary:	Debug Plugin for DNF
-Requires:	python3-%{name}-common = %{version}-%{release}
+Summary:        Debug Plugin for DNF
+Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-debug}
 Provides:       dnf-command(debug-dump)
 Provides:       dnf-command(debug-restore)
@@ -103,7 +103,7 @@ not required by any other installed package.
 %package -n python2-%{name}-local
 Summary:        Local Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
-Requires:       /usr/bin/createrepo_c
+Requires:       %{_bindir}/createrepo_c
 %{?python_provide:%python_provide python2-%{name}-local}
 
 %description -n python2-%{name}-local
@@ -113,7 +113,7 @@ repository on the local filesystem and generating repo metadata.
 %package -n python3-%{name}-local
 Summary:        Local Plugin for DNF
 Requires:       python3-%{name}-common = %{version}-%{release}
-Requires:       /usr/bin/createrepo_c
+Requires:       %{_bindir}/createrepo_c
 %{?python_provide:%python_provide python3-%{name}-local}
 Provides:       %{name}-local = %{version}-%{release}
 
@@ -297,9 +297,9 @@ Provides:       dnf-command(system-upgrade)
 Provides:       %{name}-system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:       system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
 
-Obsoletes:     fedup < 0.9.4
-Obsoletes:     dnf-plugin-system-upgrade < 0.10
-Obsoletes:     python3-dnf-plugin-system-upgrade < 0.10
+Obsoletes:      fedup < 0.9.4
+Obsoletes:      dnf-plugin-system-upgrade < 0.10
+Obsoletes:      python3-dnf-plugin-system-upgrade < 0.10
 
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  systemd
