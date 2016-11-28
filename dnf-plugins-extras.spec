@@ -398,9 +398,6 @@ popd
 
 %find_lang %{name}
 
-# no python2-torproxy
-rm -rf %{buildroot}%{python2_sitelib}/dnf-plugins/torproxy.*
-
 %check
 PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/
 PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
@@ -523,6 +520,5 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %config(noreplace) %{_sysconfdir}/dnf/plugins/torproxy.conf
 %{python3_sitelib}/dnf-plugins/torproxy.*
 %{python3_sitelib}/dnf-plugins/__pycache__/torproxy.*
-
 
 %changelog
