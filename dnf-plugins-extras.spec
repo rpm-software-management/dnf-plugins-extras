@@ -32,9 +32,10 @@ Extras Plugins for DNF.
 
 %package -n %{name}-common-data
 Summary:        Common data files for Extras Plugins for DNF
+Obsoletes:      %{name} < %{version}-%{release}
 
 %description -n %{name}-common-data
-Common data files for Extras Plugins
+Common data files for Extras Plugins.
 
 %package -n python2-%{name}-common
 Summary:        Common files for Extras Plugins for DNF
