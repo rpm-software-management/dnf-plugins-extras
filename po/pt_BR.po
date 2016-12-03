@@ -1,11 +1,12 @@
 # Daniel Lara <danniel@fedoraproject.org>, 2016. #zanata
+# Marco Aurélio Krause <ouesten@me.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 11:34+0100\n"
-"PO-Revision-Date: 2016-09-06 08:59-0400\n"
-"Last-Translator: Frederico Henrique Gonçalves Lima <fred@fredericolima.com.br>\n"
+"POT-Creation-Date: 2016-12-03 13:34+0100\n"
+"PO-Revision-Date: 2016-11-26 09:46-0500\n"
+"Last-Translator: Marco Aurélio Krause <ouesten@me.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "Especificar repositórios para checagem"
 
 #: ../plugins/repoclosure.py:122
 msgid "Check only the newest packages in the repos"
-msgstr ""
+msgstr "Verifique apenas os pacotes mais recentes nos repositórios"
 
 #: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
@@ -142,7 +143,7 @@ msgstr ""
 
 #: ../plugins/kickstart.py:63
 msgid "kickstart file"
-msgstr ""
+msgstr "arquivo kickstart"
 
 #: ../plugins/kickstart.py:81
 #, python-format
@@ -219,7 +220,7 @@ msgstr "Caminho para o diretório"
 
 #: ../plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "Desativando o plugin torproxy: não poderá se conectar à rede Tor"
 
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
@@ -228,7 +229,7 @@ msgstr ""
 
 #: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "O plugin rpmconf não será executado em modo não interativo"
 
 #: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
@@ -244,15 +245,15 @@ msgstr "Lista de pacotes instalados não exigidos por nenhum outro pacote"
 
 #: ../plugins/system_upgrade.py:54
 msgid "the color of the sky"
-msgstr ""
+msgstr "a cor do céu"
 
 #: ../plugins/system_upgrade.py:73
 msgid "No new kernel packages were found."
-msgstr ""
+msgstr "Nenhum pacote novo do kernel foi encontrado."
 
 #: ../plugins/system_upgrade.py:75
 msgid "Need a --releasever greater than the current system version."
-msgstr ""
+msgstr "Necessita de um --releasever maior que o da versão do sistema atual."
 
 #: ../plugins/system_upgrade.py:77
 msgid ""
@@ -262,42 +263,44 @@ msgstr ""
 #: ../plugins/system_upgrade.py:79
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
+"Desculpe, você precisa utilizar 'download --releasever' ao invés de '--"
+"network'"
 
 #: ../plugins/system_upgrade.py:112
 msgid "--datadir: File exists"
-msgstr ""
+msgstr "--datadir: Existem arquivos"
 
 #: ../plugins/system_upgrade.py:257
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "As seguintes inicializações parecem conter registros de atualizações:"
 
 #: ../plugins/system_upgrade.py:267
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- nenhum registro encontrado --"
 
 #: ../plugins/system_upgrade.py:282
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Não foi possível encontrar registros com este índice."
 
 #: ../plugins/system_upgrade.py:305
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "Preparar o sistema para atualizar para uma nova versão"
 
 #: ../plugins/system_upgrade.py:314
 msgid "save downloaded data to this location"
-msgstr ""
+msgstr "salvando dados descarregados para essa localização"
 
 #: ../plugins/system_upgrade.py:317
 msgid "keep installed packages if the new release's version is older"
-msgstr ""
+msgstr "manter os pacotes instalados se os da nova versão forem mais antigos"
 
 #: ../plugins/system_upgrade.py:398
 msgid "system is not ready for upgrade"
-msgstr ""
+msgstr "o sistema não está pronto para uma atualização"
 
 #: ../plugins/system_upgrade.py:400
 msgid "upgrade is already scheduled"
-msgstr ""
+msgstr "a atualização já está agendada"
 
 #: ../plugins/system_upgrade.py:406
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
@@ -305,27 +308,27 @@ msgstr ""
 
 #: ../plugins/system_upgrade.py:408
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "outra ferramenta de atualização em execução. saindo silenciosamente."
 
 #: ../plugins/system_upgrade.py:432
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "Reiniciando para realizar a atualização."
 
 #: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "Iniciando a atualização do sistema. Isso vai levar algum tempo."
 
 #: ../plugins/system_upgrade.py:496
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "Limpando os dados descarregados..."
 
 #: ../plugins/system_upgrade.py:527
 msgid "Download finished."
-msgstr ""
+msgstr "Download concluído."
 
 #: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "Atualização completa! Limpando e reiniciando..."
 
 #: ../plugins/debug.py:55
 msgid "dump information about installed rpm packages to file"
@@ -361,6 +364,8 @@ msgid ""
 "Ignore architecture and install missing packages matching the name, epoch, "
 "version and release."
 msgstr ""
+"Ignore a arquitetura e instale os pacotes ausentes coincidindo com o nome, "
+"período, versão e lançamento."
 
 #: ../plugins/debug.py:197
 msgid "limit to specified type"
@@ -409,6 +414,7 @@ msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Visite https://github.com/FrostyX/tracer/issues e envie o problema. Obrigado"
 
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
