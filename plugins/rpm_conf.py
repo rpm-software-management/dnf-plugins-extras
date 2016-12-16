@@ -44,12 +44,12 @@ class Rpmconf(dnf.Plugin):
 
         conf = self.read_config(self.base.conf)
 
-        if conf.has_option('main', 'diff'):
+        if conf.has_section('main') and conf.has_option('main', 'diff'):
             self.diff = conf.getboolean('main', 'diff')
         else:
             self.diff = False
 
-        if conf.has_option('main', 'frontend'):
+        if conf.has_section('main') and conf.has_option('main', 'frontend'):
             self.frontend = conf.get('main', 'frontend')
         else:
             self.frontend = None
