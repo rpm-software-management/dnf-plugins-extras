@@ -52,7 +52,8 @@ class VersionLock(dnf.Plugin):
     def config(self):
         global locklist_fn
         cp = self.read_config(self.base.conf)
-        locklist_fn = cp.get('main','locklist')
+        locklist_fn = (cp.has_section('main') and cp.has_option('main', 'locklist')
+                       and cp.get('main', 'locklist'))
 
     def sack(self):
         if not locklist_fn:
