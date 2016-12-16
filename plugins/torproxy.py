@@ -60,7 +60,7 @@ class TorProxy(dnf.Plugin):
             result = json.loads(buf.getvalue().decode("ascii"))['IsTor']
         # TODO fix me, need to have a better exception filter
         except Exception as e:
-            print(e)
+            self.logger.error(e)
             result = False
 
         return result
