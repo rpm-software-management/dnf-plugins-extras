@@ -101,6 +101,7 @@ class Local(dnf.Plugin):
 
         local_repo = dnf.repo.Repo("_dnf_local", self.base.conf)
         local_repo.baseurl = "file://{}".format(self.main["repodir"])
+        local_repo.name = "_dnf_local"
         self.base.repos.add(local_repo)
 
     def transaction(self):
