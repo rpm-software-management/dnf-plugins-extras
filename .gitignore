@@ -3,3 +3,8 @@
 TAGS
 *~
 build/
+Makefile
+po/*.gmo
+cmake_install.cmake
+CMakeFiles/
+CMakeCache.txt
