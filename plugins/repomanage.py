@@ -24,6 +24,7 @@ from __future__ import unicode_literals
 import dnf
 import dnf.cli
 import dnfpluginsextras
+import logging
 import os
 
 _ = dnfpluginsextras._
@@ -46,6 +47,9 @@ class RepoManageCommand(dnf.cli.Command):
     def configure(self):
         demands = self.cli.demands
         demands.sack_activation = True
+
+        if not self.opts.verbose and not self.opts.quiet:
+            self.cli.redirect_logger(stdout=logging.WARNING, stderr=logging.INFO)
 
     def run(self):
         if self.opts.new and self.opts.old:
