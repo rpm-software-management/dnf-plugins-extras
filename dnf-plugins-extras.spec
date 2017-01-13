@@ -32,6 +32,7 @@ Extras Plugins for DNF.
 
 %package -n %{name}-common-data
 Summary:        Common data files for Extras Plugins for DNF
+Provides:       %{name} = %{version}-%{release}
 Obsoletes:      %{name} < %{version}-%{release}
 
 %description -n %{name}-common-data
