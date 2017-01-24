@@ -196,24 +196,6 @@ Provides:       %{name}-repograph = %{version}-%{release}
 RepoGraph Plugin for DNF, Python 3 version. Output a full package dependency
 graph in dot format.
 
-%package -n python2-%{name}-repomanage
-Summary:        RepoManage Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-repomanage}
-
-%description -n python2-%{name}-repomanage
-RepoManage Plugin for DNF, Python 2 version. Manage a directory of rpm packages.
-
-%package -n python3-%{name}-repomanage
-Summary:        RepoManage Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-repomanage}
-Provides:       dnf-command(repomanage)
-Provides:       %{name}-repomanage = %{version}-%{release}
-
-%description -n python3-%{name}-repomanage
-RepoManage Plugin for DNF, Python 3 version. Manage a directory of rpm packages.
-
 %package -n python3-%{name}-rpmconf
 Summary:        RpmConf Plugin for DNF
 BuildRequires:  python3-rpmconf
@@ -461,13 +443,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %files -n python3-%{name}-repograph
 %{python3_sitelib}/dnf-plugins/repograph.*
 %{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
-
-%files -n python2-%{name}-repomanage
-%{python2_sitelib}/dnf-plugins/repomanage.*
-
-%files -n python3-%{name}-repomanage
-%{python3_sitelib}/dnf-plugins/repomanage.*
-%{python3_sitelib}/dnf-plugins/__pycache__/repomanage.*
 
 %files -n python3-%{name}-rpmconf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/rpmconf.conf
