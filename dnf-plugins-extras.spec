@@ -157,26 +157,6 @@ Provides:       %{name}-kickstart = %{version}-%{release}
 Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
 Kickstart file.
 
-%package -n python2-%{name}-repoclosure
-Summary:        RepoClosure Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-repoclosure}
-
-%description -n python2-%{name}-repoclosure
-RepoClosure Plugin for DNF, Python 2 version. Display a list of unresolved dependencies for
-repositories.
-
-%package -n python3-%{name}-repoclosure
-Summary:        RepoClosure Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-repoclosure}
-Provides:       dnf-command(repoclosure)
-Provides:       %{name}-repoclosure = %{version}-%{release}
-
-%description -n python3-%{name}-repoclosure
-RepoClosure Plugin for DNF, Python 3 version. Display a list of unresolved
-dependencies for repositories.
-
 %package -n python2-%{name}-repograph
 Summary:        RepoGraph Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -429,13 +409,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %files -n python3-%{name}-kickstart
 %{python3_sitelib}/dnf-plugins/kickstart.*
 %{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
-
-%files -n python2-%{name}-repoclosure
-%{python2_sitelib}/dnf-plugins/repoclosure.*
-
-%files -n python3-%{name}-repoclosure
-%{python3_sitelib}/dnf-plugins/repoclosure.*
-%{python3_sitelib}/dnf-plugins/__pycache__/repoclosure.*
 
 %files -n python2-%{name}-repograph
 %{python2_sitelib}/dnf-plugins/repograph.*
