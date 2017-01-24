@@ -254,8 +254,6 @@ man_pages = [
      u'DNF repoclosure Plugin', AUTHORS, 8),
     ('repograph', 'dnf.plugin.repograph',
      u'DNF repograph Plugin', AUTHORS, 8),
-    ('repomanage', 'dnf.plugin.repomanage',
-     u'DNF repomanage Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf.plugin.rpmconf',
      u'DNF rpmconf Plugin', AUTHORS, 8),
     ('show-leaves', 'dnf.plugin.show-leaves',

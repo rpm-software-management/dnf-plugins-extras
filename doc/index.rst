@@ -31,7 +31,6 @@ This documents extras plugins of DNF:
    migrate
    repoclosure
    repograph
-   repomanage
    rpmconf
    show-leaves
    snapper
