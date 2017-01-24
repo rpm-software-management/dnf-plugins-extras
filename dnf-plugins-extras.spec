@@ -157,25 +157,6 @@ Provides:       %{name}-kickstart = %{version}-%{release}
 Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
 Kickstart file.
 
-%package -n python2-%{name}-repograph
-Summary:        RepoGraph Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-repograph}
-
-%description -n python2-%{name}-repograph
-RepoGraph Plugin for DNF, Python 2 version. Output a full package dependency graph in dot format.
-
-%package -n python3-%{name}-repograph
-Summary:        RepoGraph Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-repograph}
-Provides:       dnf-command(repograph)
-Provides:       %{name}-repograph = %{version}-%{release}
-
-%description -n python3-%{name}-repograph
-RepoGraph Plugin for DNF, Python 3 version. Output a full package dependency
-graph in dot format.
-
 %package -n python3-%{name}-rpmconf
 Summary:        RpmConf Plugin for DNF
 BuildRequires:  python3-rpmconf
@@ -409,13 +390,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %files -n python3-%{name}-kickstart
 %{python3_sitelib}/dnf-plugins/kickstart.*
 %{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
-
-%files -n python2-%{name}-repograph
-%{python2_sitelib}/dnf-plugins/repograph.*
-
-%files -n python3-%{name}-repograph
-%{python3_sitelib}/dnf-plugins/repograph.*
-%{python3_sitelib}/dnf-plugins/__pycache__/repograph.*
 
 %files -n python3-%{name}-rpmconf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/rpmconf.conf

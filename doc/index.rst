@@ -29,7 +29,6 @@ This documents extras plugins of DNF:
    leaves
    local
    migrate
-   repograph
    rpmconf
    show-leaves
    snapper

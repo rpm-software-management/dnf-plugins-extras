@@ -250,8 +250,6 @@ man_pages = [
      u'DNF leaves Plugin', AUTHORS, 8),
     ('kickstart', 'dnf.plugin.kickstart', 
      u'DNF kickstart Plugin', AUTHORS, 8),
-    ('repograph', 'dnf.plugin.repograph',
-     u'DNF repograph Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf.plugin.rpmconf',
      u'DNF rpmconf Plugin', AUTHORS, 8),
     ('show-leaves', 'dnf.plugin.show-leaves',
