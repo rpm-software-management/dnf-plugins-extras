@@ -81,27 +81,6 @@ Provides:       %{name}-debug = %{version}-%{release}
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
 a dump file and restores it.
 
-%package -n python2-%{name}-local
-Summary:        Local Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-Requires:       %{_bindir}/createrepo_c
-%{?python_provide:%python_provide python2-%{name}-local}
-
-%description -n python2-%{name}-local
-Local Plugin for DNF, Python 2 version. Automatically copy all downloaded packages to a
-repository on the local filesystem and generating repo metadata.
-
-%package -n python3-%{name}-local
-Summary:        Local Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-Requires:       %{_bindir}/createrepo_c
-%{?python_provide:%python_provide python3-%{name}-local}
-Provides:       %{name}-local = %{version}-%{release}
-
-%description -n python3-%{name}-local
-Local Plugin for DNF, Python 3 version. Automatically copy all downloaded
-packages to a repository on the local filesystem and generating repo metadata.
-
 %package -n python2-%{name}-migrate
 Summary:        Migrate Plugin for DNF
 %{?python_provide:%python_provide python2-%{name}-migrate}
@@ -298,15 +277,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %files -n python3-%{name}-debug
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
-
-%files -n python2-%{name}-local
-%config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
-%{python2_sitelib}/dnf-plugins/local.*
-
-%files -n python3-%{name}-local
-%config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
-%{python3_sitelib}/dnf-plugins/local.*
-%{python3_sitelib}/dnf-plugins/__pycache__/local.*
 
 %files -n python2-%{name}-migrate
 %{python2_sitelib}/dnf-plugins/migrate.*
