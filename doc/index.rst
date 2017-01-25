@@ -26,7 +26,6 @@ This documents extras plugins of DNF:
 
    release_notes
    debug
-   local
    migrate
    rpmconf
    snapper

@@ -242,8 +242,6 @@ AUTHORS=[u'See AUTHORS in your Extras DNF Plugins distribution']
 man_pages = [
     ('debug', 'dnf.plugin.debug',
      u'DNF debug Plugin', AUTHORS, 8),
-    ('local', 'dnf.plugin.local',
-     u'DNF local Plugin', AUTHORS, 8),
     ('migrate', 'dnf.plugin.migrate',
      u'DNF migrate Plugin', AUTHORS, 8),
     ('kickstart', 'dnf.plugin.kickstart', 
