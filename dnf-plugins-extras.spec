@@ -276,29 +276,6 @@ Provides:       %{name}-tracer = %{version}-%{release}
 Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
 your system every transaction.
 
-%package -n python2-%{name}-versionlock
-Summary:        Version Lock Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-versionlock}
-
-%description -n python2-%{name}-versionlock
-Version lock plugin takes a set of name/versions for packages and excludes all other
-versions of those packages. This allows you to e.g. protect packages from being
-updated by newer versions.
-
-%package -n python3-%{name}-versionlock
-Summary:        Version Lock Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-versionlock}
-Provides:       dnf-command(versionlock)
-Provides:       dnf-plugin-versionlock = 1:%{version}-%{release}
-Provides:       %{name}-versionlock = %{version}-%{release}
-
-%description -n python3-%{name}-versionlock
-Version lock plugin takes a set of name/versions for packages and excludes all other
-versions of those packages. This allows you to e.g. protect packages from being
-updated by newer versions.
-
 %package -n python3-%{name}-torproxy
 Summary:        Tor Proxy Plugin for DNF
 Requires:       python3-%{name}-common = %{version}-%{release}
@@ -427,17 +404,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %files -n python3-%{name}-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
-
-%files -n python2-%{name}-versionlock
-%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
-%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
-%{python2_sitelib}/dnf-plugins/versionlock.*
-
-%files -n python3-%{name}-versionlock
-%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.conf
-%config(noreplace) %{_sysconfdir}/dnf/plugins/versionlock.list
-%{python3_sitelib}/dnf-plugins/versionlock.*
-%{python3_sitelib}/dnf-plugins/__pycache__/versionlock.*
 
 %files -n python3-%{name}-torproxy
 %config(noreplace) %{_sysconfdir}/dnf/plugins/torproxy.conf
