@@ -81,26 +81,6 @@ Provides:       %{name}-debug = %{version}-%{release}
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
 a dump file and restores it.
 
-%package -n python2-%{name}-leaves
-Summary:        Leaves Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-leaves}
-
-%description -n python2-%{name}-leaves
-Leaves Plugin for DNF, Python 2 version. List all installed packages
-not required by any other installed package.
-
-%package -n python3-%{name}-leaves
-Summary:        Leaves Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-leaves}
-Provides:       dnf-command(leaves)
-Provides:       %{name}-leaves = %{version}-%{release}
-
-%description -n python3-%{name}-leaves
-Leaves Plugin for DNF, Python 3 version. List all installed packages
-not required by any other installed package.
-
 %package -n python2-%{name}-local
 Summary:        Local Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -168,29 +148,6 @@ Provides:       %{name}-rpmconf = %{version}-%{release}
 %description -n python3-%{name}-rpmconf
 RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
-
-%package -n python2-%{name}-show-leaves
-Summary:        Leaves Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-show-leaves}
-Requires:       python2-%{name}-leaves = %{version}-%{release}
-
-%description -n python2-%{name}-show-leaves
-Show-leaves Plugin for DNF, Python 2 version. List all installed
-packages that are no longer required by any other installed package
-after a transaction.
-
-%package -n python3-%{name}-show-leaves
-Summary:        Show-leaves Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-show-leaves}
-Requires:       python3-%{name}-leaves = %{version}-%{release}
-Provides:       %{name}-show-leaves = %{version}-%{release}
-
-%description -n python3-%{name}-show-leaves
-Show-leaves Plugin for DNF, Python 3 version. List all installed
-packages that are no longer required by any other installed package
-after a transaction.
 
 %package -n python2-%{name}-snapper
 Summary:        Snapper Plugin for DNF
@@ -342,13 +299,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 
-%files -n python2-%{name}-leaves
-%{python2_sitelib}/dnf-plugins/leaves.*
-
-%files -n python3-%{name}-leaves
-%{python3_sitelib}/dnf-plugins/leaves.*
-%{python3_sitelib}/dnf-plugins/__pycache__/leaves.*
-
 %files -n python2-%{name}-local
 %config(noreplace) %{_sysconfdir}/dnf/plugins/local.conf
 %{python2_sitelib}/dnf-plugins/local.*
@@ -372,13 +322,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %config(noreplace) %{_sysconfdir}/dnf/plugins/rpmconf.conf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
-
-%files -n python2-%{name}-show-leaves
-%{python2_sitelib}/dnf-plugins/show_leaves.*
-
-%files -n python3-%{name}-show-leaves
-%{python3_sitelib}/dnf-plugins/show_leaves.*
-%{python3_sitelib}/dnf-plugins/__pycache__/show_leaves.*
 
 %files -n python2-%{name}-snapper
 %{python2_sitelib}/dnf-plugins/snapper.*
