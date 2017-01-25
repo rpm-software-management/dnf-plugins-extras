@@ -26,11 +26,9 @@ This documents extras plugins of DNF:
 
    release_notes
    debug
-   leaves
    local
    migrate
    rpmconf
-   show-leaves
    snapper
    system-upgrade
    torproxy
