@@ -250,6 +250,8 @@ man_pages = [
      u'DNF rpmconf Plugin', AUTHORS, 8),
     ('snapper', 'dnf.plugin.snapper',
      u'DNF snapper Plugin', AUTHORS, 8),
+    ('system-upgrade', 'dnf.plugin.system-upgrade', u'DNF system-upgrade Plugin', AUTHORS, 8),
+    ('torproxy', 'dnf.plugin.torproxy', u'DNF torproxy Plugin', AUTHORS, 8),
     ('tracer', 'dnf.plugin.tracer',
      u'DNF tracer Plugin', AUTHORS, 8),
 ]
