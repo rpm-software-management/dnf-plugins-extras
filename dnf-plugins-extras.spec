@@ -64,6 +64,10 @@ Common files for Extras Plugins for DNF, Python 3 version.
 Summary:        Debug Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-debug}
+Provides:       dnf-command(debug-dump)
+Provides:       dnf-command(debug-restore)
+Provides:       %{name}-debug = %{version}-%{release}
+Provides:       dnf-plugin-debug = %{version}-%{release}
 
 %description -n python2-%{name}-debug
 Debug Plugin for DNF, Python 2 version. Writes system RPM configuration to a dump file
@@ -76,6 +80,7 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Provides:       dnf-command(debug-dump)
 Provides:       dnf-command(debug-restore)
 Provides:       %{name}-debug = %{version}-%{release}
+Provides:       dnf-plugin-debug = %{version}-%{release}
 
 %description -n python3-%{name}-debug
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
@@ -87,6 +92,7 @@ Summary:        Migrate Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 Requires:       yum
 Requires:       python2-dnf >= %{dnf_lowest_compatible}
+Provides:       dnf-plugin-migrate = %{version}-%{release}
 
 %description -n python2-%{name}-migrate
 Migrate Plugin for DNF, Python 2 version. Migrates history, group and
@@ -98,6 +104,9 @@ Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-kickstart}
 BuildRequires:  python-kickstart
 Requires:       python-kickstart
+Provides:       dnf-command(kickstart)
+Provides:       %{name}-kickstart = %{version}-%{release}
+Provides:       dnf-plugin-kickstart = %{version}-%{release}
 
 %description -n python2-%{name}-kickstart
 Kickstart Plugin for DNF, Python 2 version. Install packages listed in a
@@ -111,6 +120,7 @@ BuildRequires:  python3-kickstart
 Requires:       python3-kickstart
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
+Provides:       dnf-plugin-kickstart = %{version}-%{release}
 
 %description -n python3-%{name}-kickstart
 Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
@@ -123,6 +133,7 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-rpmconf}
 Requires:       python3-rpmconf
 Provides:       %{name}-rpmconf = %{version}-%{release}
+Provides:       dnf-plugin-rpmconf = %{version}-%{release}
 
 %description -n python3-%{name}-rpmconf
 RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
@@ -134,6 +145,8 @@ Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-snapper}
 Requires:       dbus-python
 Requires:       snapper
+Provides:       %{name}-snapper = %{version}-%{release}
+Provides:       dnf-plugin-snapper = %{version}-%{release}
 
 %description -n python2-%{name}-snapper
 Snapper Plugin for DNF, Python 2 version. Creates snapshot every transaction.
@@ -145,6 +158,7 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       python3-dbus
 Requires:       snapper
 Provides:       %{name}-snapper = %{version}-%{release}
+Provides:       dnf-plugin-snapper = %{version}-%{release}
 
 %description -n python3-%{name}-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
@@ -154,10 +168,13 @@ Summary:        System Upgrade Plugin for DNF
 Requires:       python-%{name}-common = %{?epoch:%{?epoch}:}%{version}-%{release}
 Requires:       python2-systemd
 %{?python_provide:%python_provide python2-%{name}-system-upgrade}
-
-Obsoletes:     fedup < 0.9.4
-Obsoletes:     dnf-plugin-system-upgrade < 0.10
-Obsoletes:     python2-dnf-plugin-system-upgrade < 0.10
+Provides:       dnf-command(system-upgrade)
+Provides:       %{name}-system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
+Obsoletes:      fedup < 0.9.4
+Obsoletes:      dnf-plugin-system-upgrade < 0.10
+Obsoletes:      python2-dnf-plugin-system-upgrade < 0.10
 
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  systemd
@@ -176,7 +193,7 @@ Requires:       python3-systemd
 Provides:       dnf-command(system-upgrade)
 Provides:       %{name}-system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:       system-upgrade = %{?epoch:%{epoch}:}%{version}-%{release}
-
+Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
 Obsoletes:      python3-dnf-plugin-system-upgrade < 0.10
@@ -195,6 +212,8 @@ Summary:        Tracer Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-tracer}
 Requires:       python2-tracer >= 0.6.12
+Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
+Provides:       %{name}-tracer = %{version}-%{release}
 
 %description -n python2-%{name}-tracer
 Tracer Plugin for DNF, Python 2 version. Finds outdated running applications in your system
@@ -217,6 +236,7 @@ Summary:        Tor Proxy Plugin for DNF
 Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-torproxy}
 Requires:       python3-pycurl
+Provides:       dnf-plugin-torproxy = %{version}-%{release}
 Provides:       %{name}-torproxy = %{version}-%{release}
 
 %description -n python3-%{name}-torproxy
