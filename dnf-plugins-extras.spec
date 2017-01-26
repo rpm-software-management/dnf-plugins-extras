@@ -30,19 +30,16 @@ BuildRequires:  python3-kickstart
 %description
 Extras Plugins for DNF.
 
-%package -n %{name}-common-data
-Summary:        Common data files for Extras Plugins for DNF
-Obsoletes:      %{name} < %{version}-%{release}
-
-%description -n %{name}-common-data
-Common data files for Extras Plugins.
-
 %package -n python2-%{name}-common
 Summary:        Common files for Extras Plugins for DNF
 Requires:       python2-dnf >= %{dnf_lowest_compatible}
 Requires:       python2-dnf < %{dnf_not_compatible}
-Requires:       %{name}-common-data = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-common}
+Provides:       %{name}-common = %{version}-%{release}
+Obsoletes:      %{name}-common < %{version}-%{release}
+Obsoletes:      %{name} < %{version}-%{release}
+Obsoletes:      %{name}-common-data < %{version}-%{release}
+Conflicts:      python3-%{name}-common < %{version}-%{release}
 
 %description -n python2-%{name}-common
 Common files for Extras Plugins, Python 2 version.
@@ -51,11 +48,13 @@ Common files for Extras Plugins, Python 2 version.
 Summary:        Common files for Extras Plugins for DNF
 Requires:       python3-dnf >= %{dnf_lowest_compatible}
 Requires:       python3-dnf < %{dnf_not_compatible}
-Requires:       %{name}-common-data = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-common}
 Provides:       %{name}-common = %{version}-%{release}
 Obsoletes:      %{name}-common < %{version}-%{release}
 Obsoletes:      python3-%{name}-common < %{version}-%{release}
+Obsoletes:      %{name} < %{version}-%{release}
+Obsoletes:      %{name}-common-data < %{version}-%{release}
+Conflicts:      python2-%{name}-common < %{version}-%{release}
 
 %description -n python3-%{name}-common
 Common files for Extras Plugins for DNF, Python 3 version.
@@ -68,6 +67,7 @@ Provides:       dnf-command(debug-dump)
 Provides:       dnf-command(debug-restore)
 Provides:       %{name}-debug = %{version}-%{release}
 Provides:       dnf-plugin-debug = %{version}-%{release}
+Conflicts:      python3-%{name}-debug < %{version}-%{release}
 
 %description -n python2-%{name}-debug
 Debug Plugin for DNF, Python 2 version. Writes system RPM configuration to a dump file
@@ -81,6 +81,7 @@ Provides:       dnf-command(debug-dump)
 Provides:       dnf-command(debug-restore)
 Provides:       %{name}-debug = %{version}-%{release}
 Provides:       dnf-plugin-debug = %{version}-%{release}
+Conflicts:      python2-%{name}-debug < %{version}-%{release}
 
 %description -n python3-%{name}-debug
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
@@ -107,6 +108,7 @@ Requires:       python-kickstart
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
 Provides:       dnf-plugin-kickstart = %{version}-%{release}
+Conflicts:      python3-%{name}-kickstart < %{version}-%{release}
 
 %description -n python2-%{name}-kickstart
 Kickstart Plugin for DNF, Python 2 version. Install packages listed in a
@@ -121,6 +123,7 @@ Requires:       python3-kickstart
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
 Provides:       dnf-plugin-kickstart = %{version}-%{release}
+Conflicts:      python2-%{name}-kickstart < %{version}-%{release}
 
 %description -n python3-%{name}-kickstart
 Kickstart Plugin for DNF, Python 3 version. Install packages listed in a
@@ -147,6 +150,7 @@ Requires:       dbus-python
 Requires:       snapper
 Provides:       %{name}-snapper = %{version}-%{release}
 Provides:       dnf-plugin-snapper = %{version}-%{release}
+Conflicts:      python3-%{name}-snapper < %{version}-%{release}
 
 %description -n python2-%{name}-snapper
 Snapper Plugin for DNF, Python 2 version. Creates snapshot every transaction.
@@ -159,6 +163,7 @@ Requires:       python3-dbus
 Requires:       snapper
 Provides:       %{name}-snapper = %{version}-%{release}
 Provides:       dnf-plugin-snapper = %{version}-%{release}
+Conflicts:      python2-%{name}-snapper < %{version}-%{release}
 
 %description -n python3-%{name}-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
@@ -175,7 +180,7 @@ Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
 Obsoletes:      python2-dnf-plugin-system-upgrade < 0.10
-
+Conflicts:      python3-%{name}-system-upgrade < %{version}-%{release}
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  systemd
 BuildRequires:  python2-systemd
@@ -197,7 +202,7 @@ Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
 Obsoletes:      python3-dnf-plugin-system-upgrade < 0.10
-
+Conflicts:      python2-%{name}-system-upgrade < %{version}-%{release}
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  systemd
 BuildRequires:  python3-systemd
@@ -214,6 +219,7 @@ Requires:       python2-%{name}-common = %{version}-%{release}
 Requires:       python2-tracer >= 0.6.12
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       %{name}-tracer = %{version}-%{release}
+Conflicts:      python3-%{name}-tracer < %{version}-%{release}
 
 %description -n python2-%{name}-tracer
 Tracer Plugin for DNF, Python 2 version. Finds outdated running applications in your system
@@ -226,6 +232,7 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       python3-tracer >= 0.6.12
 Provides:       dnf-plugin-tracer = 1:%{version}-%{release}
 Provides:       %{name}-tracer = %{version}-%{release}
+Conflicts:      python2-%{name}-tracer < %{version}-%{release}
 
 %description -n python3-%{name}-tracer
 Tracer Plugin for DNF, Python 3 version. Finds outdated running applications in
@@ -279,68 +286,80 @@ popd
 PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/
 PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
 
-%files -n %{name}-common-data -f %{name}.lang
-%{_mandir}/man8/dnf.plugin.*
+%files -n python2-%{name}-common -f %{name}.lang
+%{python2_sitelib}/dnfpluginsextras/
 %license COPYING
 %doc AUTHORS README.rst
 
-%files -n python2-%{name}-common
-%{python2_sitelib}/dnfpluginsextras/
-
-%files -n python3-%{name}-common
+%files -n python3-%{name}-common -f %{name}.lang
 %{python3_sitelib}/dnfpluginsextras/
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
+%license COPYING
+%doc AUTHORS README.rst
 
 %files -n python2-%{name}-debug
 %{python2_sitelib}/dnf-plugins/debug.*
+%{_mandir}/man8/dnf.plugin.debug.*
 
 %files -n python3-%{name}-debug
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
+%{_mandir}/man8/dnf.plugin.debug.*
 
 %files -n python2-%{name}-migrate
 %{python2_sitelib}/dnf-plugins/migrate.*
+%{_mandir}/man8/dnf.plugin.migrate.*
 
 %files -n python2-%{name}-kickstart
 %{python2_sitelib}/dnf-plugins/kickstart.*
+%{_mandir}/man8/dnf.plugin.kickstart.*
 
 %files -n python3-%{name}-kickstart
 %{python3_sitelib}/dnf-plugins/kickstart.*
 %{python3_sitelib}/dnf-plugins/__pycache__/kickstart.*
+%{_mandir}/man8/dnf.plugin.kickstart.*
 
 %files -n python3-%{name}-rpmconf
 %config(noreplace) %{_sysconfdir}/dnf/plugins/rpmconf.conf
 %{python3_sitelib}/dnf-plugins/rpm_conf.*
 %{python3_sitelib}/dnf-plugins/__pycache__/rpm_conf.*
+%{_mandir}/man8/dnf.plugin.rpmconf.*
 
 %files -n python2-%{name}-snapper
 %{python2_sitelib}/dnf-plugins/snapper.*
+%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files -n python3-%{name}-snapper
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
+%{_mandir}/man8/dnf.plugin.snapper.*
 
 %files -n python2-%{name}-system-upgrade
 %{_unitdir}/dnf-system-upgrade.service
 %{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
 %{python2_sitelib}/dnf-plugins/system_upgrade.*
+%{_mandir}/man8/dnf.plugin.system-upgrade.*
 
 %files -n python3-%{name}-system-upgrade
 %{_unitdir}/dnf-system-upgrade.service
 %{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
 %{python3_sitelib}/dnf-plugins/system_upgrade.py
 %{python3_sitelib}/dnf-plugins/__pycache__/system_upgrade.*
+%{_mandir}/man8/dnf.plugin.system-upgrade.*
 
 %files -n python2-%{name}-tracer
 %{python2_sitelib}/dnf-plugins/tracer.*
+%{_mandir}/man8/dnf.plugin.tracer.*
 
 %files -n python3-%{name}-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
 %{python3_sitelib}/dnf-plugins/__pycache__/tracer.*
+%{_mandir}/man8/dnf.plugin.tracer.*
 
 %files -n python3-%{name}-torproxy
 %config(noreplace) %{_sysconfdir}/dnf/plugins/torproxy.conf
 %{python3_sitelib}/dnf-plugins/torproxy.*
 %{python3_sitelib}/dnf-plugins/__pycache__/torproxy.*
+%{_mandir}/man8/dnf.plugin.torproxy.*
 
 %changelog
