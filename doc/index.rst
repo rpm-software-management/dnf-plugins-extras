@@ -26,7 +26,6 @@ This documents extras plugins of DNF:
 
    release_notes
    debug
-   migrate
    rpmconf
    snapper
    system-upgrade
