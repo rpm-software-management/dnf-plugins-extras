@@ -87,18 +87,6 @@ Conflicts:      python2-%{name}-debug < %{version}-%{release}
 Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
 a dump file and restores it.
 
-%package -n python2-%{name}-migrate
-Summary:        Migrate Plugin for DNF
-%{?python_provide:%python_provide python2-%{name}-migrate}
-Requires:       python2-%{name}-common = %{version}-%{release}
-Requires:       yum
-Requires:       python2-dnf >= %{dnf_lowest_compatible}
-Provides:       dnf-plugin-migrate = %{version}-%{release}
-
-%description -n python2-%{name}-migrate
-Migrate Plugin for DNF, Python 2 version. Migrates history, group and
-yumdb data from yum to dnf.
-
 %package -n python2-%{name}-kickstart
 Summary:        Kickstart Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -305,10 +293,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/debug.*
 %{python3_sitelib}/dnf-plugins/__pycache__/debug.*
 %{_mandir}/man8/dnf.plugin.debug.*
-
-%files -n python2-%{name}-migrate
-%{python2_sitelib}/dnf-plugins/migrate.*
-%{_mandir}/man8/dnf.plugin.migrate.*
 
 %files -n python2-%{name}-kickstart
 %{python2_sitelib}/dnf-plugins/kickstart.*
