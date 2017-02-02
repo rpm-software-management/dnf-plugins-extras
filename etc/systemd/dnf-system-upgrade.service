@@ -3,6 +3,11 @@ Description=System Upgrade
 ConditionPathExists=/system-update/.dnf-system-upgrade
 Documentation=http://www.freedesktop.org/wiki/Software/systemd/SystemUpdates
 
+DefaultDependencies=no
+Requires=sysinit.target
+After=sysinit.target systemd-journald.socket
+Before=shutdown.target
+
 [Service]
 # Upgrade output goes to journal and on-screen.
 StandardOutput=journal+console
