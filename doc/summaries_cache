@@ -70,5 +70,21 @@
     [
         1225894, 
         "dnf-2 migrate: Error: Group 'fedora-release-nonproduct' does not exist."
+    ], 
+    [
+        1377742, 
+        "dnf repomanage writes too much to stdout"
+    ], 
+    [
+        1303983, 
+        "dnf repoclosure needs an arch flag"
+    ], 
+    [
+        1365698, 
+        "python3-dnf-plugins-extras-tracer depends on python2-tracer (instead of python3-tracer)"
+    ], 
+    [
+        1383603, 
+        "Cannot upgrade to dnf-2.0: python3-dnf-plugins-extras-common-0.0.12-4.fc25.noarch requires python3-dnf < 2.0"
     ]
 ]
