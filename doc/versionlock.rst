@@ -15,9 +15,9 @@
   License and may only be used or replicated with the express permission of
   Red Hat, Inc.
 
-================
+======================
 DNF versionlock Plugin
-================
+======================
 
 -----------
 Description
@@ -52,9 +52,9 @@ Arguments
 ``<package-spec>``
     Package spec to lock or exclude.
 
--------
+-----------
 Subcommands
--------
+-----------
 
 ``dnf versionlock add <package-spec>``
     Add a versionlock for all available packages matching the spec.

@@ -35,6 +35,8 @@ This documents extras plugins of DNF:
    rpmconf
    show-leaves
    snapper
+   system-upgrade
+   torproxy
    tracer
    versionlock
 

@@ -1,74 +1,90 @@
 [
     [
-        1048541, 
+        1048541,
         "[rfe] [plugins] manage local repo (yum-utils repomanage)"
-    ], 
+    ],
     [
-        1177631, 
+        1177631,
         "[abrt] dnf: connection.py:641:call_blocking:ValueError: Unable to guess signature from an empty dict"
-    ], 
+    ],
     [
-        991014, 
+        991014,
         "[rfe] [plugins] yum-plugin-local"
-    ], 
+    ],
     [
-        1187763, 
+        1187763,
         "[abrt] dnf: tracer.py:59:transaction:NameError: global name 'installed' is not defined"
-    ], 
+    ],
     [
-        1192779, 
+        1192779,
         "[abrt] python3-dnf: tracer.py:93:_print_output:TypeError: Type str doesn't support the buffer API"
-    ], 
+    ],
     [
-        1201471, 
+        1201471,
         "Tracer plugin ignores tracer errors"
-    ], 
+    ],
     [
-        1208614, 
+        1208614,
         "disabling the dnf local plugin causes dnf to crash"
-    ], 
+    ],
     [
-        1209864, 
+        1209864,
         "The orphans plugin reports things as orphans that aren't"
-    ], 
+    ],
     [
-        1209043, 
+        1209043,
         "dnf migrate command fails"
-    ], 
+    ],
     [
-        1208773, 
+        1208773,
         "[RFE] Define virtual provides for DNF commands and suggest installing the appropriate one if a command was not found"
-    ], 
+    ],
     [
-        1211596, 
+        1211596,
         "local: Missing Requires: /usr/bin/createrepo_c"
-    ], 
+    ],
     [
-        1214807, 
+        1214807,
         "\"Malformed yum output\" message when doing \"dnf migrate\""
-    ], 
+    ],
     [
-        1223034, 
+        1223034,
         "[abrt] python-dnf: pycomp.py:88:write_to_file:UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 24: ordinal not in range(128)"
-    ], 
+    ],
     [
-        1226607, 
+        1226607,
         "[abrt] dnf: subprocess.py:573:check_output:CalledProcessError: Command '[u'/usr/bin/yum-deprecated', u'-q', u'group', u'list', u'installed', u'-C']' returned non-zero exit status 1"
-    ], 
+    ],
     [
-        1225282, 
+        1225282,
         "Hide warnings from yum when executed from dnf"
-    ], 
+    ],
     [
-        1230503, 
+        1230503,
         "[abrt] dnf: repomanage.py:65:run:ValueError: invalid literal for int() with base 10: 'KEEP'"
-    ], 
+    ],
     [
-        1263699, 
+        1263699,
         "dnf-plugin-snapper does not set cleanup type for snapshots"
-    ], 
+    ],
     [
-        1225894, 
+        1225894,
         "dnf-2 migrate: Error: Group 'fedora-release-nonproduct' does not exist."
+    ],
+    [
+        1303983,
+        "dnf repoclosure needs an arch flag"
+    ],
+    [
+        1365698,
+        "python3-dnf-plugins-extras-tracer depends on python2-tracer (instead of python3-tracer)"
+    ],
+    [
+        1377742,
+        "dnf repomanage writes too much to stdout"
+    ],
+    [
+        1383603,
+        "Cannot upgrade to dnf-2.0: python3-dnf-plugins-extras-common-0.0.12-4.fc25.noarch requires python3-dnf < 2.0"
     ]
 ]

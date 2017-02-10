@@ -11,10 +11,13 @@ Extras DNF Plugins Release Notes
 DNF 2.0 compatibility (not compatible with 1.x), bugfixes and performance
 improvements.
 
+Incorporated system-upgrade plugin.
+
 Bugs fixed in 0.10.0:
 
 * :rhbug:`1303983`
 * :rhbug:`1365698`
+* :rhbug:`1377742`
 * :rhbug:`1383603`
 
 =====================
