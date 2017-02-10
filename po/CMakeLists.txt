@@ -1,21 +1,22 @@
-SET(SRC_PO ${CMAKE_SOURCE_DIR}/po)
+# pushing/pulling translations to zanata
 
+file (RELATIVE_PATH SRCDIR ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/plugins)
 ADD_CUSTOM_TARGET (gettext-export
-                   cd ${SRC_PO} && find ../plugins -iname "*.py" |
-                   xargs xgettext --from-code=UTF-8 --output=${SRC_PO}/dnf-plugins-extras.pot &&
-                   zanata po push
+                   find ${SRCDIR} -iname "*.py" |
+                   xargs xgettext --from-code=UTF-8 --keyword=P_:1,2 -c --output=dnf-plugins-extras.pot &&
+                   zanata push -f
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                    COMMENT "Pushing translation source file to zanata")
 ADD_CUSTOM_TARGET (gettext-update
-                   cd ${SRC_PO} &&
-                   zanata po pull
-                   DEPENDS gettext-export
+                   zanata pull
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                    COMMENT "Updating translation files from zanata")
 
 FIND_PACKAGE(Gettext)
 IF (GETTEXT_FOUND)
     # this process unfortunately reformats .po files so copy them
-    FILE(GLOB POS ${CMAKE_SOURCE_DIR}/po/*.po)
-    FILE(COPY ${POS} DESTINATION ${CMAKE_BINARY_DIR}/po)
-    FILE(GLOB POS_BIN ${CMAKE_BINARY_DIR}/po/*.po)
-    GETTEXT_CREATE_TRANSLATIONS(${CMAKE_SOURCE_DIR}/po/dnf-plugins-extras.pot ALL ${POS_BIN})
+    FILE(GLOB POS ${CMAKE_CURRENT_SOURCE_DIR}/*.po)
+    FILE(COPY ${POS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+    FILE(GLOB POS_BIN ${CMAKE_CURRENT_BINARY_DIR}/*.po)
+    GETTEXT_CREATE_TRANSLATIONS(${CMAKE_CURRENT_SOURCE_DIR}/dnf-plugins-extras.pot ALL ${POS_BIN})
 ENDIF()
