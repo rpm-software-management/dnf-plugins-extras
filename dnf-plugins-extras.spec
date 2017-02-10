@@ -2,7 +2,7 @@
 %{!?dnf_not_compatible: %global dnf_not_compatible 3.0}
 
 Name:           dnf-plugins-extras
-Version:        0.10.0
+Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Extras Plugins for DNF
 License:        GPLv2+
@@ -523,3 +523,19 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/__pycache__/torproxy.*
 
 %changelog
+* Fri Feb 10 2017 Jaroslav Mracek <jmracek@redhat.com> 1.0.0-1
+- Automatic commit of package [dnf-plugins-extras] release [1.0.0-1]. (Jaroslav Mracek)
+- bump version to 1.0.0 + update release notes (Jaroslav Mracek)
+- Add scripts/update_releasenotes.py to allow same processes (Jaroslav Mracek)
+- dnf-system-upgrade.service: use DefaultDependencies=no (Zbigniew Jędrzejewski-Szmek)
+- setup SideCI to ignore some PEP8 violations (Jaroslav Mracek)
+- Change --repoid to --repo in repoclosure documentation (Lubomír Sedlář)
+- Redirect logger.info into stderr for repomanage (RhBug:1377742) (Jaroslav Mracek)
+- Use to inform about error logger.error for torproxy (Jaroslav Mracek)
+- Allow run torproxy without its conf (Jaroslav Mracek)
+- Allow run rpm_conf without its conf (Jaroslav Mracek)
+- Allow run versionlock without its conf (Jaroslav Mracek)
+- po: update translations (Igor Gnatenko)
+- spec: Add obsoletes for main package (Igor Gnatenko)
+- spec: use rpm macro for requires (Igor Gnatenko)
+- don't install torproxy under py2 (Igor Gnatenko)
