@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-03 13:34+0100\n"
+"POT-Creation-Date: 2017-02-10 14:41+0100\n"
 "PO-Revision-Date: 2016-11-24 02:48-0500\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
@@ -20,327 +20,6 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Wyświetla listę nierozwiązanych zależności dla repozytoriów"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
-"sprawdza pakiety o podanych architekturach, może być podawane wielokrotnie"
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr "Podaje repozytoria do sprawdzenia"
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr "Sprawdza tylko najnowsze pakiety w repozytoriach"
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "Sprawdza domknięcie tylko tego pakietu"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Nie można odczytać konfiguracji blokady wersji: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Nie ustawiono listy blokad"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Dodawanie blokady wersji na:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Dodawanie wykluczenia na:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Usuwanie blokady wersji dla:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Nie odnaleziono pakietu dla:"
-
-#: ../plugins/versionlock.py:89
-msgid "control package version locks"
-msgstr "kontroluje blokady wersji pakietów"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "nie powiodło się przetworzenie NEVRA pakietu z: %s"
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migruje historię, grupy i dane yumdb programu yum do programu dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "który rodzaj danych programu yum migrować."
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "Migrowanie danych historii…"
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "Migrowanie danych grup…"
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr ""
-"Wykonanie polecenia yum się nie powiodło. Nie można pobrać zainstalowanych "
-"grup."
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "Brak grup do migrowania z programu yum"
-
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr "pomijanie."
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "Migrowanie danych bazy YUMDB…"
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "Nie odnaleziono %s z %s"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "zastępowanie nieznanych znaków w %s z %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "Odmowa dostępu do bazy DNFDB"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "Migrowano %s z %s"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr ""
-"Odnalezione wpisy bazy YUMDB: %d, migrowano: %d, pominięto/zachowano: %d"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "Wyświetla pełny wykres zależności pakietu w formacie programu dot"
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Nic nie dostarcza: „%s”"
-
-#: ../plugins/kickstart.py:58
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Instaluje pakiety podane w pliku kickstart w systemie"
-
-#: ../plugins/kickstart.py:63
-msgid "kickstart file"
-msgstr "plik kickstart"
-
-#: ../plugins/kickstart.py:81
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "nie można przetworzyć pliku: %s"
-
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "Pakiet %s jest niedostępny."
-
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "Nie ma niczego do zrobienia."
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
-msgstr "Nowe pozostałości:"
-
-#: ../plugins/snapper.py:49
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr "połączenie z snapperd się nie powiodło: %s"
-
-#: ../plugins/snapper.py:54
-msgid "creating snapshot"
-msgstr "tworzenie migawki"
-
-#: ../plugins/snapper.py:59
-#, python-format
-msgid "created snapshot %d"
-msgstr "utworzono migawkę %d"
-
-#: ../plugins/snapper.py:63
-#, python-format
-msgid "creating snapshot failed: %s"
-msgstr "utworzenie migawki się nie powiodło: %s"
-
-#: ../plugins/repomanage.py:44
-msgid "Manage a directory of rpm packages"
-msgstr "Zarządza katalogiem pakietów RPM"
-
-#: ../plugins/repomanage.py:52
-msgid "Pass either --old or --new, not both!"
-msgstr "Należy podać --old lub --new."
-
-#: ../plugins/repomanage.py:62
-msgid "No files to process"
-msgstr "Brak plików do przetworzenia"
-
-#: ../plugins/repomanage.py:67
-msgid "Could not open {}"
-msgstr "Nie można otworzyć {}"
-
-#: ../plugins/repomanage.py:124
-msgid "Print the older packages"
-msgstr "Wyświetla listę poprzednich pakietów"
-
-#: ../plugins/repomanage.py:126
-msgid "Print the newest packages"
-msgstr "Wyświetla listę najnowszych pakietów"
-
-#: ../plugins/repomanage.py:128
-msgid "Space separated output, not newline"
-msgstr "Wyjście powinno być rozdzielane spacjami, a nie nowymi wierszami"
-
-#: ../plugins/repomanage.py:130
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "N najnowszych pakietów do zatrzymania — domyślnie 1"
-
-#: ../plugins/repomanage.py:133
-msgid "Path to directory"
-msgstr "Ścieżka do katalogu"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Wyłączanie wtyczki torproxy: nie można połączyć z siecią Tor"
-
-#: ../plugins/rpm_conf.py:67
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Dodawanie „{}” do listy obsługiwanych pakietów dla rpmconf"
-
-#: ../plugins/rpm_conf.py:73
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "Wtyczka rpmconf nie będzie działała w trybie nieinteraktywnym"
-
-#: ../plugins/rpm_conf.py:86
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "ignorowanie sys.exit z rpmconf z powodu braku zmiennej „MERGE”"
-
-#: ../plugins/rpm_conf.py:90
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ignorowanie sys.exit z rpmconf z powodu braku pliku"
-
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr ""
-"Wyświetla listę zainstalowanych pakietów, które nie są wymagane przez inne "
-"pakiety"
-
-#: ../plugins/system_upgrade.py:54
-msgid "the color of the sky"
-msgstr "kolor nieba"
-
-#: ../plugins/system_upgrade.py:73
-msgid "No new kernel packages were found."
-msgstr "Nie odnaleziono żadnych nowych pakietów jądra."
-
-#: ../plugins/system_upgrade.py:75
-msgid "Need a --releasever greater than the current system version."
-msgstr ""
-"Parametr „--releasever” wymaga wartości wyższej niż wersja obecnego systemu."
-
-#: ../plugins/system_upgrade.py:77
-msgid ""
-"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
-msgstr ""
-"Ukończono pobieranie. Polecenie „dnf system-upgrade reboot” rozpocznie "
-"aktualizację systemu."
-
-#: ../plugins/system_upgrade.py:79
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "Należy użyć opcji „download --releasever” zamiast „--network”"
-
-#: ../plugins/system_upgrade.py:112
-msgid "--datadir: File exists"
-msgstr "--datadir: plik istnieje"
-
-#: ../plugins/system_upgrade.py:257
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Następujące uruchomienia zawierają dzienniki aktualizacji:"
-
-#: ../plugins/system_upgrade.py:267
-msgid "-- no logs were found --"
-msgstr "-- nie odnaleziono dzienników --"
-
-#: ../plugins/system_upgrade.py:282
-msgid "Cannot find logs with this index."
-msgstr "Nie można odnaleźć dzienników za pomocą tego indeksu."
-
-#: ../plugins/system_upgrade.py:305
-msgid "Prepare system for upgrade to a new release"
-msgstr "Przygotowuje system do aktualizacji do nowego wydania"
-
-#: ../plugins/system_upgrade.py:314
-msgid "save downloaded data to this location"
-msgstr "zapisuje pobrane dane w tym położeniu"
-
-#: ../plugins/system_upgrade.py:317
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-"zachowuje zainstalowane pakiety, jeśli wersja nowego wydania jest starsza"
-
-#: ../plugins/system_upgrade.py:398
-msgid "system is not ready for upgrade"
-msgstr "system nie jest gotowy na aktualizację"
-
-#: ../plugins/system_upgrade.py:400
-msgid "upgrade is already scheduled"
-msgstr "aktualizacja jest już zaplanowana"
-
-#: ../plugins/system_upgrade.py:406
-msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr "polecenie „dnf system-upgrade reboot” rozpocznie aktualizację systemu"
-
-#: ../plugins/system_upgrade.py:408
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-"inne narzędzie do aktualizacji systemu jest uruchomione. Ciche kończenie "
-"działania."
-
-#: ../plugins/system_upgrade.py:432
-msgid "Rebooting to perform upgrade."
-msgstr "Ponowne uruchamianie, aby wykonać aktualizację."
-
-#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
-msgid "Starting system upgrade. This will take a while."
-msgstr "Rozpoczynanie aktualizacji systemu. Może to chwilę zająć."
-
-#: ../plugins/system_upgrade.py:496
-msgid "Cleaning up downloaded data..."
-msgstr "Czyszczenie pobranych danych…"
-
-#: ../plugins/system_upgrade.py:527
-msgid "Download finished."
-msgstr "Ukończono pobieranie."
-
-#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Ukończono aktualizację systemu. Czyszczenie i ponowne uruchamianie…"
 
 #: ../plugins/debug.py:55
 msgid "dump information about installed rpm packages to file"
@@ -398,6 +77,34 @@ msgstr "Pakiet %s jest niedostępny"
 msgid "Bad dnf debug file: %s"
 msgstr "Błędny plik debugowania programu dnf: %s"
 
+#: ../plugins/kickstart.py:58
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Instaluje pakiety podane w pliku kickstart w systemie"
+
+#: ../plugins/kickstart.py:63
+msgid "kickstart file"
+msgstr "plik kickstart"
+
+#: ../plugins/kickstart.py:81
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "nie można przetworzyć pliku: %s"
+
+#: ../plugins/kickstart.py:98
+#, python-format
+msgid "No package %s available."
+msgstr "Pakiet %s jest niedostępny."
+
+#: ../plugins/kickstart.py:103
+msgid "Nothing to do."
+msgstr "Nie ma niczego do zrobienia."
+
+#: ../plugins/leaves.py:32
+msgid "List installed packages not required by any other package"
+msgstr ""
+"Wyświetla listę zainstalowanych pakietów, które nie są wymagane przez inne "
+"pakiety"
+
 #: ../plugins/local.py:115
 msgid "'{}' is not a directory"
 msgstr "„{}” nie jest katalogiem"
@@ -413,6 +120,239 @@ msgstr "Nie można zapisać pliku „{}”"
 #: ../plugins/local.py:145
 msgid "Rebuilding local repo"
 msgstr "Ponowne budowanie lokalnego repozytorium"
+
+#: ../plugins/migrate.py:57
+#, python-format
+msgid "failed to parse package NEVRA from: %s"
+msgstr "nie powiodło się przetworzenie NEVRA pakietu z: %s"
+
+#: ../plugins/migrate.py:78
+msgid "migrate yum's history, group and yumdb data to dnf"
+msgstr "migruje historię, grupy i dane yumdb programu yum do programu dnf"
+
+#: ../plugins/migrate.py:95
+msgid "which kind of yum data migrate."
+msgstr "który rodzaj danych programu yum migrować."
+
+#: ../plugins/migrate.py:111
+msgid "Migrating history data..."
+msgstr "Migrowanie danych historii…"
+
+#: ../plugins/migrate.py:222
+msgid "Migrating groups data..."
+msgstr "Migrowanie danych grup…"
+
+#: ../plugins/migrate.py:227
+msgid "Execution of Yum failed. Could not retrieve installed groups."
+msgstr ""
+"Wykonanie polecenia yum się nie powiodło. Nie można pobrać zainstalowanych "
+"grup."
+
+#: ../plugins/migrate.py:231
+msgid "No groups to migrate from Yum"
+msgstr "Brak grup do migrowania z programu yum"
+
+#. skips not found groups, i.e. after fedup
+#. when the group name changes / disappears in new distro
+#: ../plugins/migrate.py:243
+msgid "skipping."
+msgstr "pomijanie."
+
+#: ../plugins/migrate.py:263
+msgid "Migrating YUMDB data..."
+msgstr "Migrowanie danych bazy YUMDB…"
+
+#: ../plugins/migrate.py:282
+#, python-format
+msgid "%s of %s not found"
+msgstr "Nie odnaleziono %s z %s"
+
+#: ../plugins/migrate.py:289
+#, python-format
+msgid "replacing unknown characters in %s of %s"
+msgstr "zastępowanie nieznanych znaków w %s z %s"
+
+#: ../plugins/migrate.py:294
+msgid "DNFDB access denied"
+msgstr "Odmowa dostępu do bazy DNFDB"
+
+#: ../plugins/migrate.py:296
+#, python-format
+msgid "%s of %s migrated"
+msgstr "Migrowano %s z %s"
+
+#: ../plugins/migrate.py:300
+#, python-format
+msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
+msgstr ""
+"Odnalezione wpisy bazy YUMDB: %d, migrowano: %d, pominięto/zachowano: %d"
+
+#: ../plugins/repoclosure.py:46
+msgid "Display a list of unresolved dependencies for repositories"
+msgstr "Wyświetla listę nierozwiązanych zależności dla repozytoriów"
+
+#: ../plugins/repoclosure.py:117
+msgid "check packages of the given archs, can be specified multiple times"
+msgstr ""
+"sprawdza pakiety o podanych architekturach, może być podawane wielokrotnie"
+
+#: ../plugins/repoclosure.py:120
+msgid "Specify repositories to check"
+msgstr "Podaje repozytoria do sprawdzenia"
+
+#: ../plugins/repoclosure.py:122
+msgid "Check only the newest packages in the repos"
+msgstr "Sprawdza tylko najnowsze pakiety w repozytoriach"
+
+#: ../plugins/repoclosure.py:125
+msgid "Check closure for this package only"
+msgstr "Sprawdza domknięcie tylko tego pakietu"
+
+#: ../plugins/repograph.py:54
+msgid "Output a full package dependency graph in dot format"
+msgstr "Wyświetla pełny wykres zależności pakietu w formacie programu dot"
+
+#: ../plugins/repograph.py:115
+#, python-format
+msgid "Nothing provides: '%s'"
+msgstr "Nic nie dostarcza: „%s”"
+
+#: ../plugins/rpm_conf.py:67
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Dodawanie „{}” do listy obsługiwanych pakietów dla rpmconf"
+
+#: ../plugins/rpm_conf.py:73
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "Wtyczka rpmconf nie będzie działała w trybie nieinteraktywnym"
+
+#: ../plugins/rpm_conf.py:86
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "ignorowanie sys.exit z rpmconf z powodu braku zmiennej „MERGE”"
+
+#: ../plugins/rpm_conf.py:90
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "ignorowanie sys.exit z rpmconf z powodu braku pliku"
+
+#: ../plugins/show_leaves.py:56
+msgid "New leaves:"
+msgstr "Nowe pozostałości:"
+
+#: ../plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr "połączenie z snapperd się nie powiodło: %s"
+
+#: ../plugins/snapper.py:54
+msgid "creating snapshot"
+msgstr "tworzenie migawki"
+
+#: ../plugins/snapper.py:59
+#, python-format
+msgid "created snapshot %d"
+msgstr "utworzono migawkę %d"
+
+#: ../plugins/snapper.py:63
+#, python-format
+msgid "creating snapshot failed: %s"
+msgstr "utworzenie migawki się nie powiodło: %s"
+
+#. Translators: This string is only used in unit tests.
+#: ../plugins/system_upgrade.py:54
+msgid "the color of the sky"
+msgstr "kolor nieba"
+
+#: ../plugins/system_upgrade.py:73
+msgid "No new kernel packages were found."
+msgstr "Nie odnaleziono żadnych nowych pakietów jądra."
+
+#: ../plugins/system_upgrade.py:75
+msgid "Need a --releasever greater than the current system version."
+msgstr ""
+"Parametr „--releasever” wymaga wartości wyższej niż wersja obecnego systemu."
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:77
+msgid ""
+"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
+msgstr ""
+"Ukończono pobieranie. Polecenie „dnf system-upgrade reboot” rozpocznie "
+"aktualizację systemu."
+
+#: ../plugins/system_upgrade.py:79
+msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+msgstr "Należy użyć opcji „download --releasever” zamiast „--network”"
+
+#: ../plugins/system_upgrade.py:112
+msgid "--datadir: File exists"
+msgstr "--datadir: plik istnieje"
+
+#: ../plugins/system_upgrade.py:257
+msgid "The following boots appear to contain upgrade logs:"
+msgstr "Następujące uruchomienia zawierają dzienniki aktualizacji:"
+
+#: ../plugins/system_upgrade.py:267
+msgid "-- no logs were found --"
+msgstr "-- nie odnaleziono dzienników --"
+
+#: ../plugins/system_upgrade.py:282
+msgid "Cannot find logs with this index."
+msgstr "Nie można odnaleźć dzienników za pomocą tego indeksu."
+
+#: ../plugins/system_upgrade.py:305
+msgid "Prepare system for upgrade to a new release"
+msgstr "Przygotowuje system do aktualizacji do nowego wydania"
+
+#: ../plugins/system_upgrade.py:314
+msgid "save downloaded data to this location"
+msgstr "zapisuje pobrane dane w tym położeniu"
+
+#: ../plugins/system_upgrade.py:317
+msgid "keep installed packages if the new release's version is older"
+msgstr ""
+"zachowuje zainstalowane pakiety, jeśli wersja nowego wydania jest starsza"
+
+#: ../plugins/system_upgrade.py:398
+msgid "system is not ready for upgrade"
+msgstr "system nie jest gotowy na aktualizację"
+
+#: ../plugins/system_upgrade.py:400
+msgid "upgrade is already scheduled"
+msgstr "aktualizacja jest już zaplanowana"
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:406
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr "polecenie „dnf system-upgrade reboot” rozpocznie aktualizację systemu"
+
+#: ../plugins/system_upgrade.py:408
+msgid "another upgrade tool is running. exiting quietly."
+msgstr ""
+"inne narzędzie do aktualizacji systemu jest uruchomione. Ciche kończenie "
+"działania."
+
+#: ../plugins/system_upgrade.py:432
+msgid "Rebooting to perform upgrade."
+msgstr "Ponowne uruchamianie, aby wykonać aktualizację."
+
+#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
+msgid "Starting system upgrade. This will take a while."
+msgstr "Rozpoczynanie aktualizacji systemu. Może to chwilę zająć."
+
+#: ../plugins/system_upgrade.py:496
+msgid "Cleaning up downloaded data..."
+msgstr "Czyszczenie pobranych danych…"
+
+#: ../plugins/system_upgrade.py:527
+msgid "Download finished."
+msgstr "Ukończono pobieranie."
+
+#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
+msgid "Upgrade complete! Cleaning up and rebooting..."
+msgstr "Ukończono aktualizację systemu. Czyszczenie i ponowne uruchamianie…"
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Wyłączanie wtyczki torproxy: nie można połączyć z siecią Tor"
 
 #: ../plugins/tracer.py:75
 msgid "For more information run:"
@@ -432,3 +372,68 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Przepraszamy za niedogodności"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Nie można odczytać konfiguracji blokady wersji: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Nie ustawiono listy blokad"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Dodawanie blokady wersji na:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Dodawanie wykluczenia na:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Usuwanie blokady wersji dla:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Nie odnaleziono pakietu dla:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "kontroluje blokady wersji pakietów"
+
+#: ../plugins/repomanage.py:45
+msgid "Manage a directory of rpm packages"
+msgstr "Zarządza katalogiem pakietów RPM"
+
+#: ../plugins/repomanage.py:56
+msgid "Pass either --old or --new, not both!"
+msgstr "Należy podać --old lub --new."
+
+#: ../plugins/repomanage.py:66
+msgid "No files to process"
+msgstr "Brak plików do przetworzenia"
+
+#: ../plugins/repomanage.py:71
+msgid "Could not open {}"
+msgstr "Nie można otworzyć {}"
+
+#: ../plugins/repomanage.py:128
+msgid "Print the older packages"
+msgstr "Wyświetla listę poprzednich pakietów"
+
+#: ../plugins/repomanage.py:130
+msgid "Print the newest packages"
+msgstr "Wyświetla listę najnowszych pakietów"
+
+#: ../plugins/repomanage.py:132
+msgid "Space separated output, not newline"
+msgstr "Wyjście powinno być rozdzielane spacjami, a nie nowymi wierszami"
+
+#: ../plugins/repomanage.py:134
+msgid "Newest N packages to keep - defaults to 1"
+msgstr "N najnowszych pakietów do zatrzymania — domyślnie 1"
+
+#: ../plugins/repomanage.py:137
+msgid "Path to directory"
+msgstr "Ścieżka do katalogu"
