@@ -60,38 +60,6 @@ Conflicts:      python2-%{name}-common < %{version}-%{release}
 %description -n python3-%{name}-common
 Common files for Extras Plugins for DNF, Python 3 version.
 
-%package -n python2-dnf-plugin-debug
-Summary:        Debug Plugin for DNF
-Requires:       python2-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python2-%{name}-debug}
-Provides:       dnf-command(debug-dump)
-Provides:       dnf-command(debug-restore)
-Provides:       %{name}-debug = %{version}-%{release}
-Provides:       dnf-plugin-debug = %{version}-%{release}
-Provides:       python2-%{name}-debug = %{version}-%{release}
-Conflicts:      python3-dnf-plugin-debug < %{version}-%{release}
-Obsoletes:      python2-%{name}-debug < %{dnf_plugins_extra_obsolete}
-
-%description -n python2-dnf-plugin-debug
-Debug Plugin for DNF, Python 2 version. Writes system RPM configuration to a dump file
-and restores it.
-
-%package -n python3-dnf-plugin-debug
-Summary:        Debug Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-%{?python_provide:%python_provide python3-%{name}-debug}
-Provides:       dnf-command(debug-dump)
-Provides:       dnf-command(debug-restore)
-Provides:       %{name}-debug = %{version}-%{release}
-Provides:       dnf-plugin-debug = %{version}-%{release}
-Provides:       python3-%{name}-debug = %{version}-%{release}
-Conflicts:      python2-dnf-plugin-debug < %{version}-%{release}
-Obsoletes:      python3-%{name}-debug < %{dnf_plugins_extra_obsolete}
-
-%description -n python3-dnf-plugin-debug
-Debug Plugin for DNF, Python 3 version. Writes system RPM configuration to
-a dump file and restores it.
-
 %package -n python2-dnf-plugin-kickstart
 Summary:        Kickstart Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -309,15 +277,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %dir %{python3_sitelib}/dnf-plugins/__pycache__/
 %license COPYING
 %doc AUTHORS README.rst
-
-%files -n python2-dnf-plugin-debug
-%{python2_sitelib}/dnf-plugins/debug.*
-%{_mandir}/man8/dnf.plugin.debug.*
-
-%files -n python3-dnf-plugin-debug
-%{python3_sitelib}/dnf-plugins/debug.*
-%{python3_sitelib}/dnf-plugins/__pycache__/debug.*
-%{_mandir}/man8/dnf.plugin.debug.*
 
 %files -n python2-dnf-plugin-kickstart
 %{python2_sitelib}/dnf-plugins/kickstart.*

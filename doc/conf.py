@@ -240,8 +240,6 @@ AUTHORS=[u'See AUTHORS in your Extras DNF Plugins distribution']
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('debug', 'dnf.plugin.debug',
-     u'DNF debug Plugin', AUTHORS, 8),
     ('kickstart', 'dnf.plugin.kickstart', 
      u'DNF kickstart Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf.plugin.rpmconf',
