@@ -110,7 +110,15 @@ class Local(dnf.Plugin):
             return
 
         repodir = main["repodir"]
-        if not os.path.isdir(repodir):
+        if not os.path.exists(repodir):
+            try:
+                os.makedirs(repodir, mode=0o755)
+            except OSError as e:
+                self.logger.error(
+                    "local: " + _("Unable to create a directory '{}' due to '{}'").format(
+                        repodir, e.value))
+                return
+        elif not os.path.isdir(repodir):
             self.logger.error(
                 "local: " + _("'{}' is not a directory").format(repodir))
             return
