@@ -21,6 +21,7 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
+from dnf.i18n import ucd
 
 import dnf
 import dnf.cli
@@ -110,7 +111,15 @@ class Local(dnf.Plugin):
             return
 
         repodir = main["repodir"]
-        if not os.path.isdir(repodir):
+        if not os.path.exists(repodir):
+            try:
+                os.makedirs(repodir, mode=0o755)
+            except OSError as e:
+                self.logger.error(
+                    "local: " + _("Unable to create a directory '{}' due to '{}'").format(
+                        repodir, ucd(e)))
+                return
+        elif not os.path.isdir(repodir):
             self.logger.error(
                 "local: " + _("'{}' is not a directory").format(repodir))
             return
