@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2016-02-14 02:48-0500\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -98,22 +98,6 @@ msgid "List installed packages not required by any other package"
 msgstr ""
 "Installierte Pakete auflisten, die nicht von einem anderen Paket benötigt "
 "werden"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "»{}« ist kein Verzeichnis"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "»{}« wird in ein lokales Verzeichnis kopiert"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Datei »{}« kann nicht geschrieben werden "
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Lokale Paketquelle wird neu erstellt"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -363,35 +347,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Wir bitten, die Unannehmlichkeiten zu entschuldigen"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Informationen zu Versionssperren konnten nicht gelesen werden: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Sperrliste ist nicht gesetzt"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Versionssperre wird hinzugefügt zu:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Ausnahme wird hinzugefügt:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Versionssperre wird gelöscht für:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Kein Paket gefunden für:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "Sperrungen für Paketversionen steuern"
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "Ein Verzeichnis mir RPM-Paketen verwalten"
@@ -427,3 +382,52 @@ msgstr "Neueste N Pakete behalten, Vorgabe ist 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Pfad zum Verzeichnis"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Informationen zu Versionssperren konnten nicht gelesen werden: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Sperrliste ist nicht gesetzt"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Versionssperre wird hinzugefügt zu:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Ausnahme wird hinzugefügt:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Versionssperre wird gelöscht für:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Kein Paket gefunden für:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "Sperrungen für Paketversionen steuern"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "»{}« ist kein Verzeichnis"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "»{}« wird in ein lokales Verzeichnis kopiert"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Datei »{}« kann nicht geschrieben werden "
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Lokale Paketquelle wird neu erstellt"

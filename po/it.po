@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2017-01-19 11:06-0500\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian\n"
@@ -99,22 +99,6 @@ msgid "List installed packages not required by any other package"
 msgstr ""
 "Elenca i pacchetti installati che non sono richiesti da nessun altro "
 "pacchetto"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' non è una directory"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Copia di '{}' nel repository locale in corso"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Impossibile scrivere il file '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Ricostruzione del repository locale"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -365,35 +349,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Ci scusiamo per i disagi"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr ""
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Nessun pacchetto trovato per:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "Gestisce una directory di pacchetti rpm"
@@ -429,3 +384,52 @@ msgstr "N pacchetti più recenti da mantenere - 1 predefinito "
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Percorso per la directory"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr ""
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr ""
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Nessun pacchetto trovato per:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' non è una directory"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Copia di '{}' nel repository locale in corso"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Impossibile scrivere il file '{}'"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Ricostruzione del repository locale"

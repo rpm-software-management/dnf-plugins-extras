@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
-"PO-Revision-Date: 2017-01-30 02:57-0500\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
+"PO-Revision-Date: 2017-02-12 01:08-0500\n"
 "Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
 "Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
@@ -101,22 +101,6 @@ msgstr "Nada por hacer."
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr "Lista de paquetes instalados que no son requeridos por otros paquetes"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' no es un directorio"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Copiando '{}' al repositorio local"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "No es posible escribir el archivo '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Reconstruyendo repositorio local"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -372,6 +356,42 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Lamentamos cualquier incoveniente"
 
+#: ../plugins/repomanage.py:45
+msgid "Manage a directory of rpm packages"
+msgstr "Administrar un directorio de paquetes rpm."
+
+#: ../plugins/repomanage.py:56
+msgid "Pass either --old or --new, not both!"
+msgstr "Pase --old o --new, ¡no ambos!"
+
+#: ../plugins/repomanage.py:66
+msgid "No files to process"
+msgstr "No hay archivos para procesar"
+
+#: ../plugins/repomanage.py:71
+msgid "Could not open {}"
+msgstr "No se puede abrir {}"
+
+#: ../plugins/repomanage.py:128
+msgid "Print the older packages"
+msgstr "Imprimir los paquetes antiguos"
+
+#: ../plugins/repomanage.py:130
+msgid "Print the newest packages"
+msgstr "Imprimir los paquetes más nuevos"
+
+#: ../plugins/repomanage.py:132
+msgid "Space separated output, not newline"
+msgstr "Salida separada por espacios, sin salto de línea"
+
+#: ../plugins/repomanage.py:134
+msgid "Newest N packages to keep - defaults to 1"
+msgstr "Los N paquetes más recientes a conservar, 1 si no se indica"
+
+#: ../plugins/repomanage.py:137
+msgid "Path to directory"
+msgstr "Ruta al directorio"
+
 #: ../plugins/versionlock.py:32
 #, python-format
 msgid "Unable to read version lock configuration: %s"
@@ -401,38 +421,22 @@ msgstr "No se encontró paquete para:"
 msgid "control package version locks"
 msgstr "controlar bloqueos de la versión del paquete"
 
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "Administrar un directoria de paquetes rpm."
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
 
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "Pase --old o --new, ¡no ambos!"
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' no es un directorio"
 
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "No hay archivos para procesar"
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Copiando '{}' al repositorio local"
 
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "No se puede abrir {}"
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "No es posible escribir el archivo '{}'"
 
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "Imprimir los paquetes antiguos"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "Imprimir los paquetes más nuevos"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "Salida separada por espaciones, sin salto de línea"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "Newest N packages to keep - defaults to 1"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "Ruta al directorio"
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Reconstruyendo repositorio local"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2017-01-21 02:00-0500\n"
 "Last-Translator: Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>\n"
 "Language-Team: French\n"
@@ -103,22 +103,6 @@ msgstr "Rien à faire."
 msgid "List installed packages not required by any other package"
 msgstr ""
 "Lister les paquets installés qui ne sont pas requis par un autre paquet"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "« {} » n’est pas un répertoire"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Copie de « {} » vers le dépôt local"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Impossible d’écrire dans le fichier « {} »"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Reconstruction du dépôt local"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -380,35 +364,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Nous nous excusons pour tout désagrément"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Ne peut lire la configuration du verrouillage de version : %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Liste des verrouillages non établie."
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Verrouille la version de :"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Exclusion de :"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Déverrouille la version de :"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Pas de paquet trouvé pour :"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "contrôle le verrouillage de version des paquets"
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "Gérer un répertoire de paquets rpm"
@@ -444,3 +399,52 @@ msgstr "N paquets les plus récents à conserver  — par défaut 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Chemin vers le répertoire"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Ne peut lire la configuration du verrouillage de version : %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Liste des verrouillages non établie."
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Verrouille la version de :"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Exclusion de :"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Déverrouille la version de :"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Pas de paquet trouvé pour :"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "contrôle le verrouillage de version des paquets"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "« {} » n’est pas un répertoire"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Copie de « {} » vers le dépôt local"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Impossible d’écrire dans le fichier « {} »"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Reconstruction du dépôt local"

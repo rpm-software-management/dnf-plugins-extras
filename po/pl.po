@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2016-11-24 02:48-0500\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
@@ -104,22 +104,6 @@ msgid "List installed packages not required by any other package"
 msgstr ""
 "Wyświetla listę zainstalowanych pakietów, które nie są wymagane przez inne "
 "pakiety"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "„{}” nie jest katalogiem"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Kopiowanie „{}” do lokalnego repozytorium"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Nie można zapisać pliku „{}”"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Ponowne budowanie lokalnego repozytorium"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -373,35 +357,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Przepraszamy za niedogodności"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Nie można odczytać konfiguracji blokady wersji: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Nie ustawiono listy blokad"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Dodawanie blokady wersji na:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Dodawanie wykluczenia na:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Usuwanie blokady wersji dla:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Nie odnaleziono pakietu dla:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "kontroluje blokady wersji pakietów"
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "Zarządza katalogiem pakietów RPM"
@@ -437,3 +392,52 @@ msgstr "N najnowszych pakietów do zatrzymania — domyślnie 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Ścieżka do katalogu"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Nie można odczytać konfiguracji blokady wersji: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Nie ustawiono listy blokad"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Dodawanie blokady wersji na:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Dodawanie wykluczenia na:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Usuwanie blokady wersji dla:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Nie odnaleziono pakietu dla:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "kontroluje blokady wersji pakietów"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "„{}” nie jest katalogiem"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Kopiowanie „{}” do lokalnego repozytorium"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Nie można zapisać pliku „{}”"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Ponowne budowanie lokalnego repozytorium"

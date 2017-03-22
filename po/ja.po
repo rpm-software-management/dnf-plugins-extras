@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2015-12-10 11:50-0500\n"
 "Last-Translator: Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>\n"
 "Language-Team: Japanese\n"
@@ -91,22 +91,6 @@ msgstr "行うべき処理がありません。"
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
-msgstr ""
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' はディレクトリーではありません"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr ""
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr ""
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
 msgstr ""
 
 #: ../plugins/migrate.py:57
@@ -354,35 +338,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "ご不便をお掛けして申し訳ございません"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr ""
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr ""
@@ -417,4 +372,53 @@ msgstr ""
 
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
+msgstr ""
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr ""
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr ""
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' はディレクトリーではありません"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr ""
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr ""
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
 msgstr ""

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
-"PO-Revision-Date: 2017-01-23 03:01-0500\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
+"PO-Revision-Date: 2017-03-17 03:19-0400\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -99,22 +99,6 @@ msgid "List installed packages not required by any other package"
 msgstr ""
 "Llista els paquets instal·lats que no es requereixin per cap altre paquet"
 
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' no és un directori"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Es copia '{}' al dipòsit local"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "No es pot escriure el fitxer '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Es reconstrueix el dipòsit local"
-
 #: ../plugins/migrate.py:57
 #, python-format
 msgid "failed to parse package NEVRA from: %s"
@@ -186,7 +170,7 @@ msgstr "Mostra un llistat de les dependències sense resoldre per als dipòsits"
 #: ../plugins/repoclosure.py:117
 msgid "check packages of the given archs, can be specified multiple times"
 msgstr ""
-"comprova els paquets de les arquitectures indicades, es pot especificat "
+"comprova els paquets de les arquitectures indicades, es pot especificar "
 "diverses vegades"
 
 #: ../plugins/repoclosure.py:120
@@ -261,7 +245,7 @@ msgstr "No s'ha trobat cap paquet de kernel nou."
 
 #: ../plugins/system_upgrade.py:75
 msgid "Need a --releasever greater than the current system version."
-msgstr "Necessita un--releasever més gran que la versió dels sistema actual."
+msgstr "Necessita un--releasever més gran que la versió del sistema actual."
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:77
@@ -278,11 +262,13 @@ msgstr ""
 
 #: ../plugins/system_upgrade.py:112
 msgid "--datadir: File exists"
-msgstr ""
+msgstr "--datadir: Existeix el fitxer"
 
 #: ../plugins/system_upgrade.py:257
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
+"Les següents arrencades semblen que continguin registres d'actualització de "
+"versió:"
 
 #: ../plugins/system_upgrade.py:267
 msgid "-- no logs were found --"
@@ -323,7 +309,7 @@ msgstr ""
 #: ../plugins/system_upgrade.py:408
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
-"una altra eina d'actualització de versió està en execució. Es surt "
+"una altra eina d'actualització de versió està en execució. Se surt "
 "ràpidament."
 
 #: ../plugins/system_upgrade.py:432
@@ -358,7 +344,7 @@ msgstr "Per a més informació executeu:"
 
 #: ../plugins/tracer.py:102
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "La crida a l'API del traçador ha acabat de forma inesperada:"
 
 #: ../plugins/tracer.py:104
 msgid ""
@@ -371,35 +357,6 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Us demanem disculpes per qualsevol inconvenient"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "No es pot llegir la configuració del bloqueig de versió: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Llista de bloqueig sense establir"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "S'afegeix el bloqueig de versió:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "S'afegeix l'exclusió:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "S'elimina el bloqueig de versió per:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "No s'ha trobat el paquet de:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "control del bloqueig de versió del paquet"
 
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
@@ -436,3 +393,52 @@ msgstr "Els N paquets més recents a conservar - per defecte 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Camí al directori"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "No es pot llegir la configuració del bloqueig de versió: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Llista de bloqueig sense establir"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "S'afegeix el bloqueig de versió:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "S'afegeix l'exclusió:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "S'elimina el bloqueig de versió per:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "No s'ha trobat el paquet de:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "control del bloqueig de versió del paquet"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' no és un directori"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Es copia '{}' al dipòsit local"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "No es pot escriure el fitxer '{}'"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Es reconstrueix el dipòsit local"

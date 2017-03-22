@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2016-02-28 04:48-0500\n"
 "Last-Translator: mosquito <sensor.wen@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
@@ -93,22 +93,6 @@ msgstr "无需任何处理。"
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr "列出已安装但不被任何其他软件包所需要的软件包"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' 并不是目录"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "正在复制 '{}' 至本地仓库"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "无法写入文件 '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "正在重建本地仓库"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -351,35 +335,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "为给您带来的不便感到抱歉"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "无法读取版本锁配置： %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "未找到软件包："
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "控制软件包版本锁"
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "管理 RPM 软件包目录"
@@ -415,3 +370,52 @@ msgstr "要保留的最新 N 软件包 - 默认值为 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "指向目录的路径"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "无法读取版本锁配置： %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr ""
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr ""
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr ""
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "未找到软件包："
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "控制软件包版本锁"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' 并不是目录"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "正在复制 '{}' 至本地仓库"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "无法写入文件 '{}'"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "正在重建本地仓库"

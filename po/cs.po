@@ -1,10 +1,11 @@
 # Zdenek <chmelarz@gmail.com>, 2016. #zanata
+# Zdenek <chmelarz@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
-"PO-Revision-Date: 2016-09-16 04:49-0400\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
+"PO-Revision-Date: 2017-02-14 07:59-0500\n"
 "Last-Translator: Zdenek <chmelarz@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -48,6 +49,8 @@ msgid ""
 "Ignore architecture and install missing packages matching the name, epoch, "
 "version and release."
 msgstr ""
+"Ignorovat architekturu a instalovat chybějící balíčky odpovídající názvu, "
+"epoše, verzi a vydání."
 
 #: ../plugins/debug.py:197
 msgid "limit to specified type"
@@ -73,7 +76,7 @@ msgstr "Instalovat balíčky definované v souboru kickstartu vašeho systému"
 
 #: ../plugins/kickstart.py:63
 msgid "kickstart file"
-msgstr ""
+msgstr "soubor kickstart"
 
 #: ../plugins/kickstart.py:81
 #, python-format
@@ -92,22 +95,6 @@ msgstr "Není co dělat"
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr "Vypsat instalované balíčky nevyžadované jiným balíčkem"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' není adresář"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Kopírování '{}' do místního repozitáře"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Nelze zapsat soubor '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Opětovné sestavení místního repozitáře"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -178,7 +165,7 @@ msgstr "Zobrazit seznam nevyřešených závislostí pro repozitáře"
 
 #: ../plugins/repoclosure.py:117
 msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
+msgstr "zkontrolovat balíčky daných architektur, mohou být zadány vícekrát"
 
 #: ../plugins/repoclosure.py:120
 msgid "Specify repositories to check"
@@ -186,7 +173,7 @@ msgstr "Upřesnit repozitáře ke kontrole"
 
 #: ../plugins/repoclosure.py:122
 msgid "Check only the newest packages in the repos"
-msgstr ""
+msgstr "Zkontrolovat pouze nejnovější balíčky v repozitáři"
 
 #: ../plugins/repoclosure.py:125
 msgid "Check closure for this package only"
@@ -207,15 +194,15 @@ msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
 
 #: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
 
 #: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
+msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
 
 #: ../plugins/show_leaves.py:56
 msgid "New leaves:"
@@ -243,94 +230,97 @@ msgstr "selhalo vytvoření obrazu: %s"
 #. Translators: This string is only used in unit tests.
 #: ../plugins/system_upgrade.py:54
 msgid "the color of the sky"
-msgstr ""
+msgstr "barva oblohy"
 
 #: ../plugins/system_upgrade.py:73
 msgid "No new kernel packages were found."
-msgstr ""
+msgstr "Nenalezeny nové balíčky jádra."
 
 #: ../plugins/system_upgrade.py:75
 msgid "Need a --releasever greater than the current system version."
-msgstr ""
+msgstr "Verze --releasever musí být vyšší než verze aktuálního systému."
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:77
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
 msgstr ""
+"Stahování dokončeno! Aktualizaci spustíte příkazem 'dnf system-upgrade "
+"reboot'."
 
 #: ../plugins/system_upgrade.py:79
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
+msgstr "Promiňte, místo '--network' musíte použít 'download --releasever'"
 
 #: ../plugins/system_upgrade.py:112
 msgid "--datadir: File exists"
-msgstr ""
+msgstr "--datadir: Soubor už existuje"
 
 #: ../plugins/system_upgrade.py:257
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "Následující boot obsahuje záznamy aktualizace systému:"
 
 #: ../plugins/system_upgrade.py:267
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- nenalezeny žádné záznamy --"
 
 #: ../plugins/system_upgrade.py:282
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Nenalezeny žádné záznamy s tímto indexem."
 
 #: ../plugins/system_upgrade.py:305
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "Připravit systém k aktualizaci na novou verzi"
 
 #: ../plugins/system_upgrade.py:314
 msgid "save downloaded data to this location"
-msgstr ""
+msgstr "uložit stažená data na toto místo"
 
 #: ../plugins/system_upgrade.py:317
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
+"ponechat nainstalované balíčky, pokud se v novém vydání nachází starší verze"
 
 #: ../plugins/system_upgrade.py:398
 msgid "system is not ready for upgrade"
-msgstr ""
+msgstr "systém není na aktualizaci připraven"
 
 #: ../plugins/system_upgrade.py:400
 msgid "upgrade is already scheduled"
-msgstr ""
+msgstr "aktualizace je už naplánována"
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:406
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "pro zahájení aktualizace zadejte 'dnf system-upgrade reboot'"
 
 #: ../plugins/system_upgrade.py:408
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "už běží jiný aktualizační nástroj, končím."
 
 #: ../plugins/system_upgrade.py:432
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "Restartuji, aby se provedla aktualizace."
 
 #: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "Spouští se aktualizace systému. To může nějakou dobu trvat."
 
 #: ../plugins/system_upgrade.py:496
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "Mazání stažených dat…"
 
 #: ../plugins/system_upgrade.py:527
 msgid "Download finished."
-msgstr ""
+msgstr "Stahování dokončeno."
 
 #: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "Aktualizace dokončena! Čištění a restart systému…"
 
 #: ../plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "Zakázání zásuvného modulu torproxy: nelze se připojit do sítě Tor"
 
 #: ../plugins/tracer.py:75
 msgid "For more information run:"
@@ -338,46 +328,19 @@ msgstr "Pro více informací spustit:"
 
 #: ../plugins/tracer.py:102
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "Volání Tracer API neočekávaně skončilo"
 
 #: ../plugins/tracer.py:104
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Navštivte prosím https://github.com/FrostyX/tracer/issues a nahlašte "
+"problém. Děkuji"
 
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Omlouváme se za způsobené nepříjemnosti"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Nelze přečíst konfiguraci zamčené verze: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Seznam zamčení není nastaven"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Přidání zamčení verzí na:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Přidání vyloučení na:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Mazání zamčení verzí pro:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Žádný balík nenalezen pro:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "ovládat zamčení verzí balíčku"
 
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
@@ -414,3 +377,52 @@ msgstr "Zachovat N nejnovějších balíčků - výchozí nastavení je 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Cesta k adresáři"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Nelze přečíst konfiguraci zamčené verze: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Seznam zamčení není nastaven"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Přidání zamčení verzí na:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Přidání vyloučení na:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Mazání zamčení verzí pro:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Žádný balík nenalezen pro:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "ovládat zamčení verzí balíčku"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' není adresář"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Kopírování '{}' do místního repozitáře"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Nelze zapsat soubor '{}'"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Opětovné sestavení místního repozitáře"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2016-11-24 07:44-0500\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -96,22 +96,6 @@ msgstr "Нічого виконувати."
 msgid "List installed packages not required by any other package"
 msgstr ""
 "Вивести список пакунків, які не потрібні для роботи будь-яких інших пакунків"
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "'{}' не є каталогом"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "Копіюємо '{}' до локального сховища"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "Не вдалося записати файл '{}'"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Перезбираємо локальне сховище"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -368,35 +352,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Вибачте за незручності"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Не вдалося прочитати налаштування блокування версії: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Список блокування не встановлено"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Додаємо блокування версії для:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Додаємо виключення для:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Вилучаємо блокування версії для:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Не знайдено пакунка для:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "керування блокуванням версій пакунків"
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr "Керування каталогом пакунків rpm"
@@ -434,3 +389,52 @@ msgstr "Зберігати N найновіших пакунків. Типове
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Шлях до каталогу"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "Не вдалося прочитати налаштування блокування версії: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Список блокування не встановлено"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Додаємо блокування версії для:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Додаємо виключення для:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Вилучаємо блокування версії для:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Не знайдено пакунка для:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr "керування блокуванням версій пакунків"
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "'{}' не є каталогом"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "Копіюємо '{}' до локального сховища"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "Не вдалося записати файл '{}'"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Перезбираємо локальне сховище"

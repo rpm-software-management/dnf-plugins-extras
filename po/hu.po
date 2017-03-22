@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-10 14:41+0100\n"
+"POT-Creation-Date: 2017-03-22 15:54+0100\n"
 "PO-Revision-Date: 2016-12-26 05:34-0500\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -92,22 +92,6 @@ msgstr "Nincs tennivaló."
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
 msgstr ""
-
-#: ../plugins/local.py:115
-msgid "'{}' is not a directory"
-msgstr "A(z) „{}” nem könyvtár"
-
-#: ../plugins/local.py:124
-msgid "Copying '{}' to local repo"
-msgstr "A(z) „{}” másolása helyi tárolóba"
-
-#: ../plugins/local.py:130
-msgid "Can't write file '{}'"
-msgstr "A(z) „{}” fájl nem írható"
-
-#: ../plugins/local.py:145
-msgid "Rebuilding local repo"
-msgstr "Helyi tároló újraépítése"
 
 #: ../plugins/migrate.py:57
 #, python-format
@@ -351,35 +335,6 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Elnézést kérünk a kellemetlenségekért"
 
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "A verziózár beállítások nem olvashatóak: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Zárolási lista nincs beállítva"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Verziózár hozzáadása erre:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Kizárás hozzáadása erre:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Verziózár törlése erről:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Nem található csomag ehhez:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
-
 #: ../plugins/repomanage.py:45
 msgid "Manage a directory of rpm packages"
 msgstr ""
@@ -415,3 +370,52 @@ msgstr "Megtartandó legfrissebb N csomag – alapértelmezésben 1"
 #: ../plugins/repomanage.py:137
 msgid "Path to directory"
 msgstr "Útvonal a könyvtárhoz"
+
+#: ../plugins/versionlock.py:32
+#, python-format
+msgid "Unable to read version lock configuration: %s"
+msgstr "A verziózár beállítások nem olvashatóak: %s"
+
+#: ../plugins/versionlock.py:33
+msgid "Locklist not set"
+msgstr "Zárolási lista nincs beállítva"
+
+#: ../plugins/versionlock.py:34
+msgid "Adding versionlock on:"
+msgstr "Verziózár hozzáadása erre:"
+
+#: ../plugins/versionlock.py:35
+msgid "Adding exclude on:"
+msgstr "Kizárás hozzáadása erre:"
+
+#: ../plugins/versionlock.py:36
+msgid "Deleting versionlock for:"
+msgstr "Verziózár törlése erről:"
+
+#: ../plugins/versionlock.py:37
+msgid "No package found for:"
+msgstr "Nem található csomag ehhez:"
+
+#: ../plugins/versionlock.py:90
+msgid "control package version locks"
+msgstr ""
+
+#: ../plugins/local.py:119
+msgid "Unable to create a directory '{}' due to '{}'"
+msgstr ""
+
+#: ../plugins/local.py:124
+msgid "'{}' is not a directory"
+msgstr "A(z) „{}” nem könyvtár"
+
+#: ../plugins/local.py:133
+msgid "Copying '{}' to local repo"
+msgstr "A(z) „{}” másolása helyi tárolóba"
+
+#: ../plugins/local.py:139
+msgid "Can't write file '{}'"
+msgstr "A(z) „{}” fájl nem írható"
+
+#: ../plugins/local.py:154
+msgid "Rebuilding local repo"
+msgstr "Helyi tároló újraépítése"
