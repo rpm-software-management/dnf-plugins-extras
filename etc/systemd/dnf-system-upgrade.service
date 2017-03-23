@@ -1,14 +1,16 @@
 [Unit]
-Description=System Upgrade
+Description=System Upgrade using DNF
 ConditionPathExists=/system-update/.dnf-system-upgrade
 Documentation=http://www.freedesktop.org/wiki/Software/systemd/SystemUpdates
 
 DefaultDependencies=no
 Requires=sysinit.target
 After=sysinit.target systemd-journald.socket
-Before=shutdown.target
+Before=shutdown.target system-update.target
 
 [Service]
+# We are done when the script exits, not before
+Type=oneshot
 # Upgrade output goes to journal and on-screen.
 StandardOutput=journal+console
 # This won't exist after we delete the symlink; don't consider that an error.
