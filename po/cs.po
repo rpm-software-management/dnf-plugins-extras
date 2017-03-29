@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2017-02-14 07:59-0500\n"
+"PO-Revision-Date: 2017-03-27 03:24-0400\n"
 "Last-Translator: Zdenek <chmelarz@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -409,7 +409,7 @@ msgstr "ovládat zamčení verzí balíčku"
 
 #: ../plugins/local.py:119
 msgid "Unable to create a directory '{}' due to '{}'"
-msgstr ""
+msgstr "Nelze vytvořit adresář '{}' kvůli '{}'"
 
 #: ../plugins/local.py:124
 msgid "'{}' is not a directory"

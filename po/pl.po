@@ -6,12 +6,13 @@
 # Piotr Drąg <piotrdrag@gmail.com>, 2015
 # Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2016. #zanata
+# Piotr Drąg <piotrdrag@gmail.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2016-11-24 02:48-0500\n"
+"PO-Revision-Date: 2017-03-27 08:01-0400\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +98,7 @@ msgstr "Pakiet %s jest niedostępny."
 
 #: ../plugins/kickstart.py:103
 msgid "Nothing to do."
-msgstr "Nie ma niczego do zrobienia."
+msgstr "Nie ma nic do zrobienia."
 
 #: ../plugins/leaves.py:32
 msgid "List installed packages not required by any other package"
@@ -351,7 +352,8 @@ msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
-"Proszę zgłosić błąd na stronie https://github.com/FrostyX/tracer/issues"
+"Proszę zgłosić błąd na stronie https://github.com/FrostyX/tracer/issues (w "
+"języku angielskim)"
 
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
@@ -424,7 +426,7 @@ msgstr "kontroluje blokady wersji pakietów"
 
 #: ../plugins/local.py:119
 msgid "Unable to create a directory '{}' due to '{}'"
-msgstr ""
+msgstr "Nie można utworzyć katalogu „{}” z powodu „{}”"
 
 #: ../plugins/local.py:124
 msgid "'{}' is not a directory"
