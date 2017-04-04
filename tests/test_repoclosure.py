@@ -47,7 +47,12 @@ class TestRepoClosureFunctions(support.TestCase):
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            support.command_run(self.cmd, args)
+            with self.assertRaises(dnf.exceptions.Error) as context:
+                support.command_run(self.cmd, args)
+
+            self.assertEqual(context.exception.value,
+                             "Repoclosure ended with unresloved dependencies.")
+
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
@@ -62,7 +67,12 @@ class TestRepoClosureFunctions(support.TestCase):
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            support.command_run(self.cmd, args)
+            with self.assertRaises(dnf.exceptions.Error) as context:
+                support.command_run(self.cmd, args)
+
+            self.assertEqual(context.exception.value,
+                             "Repoclosure ended with unresloved dependencies.")
+
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
@@ -77,7 +87,12 @@ class TestRepoClosureFunctions(support.TestCase):
         self.cmd.base.add_remote_rpms([os.path.join(self.path,
             "noarch/foo-4-6.noarch.rpm")])
         with mock.patch("sys.stdout", new_callable=dnf.pycomp.StringIO) as stdout:
-            support.command_run(self.cmd, args)
+            with self.assertRaises(dnf.exceptions.Error) as context:
+                support.command_run(self.cmd, args)
+
+            self.assertEqual(context.exception.value,
+                             "Repoclosure ended with unresloved dependencies.")
+
             expected_out = ["package: foo-4-6.noarch from @commandline",
                             "  unresolved deps:",
                             "    bar = 4-6"]
