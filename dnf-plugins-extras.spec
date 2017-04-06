@@ -151,7 +151,7 @@ Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
 Provides:       python2-%{name}-system-upgrade = %{version}-%{release}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
-Obsoletes:      python2-dnf-plugin-system-upgrade < 0.10
+Obsoletes:      python2-dnf-plugin-system-upgrade < %{dnf_plugins_extra_obsolete}
 Obsoletes:      python2-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
 Conflicts:      python3-dnf-plugin-system-upgrade < %{version}-%{release}
 BuildRequires:  pkgconfig(systemd)
@@ -172,8 +172,8 @@ Provides:       dnf-command(system-upgrade)
 Provides:       %{name}-system-upgrade = %{version}-%{release}
 Provides:       system-upgrade = %{version}-%{release}
 Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
-Provides:       python3-%{name}-dnf-plugin = %{version}-%{release}
-Obsoletes:      python3-%{name}-dnf-plugin < %{dnf_plugins_extra_obsolete}
+Provides:       python3-%{name}-system-upgrade = %{version}-%{release}
+Obsoletes:      python3-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
 Obsoletes:      python3-dnf-plugin-system-upgrade < 0.10
