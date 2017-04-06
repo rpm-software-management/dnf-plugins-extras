@@ -1,6 +1,6 @@
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 2.0}
 %{!?dnf_not_compatible: %global dnf_not_compatible 3.0}
-%global dnf_plugins_extara_obsolete 2.0.0
+%global dnf_plugins_extra_obsolete 2.0.0
 
 Name:           dnf-plugins-extras
 Version:        2.0.0
@@ -176,7 +176,6 @@ Provides:       python3-%{name}-system-upgrade = %{version}-%{release}
 Obsoletes:      python3-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
-Obsoletes:      python3-dnf-plugin-system-upgrade < 0.10
 Conflicts:      python2-dnf-plugin-system-upgrade < %{version}-%{release}
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  systemd
