@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
 "PO-Revision-Date: 2015-06-23 10:56-0400\n"
 "Last-Translator: Momcilo Medic <medicmomcilo@gmail.com>\n"
 "Language-Team: Serbian\n"
@@ -13,61 +13,6 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr "избаци информације о инсталираним rpm пакетима у датотеку"
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr "немој покушавати да избациш садржај ризнице."
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr "опционо име датотеке у коју ће бити избачено"
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr "Излаз исписан у: %s"
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr ""
-"поврати пакете снимљене у датотеку за избацивање и отклањање програмских "
-"грешака"
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr "испиши команде које би биле извршене на стандардни излаз."
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "Инсталирај најновију верзију снимљених пакета."
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "ограничи на одређени тип"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "име датотеке у коју ће бити избачено"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "Пакет %s није доступан"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Неисправна dnf датотека за отклањање програмских грешака: %s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -91,102 +36,6 @@ msgstr ""
 msgid "Nothing to do."
 msgstr ""
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "Списак инсталираних пакета које не захтева ниједан други пакет"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "неуспешно обрађивање ИЕВИЗ пакета из: %s"
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "пресели yum податке историја, група и yumdb у dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "која врста преселења yum података"
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "Селим податке историје..."
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "Селим податке о групама..."
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr ""
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "Нема група за селидбу из Yum-а"
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr ""
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "Селим YUMDB податке..."
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "%s од %s није пронађено"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "замењујем непознате карактере у %s од %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "DNFDB приступ одбијен"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "%s од %s пресељено"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d YUMDB записа пронађено, %d пресељено, %d прескочено/очувано"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Прикажи списак неразрешених програмских зависности за ризнице"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr ""
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr ""
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "Провери затвореност само за овај пакет"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "Исцртај потпуну програмску зависност пакета у dot формату"
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Ништа не обезбеђује: '%s'"
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Додајем '{}' на списак пакета за управљање за rpmconf"
@@ -201,10 +50,6 @@ msgstr ""
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
 msgstr ""
 
 #: ../plugins/snapper.py:49
@@ -335,88 +180,3 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Извињавамо се због нелагодности"
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "Управља директоријумом rpm пакета"
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "Проследите или --old или --new, не оба!"
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "Нема датотека за обраду"
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "Не могу да отворим {}"
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "Испиши старије пакете"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "Испиши најновије пакете"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "Излаз одвојен размаком, не новим редом"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "Сачувати N најновијих пакета - подразумевано 1"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "Путања до директоријума"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr ""
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr ""
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr "'{}' није директоријум"
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr "Копирам '{}' у локалну ризницу"
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr "Не могу да упишем датотеку '{}'"
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
-msgstr "Поновно изграђивање локалне ризнице"

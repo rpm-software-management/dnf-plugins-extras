@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
 "PO-Revision-Date: 2016-02-28 04:48-0500\n"
 "Last-Translator: mosquito <sensor.wen@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
@@ -14,59 +14,6 @@ msgstr ""
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr "转储本地 RPM 软件包信息至文件"
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr "不要尝试转储仓库内容。"
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr "可选的转储文件名称"
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr "输出文件写入至：%s"
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr "恢复除错转储文件中的软件包纪录"
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr "输出将要在标准输出运行的命令。"
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "安装纪录中软件包的最新版本。"
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "限制到指定类型"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "转储文件名称"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "软件包 %s 不可用。"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "错误的 dnf 除错文件：%s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -90,102 +37,6 @@ msgstr "无可用软件包 %s。"
 msgid "Nothing to do."
 msgstr "无需任何处理。"
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "列出已安装但不被任何其他软件包所需要的软件包"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "分析软件包 NEVRA 失败来自："
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "迁移 yum 历史、分组及数据库至 dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "迁移 yum 数据的种类。"
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "正在迁移历史数据…"
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "正在迁移分组数据…"
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr "Yum 执行失败。无法检索已安装的包组。"
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "没有可从 Yum 迁移的分组"
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr "跳过。"
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "正在迁移 Yum 数据库…"
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "%s 之于 %s 未找到"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "替换 %s 中的未知字符为 %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "拒绝访问 Dnf 数据库"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "%s 之于 %s 已迁移"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d Yum 数据库记录已找到，%d 已迁移，%d 已跳过/保留"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr "显示仓库中未解决依赖关系的列表"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr "指定检查的仓库"
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr ""
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "仅为该软件包检查依赖闭合性"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "以点线图方式输出完整的依赖关系图"
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "没有任何软件包能提供：'%s'"
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "正在添加 '{}' 至需要 rpmconf 处理的软件包列表"
@@ -200,10 +51,6 @@ msgstr ""
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
 msgstr ""
 
 #: ../plugins/snapper.py:49
@@ -334,88 +181,3 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "为给您带来的不便感到抱歉"
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "管理 RPM 软件包目录"
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "传入 --old 或者 --new，不可兼得！"
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "没有可处理的文件"
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "无法打开 {}"
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "打印较旧的软件包"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "打印较新的软件包"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "用空格分割输出，而不是新行"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "要保留的最新 N 软件包 - 默认值为 1"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "指向目录的路径"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "无法读取版本锁配置： %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "未找到软件包："
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "控制软件包版本锁"
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr ""
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr "'{}' 并不是目录"
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr "正在复制 '{}' 至本地仓库"
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr "无法写入文件 '{}'"
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
-msgstr "正在重建本地仓库"

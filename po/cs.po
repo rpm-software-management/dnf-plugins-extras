@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2017-03-27 03:24-0400\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
+"PO-Revision-Date: 2017-02-14 07:59-0500\n"
 "Last-Translator: Zdenek <chmelarz@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -14,61 +14,6 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr "vypsat informace o nainstalovaných rpm balíčcích do souboru"
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr "Nepokoušejte se vypsat obsah repozitáře."
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr "volitelný název souboru výpisu"
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr "Výstup zapsán do: %s"
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr "obnovit balíčky zaznamenané v ladicím souboru výpisu"
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr "příkazy výstupu, které budou spuštěny na standardním výstupu."
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "Nainstalovat nejnovější verzi zaznamenaných balíčků."
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-"Ignorovat architekturu a instalovat chybějící balíčky odpovídající názvu, "
-"epoše, verzi a vydání."
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "omezit na zadaný typ"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "název souboru výpisu"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "Balíček %s není k dispozici"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Špatný ladící soubor dns: %s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -92,102 +37,6 @@ msgstr "Balíček %s není k dispozici."
 msgid "Nothing to do."
 msgstr "Není co dělat"
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "Vypsat instalované balíčky nevyžadované jiným balíčkem"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "selhalo parsování balíčku NEVRA z: %s"
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migrovat historii, skupinu a databázi yum do dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "která typ dat yum migrovat."
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "Migrování dat historie..."
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "Migrování dat skupin..."
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr "Spuštění Yum selhalo. Nelze načíst nainstalované skupiny."
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "Žádné skupiny pro migraci z Yum"
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr "přeskakuji."
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "Migrování dat databáze YUMDB..."
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "%s z %s nenalezen"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "nahrazení neznámých znaků v %s z %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "přístup odepřen do DNFDB"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "%s z %s zmigrován"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d záznamů YUMDB nalezeno, %d zmigrováno, %d přeskočeno/zachováno"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Zobrazit seznam nevyřešených závislostí pro repozitáře"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr "zkontrolovat balíčky daných architektur, mohou být zadány vícekrát"
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr "Upřesnit repozitáře ke kontrole"
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr "Zkontrolovat pouze nejnovější balíčky v repozitáři"
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "Zkontrolovat uzavření pouze pro tento balíček"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "Poslat na výstup graf úplné závislosti balíčku v bodovém formátu"
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Nic poskytuje: '%s'"
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
@@ -203,10 +52,6 @@ msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
-msgstr "Nové leaves:"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -341,88 +186,3 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Omlouváme se za způsobené nepříjemnosti"
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "Spravovat adresář rpm balíčků"
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "Projít buď --old nebo --new, ne obojí!"
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "Žádné soubory ke zpracování"
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "Nelze otevřít {}"
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "Vytisknout starší balíčky"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "Vytisknout nejnovější balíčky"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "Mezerou oddělený výstup, žádný nový řádek"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "Zachovat N nejnovějších balíčků - výchozí nastavení je 1"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "Cesta k adresáři"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Nelze přečíst konfiguraci zamčené verze: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Seznam zamčení není nastaven"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Přidání zamčení verzí na:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Přidání vyloučení na:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Mazání zamčení verzí pro:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Žádný balík nenalezen pro:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "ovládat zamčení verzí balíčku"
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr "Nelze vytvořit adresář '{}' kvůli '{}'"
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr "'{}' není adresář"
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr "Kopírování '{}' do místního repozitáře"
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr "Nelze zapsat soubor '{}'"
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
-msgstr "Opětovné sestavení místního repozitáře"

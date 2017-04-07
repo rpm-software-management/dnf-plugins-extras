@@ -1,5 +1,4 @@
 # Dennis Tobar <dennis.tobar@gmail.com>, 2015. #zanata
-# William  Moreno Reyes <williamjmorenor@gmail.com>, 2015. #zanata
 # Eduardo Mayorga Téllez <e@mayorgalinux.com>, 2016. #zanata
 # Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2016. #zanata
 # Omar Berroterán S. <omarberroteranlkf@gmail.com>, 2016. #zanata
@@ -9,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2017-03-22 12:29-0400\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
+"PO-Revision-Date: 2017-01-30 02:57-0500\n"
 "Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
 "Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
@@ -19,62 +18,6 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr ""
-"volcando información acerca de los los paquetes RPM instalados a un archivo"
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr "no intentar volcar el contenido del repositorio."
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr "nombre opcional del archivo de volcado"
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr "Salida escrita en: %s"
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr "restaurar paquetes grabados en el archivo de volcado"
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr "comando de salida que deberia correr a stdout."
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "Instalar la última versión de los paquetes gravados."
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-"No tener en cuenta la arquitectura, e instalar los paquetes faltantes que "
-"concuerden con el nombre, epoch, versión y lanzamiento."
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "limitar al tipo especificado"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "nombre del archivo de volcado"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "El paquete %s no está disponible"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Archivo de depuración de dnf incorrecto: %s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -98,107 +41,6 @@ msgstr "No hay ningún paquete %s disponible."
 msgid "Nothing to do."
 msgstr "Nada por hacer."
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "Lista de paquetes instalados que no son requeridos por otros paquetes"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "no se pudo interpretar NEVRA del paquete para: %s"
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migra el historial, grupos y yumdb desde yum a dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "cual tipo de datos de yum desea migrar"
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "Migrando datos del historial..."
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "Migrando datos de grupos..."
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr ""
-"Ejecución de YUm falló. No se puede obtener la lista de grupos instalados."
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "No hay grupos para migrar desde Yum"
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr "omitiendo."
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "Migrando datos de YUMDB..."
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "%s de %s no encontrado"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "reemplazando caracteres desconocidos en %s de %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "acceso a DNFDB denegado"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "%s de %s migrados"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "Encontrados %d registros YUMDB, %d migrados, %d omitidos/preservados"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr ""
-"Muestra una lista de las dependencias no resueltas para los repositorios"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
-"comprobar paquetes de las arquitecturas indicadas, se puede poner varias "
-"veces"
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr "Especificar repositorios para comprobar"
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr "Comprobar sólo los paquetes más recientes de los repositorios"
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "Verifique el cierre para este paquete solamente"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr ""
-"Imprimir una gráfica completa de las dependencias en formato con punto."
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Nada provee: '%s'"
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Agregando '{}'  a la lista de paquetes manejados por rpmconf"
@@ -214,10 +56,6 @@ msgstr "se descarta sys.exit de rpmconf al faltar la variable MERGE"
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "se descarta sys.exit de rpmconf por la falta de un archivo"
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
-msgstr "Nuevos abandonos:"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -355,88 +193,3 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Lamentamos cualquier incoveniente"
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "Administrar un directorio de paquetes rpm."
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "Pase --old o --new, ¡no ambos!"
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "No hay archivos para procesar"
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "No se puede abrir {}"
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "Imprimir los paquetes antiguos"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "Imprimir los paquetes más nuevos"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "Salida separada por espacios, sin salto de línea"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "Los N paquetes más recientes a conservar, 1 si no se indica"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "Ruta al directorio"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "No es posible leer la configuración de bloqueo de versión: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "No se ha establecido lista de bloqueos"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Agregando bloqueo de versión en:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Agregando exclusión en:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Eliminando bloqueo de versión para:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "No se encontró paquete para:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "controlar bloqueos de la versión del paquete"
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr "No se pudo crear el directorio '{}' debido a '{}'"
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr "'{}' no es un directorio"
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr "Copiando '{}' al repositorio local"
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr "No es posible escribir el archivo '{}'"
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
-msgstr "Reconstruyendo repositorio local"

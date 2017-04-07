@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2017-03-28 03:48-0400\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
+"PO-Revision-Date: 2017-03-27 12:00-0400\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
@@ -13,61 +13,6 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr "skriv ut information om installerade rpm-paket till en fil"
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr "försök inte skriva ut förrådets innehåll."
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr "frivilligt namn på utskriftsfilen"
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr "Utdata skriven till: %s"
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr "återställ paket uppskrivna i en felsökningsutskriftsfil"
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr "skriv ut kommandon som skulle körts till standar ut."
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "Installera den senaste versionen av de uppskrivna paketen."
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-"Ignorera arkitektur och installera saknade paket som matchar namnet, epoken,"
-" versionen och utgåvan."
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "begränsa till viss typ"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "namn på utskriftsfilen"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "Paketet %s är inte tillgängligt"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Felaktig dnf-felsökningsfil: %s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -91,102 +36,6 @@ msgstr "Inget paket %s är tillgängligt."
 msgid "Nothing to do."
 msgstr "Inget att göra."
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr "Lista installerade paket som inte behövs av något annat paket"
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr "misslyckades att tolka paket-NEVRA från: %s"
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr "migrera yums historie-, grupp- och yumdb-data till dnf"
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr "vilken sorts yum-data att migrera."
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr "Migrerar historiedata …"
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr "Migrerar gruppdata …"
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr "Att köra Yum misslyckades.  Kunde inte hämta installerade grupper."
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr "Inga grupper att migrera från Yum"
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr "hoppar över."
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr "Migrerar YUMDB-data …"
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr "%s av %s inte hittade"
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr "ersätter okända tecken i %s av %s"
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr "DNFDB-åtkomst nekas"
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr "%s av %s migrerat"
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr "%d YUMDB-poster hittade, %d migrerade, %d överhoppade/bevarade"
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr "Visa en lista över olösta beroenden för förråd"
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr "kontrollera paket på den givna arkitekturen, kan anges flera gånger"
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr "Ange förråd att kontrollera"
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr "Kontrollera endast de nyaste paketen i förrådet"
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr "Kontrollera endast höljet för detta paket"
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr "Mata ut en fullständig paketberoendegraf i dot-format"
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr "Inget tillhandahåller: ”%s”"
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Lägger till ”{}” till listan av hanterade paket för rpmconf"
@@ -202,10 +51,6 @@ msgstr "ignorerar sys.exit från rpmconf på grund av saknad MERGE-variabel"
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "ingorerar sys.exit från rpmconf på grund av saknad fil"
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
-msgstr "Nya löv:"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -341,88 +186,3 @@ msgstr ""
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
 msgstr "Vi ber om ursäkt för eventuella besvär"
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr "Hantera en katalog med rpm-paket"
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr "Skicka antingen --old eller --new, inte båda!"
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr "Inga filer att behandla"
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr "Kunde inte öppna {}"
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr "Skriv de äldre paketen"
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr "Skriv de senaste paketen"
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr "Mellanslagsseparerad utdata, inte nyrader"
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr "N nyaste paket att behålla, 1 som standard"
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr "Sökväg till katalogen"
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr "Kan inte läsa versionslåsningskonfigurationen: %s"
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr "Låslista inte satt"
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr "Lägger till versionslås på:"
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr "Lägger till uteslutande på:"
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr "Raderar versionslås för:"
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr "Det finns inget paket för:"
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr "styr paketversionslås"
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr "Kan inte skapa en katalog ”{}” på grund av ”{}”"
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr "”{}” är inte en katalog"
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr "Kopierar ”{}” till lokalt förråd"
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr "Kan inte skriva filen ”{}”"
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
-msgstr "Bygger om lokalt förråd"

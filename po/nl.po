@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-22 15:54+0100\n"
-"PO-Revision-Date: 2016-04-24 08:39-0400\n"
+"POT-Creation-Date: 2017-04-07 14:44+0200\n"
+"PO-Revision-Date: 2016-04-24 08:38-0400\n"
 "Last-Translator: Richard E. van der Luit <nippur@fedoraproject.org>\n"
 "Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
@@ -13,59 +13,6 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: ../plugins/debug.py:55
-msgid "dump information about installed rpm packages to file"
-msgstr ""
-
-#: ../plugins/debug.py:69
-msgid "do not attempt to dump the repository contents."
-msgstr ""
-
-#: ../plugins/debug.py:72
-msgid "optional name of dump file"
-msgstr ""
-
-#: ../plugins/debug.py:97
-#, python-format
-msgid "Output written to: %s"
-msgstr ""
-
-#: ../plugins/debug.py:175
-msgid "restore packages recorded in debug-dump file"
-msgstr ""
-
-#: ../plugins/debug.py:186
-msgid "output commands that would be run to stdout."
-msgstr ""
-
-#: ../plugins/debug.py:189
-msgid "Install the latest version of recorded packages."
-msgstr "Installeer de laatste versie van vastgelegde pakketten."
-
-#: ../plugins/debug.py:192
-msgid ""
-"Ignore architecture and install missing packages matching the name, epoch, "
-"version and release."
-msgstr ""
-
-#: ../plugins/debug.py:197
-msgid "limit to specified type"
-msgstr "beperkt tot het opgegeven type"
-
-#: ../plugins/debug.py:199
-msgid "name of dump file"
-msgstr "naam van dumpbestand"
-
-#: ../plugins/debug.py:268
-#, python-format
-msgid "Package %s is not available"
-msgstr "Pakket %s is niet beschikbaar"
-
-#: ../plugins/debug.py:278
-#, python-format
-msgid "Bad dnf debug file: %s"
-msgstr "Slecht dnf-debugbestand: %s"
 
 #: ../plugins/kickstart.py:58
 msgid "Install packages defined in a kickstart file on your system"
@@ -89,102 +36,6 @@ msgstr ""
 msgid "Nothing to do."
 msgstr ""
 
-#: ../plugins/leaves.py:32
-msgid "List installed packages not required by any other package"
-msgstr ""
-
-#: ../plugins/migrate.py:57
-#, python-format
-msgid "failed to parse package NEVRA from: %s"
-msgstr ""
-
-#: ../plugins/migrate.py:78
-msgid "migrate yum's history, group and yumdb data to dnf"
-msgstr ""
-
-#: ../plugins/migrate.py:95
-msgid "which kind of yum data migrate."
-msgstr ""
-
-#: ../plugins/migrate.py:111
-msgid "Migrating history data..."
-msgstr ""
-
-#: ../plugins/migrate.py:222
-msgid "Migrating groups data..."
-msgstr ""
-
-#: ../plugins/migrate.py:227
-msgid "Execution of Yum failed. Could not retrieve installed groups."
-msgstr ""
-
-#: ../plugins/migrate.py:231
-msgid "No groups to migrate from Yum"
-msgstr ""
-
-#. skips not found groups, i.e. after fedup
-#. when the group name changes / disappears in new distro
-#: ../plugins/migrate.py:243
-msgid "skipping."
-msgstr ""
-
-#: ../plugins/migrate.py:263
-msgid "Migrating YUMDB data..."
-msgstr ""
-
-#: ../plugins/migrate.py:282
-#, python-format
-msgid "%s of %s not found"
-msgstr ""
-
-#: ../plugins/migrate.py:289
-#, python-format
-msgid "replacing unknown characters in %s of %s"
-msgstr ""
-
-#: ../plugins/migrate.py:294
-msgid "DNFDB access denied"
-msgstr ""
-
-#: ../plugins/migrate.py:296
-#, python-format
-msgid "%s of %s migrated"
-msgstr ""
-
-#: ../plugins/migrate.py:300
-#, python-format
-msgid "%d YUMDB records found, %d migrated, %d skipped/preserved"
-msgstr ""
-
-#: ../plugins/repoclosure.py:46
-msgid "Display a list of unresolved dependencies for repositories"
-msgstr ""
-
-#: ../plugins/repoclosure.py:117
-msgid "check packages of the given archs, can be specified multiple times"
-msgstr ""
-
-#: ../plugins/repoclosure.py:120
-msgid "Specify repositories to check"
-msgstr ""
-
-#: ../plugins/repoclosure.py:122
-msgid "Check only the newest packages in the repos"
-msgstr ""
-
-#: ../plugins/repoclosure.py:125
-msgid "Check closure for this package only"
-msgstr ""
-
-#: ../plugins/repograph.py:54
-msgid "Output a full package dependency graph in dot format"
-msgstr ""
-
-#: ../plugins/repograph.py:115
-#, python-format
-msgid "Nothing provides: '%s'"
-msgstr ""
-
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
@@ -199,10 +50,6 @@ msgstr ""
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
-
-#: ../plugins/show_leaves.py:56
-msgid "New leaves:"
 msgstr ""
 
 #: ../plugins/snapper.py:49
@@ -332,89 +179,4 @@ msgstr ""
 
 #: ../plugins/tracer.py:106
 msgid "We apologize for any inconvenience"
-msgstr ""
-
-#: ../plugins/repomanage.py:45
-msgid "Manage a directory of rpm packages"
-msgstr ""
-
-#: ../plugins/repomanage.py:56
-msgid "Pass either --old or --new, not both!"
-msgstr ""
-
-#: ../plugins/repomanage.py:66
-msgid "No files to process"
-msgstr ""
-
-#: ../plugins/repomanage.py:71
-msgid "Could not open {}"
-msgstr ""
-
-#: ../plugins/repomanage.py:128
-msgid "Print the older packages"
-msgstr ""
-
-#: ../plugins/repomanage.py:130
-msgid "Print the newest packages"
-msgstr ""
-
-#: ../plugins/repomanage.py:132
-msgid "Space separated output, not newline"
-msgstr ""
-
-#: ../plugins/repomanage.py:134
-msgid "Newest N packages to keep - defaults to 1"
-msgstr ""
-
-#: ../plugins/repomanage.py:137
-msgid "Path to directory"
-msgstr ""
-
-#: ../plugins/versionlock.py:32
-#, python-format
-msgid "Unable to read version lock configuration: %s"
-msgstr ""
-
-#: ../plugins/versionlock.py:33
-msgid "Locklist not set"
-msgstr ""
-
-#: ../plugins/versionlock.py:34
-msgid "Adding versionlock on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:35
-msgid "Adding exclude on:"
-msgstr ""
-
-#: ../plugins/versionlock.py:36
-msgid "Deleting versionlock for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:37
-msgid "No package found for:"
-msgstr ""
-
-#: ../plugins/versionlock.py:90
-msgid "control package version locks"
-msgstr ""
-
-#: ../plugins/local.py:119
-msgid "Unable to create a directory '{}' due to '{}'"
-msgstr ""
-
-#: ../plugins/local.py:124
-msgid "'{}' is not a directory"
-msgstr ""
-
-#: ../plugins/local.py:133
-msgid "Copying '{}' to local repo"
-msgstr ""
-
-#: ../plugins/local.py:139
-msgid "Can't write file '{}'"
-msgstr ""
-
-#: ../plugins/local.py:154
-msgid "Rebuilding local repo"
 msgstr ""
