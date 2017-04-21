@@ -74,9 +74,11 @@ Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-kickstart}
 BuildRequires:  python-kickstart
 Requires:       python-kickstart
+%if !%{with python3}
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
 Provides:       dnf-plugin-kickstart = %{version}-%{release}
+%endif
 Provides:       python2-%{name}-kickstart = %{version}-%{release}
 Conflicts:      python3-dnf-plugin-kickstart < %{version}-%{release}
 Obsoletes:      python2-%{name}-kickstart < %{dnf_plugins_extra_obsolete}
@@ -127,8 +129,10 @@ Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-snapper}
 Requires:       dbus-python
 Requires:       snapper
+%if !%{with python3}
 Provides:       %{name}-snapper = %{version}-%{release}
 Provides:       dnf-plugin-snapper = %{version}-%{release}
+%endif
 Provides:       python2-%{name}-snapper = %{version}-%{release}
 Conflicts:      python3-dnf-plugin-snapper < %{version}-%{release}
 Obsoletes:      python2-%{name}-snapper < %{dnf_plugins_extra_obsolete}
@@ -158,13 +162,15 @@ Summary:        System Upgrade Plugin for DNF
 Requires:       python-%{name}-common = %{version}-%{release}
 Requires:       python2-systemd
 %{?python_provide:%python_provide python2-%{name}-system-upgrade}
+%if !%{with python3}
 Provides:       dnf-command(system-upgrade)
 Provides:       %{name}-system-upgrade = %{version}-%{release}
 Provides:       system-upgrade = %{version}-%{release}
 Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
-Provides:       python2-%{name}-system-upgrade = %{version}-%{release}
 Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-system-upgrade < 0.10
+%endif
+Provides:       python2-%{name}-system-upgrade = %{version}-%{release}
 Obsoletes:      python2-dnf-plugin-system-upgrade < %{dnf_plugins_extra_obsolete}
 Obsoletes:      python2-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
 Conflicts:      python3-dnf-plugin-system-upgrade < %{version}-%{release}
@@ -207,8 +213,10 @@ Summary:        Tracer Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-tracer}
 Requires:       python2-tracer >= 0.6.12
+%if !%{with python3}
 Provides:       dnf-plugin-tracer = %{version}-%{release}
 Provides:       %{name}-tracer = %{version}-%{release}
+%endif
 Provides:       python2-%{name}-tracer = %{version}-%{release}
 Conflicts:      python3-dnf-plugin-tracer < %{version}-%{release}
 Obsoletes:      python2-%{name}-tracer < %{dnf_plugins_extra_obsolete}
