@@ -48,10 +48,6 @@ class Tracer(dnf.Plugin):
         Call after successful transaction
         See https://rpm-software-management.github.io/dnf/api_transaction.html
         """
-        # Don't run tracer when uninstalling it
-        if dnfpluginsextras.is_erasing(self.base.transaction,
-                                       "tracer"):
-            return
 
         # Don't run tracer when preparing chroot for mock
         if self.base.conf.installroot != "/":
