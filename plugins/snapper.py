@@ -36,9 +36,6 @@ class Snapper(dnf.Plugin):
         if not len(self.base.transaction):
             return
 
-        if dnfpluginsextras.is_erasing(self.base.transaction,
-                                       "snapper"):
-            return
         try:
             bus = SystemBus()
             snapper = Interface(bus.get_object('org.opensuse.Snapper',
