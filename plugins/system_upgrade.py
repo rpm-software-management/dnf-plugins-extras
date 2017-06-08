@@ -345,6 +345,12 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == configure_*: set up action-specific demands ==========================
 
     def configure_download(self, *args):
+        if self.base._promptWanted():
+            msg = _('Before you continue ensure that your system is fully upgraded by running '
+                    '"dnf --refresh upgrade". Do you want to continue')
+            if self.base.conf.assumeno or not self.base.output.userconfirm(
+                    msg='{} [y/N]: '.format(msg), defaultyes_msg='{} [Y/n]: '.format(msg)):
+                raise dnf.cli.CliError(_("Operation aborted."))
         self.cli.demands.root_user = True
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
