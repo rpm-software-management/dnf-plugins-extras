@@ -1,5 +1,6 @@
 ..
   Copyright (C) 2014 Igor Gnatenko
+  Copyright (C) 2017 Red Hat
 
   This copyrighted material is made available to anyone wishing to use,
   modify, copy, or redistribute it subject to the terms and conditions of
@@ -20,4 +21,7 @@
 DNF snapper Plugin
 ==================
 
-Generates snapshots of root filesystem after transactions. The user is not supposed to interact with the plugin in any way.
+Creates a pair of snapshots of root filesystem. One snapshot is created just before the transaction run (Pre). This means after a successful transaction check and successful transaction test. And another snapshot is created when the transaction has finished (Post).
+The user is not supposed to interact with the plugin in any way.
+
+.. warning:: There is no mechanism to ensure data consistency during creating a snapshot. Files which are written at the same time as snapshot is created (eg. database files) can be corrupted or partialy written in snapshot. Restoring such files will cause problems. Moreover, some system files must never be restored. Recomended is only restore files that belong to the action you want to revert.

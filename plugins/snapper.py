@@ -1,6 +1,7 @@
 # creates snapshots via 'snapper'.
 #
 # Copyright (C) 2014 Igor Gnatenko
+# Copyright (C) 2017 Red Hat
 #
 # This copyrighted material is made available to anyone wishing to use,
 # modify, copy, or redistribute it subject to the terms and conditions of
@@ -25,37 +26,64 @@ import sys
 _ = dnfpluginsextras._
 logger = dnfpluginsextras.logger
 
+
 class Snapper(dnf.Plugin):
     name = 'snapper'
 
     def __init__(self, base, cli):
         self.base = base
         self.description = " ".join(sys.argv)
+        self._pre_snap_created = False
+        self._snapper = None
+        self._pre_snap_number = None
 
-    def transaction(self):
+    def pre_transaction(self):
         if not len(self.base.transaction):
             return
 
         try:
             bus = SystemBus()
-            snapper = Interface(bus.get_object('org.opensuse.Snapper',
-                                               '/org/opensuse/Snapper'),
-                                dbus_interface='org.opensuse.Snapper')
+            self._snapper = Interface(bus.get_object('org.opensuse.Snapper',
+                                      '/org/opensuse/Snapper'),
+                                      dbus_interface='org.opensuse.Snapper')
         except DBusException as e:
             logger.critical(
                 "snapper: " + _("connect to snapperd failed: %s"), e
             )
             return
+
         try:
             logger.debug(
-                "snapper: " + _("creating snapshot")
+                "snapper: " + _("creating pre_snapshot")
             )
-            snap = snapper.CreateSingleSnapshot("root", self.description,
-                                                "number", {})
+            self._pre_snap_number = self._snapper.CreatePreSnapshot("root", self.description,
+                                                                    "number", {})
+            self._pre_snap_created = True
             logger.debug(
-                "snapper: " + _("created snapshot %d"), snap
+                "snapper: " + _("created pre_snapshot %d"), self._pre_snap_number
             )
         except DBusException as e:
             logger.critical(
-                "snapper: " + _("creating snapshot failed: %s"), e
+                "snapper: " + _("creating pre_snapshot failed: %s"), e
+            )
+
+    def transaction(self):
+        if not self._pre_snap_created:
+            logger.debug(
+                "snapper: " + _("skipping post_snapshot because creation of pre_snapshot failed")
+            )
+            return
+
+        try:
+            logger.debug(
+                "snapper: " + _("creating post_snapshot")
+            )
+            snap_post_number = self._snapper.CreatePostSnapshot("root", self._pre_snap_number,
+                                                                self.description, "number", {})
+            logger.debug(
+                "snapper: " + _("created post_snapshot %d"), snap_post_number
+            )
+        except DBusException as e:
+            logger.critical(
+                "snapper: " + _("creating post_snapshot failed: %s"), e
             )
