@@ -32,23 +32,10 @@ from dnf.cli import CliError
 
 import uuid
 
-import logging
 from systemd import journal
 
 from distutils.version import StrictVersion
-
-try:
-    from dnf.i18n import translation
-except ImportError:
-    # adapted from dnf-1.1.4's dnf.i18n.translation()
-    def translation(name):
-        def ucd_wrapper(fnc):
-            return lambda *w: dnf.i18n.ucd(fnc(*w))
-        t = dnf.pycomp.gettext.translation(name, fallback=True)
-        return (ucd_wrapper(f) for f in dnf.pycomp.gettext_setup(t))
-
-TEXTDOMAIN = 'dnf-plugin-system-upgrade'    # NOTE: must match Makefile
-_, P_ = translation(TEXTDOMAIN)
+from dnfpluginsextras import _, logger
 
 # Translators: This string is only used in unit tests.
 _("the color of the sky")
@@ -59,8 +46,6 @@ UPGRADE_STARTED_ID = uuid.UUID('3e0a5636d16b4ca4bbe5321d06c6aa62')
 UPGRADE_FINISHED_ID = uuid.UUID('8cec00a1566f4d3594f116450395f06c')
 
 ID_TO_IDENTIFY_BOOTS = UPGRADE_STARTED_ID
-
-logger = logging.getLogger("dnf.plugin")
 
 DNFVERSION = StrictVersion(dnf.const.VERSION)
 
