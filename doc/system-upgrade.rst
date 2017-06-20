@@ -36,7 +36,9 @@ Synopsis
 
 ``dnf system-upgrade clean``
 
-``dnf system-upgrade log [NUMBER]``
+``dnf system-upgrade log``
+
+``dnf system-upgrade log --number <number>``
 
 
 -----------
@@ -79,10 +81,8 @@ Options
     if they are older than what is currently installed. This is the opposite of
     ``--distro-sync``. If both are specified, the last option will be used.
 
-``--datadir=DIRECTORY``
-    Save downloaded packages to ``DIRECTORY``. DIRECTORY must already exist.
-    This directory ``must`` be mounted automatically by the system or the
-    upgrade will not work. The default is ``/var/lib/dnf/system-update``.
+``--number``
+    Applied with ``log`` subcommand will show log speciffied by the number
 
 -----
 Notes
@@ -120,7 +120,7 @@ Typical upgrade usage
 Show logs from last upgrade attempt
 -----------------------------------
 
-``dnf system-upgrade log -1``
+``dnf system-upgrade log --number=-1``
 
 --------------
 Reporting Bugs

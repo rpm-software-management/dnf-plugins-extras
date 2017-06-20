@@ -159,6 +159,7 @@ class State(object):
     allow_erasing = _prop("allow_erasing")
     best = _prop("best")
     exclude = _prop("exclude")
+    install_packages = _prop("install_packages")
 
 # --- Plymouth output helpers -------------------------------------------------
 
@@ -295,14 +296,14 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     @staticmethod
     def set_argparser(parser):
-        parser.add_argument("--datadir", default=DEFAULT_DATADIR,
-                            help=_("save downloaded data to this location"))
+        parser.add_argument("--datadir", help=_("save downloaded data to this location"))
         parser.add_argument("--no-downgrade", dest='distro_sync',
                             action='store_false',
                             help=_("keep installed packages if the new "
                                    "release's version is older"))
         parser.add_argument('tid', nargs=1, choices=CMDS,
                             metavar="[%s]" % "|".join(CMDS))
+        parser.add_argument('--number', type=int, help=_('which logs to show'))
 
     def log_status(self, message, message_id):
         "Log directly to the journal"
@@ -315,21 +316,22 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def configure(self):
         self._call_sub("configure")
+        self._call_sub("check")
 
     def run(self):
-        self._call_sub("run", self.opts)
+        self._call_sub("run")
 
     def run_transaction(self):
         self._call_sub("transaction")
 
-    def _call_sub(self, name, *args):
+    def _call_sub(self, name):
         subfunc = getattr(self, name + '_' + self.opts.tid[0], None)
         if callable(subfunc):
-            subfunc(*args)
+            subfunc()
 
     # == configure_*: set up action-specific demands ==========================
 
-    def configure_download(self, *args):
+    def configure_download(self):
         if self.base._promptWanted():
             msg = _('Before you continue ensure that your system is fully upgraded by running '
                     '"dnf --refresh upgrade". Do you want to continue')
@@ -340,7 +342,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
-        self.base.repos.all().pkgdir = self.opts.datadir
+        if self.opts.datadir:
+            self.base.repos.all().pkgdir = self.opts.datadir
         # We want to do the depsolve / download / transaction-test, but *not*
         # run the actual RPM transaction to install the downloaded packages.
         # Setting the "test" flag makes the RPM transaction a test transaction,
@@ -349,15 +352,17 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # kind of silly, but that's something for DNF to fix...)
         self.base.conf.tsflags.append("test")
 
-    def configure_reboot(self, *args):
+    def configure_reboot(self):
         # FUTURE: add a --debug-shell option to enable debug shell:
         # systemctl add-wants system-update.target debug-shell.service
         self.cli.demands.root_user = True
 
-    def configure_upgrade(self, *args):
+    def configure_upgrade(self):
         # same as the download, but offline and non-interactive. so...
         self.cli.demands.root_user = True
         self.cli.demands.resolving = True
+        if not self.state.datadir:
+            self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
         # use the saved value for --datadir, --allowerasing, etc.
         self.opts.datadir = self.state.datadir
@@ -365,48 +370,53 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.allow_erasing = self.state.allow_erasing
         self.base.conf.best = self.state.best
         self.base.conf.exclude = self.state.exclude
-        self.base.repos.all().pkgdir = self.opts.datadir
+        if self.opts.datadir:
+            self.base.repos.all().pkgdir = self.opts.datadir
         # don't try to get new metadata, 'cuz we're offline
         self.cli.demands.cacheonly = True
         # and don't ask any questions (we confirmed all this beforehand)
         self.base.conf.assumeyes = True
         self.cli.demands.transaction_display = PlymouthTransactionProgress()
 
-    def configure_clean(self, *args):
+    def configure_clean(self):
         self.cli.demands.root_user = True
 
-    def configure_log(self, *args):
+    def configure_log(self):
         pass
 
     # == check_*: do any action-specific checks ===============================
 
-    def check_download(self, *args):
+    def check_download(self):
         checkReleaseVer(self.base.conf, target=self.opts.releasever)
-        checkDataDir(self.opts.datadir)
+        if self.opts.datadir:
+            checkDataDir(self.opts.datadir)
 
-    def check_reboot(self, *args):
+    def check_reboot(self):
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
         if os.path.lexists(MAGIC_SYMLINK):
             raise CliError(_("upgrade is already scheduled"))
         # FUTURE: checkRPMDBStatus(self.state.download_transaction_id)
 
-    def check_upgrade(self, *args):
+    def check_upgrade(self):
         if not self.state.upgrade_status == 'ready':
             raise CliError(  # Translators: do not change "reboot" here
                 _("use 'dnf system-upgrade reboot' to begin the upgrade"))
-        if os.readlink(MAGIC_SYMLINK) != self.state.datadir:
+        if self.state.datadir and os.readlink(MAGIC_SYMLINK) != self.state.datadir:
             logger.info(_("another upgrade tool is running. exiting quietly."))
             raise SystemExit(0)
 
     # == run_*: run the action/prep the transaction ===========================
 
-    def run_help(self, extcmds):
+    def run_help(self):
         self.parser.print_help()
 
-    def run_prepare(self, extcmds):
-        # make the magic symlink
-        os.symlink(self.state.datadir, MAGIC_SYMLINK)
+    def run_prepare(self):
+        if self.state.datadir:
+            # make the magic symlink
+            os.symlink(self.state.datadir, MAGIC_SYMLINK)
+        else:
+            os.symlink(DEFAULT_DATADIR, MAGIC_SYMLINK)
         # write releasever into the flag file so it can be read by systemd
         with open(SYSTEMD_FLAG_FILE, 'w') as flagfile:
             flagfile.write("RELEASEVER=%s\n" % self.state.target_releasever)
@@ -414,8 +424,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.upgrade_status = 'ready'
 
-    def run_reboot(self, extcmds):
-        self.run_prepare([])
+    def run_reboot(self):
+        self.run_prepare()
 
         if not self.opts.tid[0] == "reboot":
             return
@@ -424,15 +434,17 @@ class SystemUpgradeCommand(dnf.cli.Command):
                         REBOOT_REQUESTED_ID)
         reboot()
 
-    def run_download(self, extcmds):
+    def run_download(self):
         # Mark everything in the world for upgrade/sync
         if self.opts.distro_sync:
             self.base.distro_sync()
         else:
             self.base.upgrade_all()
 
-        if self.opts.datadir == DEFAULT_DATADIR:
+        if self.opts.datadir:
             dnf.util.ensure_dir(self.opts.datadir)
+        else:
+            dnf.util.ensure_dir(DEFAULT_DATADIR)
 
         with self.state as state:
             state.download_status = 'downloading'
@@ -440,7 +452,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.datadir = self.opts.datadir
             state.exclude = self.base.conf.exclude
 
-    def run_upgrade(self, extcmds):
+    def run_upgrade(self):
         # Delete symlink ASAP to avoid reboot loops
         dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
         # change the upgrade status (so we can detect crashed upgrades later)
@@ -471,32 +483,39 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # So far, though, the above assumption seems to hold. So... onward!
 
         # add the downloaded RPMs to the sack
-        rpms = []
-        for f in os.listdir(self.state.datadir):
-            if f.endswith(".rpm"):
-                rpms.append(os.path.join(self.state.datadir, f))
-        self.base.add_remote_rpms(rpms)
-        # set up the upgrade transaction
-        if self.opts.distro_sync:
-            self.base.distro_sync()
-        else:
-            self.base.upgrade_all()
-
-    def run_clean(self, extcmds):
         if self.state.datadir:
-            logger.info(_("Cleaning up downloaded data..."))
+            rpms = []
+            for f in os.listdir(self.state.datadir):
+                if f.endswith(".rpm"):
+                    rpms.append(os.path.join(self.state.datadir, f))
+            self.base.add_remote_rpms(rpms)
+            # set up the upgrade transaction
+            if self.opts.distro_sync:
+                self.base.distro_sync()
+            else:
+                self.base.upgrade_all()
+        else:
+            for repo_id, pkg_spec_list in self.state.install_packages.items():
+                for pkgspec in pkg_spec_list:
+                    self.base.install(pkgspec, reponame=repo_id)
+
+    def run_clean(self):
+        logger.info(_("Cleaning up downloaded data..."))
+        if self.state.datadir:
             clear_dir(self.state.datadir)
+        else:
+            clear_dir(DEFAULT_DATADIR)
         with self.state as state:
             state.download_status = None
             state.upgrade_status = None
+            state.datadir = None
+            state.install_packages = {}
 
-    def run_log(self, extcmds):
-        assert extcmds[0] == 'log'
-        if len(extcmds) == 1:
-            list_logs()
+    def run_log(self):
+        if self.opts.number:
+            show_log(self.opts.number)
         else:
-            n = int(extcmds[1])
-            show_log(n)
+            list_logs()
 
     # == transaction_*: do stuff after a successful transaction ===============
 
@@ -505,6 +524,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
         downloads = self.cli.base.transaction.install_set
         if not any(p.name.startswith('kernel') for p in downloads):
             raise CliError(NO_KERNEL_MSG)
+        install_packages = {}
+        if not self.opts.datadir:
+            for pkg in downloads:
+                install_packages.setdefault(pkg.repo.id, []).append(str(pkg))
+
         # Okay! Write out the state so the upgrade can use it.
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)
         with self.state as state:
@@ -514,6 +538,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.best = self.base.conf.best
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
+            state.install_packages = install_packages
         logger.info(DOWNLOAD_FINISHED_MSG)
         self.log_status(_("Download finished."),
                         DOWNLOAD_FINISHED_ID)
@@ -522,6 +547,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         Plymouth.message(_("Upgrade complete! Cleaning up and rebooting..."))
         self.log_status(_("Upgrade complete! Cleaning up and rebooting..."),
                         UPGRADE_FINISHED_ID)
-        self.run_clean([])
+        self.run_clean()
         if self.opts.tid[0] == "upgrade":
             reboot()

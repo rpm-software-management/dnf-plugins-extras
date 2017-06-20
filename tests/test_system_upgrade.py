@@ -288,7 +288,7 @@ class CommandTestCase(CommandTestCaseBase):
 class CleanCommandTestCase(CommandTestCaseBase):
     def test_configure_clean(self):
         self.cli.demands.root_user = None
-        self.command.configure_clean([])
+        self.command.configure_clean()
         self.assertTrue(self.cli.demands.root_user)
 
     def test_run_clean(self):
@@ -309,9 +309,9 @@ class CleanCommandTestCase(CommandTestCaseBase):
         self.assertEqual(self.command.state.download_status, "complete")
         self.assertEqual(self.command.state.upgrade_status, "ready")
         # run cleanup
-        self.command.run_clean([])
-        # datadir remains, but is empty, and state is cleared
-        self.assertEqual(datadir, self.command.state.datadir)
+        self.command.run_clean()
+        # datadir not remains, but is empty, and state is cleared
+        self.assertEqual(None, self.command.state.datadir)
         self.assertTrue(os.path.isdir(datadir))
         self.assertFalse(os.path.exists(fakerpm))
         self.assertEqual(self.command.state.download_status, None)
@@ -350,7 +350,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
         self.command.state.datadir = '/lol/wut'
         with patch('system_upgrade.SYSTEMD_FLAG_FILE', self.SYSTEMD_FLAG_FILE):
             with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
-                self.command.run_prepare([])
+                self.command.run_prepare()
         self.assertEqual(os.readlink(self.MAGIC_SYMLINK),
                          self.command.state.datadir)
         self.assertEqual(self.command.state.upgrade_status, 'ready')
@@ -364,8 +364,8 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def test_run_reboot(self, reboot, log_status, run_prepare):
         self.command.opts = mock.MagicMock()
         self.command.opts.tid = ["reboot"]
-        self.command.run_reboot([])
-        run_prepare.assert_called_once_with([])
+        self.command.run_reboot()
+        run_prepare.assert_called_once_with()
         self.assertEqual(system_upgrade.REBOOT_REQUESTED_ID,
                          log_status.call_args[0][1])
         self.assertTrue(reboot.called)
@@ -376,8 +376,8 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def test_reboot_prepare_only(self, reboot, log_status, run_prepare):
         self.command.opts = mock.MagicMock()
         self.command.opts.tid = [None]
-        self.command.run_reboot([])
-        run_prepare.assert_called_once_with([])
+        self.command.run_reboot()
+        run_prepare.assert_called_once_with()
         self.assertFalse(log_status.called)
         self.assertFalse(reboot.called)
 
@@ -445,11 +445,15 @@ class LogCommandTestCase(CommandTestCase):
         self.command.configure()
 
     def test_run_log_list(self):
+        self.command.opts = mock.MagicMock()
+        self.command.opts.number = None
         with patch('system_upgrade.list_logs') as list_logs:
-            self.command.run_log(["log"])
+            self.command.run_log()
         list_logs.assert_called_once_with()
 
     def test_run_log_prev(self):
         with patch('system_upgrade.show_log') as show_log:
-            self.command.run_log(["log", "-2"])
+            self.command.opts = mock.MagicMock()
+            self.command.opts.number = -2
+            self.command.run_log()
         show_log.assert_called_once_with(-2)
