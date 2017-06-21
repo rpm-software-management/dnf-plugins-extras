@@ -157,32 +157,6 @@ Obsoletes:      python3-%{name}-snapper < %{dnf_plugins_extra_obsolete}
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 %endif
 
-%package -n python2-dnf-plugin-system-upgrade
-Summary:        System Upgrade Plugin for DNF
-Requires:       python-%{name}-common = %{version}-%{release}
-Requires:       python2-systemd
-%{?python_provide:%python_provide python2-%{name}-system-upgrade}
-%if !%{with python3}
-Provides:       dnf-command(system-upgrade)
-Provides:       %{name}-system-upgrade = %{version}-%{release}
-Provides:       system-upgrade = %{version}-%{release}
-Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
-Obsoletes:      fedup < 0.9.4
-Obsoletes:      dnf-plugin-system-upgrade < 0.10
-%endif
-Provides:       python2-%{name}-system-upgrade = %{version}-%{release}
-Obsoletes:      python2-dnf-plugin-system-upgrade < %{dnf_plugins_extra_obsolete}
-Obsoletes:      python2-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
-Conflicts:      python3-dnf-plugin-system-upgrade < %{version}-%{release}
-BuildRequires:  pkgconfig(systemd)
-BuildRequires:  systemd
-BuildRequires:  python2-systemd
-%{?system_requires}
-
-%description -n python2-dnf-plugin-system-upgrade
-System Upgrade Plugin for DNF, Python 2 version. Enables offline system upgrades
-using the "dnf system-upgrade" command.
-
 %if %{with python3}
 %package -n python3-dnf-plugin-system-upgrade
 Summary:        System Upgrade Plugin for DNF
@@ -298,7 +272,7 @@ popd
 %find_lang %{name}
 
 %check
-PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/
+PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/test_kickstart.py tests/test_rpmconf.py
 %if %{with python3}
 PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
 %endif
@@ -345,12 +319,6 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 %{_mandir}/man8/dnf.plugin.snapper.*
 %endif
-
-%files -n python2-dnf-plugin-system-upgrade
-%{_unitdir}/dnf-system-upgrade.service
-%{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
-%{python2_sitelib}/dnf-plugins/system_upgrade.*
-%{_mandir}/man8/dnf.plugin.system-upgrade.*
 
 %if %{with python3}
 %files -n python3-dnf-plugin-system-upgrade

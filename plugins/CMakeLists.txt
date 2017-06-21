@@ -1,10 +1,10 @@
 if (${PYTHON_DESIRED} STREQUAL "3")
 INSTALL (FILES rpm_conf.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
 INSTALL (FILES torproxy.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
+INSTALL (FILES system_upgrade.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
 endif()
 INSTALL (FILES snapper.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
 INSTALL (FILES tracer.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
 INSTALL (FILES kickstart.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
-INSTALL (FILES system_upgrade.py DESTINATION ${PYTHON_INSTALL_DIR}/dnf-plugins)
 
 ADD_SUBDIRECTORY (dnfpluginsextras)
