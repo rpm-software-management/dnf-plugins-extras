@@ -72,6 +72,9 @@ def reboot():
 
 # DNF-FIXME: dnf.util.clear_dir() doesn't delete regular files :/
 def clear_dir(path):
+    if not os.path.isdir(path):
+        return
+
     for entry in os.listdir(path):
         fullpath = os.path.join(path, entry)
         try:
@@ -90,12 +93,6 @@ def checkReleaseVer(conf, target=None):
         # it's too late to set releasever here, so this can't work.
         # (see https://bugzilla.redhat.com/show_bug.cgi?id=1212341)
         raise CliError(CANT_RESET_RELEASEVER)
-
-
-def checkDataDir(datadir):
-    if os.path.exists(datadir) and not os.path.isdir(datadir):
-        raise CliError(_("--datadir: File exists"))
-    # FUTURE NOTE: check for removable devices etc.
 
 
 def disable_blanking():
@@ -150,7 +147,6 @@ class State(object):
         return property(getprop, setprop)
 
     download_status = _prop("download_status")
-    datadir = _prop("datadir")
     target_releasever = _prop("target_releasever")
     system_releasever = _prop("system_releasever")
 
@@ -296,7 +292,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     @staticmethod
     def set_argparser(parser):
-        parser.add_argument("--datadir", help=_("save downloaded data to this location"))
         parser.add_argument("--no-downgrade", dest='distro_sync',
                             action='store_false',
                             help=_("keep installed packages if the new "
@@ -342,8 +337,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
-        if self.opts.datadir:
-            self.base.repos.all().pkgdir = self.opts.datadir
         # We want to do the depsolve / download / transaction-test, but *not*
         # run the actual RPM transaction to install the downloaded packages.
         # Setting the "test" flag makes the RPM transaction a test transaction,
@@ -361,17 +354,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # same as the download, but offline and non-interactive. so...
         self.cli.demands.root_user = True
         self.cli.demands.resolving = True
-        if not self.state.datadir:
-            self.cli.demands.available_repos = True
+        self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
-        # use the saved value for --datadir, --allowerasing, etc.
-        self.opts.datadir = self.state.datadir
+        # use the saved value for --allowerasing, etc.
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
         self.base.conf.best = self.state.best
         self.base.conf.exclude = self.state.exclude
-        if self.opts.datadir:
-            self.base.repos.all().pkgdir = self.opts.datadir
         # don't try to get new metadata, 'cuz we're offline
         self.cli.demands.cacheonly = True
         # and don't ask any questions (we confirmed all this beforehand)
@@ -388,8 +377,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def check_download(self):
         checkReleaseVer(self.base.conf, target=self.opts.releasever)
-        if self.opts.datadir:
-            checkDataDir(self.opts.datadir)
+        dnf.util.ensure_dir(DEFAULT_DATADIR)
 
     def check_reboot(self):
         if not self.state.download_status == 'complete':
@@ -402,7 +390,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if not self.state.upgrade_status == 'ready':
             raise CliError(  # Translators: do not change "reboot" here
                 _("use 'dnf system-upgrade reboot' to begin the upgrade"))
-        if self.state.datadir and os.readlink(MAGIC_SYMLINK) != self.state.datadir:
+        if os.readlink(MAGIC_SYMLINK) != DEFAULT_DATADIR:
             logger.info(_("another upgrade tool is running. exiting quietly."))
             raise SystemExit(0)
 
@@ -412,11 +400,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.parser.print_help()
 
     def run_prepare(self):
-        if self.state.datadir:
-            # make the magic symlink
-            os.symlink(self.state.datadir, MAGIC_SYMLINK)
-        else:
-            os.symlink(DEFAULT_DATADIR, MAGIC_SYMLINK)
+        # make the magic symlink
+        os.symlink(DEFAULT_DATADIR, MAGIC_SYMLINK)
         # write releasever into the flag file so it can be read by systemd
         with open(SYSTEMD_FLAG_FILE, 'w') as flagfile:
             flagfile.write("RELEASEVER=%s\n" % self.state.target_releasever)
@@ -441,15 +426,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
         else:
             self.base.upgrade_all()
 
-        if self.opts.datadir:
-            dnf.util.ensure_dir(self.opts.datadir)
-        else:
-            dnf.util.ensure_dir(DEFAULT_DATADIR)
-
         with self.state as state:
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever
-            state.datadir = self.opts.datadir
             state.exclude = self.base.conf.exclude
 
     def run_upgrade(self):
@@ -483,32 +462,17 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # So far, though, the above assumption seems to hold. So... onward!
 
         # add the downloaded RPMs to the sack
-        if self.state.datadir:
-            rpms = []
-            for f in os.listdir(self.state.datadir):
-                if f.endswith(".rpm"):
-                    rpms.append(os.path.join(self.state.datadir, f))
-            self.base.add_remote_rpms(rpms)
-            # set up the upgrade transaction
-            if self.opts.distro_sync:
-                self.base.distro_sync()
-            else:
-                self.base.upgrade_all()
-        else:
-            for repo_id, pkg_spec_list in self.state.install_packages.items():
-                for pkgspec in pkg_spec_list:
-                    self.base.install(pkgspec, reponame=repo_id)
+
+        for repo_id, pkg_spec_list in self.state.install_packages.items():
+            for pkgspec in pkg_spec_list:
+                self.base.install(pkgspec, reponame=repo_id)
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
-        if self.state.datadir:
-            clear_dir(self.state.datadir)
-        else:
-            clear_dir(DEFAULT_DATADIR)
+        clear_dir(DEFAULT_DATADIR)
         with self.state as state:
             state.download_status = None
             state.upgrade_status = None
-            state.datadir = None
             state.install_packages = {}
 
     def run_log(self):
@@ -525,9 +489,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if not any(p.name.startswith('kernel') for p in downloads):
             raise CliError(NO_KERNEL_MSG)
         install_packages = {}
-        if not self.opts.datadir:
-            for pkg in downloads:
-                install_packages.setdefault(pkg.repo.id, []).append(str(pkg))
+        for pkg in downloads:
+            install_packages.setdefault(pkg.repo.id, []).append(str(pkg))
 
         # Okay! Write out the state so the upgrade can use it.
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)

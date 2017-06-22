@@ -38,7 +38,7 @@ Synopsis
 
 ``dnf system-upgrade log``
 
-``dnf system-upgrade log --number <number>``
+``dnf system-upgrade log --number=<number>``
 
 
 -----------
@@ -60,7 +60,7 @@ Subcommands
     Used to see a list of boots during which an upgrade was attempted, or show
     the logs from an upgrade attempt. The logs for one of the boots can be shown
     by specifying one of the numbers in the first column. Negative numbers can
-    be used to number the boots from last to first. For example, ``log -1`` can
+    be used to number the boots from last to first. For example, ``log --number=-1`` can
     be used to see the logs for the last upgrade attempt.
 
 -------
@@ -137,7 +137,7 @@ For more info on filing bugs, see the Fedora Project wiki:
   https://fedoraproject.org/wiki/Bugs_and_feature_requests
 
 Please include ``/var/log/dnf.log`` and the output of
-``dnf system-upgrade log -1`` (if applicable) in your bug reports.
+``dnf system-upgrade log --number=-1`` (if applicable) in your bug reports.
 
 Problems with dependency solving during download are best reported to the
 maintainers of the package(s) with the dependency problems.
