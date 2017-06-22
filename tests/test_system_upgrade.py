@@ -204,20 +204,6 @@ class StateTestCase(unittest.TestCase):
     def setUp(self):
         self.state = self.StateClass()
 
-    def test_set_write_get(self):
-        path = "/some/stupid/path"
-        with self.state:
-            self.state.datadir = path
-        del self.state
-        self.state = self.StateClass()
-        self.assertEqual(self.state.datadir, path)
-
-    def test_clear(self):
-        self.state.clear()
-        del self.state
-        self.state = self.StateClass()
-        self.assertIs(self.state.datadir, None)
-
     def test_bool_value(self):
         with self.state:
             self.state.distro_sync = True
@@ -277,13 +263,6 @@ class CommandTestCase(CommandTestCaseBase):
         # initial state: no status
         self.assertEqual(self.command.state.download_status, None)
         self.assertEqual(self.command.state.upgrade_status, None)
-        self.assertEqual(self.command.state.datadir, None)
-        # check the context stuff works like we expect
-        with self.command.state as state:
-            state.datadir = os.path.join(self.statedir, "datadir")
-            os.makedirs(state.datadir)
-        self.assertTrue(os.path.isdir(self.command.state.datadir))
-
 
 class CleanCommandTestCase(CommandTestCaseBase):
     def test_configure_clean(self):
@@ -292,28 +271,15 @@ class CleanCommandTestCase(CommandTestCaseBase):
         self.assertTrue(self.cli.demands.root_user)
 
     def test_run_clean(self):
-        # set up a datadir and pretend like we're ready to upgrade
-        datadir = os.path.join(self.statedir, "datadir")
-        os.makedirs(datadir)
-        fakerpm = os.path.join(datadir, "fake.rpm")
-        with open(fakerpm, "w") as outf:
-            outf.write("hi i am an rpm")
         with self.command.state as state:
-            state.datadir = datadir
             state.download_status = "complete"
             state.upgrade_status = "ready"
         # make sure the datadir and state info is set up OK
-        self.assertEqual(datadir, self.command.state.datadir)
-        self.assertTrue(os.path.isdir(datadir))
-        self.assertTrue(os.path.exists(fakerpm))
         self.assertEqual(self.command.state.download_status, "complete")
         self.assertEqual(self.command.state.upgrade_status, "ready")
         # run cleanup
         self.command.run_clean()
-        # datadir not remains, but is empty, and state is cleared
-        self.assertEqual(None, self.command.state.datadir)
-        self.assertTrue(os.path.isdir(datadir))
-        self.assertFalse(os.path.exists(fakerpm))
+        # state is cleared
         self.assertEqual(self.command.state.download_status, None)
         self.assertEqual(self.command.state.upgrade_status, None)
 
@@ -347,12 +313,10 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
             self.check_reboot(status='complete', lexists=True, dnfverok=True)
 
     def test_run_prepare(self):
-        self.command.state.datadir = '/lol/wut'
         with patch('system_upgrade.SYSTEMD_FLAG_FILE', self.SYSTEMD_FLAG_FILE):
             with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
                 self.command.run_prepare()
-        self.assertEqual(os.readlink(self.MAGIC_SYMLINK),
-                         self.command.state.datadir)
+        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), '/var/lib/dnf/system-upgrade')
         self.assertEqual(self.command.state.upgrade_status, 'ready')
         releasever = self.command.state.target_releasever
         with open(self.SYSTEMD_FLAG_FILE) as flag_file:
@@ -391,12 +355,13 @@ class DownloadCommandTestCase(CommandTestCase):
         self.assertTrue(self.cli.demands.resolving)
         self.assertTrue(self.cli.demands.sack_activation)
         self.assertTrue(self.cli.demands.available_repos)
-        for repo in self.command.base.repos.values():
-            self.assertEqual(repo.pkgdir, self.command.opts.datadir)
 
     def test_transaction_download(self):
         pkg = mock.MagicMock()
+        repo = pkg = mock.MagicMock()
+        repo.id = 'test'
         pkg.name = "kernel"
+        pkg.repo = repo
         self.cli.base.transaction.install_set = [pkg]
         self.command.opts = mock.MagicMock()
         self.command.opts.distro_sync = "distro_sync"
