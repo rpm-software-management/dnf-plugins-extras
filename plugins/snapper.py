@@ -19,12 +19,10 @@
 #
 
 from dbus import SystemBus, Interface, DBusException
-import dnf
-import dnfpluginsextras
 import sys
 
-_ = dnfpluginsextras._
-logger = dnfpluginsextras.logger
+from dnfpluginsextras import _, logger
+import dnf
 
 
 class Snapper(dnf.Plugin):

@@ -20,22 +20,18 @@
 """system_upgrade.py - DNF plugin to handle major-version system upgrades."""
 
 from __future__ import unicode_literals
-
+from distutils.version import StrictVersion
+from subprocess import call, check_call
 import os
 import json
-
-from subprocess import call, check_call
-
-import dnf
-import dnf.cli
-from dnf.cli import CliError
-
 import uuid
 
 from systemd import journal
 
-from distutils.version import StrictVersion
+from dnf.cli import CliError
 from dnfpluginsextras import _, logger
+import dnf
+import dnf.cli
 
 # Translators: This string is only used in unit tests.
 _("the color of the sky")

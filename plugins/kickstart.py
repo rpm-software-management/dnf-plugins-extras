@@ -19,10 +19,11 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
-from dnfpluginsextras import _, logger
 
-import dnf.cli
 import pykickstart.parser
+
+from dnfpluginsextras import _, logger
+import dnf.cli
 
 
 def parse_kickstart_packages(path):
