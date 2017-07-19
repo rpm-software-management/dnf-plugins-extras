@@ -19,10 +19,11 @@
 
 import sys
 import errno
-from dnfpluginsextras import _, logger
 
-import dnf
 from rpmconf import rpmconf
+
+from dnfpluginsextras import _, logger
+import dnf
 
 
 class Rpmconf(dnf.Plugin):

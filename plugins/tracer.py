@@ -21,16 +21,15 @@
 #
 
 from __future__ import absolute_import
-
 import time
 import traceback
-import dnf.cli
-import dnf.util
-import dnfpluginsextras
+
 from tracer import Query, Package
 from tracer.views.default import DefaultView
 
-_ = dnfpluginsextras._
+from dnfpluginsextras import _
+import dnf.cli
+import dnf.util
 
 
 class Tracer(dnf.Plugin):

@@ -18,15 +18,16 @@
 # Red Hat, Inc.
 #
 
-import dnf
-import dnf.plugin
-import dnfpluginsextras
-import pycurl
 import json
 import io
 import iniparse.compat as ini
 
-from dnfpluginscore import _
+import pycurl
+
+from dnfpluginsextras import _, logger
+import dnf
+import dnf.plugin
+
 
 MSG = _('Disabling torproxy plugin: cannot connect to the Tor network')
 
@@ -38,7 +39,6 @@ class TorProxy(dnf.Plugin):
     def __init__(self, base, cli):
         super(TorProxy, self).__init__(base, cli)
         self.base = base
-        self.logger = dnfpluginsextras.logger
 
     def _check_tor_working(self):
 
@@ -60,7 +60,7 @@ class TorProxy(dnf.Plugin):
             result = json.loads(buf.getvalue().decode("ascii"))['IsTor']
         # TODO fix me, need to have a better exception filter
         except Exception as e:
-            self.logger.error(e)
+            logger.error(e)
             result = False
 
         return result
@@ -91,6 +91,6 @@ class TorProxy(dnf.Plugin):
                     repo.proxy_username = 'dnf_' + name
                     repo.proxy_password = 'dnf_' + name
         else:
-            self.logger.error(MSG)
+            logger.error(MSG)
             if conf.getboolean('main', 'strict'):
                 raise dnf.exceptions.Error
