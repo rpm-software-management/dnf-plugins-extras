@@ -5,6 +5,21 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+2.0.2 Release Notes
+===================
+
+CLI changes in 2.0.2:
+
+* Remove ``--datadir`` option from ``system upgrade``
+
+Bugs fixed in 2.0.2:
+
+* :rhbug:`1324151`
+* :rhbug:`1387136`
+* :rhbug:`1225442`
+* :rhbug:`1248806`
+
+===================
 2.0.1 Release Notes
 ===================
 

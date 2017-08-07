@@ -90,5 +90,21 @@
     [
         1379906, 
         "Traceback when dependency of plugin is removed and plugin calls the dependency"
+    ], 
+    [
+        1324151, 
+        "dnf list installed | grep @@commandline  lists 1815 system packages"
+    ], 
+    [
+        1387136, 
+        "Local repository breaks upgrade"
+    ], 
+    [
+        1225442, 
+        "warn people if they want to upgrade a not fully updated system"
+    ], 
+    [
+        1248806, 
+        "DNF Snapper plugin takes snapshot after changes instead of before"
     ]
 ]
