@@ -35,6 +35,7 @@ class Rpmconf(dnf.Plugin):
         self.packages = []
         self.frontend = None
         self.diff = None
+        self._interactive = None
 
     def config(self):
         self._interactive = True
