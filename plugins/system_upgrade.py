@@ -21,9 +21,9 @@
 
 from __future__ import unicode_literals
 from distutils.version import StrictVersion
-from subprocess import call, check_call
-import os
+from subprocess import call, check_call, Popen
 import json
+import os
 import uuid
 
 from systemd import journal
@@ -262,7 +262,12 @@ def pick_boot(message_id, n):
 
 def show_log(n):
     boot_id = pick_boot(ID_TO_IDENTIFY_BOOTS, n)
-    check_call(['journalctl', '--boot', boot_id.hex])
+    process = Popen(['journalctl', '--boot', boot_id.hex])
+    process.wait()
+    rc = process.returncode
+    if rc == 1:
+        raise dnf.exceptions.Error(_("Unable to match systemd journal entry"))
+
 
 CMDS = ['download', 'clean', 'reboot', 'upgrade', 'log']
 
