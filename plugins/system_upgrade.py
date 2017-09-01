@@ -394,6 +394,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if os.readlink(MAGIC_SYMLINK) != DEFAULT_DATADIR:
             logger.info(_("another upgrade tool is running. exiting quietly."))
             raise SystemExit(0)
+        # Delete symlink ASAP to avoid reboot loops
+        dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
 
     # == run_*: run the action/prep the transaction ===========================
 
@@ -433,8 +435,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.exclude = self.base.conf.exclude
 
     def run_upgrade(self):
-        # Delete symlink ASAP to avoid reboot loops
-        dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
         # change the upgrade status (so we can detect crashed upgrades later)
         with self.state as state:
             state.upgrade_status = 'incomplete'
