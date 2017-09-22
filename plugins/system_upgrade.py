@@ -364,6 +364,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
     def configure_upgrade(self):
         # same as the download, but offline and non-interactive. so...
         self.cli.demands.root_user = True
+        self.cli.demands.fresh_metadata = False
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
