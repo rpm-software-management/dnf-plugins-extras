@@ -330,10 +330,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
             subfunc()
 
     # == pre_configure_*: set up action-specific demands ==========================
+    def pre_configure_download(self):
+        self.base.conf.cachedir = DEFAULT_DATADIR
 
     def pre_configure_upgrade(self):
         if self.state.enable_disable_repos:
             self.opts.repos_ed = self.state.enable_disable_repos
+        self.base.conf.cachedir = DEFAULT_DATADIR
 
     # == configure_*: set up action-specific demands ==========================
 
