@@ -348,6 +348,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
+        self.cli.demands.freshest_metadata = True
         # We want to do the depsolve / download / transaction-test, but *not*
         # run the actual RPM transaction to install the downloaded packages.
         # Setting the "test" flag makes the RPM transaction a test transaction,
