@@ -149,7 +149,6 @@ class State(object):
     upgrade_status = _prop("upgrade_status")
     distro_sync = _prop("distro_sync")
     allow_erasing = _prop("allow_erasing")
-    enable_disable_repos = _prop("enable_disable_repos")
     best = _prop("best")
     exclude = _prop("exclude")
     install_packages = _prop("install_packages")
@@ -311,9 +310,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
                      TARGET_RELEASEVER=self.state.target_releasever,
                      DNF_VERSION=dnf.const.VERSION)
 
-    def pre_configure(self):
-        self._call_sub("pre_configure")
-
     def configure(self):
         self._call_sub("configure")
         self._call_sub("check")
@@ -328,12 +324,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         subfunc = getattr(self, name + '_' + self.opts.tid[0], None)
         if callable(subfunc):
             subfunc()
-
-    # == pre_configure_*: set up action-specific demands ==========================
-
-    def pre_configure_upgrade(self):
-        if self.state.enable_disable_repos:
-            self.opts.repos_ed = self.state.enable_disable_repos
 
     # == configure_*: set up action-specific demands ==========================
 
@@ -474,19 +464,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
         # add the downloaded RPMs to the sack
 
-        errs = []
-
         for repo_id, pkg_spec_list in self.state.install_packages.items():
             for pkgspec in pkg_spec_list:
-                try:
-                    self.base.install(pkgspec, reponame=repo_id)
-                except dnf.exceptions.MarkingError:
-                    msg = _('Unable to match package: %s')
-                    logger.info(msg, self.base.output.term.bold(pkgspec + " " + repo_id))
-                    errs.append(pkgspec)
-
-        if errs:
-            raise dnf.exceptions.MarkingError(_("Unable to match some of packages"))
+                self.base.install(pkgspec, reponame=repo_id)
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
@@ -523,7 +503,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
             state.install_packages = install_packages
-            state.enable_disable_repos = self.opts.repos_ed
         logger.info(DOWNLOAD_FINISHED_MSG)
         self.log_status(_("Download finished."),
                         DOWNLOAD_FINISHED_ID)
