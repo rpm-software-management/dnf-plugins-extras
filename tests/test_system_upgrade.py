@@ -365,7 +365,6 @@ class DownloadCommandTestCase(CommandTestCase):
         self.cli.base.transaction.install_set = [pkg]
         self.command.opts = mock.MagicMock()
         self.command.opts.distro_sync = "distro_sync"
-        self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = "best"
         self.command.base.conf.installroot = "/"
