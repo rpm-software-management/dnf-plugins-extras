@@ -288,7 +288,6 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def setUp(self):
         super(RebootCheckCommandTestCase, self).setUp()
         self.MAGIC_SYMLINK = self.statedir + '/symlink'
-        self.SYSTEMD_FLAG_FILE = self.statedir + '/systemd.flag.file'
 
     def test_configure_reboot(self):
         self.cli.demands.root_user = None
@@ -313,14 +312,10 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
             self.check_reboot(status='complete', lexists=True, dnfverok=True)
 
     def test_run_prepare(self):
-        with patch('system_upgrade.SYSTEMD_FLAG_FILE', self.SYSTEMD_FLAG_FILE):
-            with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
-                self.command.run_prepare()
+        with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
+            self.command.run_prepare()
         self.assertEqual(os.readlink(self.MAGIC_SYMLINK), '/var/lib/dnf/system-upgrade')
         self.assertEqual(self.command.state.upgrade_status, 'ready')
-        releasever = self.command.state.target_releasever
-        with open(self.SYSTEMD_FLAG_FILE) as flag_file:
-            self.assertIn('RELEASEVER=%s\n' % releasever, flag_file.read())
 
     @patch('system_upgrade.SystemUpgradeCommand.run_prepare')
     @patch('system_upgrade.SystemUpgradeCommand.log_status')
