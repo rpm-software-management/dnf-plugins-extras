@@ -48,7 +48,6 @@ DNFVERSION = StrictVersion(dnf.const.VERSION)
 PLYMOUTH = '/usr/bin/plymouth'
 DEFAULT_DATADIR = '/var/lib/dnf/system-upgrade'
 MAGIC_SYMLINK = '/system-update'
-SYSTEMD_FLAG_FILE = os.path.join(MAGIC_SYMLINK, '.dnf-system-upgrade')
 
 RELEASEVER_MSG = _(
     "Need a --releasever greater than the current system version.")
@@ -336,6 +335,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if self.state.enable_disable_repos:
             self.opts.repos_ed = self.state.enable_disable_repos
         self.base.conf.cachedir = DEFAULT_DATADIR
+        self.base.conf.releasever = self.state.target_releasever
 
     # == configure_*: set up action-specific demands ==========================
 
@@ -420,9 +420,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
     def run_prepare(self):
         # make the magic symlink
         os.symlink(DEFAULT_DATADIR, MAGIC_SYMLINK)
-        # write releasever into the flag file so it can be read by systemd
-        with open(SYSTEMD_FLAG_FILE, 'w') as flagfile:
-            flagfile.write("RELEASEVER=%s\n" % self.state.target_releasever)
         # set upgrade_status so that the upgrade can run
         with self.state as state:
             state.upgrade_status = 'ready'
