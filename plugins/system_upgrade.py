@@ -21,7 +21,7 @@
 
 from __future__ import unicode_literals
 from distutils.version import StrictVersion
-from subprocess import call, check_call, Popen
+from subprocess import call, Popen
 import json
 import os
 import uuid
@@ -63,7 +63,7 @@ CANT_RESET_RELEASEVER = _(
 
 
 def reboot():
-    check_call(["systemctl", "reboot"])
+    Popen(["systemctl", "reboot"])
 
 
 # DNF-FIXME: dnf.util.clear_dir() doesn't delete regular files :/
