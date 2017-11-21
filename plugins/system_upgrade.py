@@ -55,7 +55,8 @@ NO_KERNEL_MSG = _(
 RELEASEVER_MSG = _(
     "Need a --releasever greater than the current system version.")
 DOWNLOAD_FINISHED_MSG = _(  # Translators: do not change "reboot" here
-    "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.")
+    "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
+    "To remove cached metadata and transaction use 'dnf system-upgrade clean'")
 CANT_RESET_RELEASEVER = _(
     "Sorry, you need to use 'download --releasever' instead of '--network'")
 
