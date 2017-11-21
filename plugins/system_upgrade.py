@@ -372,6 +372,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
         self.cli.demands.sack_activation = True
+        self.cli.demands.cacheonly = True
         # use the saved value for --allowerasing, etc.
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
