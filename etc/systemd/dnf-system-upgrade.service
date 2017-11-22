@@ -17,7 +17,7 @@ StandardOutput=journal+console
 EnvironmentFile=-/system-update/.dnf-system-upgrade
 # We need the --releasever junk because there's no way for DNF plugins to
 # change $releasever - see https://bugzilla.redhat.com/show_bug.cgi?id=1212341
-ExecStart=/usr/bin/dnf --releasever=${RELEASEVER} system-upgrade upgrade
+ExecStart=/usr/bin/dnf --cacheonly --releasever=${RELEASEVER} system-upgrade upgrade
 # Remove the symlink if it's still there, to protect against reboot loops.
 ExecStopPost=/usr/bin/rm -fv /system-update
 # If anything goes wrong, reboot back to the normal system.
