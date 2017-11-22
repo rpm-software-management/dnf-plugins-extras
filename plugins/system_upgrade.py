@@ -50,8 +50,6 @@ DEFAULT_DATADIR = '/var/lib/dnf/system-upgrade'
 MAGIC_SYMLINK = '/system-update'
 SYSTEMD_FLAG_FILE = os.path.join(MAGIC_SYMLINK, '.dnf-system-upgrade')
 
-NO_KERNEL_MSG = _(
-    "No new kernel packages were found.")
 RELEASEVER_MSG = _(
     "Need a --releasever greater than the current system version.")
 DOWNLOAD_FINISHED_MSG = _(  # Translators: do not change "reboot" here
@@ -512,10 +510,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == transaction_*: do stuff after a successful transaction ===============
 
     def transaction_download(self):
-        # sanity check: we got a kernel, right?
         downloads = self.cli.base.transaction.install_set
-        if not any(p.name.startswith('kernel') for p in downloads):
-            raise CliError(NO_KERNEL_MSG)
         install_packages = {}
         for pkg in downloads:
             install_packages.setdefault(pkg.repo.id, []).append(str(pkg))

@@ -377,11 +377,6 @@ class DownloadCommandTestCase(CommandTestCase):
             self.assertEqual(state.allow_erasing, "allow_erasing")
             self.assertEqual(state.best, "best")
 
-    def test_transaction_download_no_kernel(self):
-        self.cli.base.transaction.install_set = []
-        with self.assertRaises(CliError):
-            self.command.transaction_download()
-
 
 class UpgradeCommandTestCase(CommandTestCase):
     def test_configure_upgrade(self):
