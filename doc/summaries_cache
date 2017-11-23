@@ -118,5 +118,13 @@
     [
         1492036,
         "system-upgrade fails to connect to online mirrors during upgrade when caches are missing"
+    ],
+    [
+        1516234,
+        "Upgrade is not possible if a kernel from rawhide has been used in the system"
+    ],
+    [
+        1499284,
+        "dnf crashes with CalledProcessError during upgrade F26->F27"
     ]
 ]
