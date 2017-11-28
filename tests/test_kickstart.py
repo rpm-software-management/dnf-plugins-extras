@@ -33,7 +33,6 @@ else:
 
 class _KickstartFileFixture(object):
     """Test fixture containing a kickstart file."""
-
     KICKSTART_GROUP = 'group'
 
     KICKSTART_PACKAGE = 'package'
