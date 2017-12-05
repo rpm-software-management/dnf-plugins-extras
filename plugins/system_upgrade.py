@@ -32,7 +32,12 @@ from systemd import journal
 from dnf.cli import CliError
 from dnfpluginsextras import _, logger
 import dnf
+import dnf.callback
 import dnf.cli
+import dnf.rpm
+import dnf.util
+import dnf.yum.misc
+import dnf.yum.rpmtrans
 
 # Translators: This string is only used in unit tests.
 _("the color of the sky")
@@ -142,6 +147,7 @@ class State(object):
         return property(getprop, setprop)
 
     download_status = _prop("download_status")
+    destdir = _prop("destdir")
     target_releasever = _prop("target_releasever")
     system_releasever = _prop("system_releasever")
     gpgcheck = _prop("gpgcheck")
@@ -328,15 +334,28 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if callable(subfunc):
             subfunc()
 
+    def _set_cachedir(self):
+        # set download directories from json state file
+        self.base.conf.cachedir = DEFAULT_DATADIR
+        self.base.conf.destdir = self.state.destdir if self.state.destdir else None
+
     # == pre_configure_*: set up action-specific demands ==========================
     def pre_configure_download(self):
+        # only download subcommand accepts --destdir command line option
         self.base.conf.cachedir = DEFAULT_DATADIR
+        self.base.conf.destdir = self.opts.destdir if self.opts.destdir else None
+
+    def pre_configure_reboot(self):
+        self._set_cachedir()
 
     def pre_configure_upgrade(self):
+        self._set_cachedir()
         if self.state.enable_disable_repos:
             self.opts.repos_ed = self.state.enable_disable_repos
-        self.base.conf.cachedir = DEFAULT_DATADIR
         self.base.conf.releasever = self.state.target_releasever
+
+    def pre_configure_clean(self):
+        self._set_cachedir()
 
     # == configure_*: set up action-specific demands ==========================
 
@@ -393,13 +412,16 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def check_download(self):
         checkReleaseVer(self.base.conf, target=self.opts.releasever)
-        dnf.util.ensure_dir(DEFAULT_DATADIR)
+        dnf.util.ensure_dir(self.base.conf.cachedir)
+        if self.base.conf.destdir:
+            dnf.util.ensure_dir(self.base.conf.destdir)
 
     def check_reboot(self):
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
         if os.path.lexists(MAGIC_SYMLINK):
             raise CliError(_("upgrade is already scheduled"))
+        dnf.util.ensure_dir(DEFAULT_DATADIR)
         # FUTURE: checkRPMDBStatus(self.state.download_transaction_id)
 
     def check_upgrade(self):
@@ -416,9 +438,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
                 _("use 'dnf system-upgrade reboot' to begin the upgrade"))
 
     # == run_*: run the action/prep the transaction ===========================
-
-    def run_help(self):
-        self.parser.print_help()
 
     def run_prepare(self):
         # make the magic symlink
@@ -448,6 +467,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever
             state.exclude = self.base.conf.exclude
+            state.destdir = self.base.conf.destdir
 
     def run_upgrade(self):
         # change the upgrade status (so we can detect crashed upgrades later)
@@ -495,10 +515,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
-        clear_dir(DEFAULT_DATADIR)
+        clear_dir(self.base.conf.cachedir)
+        if self.base.conf.destdir:
+            clear_dir(self.base.conf.destdir)
         with self.state as state:
             state.download_status = None
             state.upgrade_status = None
+            state.destdir = None
             state.install_packages = {}
 
     def run_log(self):
@@ -527,6 +550,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.target_releasever = self.base.conf.releasever
             state.install_packages = install_packages
             state.enable_disable_repos = self.opts.repos_ed
+            state.destdir = self.base.conf.destdir
         logger.info(DOWNLOAD_FINISHED_MSG)
         self.log_status(_("Download finished."),
                         DOWNLOAD_FINISHED_ID)

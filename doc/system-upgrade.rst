@@ -71,6 +71,10 @@ Options
     REQUIRED. The version to upgrade to. Sets ``$releasever`` in all enabled
     repos. Usually a number, or ``rawhide``.
 
+``--downloaddir=<path>``
+    Directory where downloaded packages are stored. Default location is
+    /var/lib/dnf/system-upgrade
+
 ``--distro-sync``
     Behave like ``dnf distro-sync``: always install packages from the new
     release, even if they are older than the currently-installed version. This
