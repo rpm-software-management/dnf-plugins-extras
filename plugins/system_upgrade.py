@@ -24,6 +24,7 @@ from distutils.version import StrictVersion
 from subprocess import call, Popen
 import json
 import os
+import os.path
 import uuid
 
 from systemd import journal
@@ -401,14 +402,17 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # FUTURE: checkRPMDBStatus(self.state.download_transaction_id)
 
     def check_upgrade(self):
-        if not self.state.upgrade_status == 'ready':
-            raise CliError(  # Translators: do not change "reboot" here
-                _("use 'dnf system-upgrade reboot' to begin the upgrade"))
+        if not os.path.lexists(MAGIC_SYMLINK):
+            logger.info(_("trigger file does not exist. exiting quietly."))
+            raise SystemExit(0)
         if os.readlink(MAGIC_SYMLINK) != DEFAULT_DATADIR:
             logger.info(_("another upgrade tool is running. exiting quietly."))
             raise SystemExit(0)
         # Delete symlink ASAP to avoid reboot loops
         dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
+        if not self.state.upgrade_status == 'ready':
+            raise CliError(  # Translators: do not change "reboot" here
+                _("use 'dnf system-upgrade reboot' to begin the upgrade"))
 
     # == run_*: run the action/prep the transaction ===========================
 

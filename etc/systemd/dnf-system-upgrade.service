@@ -7,6 +7,7 @@ DefaultDependencies=no
 Requires=sysinit.target
 After=sysinit.target systemd-journald.socket
 Before=shutdown.target system-update.target
+OnFailure=dnf-system-upgrade-cleanup.service
 
 [Service]
 # We are done when the script exits, not before
@@ -14,10 +15,6 @@ Type=oneshot
 # Upgrade output goes to journal and on-screen.
 StandardOutput=journal+console
 ExecStart=/usr/bin/dnf system-upgrade upgrade
-# Remove the symlink if it's still there, to protect against reboot loops.
-ExecStopPost=/usr/bin/rm -fv /system-update
-# If anything goes wrong, reboot back to the normal system.
-FailureAction=reboot
 
 [Install]
 WantedBy=system-update.target
