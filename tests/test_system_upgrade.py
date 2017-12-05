@@ -2,7 +2,7 @@
 
 import system_upgrade
 
-from system_upgrade import PLYMOUTH, CliError
+from system_upgrade import PLYMOUTH, CliError, DEFAULT_DATADIR
 
 import os
 import tempfile
@@ -251,6 +251,8 @@ class CommandTestCaseBase(unittest.TestCase):
         system_upgrade.State.statefile = self.statefile
         self.cli = mock.MagicMock()
         self.command = system_upgrade.SystemUpgradeCommand(cli=self.cli)
+        self.command.base.conf.cachedir = os.path.join(self.statedir, "cache")
+        self.command.base.conf.destdir = None
 
     def tearDown(self):
         shutil.rmtree(self.statedir)
@@ -265,6 +267,12 @@ class CommandTestCase(CommandTestCaseBase):
         self.assertEqual(self.command.state.upgrade_status, None)
 
 class CleanCommandTestCase(CommandTestCaseBase):
+    def test_pre_configure_clean(self):
+        with self.command.state as state:
+            state.destdir = "/grape/wine"
+        self.command.pre_configure_clean()
+        self.assertEqual(self.command.base.conf.destdir, "/grape/wine")
+
     def test_configure_clean(self):
         self.cli.demands.root_user = None
         self.command.configure_clean()
@@ -288,6 +296,13 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def setUp(self):
         super(RebootCheckCommandTestCase, self).setUp()
         self.MAGIC_SYMLINK = self.statedir + '/symlink'
+        self.DEFAULT_DATADIR = self.statedir + '/default_datadir'
+
+    def test_pre_configure_reboot(self):
+        with self.command.state as state:
+            state.destdir = "/grape/wine"
+        self.command.pre_configure_reboot()
+        self.assertEqual(self.command.base.conf.destdir, "/grape/wine")
 
     def test_configure_reboot(self):
         self.cli.demands.root_user = None
@@ -295,7 +310,8 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
         self.assertTrue(self.cli.demands.root_user)
 
     def check_reboot(self, status='complete', lexists=False, dnfverok=True):
-        with patch('system_upgrade.os.path.lexists') as lexists_func:
+        with patch('system_upgrade.os.path.lexists') as lexists_func,\
+                patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
             self.command.state.download_status = status
             lexists_func.return_value = lexists
             self.command.check_reboot()
@@ -314,7 +330,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def test_run_prepare(self):
         with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
             self.command.run_prepare()
-        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), '/var/lib/dnf/system-upgrade')
+        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), DEFAULT_DATADIR)
         self.assertEqual(self.command.state.upgrade_status, 'ready')
 
     @patch('system_upgrade.SystemUpgradeCommand.run_prepare')
@@ -342,6 +358,17 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
 
 
 class DownloadCommandTestCase(CommandTestCase):
+    def test_pre_configure_download_default(self):
+        self.command.opts = mock.MagicMock()
+        self.command.pre_configure_download()
+        self.assertEqual(self.command.base.conf.cachedir, DEFAULT_DATADIR)
+
+    def test_pre_configure_download_destdir(self):
+        self.command.opts = mock.MagicMock()
+        self.command.opts.destdir = "/grape/wine"
+        self.command.pre_configure_download()
+        self.assertEqual(self.command.base.conf.destdir, "/grape/wine")
+
     def test_configure_download(self):
         self.command.opts = mock.MagicMock()
         self.command.opts.tid = "download"
@@ -366,15 +393,25 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.base.conf.installroot = "/"
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
+        self.command.base.conf.destdir = "/grape/wine"
         self.command.transaction_download()
         with system_upgrade.State() as state:
             self.assertEqual(state.download_status, "complete")
             self.assertEqual(state.distro_sync, "distro_sync")
             self.assertEqual(state.allow_erasing, "allow_erasing")
             self.assertEqual(state.best, "best")
+            self.assertEqual(state.destdir, "/grape/wine")
 
 
 class UpgradeCommandTestCase(CommandTestCase):
+    def test_pre_configure_upgrade(self):
+        with self.command.state as state:
+            state.destdir = "/grape/wine"
+            state.target_releasever = "35"
+        self.command.pre_configure_upgrade()
+        self.assertEqual(self.command.base.conf.destdir, "/grape/wine")
+        self.assertEqual(self.command.base.conf.releasever, "35")
+
     def test_configure_upgrade(self):
         # write state like download would have
         with self.command.state as state:
