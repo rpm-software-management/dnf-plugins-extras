@@ -126,5 +126,9 @@
     [
         1499284,
         "dnf crashes with CalledProcessError during upgrade F26->F27"
+    ],
+    [
+        1519543,
+        "Fedora 27 offline updates (gnome-software intitiated) are failing"
     ]
 ]
