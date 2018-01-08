@@ -25,7 +25,11 @@ BuildRequires:  python2-dnf >= %{dnf_lowest_compatible}
 BuildRequires:  python2-dnf < %{dnf_not_compatible}
 BuildRequires:  python2-nose
 BuildRequires:  python2-sphinx
+%if (0%{?fedora} && 0%{?fedora} <= 27) || (0%{?rhel} && 0%{?rhel} <= 7)
 BuildRequires:  python-kickstart
+%else
+BuildRequires:  python2-kickstart
+%endif
 # py3
 BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
@@ -72,8 +76,13 @@ Common files for Extras Plugins for DNF, Python 3 version.
 Summary:        Kickstart Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-kickstart}
+%if (0%{?fedora} && 0%{?fedora} <= 27) || (0%{?rhel} && 0%{?rhel} <= 7)
 BuildRequires:  python-kickstart
 Requires:       python-kickstart
+%else
+BuildRequires:  python2-kickstart
+Requires:       python2-kickstart
+%endif
 %if !%{with python3}
 Provides:       dnf-command(kickstart)
 Provides:       %{name}-kickstart = %{version}-%{release}
@@ -127,7 +136,11 @@ transaction.
 Summary:        Snapper Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python2-%{name}-snapper}
+%if (0%{?fedora} && 0%{?fedora} <= 27) || (0%{?rhel} && 0%{?rhel} <= 7)
 Requires:       dbus-python
+%else
+Requires:       python2-dbus
+%endif
 Requires:       snapper
 %if !%{with python3}
 Provides:       %{name}-snapper = %{version}-%{release}
@@ -159,7 +172,7 @@ Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 
 %package -n python2-dnf-plugin-system-upgrade
 Summary:        System Upgrade Plugin for DNF
-Requires:       python-%{name}-common = %{version}-%{release}
+Requires:       python2-%{name}-common = %{version}-%{release}
 Requires:       python2-systemd
 %{?python_provide:%python_provide python2-%{name}-system-upgrade}
 %if !%{with python3}
