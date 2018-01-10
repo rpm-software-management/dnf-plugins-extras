@@ -144,7 +144,7 @@ class State(object):
     download_status = _prop("download_status")
     target_releasever = _prop("target_releasever")
     system_releasever = _prop("system_releasever")
-
+    gpgcheck = _prop("gpgcheck")
     upgrade_status = _prop("upgrade_status")
     distro_sync = _prop("distro_sync")
     allow_erasing = _prop("allow_erasing")
@@ -374,6 +374,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # use the saved value for --allowerasing, etc.
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
+        self.base.conf.gpgcheck = self.state.gpgcheck
         self.base.conf.best = self.state.best
         self.base.conf.exclude = self.state.exclude
         # don't try to get new metadata, 'cuz we're offline
@@ -520,6 +521,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.download_status = 'complete'
             state.distro_sync = self.opts.distro_sync
             state.allow_erasing = self.cli.demands.allow_erasing
+            state.gpgcheck = self.base.conf.gpgcheck
             state.best = self.base.conf.best
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
