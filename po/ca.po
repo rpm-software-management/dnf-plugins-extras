@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 12:46+0200\n"
+"POT-Creation-Date: 2018-04-06 07:47+0200\n"
 "PO-Revision-Date: 2017-03-17 03:19-0400\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan\n"
@@ -15,42 +15,156 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.9.6\n"
 
-#: ../plugins/kickstart.py:58
-msgid "Install packages defined in a kickstart file on your system"
+#. Translators: This string is only used in unit tests.
+#: ../plugins/system_upgrade.py:38
+msgid "the color of the sky"
+msgstr "el color del cel"
+
+#: ../plugins/system_upgrade.py:54
+msgid "Need a --releasever greater than the current system version."
+msgstr "Necessita un--releasever més gran que la versió del sistema actual."
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:56
+msgid ""
+"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
+"To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
-"Instal·la al vostre sistema els paquets definits en un fitxer kickstart"
 
-#: ../plugins/kickstart.py:63
-msgid "kickstart file"
-msgstr "fitxer kickstart"
+#: ../plugins/system_upgrade.py:59
+msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+msgstr ""
+"Ho sentim, heu d'utilitzar «download --releasever» en lloc de «--network»"
 
-#: ../plugins/kickstart.py:81
+#: ../plugins/system_upgrade.py:235
+msgid "The following boots appear to contain upgrade logs:"
+msgstr ""
+"Les següents arrencades semblen que continguin registres d'actualització de "
+"versió:"
+
+#: ../plugins/system_upgrade.py:245
+msgid "-- no logs were found --"
+msgstr "-- no s'ha trobat cap registre --"
+
+#: ../plugins/system_upgrade.py:260
+msgid "Cannot find logs with this index."
+msgstr "No s'ha pogut trobar cap registre amb aquest índex."
+
+#: ../plugins/system_upgrade.py:269
+msgid "Unable to match systemd journal entry"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:288
+msgid "Prepare system for upgrade to a new release"
+msgstr ""
+"Prepara el sistema per a una actualització de versió a un nou llançament"
+
+#: ../plugins/system_upgrade.py:298
+msgid "keep installed packages if the new release's version is older"
+msgstr ""
+"mantén els paquets instal·lats si la versió del nou llançament és més antiga"
+
+#: ../plugins/system_upgrade.py:302
+msgid "which logs to show"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:345
+msgid ""
+"Before you continue ensure that your system is fully upgraded by running "
+"\"dnf --refresh upgrade\". Do you want to continue"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:349
+msgid "Operation aborted."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:400
+msgid "system is not ready for upgrade"
+msgstr "el sistema no està preparat per una actualització de versió"
+
+#: ../plugins/system_upgrade.py:402
+msgid "upgrade is already scheduled"
+msgstr "l'actualització de versió ja està programada"
+
+#: ../plugins/system_upgrade.py:407
+msgid "trigger file does not exist. exiting quietly."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:410
+msgid "another upgrade tool is running. exiting quietly."
+msgstr ""
+"una altra eina d'actualització de versió està en execució. Se surt "
+"ràpidament."
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:416
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr ""
+"utilitzeu «dnf system-upgrade reboot» per començar l'actualització de versió"
+
+#: ../plugins/system_upgrade.py:436
+msgid "Rebooting to perform upgrade."
+msgstr "Es reinicia per a realitzar l'actualització de versió."
+
+#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+msgid "Starting system upgrade. This will take a while."
+msgstr "S'inicia l'actualització de versió. Això pot trigar una estona."
+
+#: ../plugins/system_upgrade.py:489
 #, python-format
-msgid "file cannot be parsed: %s"
-msgstr "no es pot analitzar sintàcticament el fitxer: %s"
+msgid "Unable to match package: %s"
+msgstr ""
 
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "No hi ha cap paquet %s disponible."
+#: ../plugins/system_upgrade.py:494
+msgid "Unable to match some of packages"
+msgstr ""
 
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "No s'ha de fer res."
+#: ../plugins/system_upgrade.py:497
+msgid "Cleaning up downloaded data..."
+msgstr "Neteja de les dades baixades..."
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/system_upgrade.py:531
+msgid "Download finished."
+msgstr "S'ha finalitzat la baixada."
+
+#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+msgid "Upgrade complete! Cleaning up and rebooting..."
+msgstr ""
+"S'ha completat l'actualització de la versió. Es neteja i es reinicia..."
+
+#: ../plugins/tracer.py:70
+msgid "For more information run:"
+msgstr "Per a més informació executeu:"
+
+#: ../plugins/tracer.py:97
+msgid "Call to Tracer API ended unexpectedly:"
+msgstr "La crida a l'API del traçador ha acabat de forma inesperada:"
+
+#: ../plugins/tracer.py:99
+msgid ""
+"Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
+"Thank you"
+msgstr ""
+"Visiteu https://github.com/FrostyX/tracer/issues i envieu la incidència. "
+"Moltes gràcies"
+
+#: ../plugins/tracer.py:101
+msgid "We apologize for any inconvenience"
+msgstr "Us demanem disculpes per qualsevol inconvenient"
+
+#: ../plugins/rpm_conf.py:69
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "S'afegeix '{}' a la llista dels paquets tractats pel rpmconf"
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:75
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "ara s'executarà el connector rpmconf en mode no interactiu"
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "s'ignora sys.exit del rpmconf a causa que falta la variable MERGE"
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:92
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "s'ignora sys.exit del rpmconf a causa que falta un fitxer"
 
@@ -59,140 +173,62 @@ msgstr "s'ignora sys.exit del rpmconf a causa que falta un fitxer"
 msgid "connect to snapperd failed: %s"
 msgstr "la connexió amb el snapperd ha fallat: %s"
 
-#: ../plugins/snapper.py:54
-msgid "creating snapshot"
-msgstr "es crea la instantània"
+#: ../plugins/snapper.py:55
+msgid "creating pre_snapshot"
+msgstr ""
 
-#: ../plugins/snapper.py:59
+#: ../plugins/snapper.py:61
 #, python-format
-msgid "created snapshot %d"
-msgstr "s'ha creat la instantània %d"
+msgid "created pre_snapshot %d"
+msgstr ""
 
-#: ../plugins/snapper.py:63
+#: ../plugins/snapper.py:65
 #, python-format
-msgid "creating snapshot failed: %s"
-msgstr "la creació de la instantània ha fallat: %s"
-
-#. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:54
-msgid "the color of the sky"
-msgstr "el color del cel"
-
-#: ../plugins/system_upgrade.py:73
-msgid "No new kernel packages were found."
-msgstr "No s'ha trobat cap paquet de kernel nou."
-
-#: ../plugins/system_upgrade.py:75
-msgid "Need a --releasever greater than the current system version."
-msgstr "Necessita un--releasever més gran que la versió del sistema actual."
-
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:77
-msgid ""
-"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
+msgid "creating pre_snapshot failed: %s"
 msgstr ""
-"S'ha completat la baixada! Utilitzeu «dnf system-upgrade reboot» per "
-"començar l'actualització de versió."
 
-#: ../plugins/system_upgrade.py:79
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#: ../plugins/snapper.py:71
+msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
-"Ho sentim, heu d'utilitzar «download --releasever» en lloc de «--network»"
 
-#: ../plugins/system_upgrade.py:112
-msgid "--datadir: File exists"
-msgstr "--datadir: Existeix el fitxer"
-
-#: ../plugins/system_upgrade.py:257
-msgid "The following boots appear to contain upgrade logs:"
+#: ../plugins/snapper.py:77
+msgid "creating post_snapshot"
 msgstr ""
-"Les següents arrencades semblen que continguin registres d'actualització de "
-"versió:"
 
-#: ../plugins/system_upgrade.py:267
-msgid "-- no logs were found --"
-msgstr "-- no s'ha trobat cap registre --"
-
-#: ../plugins/system_upgrade.py:282
-msgid "Cannot find logs with this index."
-msgstr "No s'ha pogut trobar cap registre amb aquest índex."
-
-#: ../plugins/system_upgrade.py:305
-msgid "Prepare system for upgrade to a new release"
+#: ../plugins/snapper.py:82
+#, python-format
+msgid "created post_snapshot %d"
 msgstr ""
-"Prepara el sistema per a una actualització de versió a un nou llançament"
 
-#: ../plugins/system_upgrade.py:314
-msgid "save downloaded data to this location"
-msgstr "desa les dades baixades en aquesta ubicació"
-
-#: ../plugins/system_upgrade.py:317
-msgid "keep installed packages if the new release's version is older"
+#: ../plugins/snapper.py:86
+#, python-format
+msgid "creating post_snapshot failed: %s"
 msgstr ""
-"mantén els paquets instal·lats si la versió del nou llançament és més antiga"
 
-#: ../plugins/system_upgrade.py:398
-msgid "system is not ready for upgrade"
-msgstr "el sistema no està preparat per una actualització de versió"
-
-#: ../plugins/system_upgrade.py:400
-msgid "upgrade is already scheduled"
-msgstr "l'actualització de versió ja està programada"
-
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:406
-msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+#: ../plugins/kickstart.py:59
+msgid "Install packages defined in a kickstart file on your system"
 msgstr ""
-"utilitzeu «dnf system-upgrade reboot» per començar l'actualització de versió"
+"Instal·la al vostre sistema els paquets definits en un fitxer kickstart"
 
-#: ../plugins/system_upgrade.py:408
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-"una altra eina d'actualització de versió està en execució. Se surt "
-"ràpidament."
+#: ../plugins/kickstart.py:64
+msgid "kickstart file"
+msgstr "fitxer kickstart"
 
-#: ../plugins/system_upgrade.py:432
-msgid "Rebooting to perform upgrade."
-msgstr "Es reinicia per a realitzar l'actualització de versió."
+#: ../plugins/kickstart.py:82
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "no es pot analitzar sintàcticament el fitxer: %s"
 
-#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
-msgid "Starting system upgrade. This will take a while."
-msgstr "S'inicia l'actualització de versió. Això pot trigar una estona."
+#: ../plugins/kickstart.py:99
+#, python-format
+msgid "No package %s available."
+msgstr "No hi ha cap paquet %s disponible."
 
-#: ../plugins/system_upgrade.py:496
-msgid "Cleaning up downloaded data..."
-msgstr "Neteja de les dades baixades..."
+#: ../plugins/kickstart.py:104
+msgid "Nothing to do."
+msgstr "No s'ha de fer res."
 
-#: ../plugins/system_upgrade.py:527
-msgid "Download finished."
-msgstr "S'ha finalitzat la baixada."
-
-#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
-"S'ha completat l'actualització de la versió. Es neteja i es reinicia..."
-
-#: ../plugins/torproxy.py:31
+#: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
 "Inhabilitació del connector torproxy: no es pot connectar a la xarxa Tor"
-
-#: ../plugins/tracer.py:75
-msgid "For more information run:"
-msgstr "Per a més informació executeu:"
-
-#: ../plugins/tracer.py:102
-msgid "Call to Tracer API ended unexpectedly:"
-msgstr "La crida a l'API del traçador ha acabat de forma inesperada:"
-
-#: ../plugins/tracer.py:104
-msgid ""
-"Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
-"Thank you"
-msgstr ""
-"Visiteu https://github.com/FrostyX/tracer/issues i envieu la incidència. "
-"Moltes gràcies"
-
-#: ../plugins/tracer.py:106
-msgid "We apologize for any inconvenience"
-msgstr "Us demanem disculpes per qualsevol inconvenient"

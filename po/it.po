@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 12:46+0200\n"
+"POT-Creation-Date: 2018-04-06 07:47+0200\n"
 "PO-Revision-Date: 2017-04-14 05:44-0400\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian\n"
@@ -15,43 +15,156 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.9.6\n"
 
-#: ../plugins/kickstart.py:58
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Installa i pacchetti definiti in un file kickstart sul sistema"
+#. Translators: This string is only used in unit tests.
+#: ../plugins/system_upgrade.py:38
+msgid "the color of the sky"
+msgstr "il colore del cielo"
 
-#: ../plugins/kickstart.py:63
-msgid "kickstart file"
-msgstr "File di kickstart"
+#: ../plugins/system_upgrade.py:54
+msgid "Need a --releasever greater than the current system version."
+msgstr ""
+"Richiesto un valore di --releasever maggiore della versione attuale del "
+"sistema."
 
-#: ../plugins/kickstart.py:81
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:56
+msgid ""
+"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
+"To remove cached metadata and transaction use 'dnf system-upgrade clean'"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:59
+msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+msgstr "Bisogna usare l'opzione 'download --releasever' invece di '--network'"
+
+#: ../plugins/system_upgrade.py:235
+msgid "The following boots appear to contain upgrade logs:"
+msgstr ""
+"I seguenti precedenti avvii del sistema sembrano contenere dei log di "
+"aggiornamenti:"
+
+#: ../plugins/system_upgrade.py:245
+msgid "-- no logs were found --"
+msgstr "-- nessun log è stato trovato --"
+
+#: ../plugins/system_upgrade.py:260
+msgid "Cannot find logs with this index."
+msgstr "Impossibile trovare log con questo indice."
+
+#: ../plugins/system_upgrade.py:269
+msgid "Unable to match systemd journal entry"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:288
+msgid "Prepare system for upgrade to a new release"
+msgstr "Prepara il sistema per l'aggiornamento ad una nuova versione"
+
+#: ../plugins/system_upgrade.py:298
+msgid "keep installed packages if the new release's version is older"
+msgstr ""
+"mantiene i pacchetti installati se le versioni del nuovo rilascio sono più "
+"vecchie"
+
+#: ../plugins/system_upgrade.py:302
+msgid "which logs to show"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:345
+msgid ""
+"Before you continue ensure that your system is fully upgraded by running "
+"\"dnf --refresh upgrade\". Do you want to continue"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:349
+msgid "Operation aborted."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:400
+msgid "system is not ready for upgrade"
+msgstr "il sistema non è pronto per gli aggiornamenti"
+
+#: ../plugins/system_upgrade.py:402
+msgid "upgrade is already scheduled"
+msgstr "l'aggiornamento è già pianificato"
+
+#: ../plugins/system_upgrade.py:407
+msgid "trigger file does not exist. exiting quietly."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:410
+msgid "another upgrade tool is running. exiting quietly."
+msgstr ""
+"un altro strumento di aggiornamento è in esecuzione, uscita silenziosa."
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:416
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr "usare 'dnf system-upgrade reboot' per iniziare l'aggiornamento"
+
+#: ../plugins/system_upgrade.py:436
+msgid "Rebooting to perform upgrade."
+msgstr "Riavvio per effettuare l'aggiornamento."
+
+#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+msgid "Starting system upgrade. This will take a while."
+msgstr "Avvio dell'aggiornamento del sistema. Ci vorrà un po'."
+
+#: ../plugins/system_upgrade.py:489
 #, python-format
-msgid "file cannot be parsed: %s"
-msgstr "il file non può essere analizzato: %s"
+msgid "Unable to match package: %s"
+msgstr ""
 
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "Nessun pacchetto %s disponibile."
+#: ../plugins/system_upgrade.py:494
+msgid "Unable to match some of packages"
+msgstr ""
 
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "Niente da fare."
+#: ../plugins/system_upgrade.py:497
+msgid "Cleaning up downloaded data..."
+msgstr "Pulizia dei dati scaricati..."
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/system_upgrade.py:531
+msgid "Download finished."
+msgstr "Scaricamento completato."
+
+#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+msgid "Upgrade complete! Cleaning up and rebooting..."
+msgstr "Aggiornamento completato! Pulizia e riavvio in corso..."
+
+#: ../plugins/tracer.py:70
+msgid "For more information run:"
+msgstr "Per maggiori informazioni eseguire:"
+
+#: ../plugins/tracer.py:97
+msgid "Call to Tracer API ended unexpectedly:"
+msgstr "La chiamata all'API di Tracer è terminata in modo inaspettato:"
+
+#: ../plugins/tracer.py:99
+msgid ""
+"Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
+"Thank you"
+msgstr ""
+"Visitare https://github.com/FrostyX/tracer/issues e segnalare il problema.\n"
+"Grazie"
+
+#: ../plugins/tracer.py:101
+msgid "We apologize for any inconvenience"
+msgstr "Ci scusiamo per i disagi"
+
+#: ../plugins/rpm_conf.py:69
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Aggiunta di '{}' all'elenco di pacchetti da far gestire a rpmconf"
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:75
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "il plugin rpmconf non verrà eseguito in modalità non-interattiva"
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr ""
 "viene ignorata la chiamata a sys.exit di rpmconf dovuta alla variable MERGE "
 "mancante"
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:92
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr ""
 "viene ignorata la chiamata a sys.exit di rpmconf dovuta ad un file mancante"
@@ -61,139 +174,62 @@ msgstr ""
 msgid "connect to snapperd failed: %s"
 msgstr "connessione a snapperd non riuscita: %s"
 
-#: ../plugins/snapper.py:54
-msgid "creating snapshot"
-msgstr "creazione di un'istantanea"
+#: ../plugins/snapper.py:55
+msgid "creating pre_snapshot"
+msgstr ""
 
-#: ../plugins/snapper.py:59
+#: ../plugins/snapper.py:61
 #, python-format
-msgid "created snapshot %d"
-msgstr "creata istantanea %d"
+msgid "created pre_snapshot %d"
+msgstr ""
 
-#: ../plugins/snapper.py:63
+#: ../plugins/snapper.py:65
 #, python-format
-msgid "creating snapshot failed: %s"
-msgstr "creazione istantanea non riuscita: %s"
-
-#. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:54
-msgid "the color of the sky"
-msgstr "il colore del cielo"
-
-#: ../plugins/system_upgrade.py:73
-msgid "No new kernel packages were found."
-msgstr "Nessun nuovo pacchetto di kernel è stato trovato."
-
-#: ../plugins/system_upgrade.py:75
-msgid "Need a --releasever greater than the current system version."
+msgid "creating pre_snapshot failed: %s"
 msgstr ""
-"Richiesto un valore di --releasever maggiore della versione attuale del "
-"sistema."
 
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:77
-msgid ""
-"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade."
+#: ../plugins/snapper.py:71
+msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
-"Scaricamento completato! Usare 'dnf system-upgrade reboot' per avviare "
-"l'aggiornamento."
 
-#: ../plugins/system_upgrade.py:79
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "Bisogna usare l'opzione 'download --releasever' invece di '--network'"
-
-#: ../plugins/system_upgrade.py:112
-msgid "--datadir: File exists"
-msgstr "--datadir: il file esiste"
-
-#: ../plugins/system_upgrade.py:257
-msgid "The following boots appear to contain upgrade logs:"
+#: ../plugins/snapper.py:77
+msgid "creating post_snapshot"
 msgstr ""
-"I seguenti precedenti avvii del sistema sembrano contenere dei log di "
-"aggiornamenti:"
 
-#: ../plugins/system_upgrade.py:267
-msgid "-- no logs were found --"
-msgstr "-- nessun log è stato trovato --"
-
-#: ../plugins/system_upgrade.py:282
-msgid "Cannot find logs with this index."
-msgstr "Impossibile trovare log con questo indice."
-
-#: ../plugins/system_upgrade.py:305
-msgid "Prepare system for upgrade to a new release"
-msgstr "Prepara il sistema per l'aggiornamento ad una nuova versione"
-
-#: ../plugins/system_upgrade.py:314
-msgid "save downloaded data to this location"
-msgstr "salva i dati scaricati in questa posizione"
-
-#: ../plugins/system_upgrade.py:317
-msgid "keep installed packages if the new release's version is older"
+#: ../plugins/snapper.py:82
+#, python-format
+msgid "created post_snapshot %d"
 msgstr ""
-"mantiene i pacchetti installati se le versioni del nuovo rilascio sono più "
-"vecchie"
 
-#: ../plugins/system_upgrade.py:398
-msgid "system is not ready for upgrade"
-msgstr "il sistema non è pronto per gli aggiornamenti"
-
-#: ../plugins/system_upgrade.py:400
-msgid "upgrade is already scheduled"
-msgstr "l'aggiornamento è già pianificato"
-
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:406
-msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr "usare 'dnf system-upgrade reboot' per iniziare l'aggiornamento"
-
-#: ../plugins/system_upgrade.py:408
-msgid "another upgrade tool is running. exiting quietly."
+#: ../plugins/snapper.py:86
+#, python-format
+msgid "creating post_snapshot failed: %s"
 msgstr ""
-"un altro strumento di aggiornamento è in esecuzione, uscita silenziosa."
 
-#: ../plugins/system_upgrade.py:432
-msgid "Rebooting to perform upgrade."
-msgstr "Riavvio per effettuare l'aggiornamento."
+#: ../plugins/kickstart.py:59
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Installa i pacchetti definiti in un file kickstart sul sistema"
 
-#: ../plugins/system_upgrade.py:459 ../plugins/system_upgrade.py:465
-msgid "Starting system upgrade. This will take a while."
-msgstr "Avvio dell'aggiornamento del sistema. Ci vorrà un po'."
+#: ../plugins/kickstart.py:64
+msgid "kickstart file"
+msgstr "File di kickstart"
 
-#: ../plugins/system_upgrade.py:496
-msgid "Cleaning up downloaded data..."
-msgstr "Pulizia dei dati scaricati..."
+#: ../plugins/kickstart.py:82
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "il file non può essere analizzato: %s"
 
-#: ../plugins/system_upgrade.py:527
-msgid "Download finished."
-msgstr "Scaricamento completato."
+#: ../plugins/kickstart.py:99
+#, python-format
+msgid "No package %s available."
+msgstr "Nessun pacchetto %s disponibile."
 
-#: ../plugins/system_upgrade.py:531 ../plugins/system_upgrade.py:532
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Aggiornamento completato! Pulizia e riavvio in corso..."
+#: ../plugins/kickstart.py:104
+msgid "Nothing to do."
+msgstr "Niente da fare."
 
-#: ../plugins/torproxy.py:31
+#: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
 "Il plugin torproxy è stato disabilitato: impossibile connettersi alla rete "
 "Tor"
-
-#: ../plugins/tracer.py:75
-msgid "For more information run:"
-msgstr "Per maggiori informazioni eseguire:"
-
-#: ../plugins/tracer.py:102
-msgid "Call to Tracer API ended unexpectedly:"
-msgstr "La chiamata all'API di Tracer è terminata in modo inaspettato:"
-
-#: ../plugins/tracer.py:104
-msgid ""
-"Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
-"Thank you"
-msgstr ""
-"Visitare https://github.com/FrostyX/tracer/issues e segnalare il problema.\n"
-"Grazie"
-
-#: ../plugins/tracer.py:106
-msgid "We apologize for any inconvenience"
-msgstr "Ci scusiamo per i disagi"
