@@ -358,7 +358,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # so nothing actually gets installed.
         # (It also means that we run two test transactions in a row, which is
         # kind of silly, but that's something for DNF to fix...)
-        self.base.conf.tsflags.append("test")
+        self.base.conf.tsflags += ["test"]
 
     def configure_reboot(self):
         # FUTURE: add a --debug-shell option to enable debug shell:
