@@ -26,6 +26,7 @@ Description
 ``dnf system-upgrade`` can be used to upgrade a Fedora system to a new major
 release. It replaces fedup (the old Fedora Upgrade tool). Before you proceed ensure that your system
 is fully upgraded (``dnf --refresh upgrade``).
+
 --------
 Synopsis
 --------
@@ -39,7 +40,6 @@ Synopsis
 ``dnf system-upgrade log``
 
 ``dnf system-upgrade log --number=<number>``
-
 
 -----------
 Subcommands
