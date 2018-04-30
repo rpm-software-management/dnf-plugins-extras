@@ -33,6 +33,8 @@ from dnf.cli import CliError
 from dnfpluginsextras import _, logger
 import dnf
 import dnf.cli
+import dnf.transaction
+
 
 # Translators: This string is only used in unit tests.
 _("the color of the sky")
@@ -196,8 +198,6 @@ Plymouth = PlymouthOutput()
 
 # A TransactionProgress class that updates plymouth for us.
 class PlymouthTransactionProgress(dnf.callback.TransactionProgress):
-    # NOTE: I'm cheating here - this isn't part of the public DNF API
-    action = dnf.yum.rpmtrans.LoggingTransactionDisplay().action
 
     # pylint: disable=too-many-arguments
     def progress(self, package, action, ti_done, ti_total, ts_done, ts_total):
@@ -208,7 +208,7 @@ class PlymouthTransactionProgress(dnf.callback.TransactionProgress):
         Plymouth.message(self._fmt_event(package, action, current, total))
 
     def _fmt_event(self, package, action, current, total):
-        action = self.action.get(action, action)
+        action = dnf.transaction.ACTIONS.get(action, action)
         return "[%d/%d] %s %s..." % (current, total, action, package)
 
 # --- journal helpers -------------------------------------------------
