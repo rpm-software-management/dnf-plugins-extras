@@ -47,5 +47,5 @@ the port and host of the tor client in a torproxy section like this::
 
   [torproxy]
   port = 9050
-  hostname = tor.example.org
+  host = tor.example.org
 
