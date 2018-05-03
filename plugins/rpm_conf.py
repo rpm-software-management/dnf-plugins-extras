@@ -61,14 +61,12 @@ class Rpmconf(dnf.Plugin):
             return
 
         tmp = []
-        for trans_item in self.base.transaction:
-            tmp.append(trans_item.installs())
-        for packages in tmp:
-            for pkg in packages:
-                logger.debug(
-                    _("Adding '{}' to list of handling "
-                      "packages for rpmconf").format(pkg.name))
-                self.packages.append(pkg.name)
+
+        for pkg in self.base.transaction.install_set:
+            logger.debug(
+                _("Adding '{}' to list of handling "
+                  "packages for rpmconf").format(pkg.name))
+            self.packages.append(pkg.name)
 
     def transaction(self):
         if not self._interactive:
