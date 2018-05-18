@@ -72,8 +72,9 @@ Options
     repos. Usually a number, or ``rawhide``.
 
 ``--downloaddir=<path>``
-    Directory where downloaded packages are stored. Default location is
-    /var/lib/dnf/system-upgrade
+    Redirect download of packages to provided ``<path>``. By default, packages
+    are downloaded into (per repository created) subdirectories of
+    /var/lib/dnf/system-upgrade.
 
 ``--distro-sync``
     Behave like ``dnf distro-sync``: always install packages from the new
