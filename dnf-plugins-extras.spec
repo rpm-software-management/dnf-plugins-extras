@@ -1,4 +1,4 @@
-%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 2.8.9}
+%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 3.0.0}
 %global dnf_plugins_extra_obsolete 2.0.0
 
 %if 0%{?rhel} && 0%{?rhel} <= 7
@@ -8,7 +8,7 @@
 %endif
 
 Name:           dnf-plugins-extras
-Version:        2.0.6
+Version:        3.0.0
 Release:        1%{?dist}
 Summary:        Extras Plugins for DNF
 License:        GPLv2+
