@@ -130,5 +130,13 @@
     [
         1519543,
         "Fedora 27 offline updates (gnome-software intitiated) are failing"
+    ],
+    [
+        1531356,
+        "dnf system-upgrade seems to ignore --nogpgcheck"
+    ],
+    [
+        1513823,
+        "System upgrade fails with non-standard download directory"
     ]
 ]
