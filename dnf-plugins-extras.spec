@@ -276,13 +276,13 @@ mkdir python3
 
 %build
 pushd python2
-  %cmake ..
+  %cmake .. -DPYTHON_DESIRED:FILEPATH=%{__python2}
   %make_build
   make doc-man
 popd
 %if %{with python3}
 pushd python3
-  %cmake -DPYTHON_DESIRED:str=3 ..
+  %cmake .. -DPYTHON_DESIRED:FILEPATH=%{__python3}
   %make_build
   make doc-man
 popd
