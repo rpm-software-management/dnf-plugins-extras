@@ -8,7 +8,7 @@
 %endif
 
 Name:           dnf-plugins-extras
-Version:        3.0.0
+Version:        3.0.1
 Release:        1%{?dist}
 Summary:        Extras Plugins for DNF
 License:        GPLv2+

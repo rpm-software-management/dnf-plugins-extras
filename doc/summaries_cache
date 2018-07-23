@@ -138,5 +138,9 @@
     [
         1513823,
         "System upgrade fails with non-standard download directory"
+    ],
+    [
+        1603806,
+        "dnf-plugins-extras: FTBFS in Fedora rawhide"
     ]
 ]
