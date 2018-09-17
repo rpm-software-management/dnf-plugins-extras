@@ -1,6 +1,12 @@
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 3.0.0}
 %global dnf_plugins_extra_obsolete 2.0.0
 
+%if 0%{?rhel} > 7 || 0%{?fedora} > 29
+%bcond_with python2
+%else
+%bcond_without python2
+%endif
+
 %if 0%{?rhel} && 0%{?rhel} <= 7
 %bcond_with python3
 %else
@@ -18,26 +24,25 @@ Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  cmake
 BuildRequires:  gettext
+%if %{with python2}
 # py2
 BuildRequires:  python2-devel
 BuildRequires:  python2-dnf >= %{dnf_lowest_compatible}
 BuildRequires:  python2-nose
 BuildRequires:  python2-sphinx
-%if (0%{?fedora} && 0%{?fedora} <= 27) || (0%{?rhel} && 0%{?rhel} <= 7)
-BuildRequires:  python-kickstart
-%else
-BuildRequires:  python2-kickstart
 %endif
+%if %{with python3}
 # py3
 BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
 BuildRequires:  python3-nose
 BuildRequires:  python3-sphinx
-BuildRequires:  python3-kickstart
+%endif
 
 %description
 Extras Plugins for DNF.
 
+%if %{with python2}
 %package -n python2-%{name}-common
 Summary:        Common files for Extras Plugins for DNF
 Requires:       python2-dnf >= %{dnf_lowest_compatible}
@@ -50,6 +55,7 @@ Conflicts:      python3-%{name}-common < %{version}-%{release}
 
 %description -n python2-%{name}-common
 Common files for Extras Plugins, Python 2 version.
+%endif
 
 %if %{with python3}
 %package -n python3-%{name}-common
@@ -67,6 +73,7 @@ Conflicts:      python2-%{name}-common < %{version}-%{release}
 Common files for Extras Plugins for DNF, Python 3 version.
 %endif
 
+%if %{with python2}
 %package -n python2-dnf-plugin-kickstart
 Summary:        Kickstart Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -90,6 +97,7 @@ Obsoletes:      python2-%{name}-kickstart < %{dnf_plugins_extra_obsolete}
 %description -n python2-dnf-plugin-kickstart
 Kickstart Plugin for DNF, Python 2 version. Install packages listed in a
 Kickstart file.
+%endif
 
 %if %{with python3}
 %package -n python3-dnf-plugin-kickstart
@@ -127,6 +135,7 @@ RpmConf Plugin for DNF, Python 3 version. Handles .rpmnew, .rpmsave every
 transaction.
 %endif
 
+%if %{with python2}
 %package -n python2-dnf-plugin-snapper
 Summary:        Snapper Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -147,6 +156,7 @@ Obsoletes:      python2-%{name}-snapper < %{dnf_plugins_extra_obsolete}
 
 %description -n python2-dnf-plugin-snapper
 Snapper Plugin for DNF, Python 2 version. Creates snapshot every transaction.
+%endif
 
 %if %{with python3}
 %package -n python3-dnf-plugin-snapper
@@ -165,6 +175,7 @@ Obsoletes:      python3-%{name}-snapper < %{dnf_plugins_extra_obsolete}
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 %endif
 
+%if %{with python2}
 %package -n python2-dnf-plugin-system-upgrade
 Summary:        System Upgrade Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -190,6 +201,7 @@ BuildRequires:  python2-systemd
 %description -n python2-dnf-plugin-system-upgrade
 System Upgrade Plugin for DNF, Python 2 version. Enables offline system upgrades
 using the "dnf system-upgrade" command.
+%endif
 
 %if %{with python3}
 %package -n python3-dnf-plugin-system-upgrade
@@ -216,6 +228,7 @@ System Upgrade Plugin for DNF, Python 3 version. Enables offline system upgrades
 using the "dnf system-upgrade" command.
 %endif
 
+%if %{with python2}
 %package -n python2-dnf-plugin-tracer
 Summary:        Tracer Plugin for DNF
 Requires:       python2-%{name}-common = %{version}-%{release}
@@ -232,6 +245,7 @@ Obsoletes:      python2-%{name}-tracer < %{dnf_plugins_extra_obsolete}
 %description -n python2-dnf-plugin-tracer
 Tracer Plugin for DNF, Python 2 version. Finds outdated running applications in your system
 every transaction.
+%endif
 
 %if %{with python3}
 %package -n python3-dnf-plugin-tracer
@@ -269,17 +283,21 @@ Tor is working and avoids leaking the hostname by using the proper SOCKS5 interf
 
 %prep
 %autosetup
+%if %{with python2}
 mkdir python2
+%endif
 %if %{with python3}
 mkdir python3
 %endif
 
 %build
+%if %{with python2}
 pushd python2
   %cmake .. -DPYTHON_DESIRED:FILEPATH=%{__python2}
   %make_build
   make doc-man
 popd
+%endif
 %if %{with python3}
 pushd python3
   %cmake .. -DPYTHON_DESIRED:FILEPATH=%{__python3}
@@ -289,9 +307,11 @@ popd
 %endif
 
 %install
+%if %{with python2}
 pushd python2
   %make_install
 popd
+%endif
 %if %{with python3}
 pushd python3
   %make_install
@@ -306,15 +326,19 @@ popd
 %find_lang %{name}
 
 %check
+%if %{with python2}
 PYTHONPATH="%{buildroot}%{python2_sitelib}:%{buildroot}%{python2_sitelib}/dnf-plugins/" nosetests-%{python2_version} -s tests/
+%endif
 %if %{with python3}
 PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
 %endif
 
+%if %{with python2}
 %files -n python2-%{name}-common -f %{name}.lang
 %{python2_sitelib}/dnfpluginsextras/
 %license COPYING
 %doc AUTHORS README.rst
+%endif
 
 %if %{with python3}
 %files -n python3-%{name}-common -f %{name}.lang
@@ -324,9 +348,11 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %doc AUTHORS README.rst
 %endif
 
+%if %{with python2}
 %files -n python2-dnf-plugin-kickstart
 %{python2_sitelib}/dnf-plugins/kickstart.*
 %{_mandir}/man8/dnf.plugin.kickstart.*
+%endif
 
 %if %{with python3}
 %files -n python3-dnf-plugin-kickstart
@@ -343,9 +369,11 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{_mandir}/man8/dnf.plugin.rpmconf.*
 %endif
 
+%if %{with python2}
 %files -n python2-dnf-plugin-snapper
 %{python2_sitelib}/dnf-plugins/snapper.*
 %{_mandir}/man8/dnf.plugin.snapper.*
+%endif
 
 %if %{with python3}
 %files -n python3-dnf-plugin-snapper
@@ -354,12 +382,14 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{_mandir}/man8/dnf.plugin.snapper.*
 %endif
 
+%if %{with python2}
 %files -n python2-dnf-plugin-system-upgrade
 %{_unitdir}/dnf-system-upgrade.service
 %{_unitdir}/dnf-system-upgrade-cleanup.service
 %{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
 %{python2_sitelib}/dnf-plugins/system_upgrade.*
 %{_mandir}/man8/dnf.plugin.system-upgrade.*
+%endif
 
 %if %{with python3}
 %files -n python3-dnf-plugin-system-upgrade
@@ -371,9 +401,11 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{_mandir}/man8/dnf.plugin.system-upgrade.*
 %endif
 
+%if %{with python2}
 %files -n python2-dnf-plugin-tracer
 %{python2_sitelib}/dnf-plugins/tracer.*
 %{_mandir}/man8/dnf.plugin.tracer.*
+%endif
 
 %if %{with python3}
 %files -n python3-dnf-plugin-tracer
