@@ -160,6 +160,9 @@ class CliStub(object):
     def redirect_logger(self, stdout=None, stderr=None):
         return
 
+    def redirect_repo_progress(self, fo=sys.stderr):
+        return
+
     def register_command(self, command):
         """Register given *command*."""
         self.cli_commands.update({alias: command for alias in command.aliases})
