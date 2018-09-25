@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2018-04-06 10:28-0400\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-04-06 10:28+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
@@ -14,21 +14,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "колір неба"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 "Слід вказати параметр --releasever із версією, що перевищує поточну версію "
 "системи."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -36,40 +36,40 @@ msgstr ""
 "Отримання даних завершено! Скористайтеся командою «dnf system-upgrade reboot» для запуску оновлення.\n"
 "Щоб вилучвити кешовані метадані та операції, скористайтеся командою «dnf system-upgrade clean»"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Вибачте, слід використовувати «download --releasever», а не «--network»"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Здається, журнали оновлення містяться у записах таких завантажень:"
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
 msgstr "-- журналів не знайдено --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
 msgstr "Не вдалося знайти журнал із цим покажчиком."
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
 msgstr "Не вдалося встановити відповідність запису журналу systemd"
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
 msgstr "Приготувати систему до оновлення до нового випуску"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr "зберігати встановлені пакунки, якщо версія нового випуску є старішою"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
 msgstr "які журнали слід показувати"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -78,60 +78,60 @@ msgstr ""
 "Скористайтеся для цього командою «dnf --refresh upgrade». Хочете "
 "продовжувати"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
 msgstr "Дію перервано."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
 msgstr "система не готова до оновлення"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
 msgstr "оновлення вже заплановано"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
 msgstr "Не знайдено файла-перемикача. Завершуємо роботу без повідомлень."
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "працює інший інструмент із оновлення системи, завершуємо роботу без "
 "додаткових повідомлень."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr ""
 "скористайтеся командою «dnf system-upgrade reboot», щоб розпочати оновлення"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
 msgstr "Перезавантажуємо систему для завершення оновлення."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
 msgstr "Починаємо оновлення системи. Будь ласка, зачекайте."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Не вдалося встановити відповідність пакунка: %s"
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
 msgstr "Не вдалося встановити відповідність декількох пакунків"
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
 msgstr "Вилучаємо зайві отримані дані…"
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
 msgstr "Отримання даних завершено."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Оновлення завершено! Вилучаємо зайві дані і перезавантажуємо системи…"
 
@@ -155,19 +155,19 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Вибачте за незручності"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Додаємо '{}' до списку пакунків для обробки rpmconf"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "Додаток rpmconf не працюватиме у неінтерактивному режимі"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "ігоноруємо sys.exit з rpmconf через пропущену змінну MERGE"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "ігноруємо sys.exit з rpmconf через пропущений файл"
 

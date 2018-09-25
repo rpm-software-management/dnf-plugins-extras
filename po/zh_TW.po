@@ -1,220 +1,222 @@
-# Cheng-Chia Tseng <pswo10680@gmail.com>, 2016. #zanata
+# Peter Pan <pan93412@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2016-03-27 01:29-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-04-21 12:10+0000\n"
+"Last-Translator: Peter Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh-TW\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
-msgstr ""
+msgstr "天空的顏色"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
-msgstr ""
+msgstr "需要比 --releasever 更新的目前系統版本"
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"下載完成！使用「dnf system-upgrade reboot」開始升級。\n"
+"若要移除快取的中繼檔案和處理事項，請使用「dnf system-upgrade clean」"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
+msgstr "抱歉，您需要使用「download --releasever」取代「network」"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "以下的開機引導包含了升級記錄："
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- 找不到記錄檔案 --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "無法透過這個索引找到記錄檔案"
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "無法符合 systemd 的記錄檔項目"
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "準備系統以升級至新的發行版本"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
-msgstr ""
+msgstr "假如新的釋出版本比較舊，保留已安裝的軟體包。"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "要顯示哪個記錄檔"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
+msgstr "在您繼續前，請確保您的系統已經透過執行「dnf --refresh upgrade」完全升級。想要繼續嗎？"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "取消作業。"
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
-msgstr ""
+msgstr "系統尚未準備好升級"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
-msgstr ""
+msgstr "已經排程升級"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "觸發檔案不存在。安靜離開。"
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "另外一個升級工具正在執行中。安靜離開。"
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "使用「dnf system-upgrade reboot」開始升級"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "重新開機以執行升級。"
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "開始系統升級。這需要一段時間。"
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "無法匹配軟體包：%s"
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "無法匹配部份軟體包"
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "正在清理已下載的資料…"
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
-msgstr ""
+msgstr "下載完成。"
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "升級完成！正在清理並重新啟動…"
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr ""
+msgstr "若要取得更多資訊，請執行："
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "意外的終止呼叫 Tracer API："
 
 #: ../plugins/tracer.py:99
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
-msgstr ""
+msgstr "請前往 https://github.com/FrostyX/tracer/issues 並提交問題。非常感謝！"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
-msgstr ""
+msgstr "很抱歉給您帶來不便"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
+msgstr "正在加入「{}」至 rpmconf 的處理套件列表"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "rpmconf 插件將不會在非交互型模式執行"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
+msgstr "由於遺漏了 MERGE 變數，所以忽略來自 rpmconf 的 sys.exit"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "忽略來自 rpmconf 的 sys.exit，因為遺漏了檔案"
 
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr ""
+msgstr "連線至 snapperd 失敗：%s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "建立 pre_snapshot"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "已建立 pre_snapshot %d"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "建立 pre_snapshot 失敗：%s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr ""
+msgstr "跳過 post_snapshot，因為建立 pre_snapshot 時失敗。"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "正在建立 post_snapshot"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "已建立 post_snapshot %d"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "建立 post_snapshot 失敗：%s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"
-msgstr ""
+msgstr "在您的系統上安裝定義在 kickstart 檔案中的軟體包"
 
 #: ../plugins/kickstart.py:64
 msgid "kickstart file"
-msgstr ""
+msgstr "kickstart 檔案"
 
 #: ../plugins/kickstart.py:82
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr ""
+msgstr "檔案無法解析：%s"
 
 #: ../plugins/kickstart.py:99
 #, python-format
 msgid "No package %s available."
-msgstr ""
+msgstr "沒有可用的軟體包 %s。"
 
 #: ../plugins/kickstart.py:104
 msgid "Nothing to do."
-msgstr ""
+msgstr "無事可作。"
 
 #: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "正在停用 torproxy 插件：無法連線至 Tor 網路"

@@ -1,11 +1,13 @@
 # Zdenek <chmelarz@gmail.com>, 2016. #zanata
 # Zdenek <chmelarz@gmail.com>, 2017. #zanata
+# Michal Konečný <michalkonec666@gmail.com>, 2018. #zanata
+# Zdenek <chmelarz@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2017-02-14 07:59-0500\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-09-11 06:53+0000\n"
 "Last-Translator: Zdenek <chmelarz@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -13,114 +15,118 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "barva oblohy"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr "Verze --releasever musí být vyšší než verze aktuálního systému."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Stahování dokončeno! Stahování dokončeno! Aktualizaci spustíte příkazem 'dnf system-upgrade reboot'.\n"
+"Pro vymazání transakce a uložených metadat spusťte 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Promiňte, místo '--network' musíte použít 'download --releasever'"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Následující boot obsahuje záznamy aktualizace systému:"
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
 msgstr "-- nenalezeny žádné záznamy --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
 msgstr "Nenalezeny žádné záznamy s tímto indexem."
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Nepodařilo se získat požadovaný záznam systemd žurnálu"
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
 msgstr "Připravit systém k aktualizaci na novou verzi"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "ponechat nainstalované balíčky, pokud se v novém vydání nachází starší verze"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "které záznamy zobrazit"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Předtím než budete pokračovat, ujistěte se, že váš systém je aktuální pomocí"
+" příkazu \"dnf --refresh upgrade\". Přejete si pokračovat?"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Operace přerušena."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
 msgstr "systém není na aktualizaci připraven"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
 msgstr "aktualizace je už naplánována"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "Spouštěcí soubor neexistuje. Tiché ukončení."
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "už běží jiný aktualizační nástroj, končím."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "pro zahájení aktualizace zadejte 'dnf system-upgrade reboot'"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
 msgstr "Restartuji, aby se provedla aktualizace."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
 msgstr "Spouští se aktualizace systému. To může nějakou dobu trvat."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Nepodařilo se najít balíček: %s"
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Nepodařilo se najít některé balíčky"
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
 msgstr "Mazání stažených dat…"
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
 msgstr "Stahování dokončeno."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Aktualizace dokončena! Čištění a restart systému…"
 
@@ -144,19 +150,19 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Omlouváme se za způsobené nepříjemnosti"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
 
@@ -167,35 +173,37 @@ msgstr "selhalo připojení ke Snapperu: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "vytváření obrazu před transakcí"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "obraz %d vytvořen"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "selhalo vytvoření obrazu: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"Přeskakuji vytváření obrazu po transakci, protože selhalo vytváření obrazu "
+"před transakcí"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "vytváření obrazu po transakci"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "obraz %d vytvořen"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "selhalo vytvoření obrazu: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"

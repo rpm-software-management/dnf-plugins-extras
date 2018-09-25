@@ -1,10 +1,11 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2017. #zanata
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2017-12-08 03:58-0500\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-05-12 01:58+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -12,113 +13,117 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "taivaan väri"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Lataaminen valmistui! Suorita komento 'dnf system-upgrade reboot' aloittaaksesi järjestelmäpäivityksen.\n"
+"Poistaaksesi välimuistissa olevat tiedot ja transaktion, suorita komento 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
 msgstr "-- lokeja ei löytynyt --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
 msgstr "Valmistele järjestelmä uuteen julkaisuun päivittämiseksi"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Ennen kuin jatkat, varmista että järjestelmä on täysin ajan tasalla "
+"suorittamalla \"dnf --refresh upgrade\". Haluatko jatkaa"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Toimenpide lopetettu."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
 msgstr "järjestelmä ei ole valmis järjestelmäpäivitykseen"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
 msgstr "järjestelmäpäivitys on jo ajastettu"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "liipaisintiedostoa ei ole olemassa. poistutaan hiljaa."
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "muu järjestelmäpäivitystyökalu on käynnissä. poistutaan hiljaa."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "käynnistä järjestelmäpäivitys komennolla 'dnf system-upgrade reboot'"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
 msgstr "Käynnistetään uudelleen järjestelmäpäivityksen suorittamiseksi."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
 msgstr "Aloitetaan järjestelmäpäivitys. Tämä saattaa kestää hetken."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
 msgstr "Siivotaan ladattuja tietoja..."
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
 msgstr "Lataus valmistui."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 "Järjestelmäpäivitys valmistui! Siivotaan ja käynnistetään uudelleen..."
@@ -136,24 +141,26 @@ msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Käy osoitteessa https://github.com/FrostyX/tracer/issues ja ilmoita "
+"ongelmasta, kiitos."
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
-msgstr ""
+msgstr "Pahoittelemme mahdollisesti aiheutunutta haittaa"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr ""
 
@@ -200,12 +207,12 @@ msgstr ""
 
 #: ../plugins/kickstart.py:64
 msgid "kickstart file"
-msgstr ""
+msgstr "kickstart-tiedosto"
 
 #: ../plugins/kickstart.py:82
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr ""
+msgstr "tiedostoa ei voi jäsentää: %s"
 
 #: ../plugins/kickstart.py:99
 #, python-format
@@ -219,3 +226,5 @@ msgstr "Ei mitään tehtävää."
 #: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
+"Poistetaan torproxy-liitännäinen käytöstä: yhteyttä Tor-verkkoon ei voi "
+"muodostaa"

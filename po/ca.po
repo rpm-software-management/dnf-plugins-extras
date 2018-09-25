@@ -1,11 +1,12 @@
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017. #zanata
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2017-03-17 03:19-0400\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-05-18 09:06+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -13,121 +14,125 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "el color del cel"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr "Necessita un--releasever més gran que la versió del sistema actual."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"S'ha completat la baixada! Utilitzeu «dnf system-upgrade reboot» per començar l'actualització de versió.\n"
+"Per suprimir les metadades capturades i la transacció utilitzeu «dnf system-upgrade clean»."
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Ho sentim, heu d'utilitzar «download --releasever» en lloc de «--network»"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 "Les següents arrencades semblen que continguin registres d'actualització de "
 "versió:"
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
 msgstr "-- no s'ha trobat cap registre --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
 msgstr "No s'ha pogut trobar cap registre amb aquest índex."
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
 msgstr ""
 "Prepara el sistema per a una actualització de versió a un nou llançament"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "mantén els paquets instal·lats si la versió del nou llançament és més antiga"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "quins registres s'han de mostrar"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Abans de continuar, assegureu-vos que el vostre sistema estigui completament"
+" actualitzat amb l'execució de «dnf --refresh upgrade». Voleu continuar"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "S'ha avortat l'operació."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
 msgstr "el sistema no està preparat per una actualització de versió"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
 msgstr "l'actualització de versió ja està programada"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "una altra eina d'actualització de versió està en execució. Se surt "
 "ràpidament."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr ""
 "utilitzeu «dnf system-upgrade reboot» per començar l'actualització de versió"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
 msgstr "Es reinicia per a realitzar l'actualització de versió."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
 msgstr "S'inicia l'actualització de versió. Això pot trigar una estona."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
 msgstr "Neteja de les dades baixades..."
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
 msgstr "S'ha finalitzat la baixada."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 "S'ha completat l'actualització de la versió. Es neteja i es reinicia..."
@@ -152,19 +157,19 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Us demanem disculpes per qualsevol inconvenient"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "S'afegeix '{}' a la llista dels paquets tractats pel rpmconf"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "ara s'executarà el connector rpmconf en mode no interactiu"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "s'ignora sys.exit del rpmconf a causa que falta la variable MERGE"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "s'ignora sys.exit del rpmconf a causa que falta un fitxer"
 

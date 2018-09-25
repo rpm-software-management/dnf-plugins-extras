@@ -4,12 +4,13 @@
 # Omar Berroterán S. <omarberroteranlkf@gmail.com>, 2016. #zanata
 # William  Moreno Reyes <williamjmorenor@gmail.com>, 2016. #zanata
 # Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2017. #zanata
+# Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2017-01-30 02:57-0500\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-08-22 08:32+0000\n"
 "Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
 "Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
@@ -17,117 +18,121 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "el color del cielo"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr "Necesita una --releasever mayor que la versión actual del sistema."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"¡Descarga completa! Use 'dnf system-upgrade reboot' para iniciar la actualización.\n"
+"Para limpiar la caché de metadatos y transacción, use 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Use 'download --releasever' en lugar de '--network'"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 "Estos arranques parecen contener registros de actualizaciones de sistema:"
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
 msgstr "-- no se encontró ningún registro de actualizaciones --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
 msgstr "No se encontraron registros con ese índice."
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "No se pudo encontrar la entrada del diario systemd"
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
 msgstr "Preparar el sistema para una nueva versión"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "mantener los paquetes instalados si la versión del nuevo sistema es anterior"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "qué registros mostrar"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Antes de continuar asegúrese de que su sistema está completamente "
+"actualizado ejecutando \"dnf --refresh upgrade\". ¿Quiere continuar?"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Operación cancelada."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
 msgstr "el sistema no está listo para la actualización"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
 msgstr "la actualización ya está planificada"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "el archivo disparador no existe. Saliendo silenciosamente."
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "existe otra herramienta de actualización en ejecución. Saliendo "
 "silenciosamente."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "use 'dnf system-upgrade reboot' para iniciar la actualización"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
 msgstr "Reiniciando para proceder a la actualización."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
 msgstr "Iniciando la actualización del sistema. Llevará un rato."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "No se encuentra el paquete: %s"
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "No hubo coincidencias para alguno de los paquetes"
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
 msgstr "Limpiando los datos descargados..."
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
 msgstr "Terminó la descarga."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "¡Actualización completa! Limpiando y reiniciando..."
 
@@ -150,19 +155,19 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Lamentamos cualquier incoveniente"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Agregando '{}'  a la lista de paquetes manejados por rpmconf"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "El complemento rpmconf sólo se ejecuta en modo interactivo"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "se descarta sys.exit de rpmconf al faltar la variable MERGE"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "se descarta sys.exit de rpmconf por la falta de un archivo"
 
@@ -173,35 +178,36 @@ msgstr "conexión a snapperd fallida: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "creando preinstantánea"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "creada preinstantánea %d"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "falló la creación de la preinstantánea: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"descartando postinstantánea porque falló la creación de la preinstantánea"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "creando postinstantánea"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "creada postinstantánea %d"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "falló la creación de la postinstantánea: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"

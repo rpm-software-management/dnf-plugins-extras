@@ -1,10 +1,11 @@
 # Meskó Balázs <meskobalazs@gmail.com>, 2016. #zanata
+# Meskó Balázs <meskobalazs@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 07:47+0200\n"
-"PO-Revision-Date: 2016-12-26 05:34-0500\n"
+"POT-Creation-Date: 2018-09-25 07:44+0200\n"
+"PO-Revision-Date: 2018-08-24 07:03+0000\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
@@ -12,115 +13,122 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:38
+#: ../plugins/system_upgrade.py:40
 msgid "the color of the sky"
 msgstr "az égbolt színe"
 
-#: ../plugins/system_upgrade.py:54
+#: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
+"A jelenlegi rendszer verziójánál nagyobb --releasever értéket kell megadnia."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:58
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Letöltés kész! Használja a „dnf system-update reboot” parancsot a frissítés megkezdéséhez.\n"
+"A gyorsítótárazott metaadatok és tranzakciók eltávolításához használja a „dnf system-upgrade clean” parancsot"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
+"Sajnáljuk, a „download --releasever” parancsot kell használni a „--network” "
+"helyett"
 
-#: ../plugins/system_upgrade.py:235
+#: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "A következő indulások tartalmazzák a frissítési naplókat:"
 
-#: ../plugins/system_upgrade.py:245
+#: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- nem található naplófájl --"
 
-#: ../plugins/system_upgrade.py:260
+#: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Ilyen index alatt nem található naplófájl."
 
-#: ../plugins/system_upgrade.py:269
+#: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Nincs találat a systemd naplóbejegyzésre"
 
-#: ../plugins/system_upgrade.py:288
+#: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "Rendszer előkészítése az új verzióra történő frissítéshez"
 
-#: ../plugins/system_upgrade.py:298
+#: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
-msgstr ""
+msgstr "megtartja a telepített csomagokat, ha az új kiadás verziója régebbi"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "megjelenítendő naplók"
 
-#: ../plugins/system_upgrade.py:345
+#: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"A folytatás előtt győződjön meg róla, hogy a rendszer teljesen frissítve "
+"lett a „dnf --refresh upgrade” paranccsal. Folytatja"
 
-#: ../plugins/system_upgrade.py:349
+#: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Művelet megszakítva."
 
-#: ../plugins/system_upgrade.py:400
+#: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
-msgstr ""
+msgstr "a rendszer nem áll készen a frissítésre"
 
-#: ../plugins/system_upgrade.py:402
+#: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
-msgstr ""
+msgstr "a frissítés már ütemezve van"
 
-#: ../plugins/system_upgrade.py:407
+#: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "a kiváltó fájl nem létezik. csendes kilépés."
 
-#: ../plugins/system_upgrade.py:410
+#: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "fut egy másik frissítési eszköz. csendes kilépés."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "használja ezt: „dnf system-upgrade reboot” a frissítés megkezdéséhez"
 
-#: ../plugins/system_upgrade.py:436
+#: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "Újraindítás a frissítés végrehajtásához."
 
-#: ../plugins/system_upgrade.py:457 ../plugins/system_upgrade.py:463
+#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "Rendszerfrissítés elkezdése. Ez eltart egy darabig."
 
-#: ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Nincs találat a csomagra: %s"
 
-#: ../plugins/system_upgrade.py:494
+#: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Nincs találat néhány csomagra"
 
-#: ../plugins/system_upgrade.py:497
+#: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "Letöltött adatok tisztítása…"
 
-#: ../plugins/system_upgrade.py:531
+#: ../plugins/system_upgrade.py:550
 msgid "Download finished."
-msgstr ""
+msgstr "Letöltés befejezve."
 
-#: ../plugins/system_upgrade.py:535 ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "Frissítés kész! Tisztítás és újraindítás…"
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
@@ -128,74 +136,78 @@ msgstr "További információért futtassa:"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "A Tracer API hívása váratlanul véget ért:"
 
 #: ../plugins/tracer.py:99
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Keresse fel a https://github.com/FrostyX/tracer/issues oldalt, és küldje be "
+"a problémát. Köszönjük"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
 msgstr "Elnézést kérünk a kellemetlenségekért"
 
-#: ../plugins/rpm_conf.py:69
+#: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
+msgstr "A(z) „{}” hozzáadása a rpmconf kezelőcsomagjaihoz"
 
-#: ../plugins/rpm_conf.py:75
+#: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "az rpmconf bővítmény nem fog futni nem interaktív módban"
 
-#: ../plugins/rpm_conf.py:88
+#: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
+msgstr "a sys.exit mellőzése az rpmconfban a hiányzó MERGE változó miatt"
 
-#: ../plugins/rpm_conf.py:92
+#: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "a sys.exit mellőzése az rpmconfban egy hiányzó fájl miatt"
 
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr "a kapcsolódás a snapperd-hez sikertelen: %s"
+msgstr "a snapperdhez kapcsolódás sikertelen: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "művelet előtti pillanatfelvétel készítése"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "%d. művelet előtti pillanatfelvétel elkészült"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "A művelet előtti pillanatfelvétel készítése meghiúsult: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"művelet utáni pillanatfelvétel kihagyása, mert az előtti készítése "
+"meghiúsult"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "művelet utáni pillanatfelvétel készítése"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "%d. művelet utáni pillanatfelvétel elkészült"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "A művelet utáni pillanatfelvétel készítése meghiúsult: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"
-msgstr ""
+msgstr "A kickstart fájlban megadott csomagok telepítése a rendszerre"
 
 #: ../plugins/kickstart.py:64
 msgid "kickstart file"
@@ -218,3 +230,4 @@ msgstr "Nincs tennivaló."
 #: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
+"A torproxy bővítmény letiltása: nem lehet a Tor hálózathoz kapcsolódni"
