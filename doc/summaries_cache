@@ -142,5 +142,9 @@
     [
         1603806,
         "dnf-plugins-extras: FTBFS in Fedora rawhide"
+    ],
+    [
+        1597657,
+        "dnf-system-upgrade.service should have \"After=system-update-pre.target\" in its [Unit] section"
     ]
 ]
