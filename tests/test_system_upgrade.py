@@ -394,6 +394,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
         self.command.base.conf.destdir = "/grape/wine"
+        self.command.base.conf.install_weak_deps = True
         self.command.transaction_download()
         with system_upgrade.State() as state:
             self.assertEqual(state.download_status, "complete")
