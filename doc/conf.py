@@ -247,6 +247,7 @@ man_pages = [
     ('snapper', 'dnf.plugin.snapper',
      u'DNF snapper Plugin', AUTHORS, 8),
     ('system-upgrade', 'dnf.plugin.system-upgrade', u'DNF system-upgrade Plugin', AUTHORS, 8),
+    ('offline-upgrade', 'dnf.plugin.offline-upgrade', u'DNF offline-upgrade Plugin', AUTHORS, 8),
     ('torproxy', 'dnf.plugin.torproxy', u'DNF torproxy Plugin', AUTHORS, 8),
     ('showvars', 'dnf.plugin.showvars', u'DNF showvars Plugin', AUTHORS, 8),
     ('tracer', 'dnf.plugin.tracer',

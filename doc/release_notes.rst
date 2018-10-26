@@ -4,6 +4,8 @@ Extras DNF Plugins Release Notes
 
 .. contents::
 
+Added offline-upgrade plugin.
+
 ===================
 4.0.4 Release Notes
 ===================

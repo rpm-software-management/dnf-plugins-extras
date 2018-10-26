@@ -30,6 +30,7 @@ This documents extras plugins of DNF:
    showvars
    snapper
    system-upgrade
+   offline-upgrade
    torproxy
    tracer
 
