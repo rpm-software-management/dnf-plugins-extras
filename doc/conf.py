@@ -240,7 +240,7 @@ AUTHORS=[u'See AUTHORS in your Extras DNF Plugins distribution']
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('kickstart', 'dnf.plugin.kickstart', 
+    ('kickstart', 'dnf.plugin.kickstart',
      u'DNF kickstart Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf.plugin.rpmconf',
      u'DNF rpmconf Plugin', AUTHORS, 8),
@@ -248,6 +248,7 @@ man_pages = [
      u'DNF snapper Plugin', AUTHORS, 8),
     ('system-upgrade', 'dnf.plugin.system-upgrade', u'DNF system-upgrade Plugin', AUTHORS, 8),
     ('torproxy', 'dnf.plugin.torproxy', u'DNF torproxy Plugin', AUTHORS, 8),
+    ('showvars', 'dnf.plugin.showvars', u'DNF showvars Plugin', AUTHORS, 8),
     ('tracer', 'dnf.plugin.tracer',
      u'DNF tracer Plugin', AUTHORS, 8),
 ]

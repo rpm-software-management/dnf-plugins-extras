@@ -26,6 +26,7 @@ This documents extras plugins of DNF:
 
    release_notes
    rpmconf
+   showvars
    snapper
    system-upgrade
    torproxy
