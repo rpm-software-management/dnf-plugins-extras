@@ -22,6 +22,7 @@ INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.kickstart.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.snapper.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.system-upgrade.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.tracer.8
+    ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.showvars.8
 	DESTINATION share/man/man8)
 if (${PYTHON_VERSION_MAJOR} STREQUAL "3")
     INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/dnf.plugin.rpmconf.8

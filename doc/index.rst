@@ -27,6 +27,7 @@ This documents extras plugins of DNF:
    kickstart
    release_notes
    rpmconf
+   showvars
    snapper
    system-upgrade
    torproxy
