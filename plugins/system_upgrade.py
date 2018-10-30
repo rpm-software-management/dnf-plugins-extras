@@ -34,6 +34,7 @@ from dnfpluginsextras import _, logger
 import dnf
 import dnf.cli
 import dnf.transaction
+import libdnf.conf
 
 
 # Translators: This string is only used in unit tests.
@@ -391,7 +392,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.allow_erasing = self.state.allow_erasing
         self.base.conf.gpgcheck = self.state.gpgcheck
         self.base.conf.best = self.state.best
-        self.base.conf.exclude = self.state.exclude
+        self.base.conf.exclude = libdnf.conf.VectorString(self.state.exclude)
         self.base.conf.install_weak_deps = self.state.install_weak_deps
         # don't try to get new metadata, 'cuz we're offline
         self.cli.demands.cacheonly = True
@@ -463,7 +464,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever
-            state.exclude = self.base.conf.exclude
+            state.exclude = list(self.base.conf.exclude)
             state.destdir = self.base.conf.destdir
 
     def run_upgrade(self):
