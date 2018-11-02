@@ -87,7 +87,7 @@ Options
     ``--distro-sync``. If both are specified, the last option will be used.
 
 ``--number``
-    Applied with ``log`` subcommand will show log speciffied by the number
+    Applied with ``log`` subcommand will show the log specified by the number.
 
 -----
 Notes
