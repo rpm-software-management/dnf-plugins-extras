@@ -96,7 +96,8 @@ Notes
 ``dnf system-upgrade reboot`` does not create a "System Upgrade" boot item. The
 upgrade will start regardless of which boot item is chosen.
 
-Since this is a DNF plugin, options accepted by ``dnf`` are also valid here.
+Since this is a DNF plugin, options accepted by ``dnf`` are also valid here,
+such as ``--allowerasing``.
 See :manpage:`dnf(8)` for more information.
 
 The ``fedup`` command is not provided, not even as an alias for
