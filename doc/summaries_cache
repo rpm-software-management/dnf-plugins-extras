@@ -146,5 +146,13 @@
     [
         1597657,
         "dnf-system-upgrade.service should have \"After=system-update-pre.target\" in its [Unit] section"
+    ],
+    [
+        1638689,
+        "dnf system-upgrade errors when excluding weak dependencies"
+    ],
+    [
+        1643551,
+        "[abrt] dnf: raw_decode(): decoder.py:355:raw_decode:json.decoder.JSONDecodeError: Expecting value: line 1 column 79 (char 78)"
     ]
 ]
