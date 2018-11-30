@@ -36,7 +36,7 @@ class Snapper(dnf.Plugin):
         self._pre_snap_number = None
 
     def pre_transaction(self):
-        if not len(self.base.transaction):
+        if not self.base.transaction:
             return
 
         try:
@@ -66,6 +66,9 @@ class Snapper(dnf.Plugin):
             )
 
     def transaction(self):
+        if not self.base.transaction:
+            return
+
         if not self._pre_snap_created:
             logger.debug(
                 "snapper: " + _("skipping post_snapshot because creation of pre_snapshot failed")
