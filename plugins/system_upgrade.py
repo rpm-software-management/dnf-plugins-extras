@@ -161,6 +161,7 @@ class State(object):
     exclude = _prop("exclude")
     install_packages = _prop("install_packages")
     install_weak_deps = _prop("install_weak_deps")
+    module_platform_id = _prop("module_platform_id")
 
 # --- Plymouth output helpers -------------------------------------------------
 
@@ -400,6 +401,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             self.state.exclude = []
         self.base.conf.exclude = libdnf.conf.VectorString(self.state.exclude)
         self.base.conf.install_weak_deps = self.state.install_weak_deps
+        self.base.conf.module_platform_id = self.state.module_platform_id
         # don't try to get new metadata, 'cuz we're offline
         self.cli.demands.cacheonly = True
         # and don't ask any questions (we confirmed all this beforehand)
@@ -554,6 +556,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.target_releasever = self.base.conf.releasever
             state.install_packages = install_packages
             state.install_weak_deps = self.base.conf.install_weak_deps
+            state.module_platform_id = self.base.conf.module_platform_id
             state.enable_disable_repos = self.opts.repos_ed
             state.destdir = self.base.conf.destdir
         logger.info(DOWNLOAD_FINISHED_MSG)
