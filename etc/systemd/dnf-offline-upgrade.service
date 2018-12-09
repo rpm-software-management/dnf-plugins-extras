@@ -15,6 +15,7 @@ Type=oneshot
 # Upgrade output goes to journal and on-screen.
 StandardOutput=journal+console
 ExecStart=/usr/bin/dnf offline-upgrade upgrade
+ExecStart=-/usr/bin/systemctl reboot
 
 [Install]
 WantedBy=system-update.target

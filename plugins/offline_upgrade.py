@@ -486,14 +486,16 @@ class OfflineUpgradeCommand(dnf.cli.Command):
                         DOWNLOAD_FINISHED_ID)
 
     def transaction_upgrade(self):
-        Plymouth.message(_("Upgrade complete! Cleaning up and rebooting..."))
-        self.log_status(_("Upgrade complete! Cleaning up and rebooting..."),
+        with self.state as state:
+            state.upgrade_status = 'complete'
+        Plymouth.message(_("Upgrade complete!"))
+        self.log_status(_("Upgrade complete!"),
                         UPGRADE_FINISHED_ID)
-        # It is possible update modified dbus and messed up systemd-logind so we
-        # need to restart it, otherwise we just get:
-        # systemd-logind[<pid>]: Failed to get load state of reboot.target: Connection timed out
-        # And systemd does not come up as normal.
-        Popen(["systemctl", "try-restart", "systemd-logind"])
         Plymouth.message(_("Press Ctrl-Alt-Del to reboot if it does not reboot."))
         if self.opts.tid[0] == "upgrade":
+            Plymouth.message(_("Rebooting..."))
+            logger.info(_("Rebooting..."))
             reboot()
+        else:
+            Plymouth.message(_("No action after upgrade."))
+            logger.info(_("No action after upgrade."))
