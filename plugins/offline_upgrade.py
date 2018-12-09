@@ -302,6 +302,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
 
     # == pre_configure_*: set up action-specific demands ==========================
     def pre_configure_download(self):
+        self.state.clear()
+
         # only download subcommand accepts --destdir command line option
         self.base.conf.destdir = self.opts.destdir if self.opts.destdir else None
 
