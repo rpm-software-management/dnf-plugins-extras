@@ -362,6 +362,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
             dnf.util.ensure_dir(self.base.conf.destdir)
 
     def check_reboot(self):
+        if self.state.upgrade_status == 'complete':
+            raise CliError(_("system is already upgraded, run 'dnf offline-upgrade download' again"))
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
         if os.path.lexists(MAGIC_SYMLINK):
