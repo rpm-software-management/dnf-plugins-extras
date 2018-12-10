@@ -1,11 +1,12 @@
 # Jérôme Fenal <jfenal@gmail.com>, 2017. #zanata
+# Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 07:44+0200\n"
-"PO-Revision-Date: 2017-10-26 05:33+0000\n"
-"Last-Translator: Jérôme Fenal <jfenal@gmail.com>\n"
+"POT-Creation-Date: 2018-10-15 09:53+0200\n"
+"PO-Revision-Date: 2018-10-02 09:13+0000\n"
+"Last-Translator: Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +30,8 @@ msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Téléchargement terminé ! Utilisez « dnf system-upgrade reboot » pour démarrer la mise à niveau.\n"
+"Pour supprimer les métadonnées et transactions en cache, utilisez «  dnf system-upgrade clean »"
 
 #: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
@@ -50,7 +53,7 @@ msgstr "Journaux introuvables avec cet index."
 
 #: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Impossible de faire correspondre l’entrée de journal systemd"
 
 #: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
@@ -64,17 +67,19 @@ msgstr ""
 
 #: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "les journaux à afficher"
 
 #: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Avant de continuer, assurez-vous que votre système est complètement à jour "
+"en lançant « dnf --refresh upgrade ». Voulez-vous continuer ?"
 
 #: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Opération avortée."
 
 #: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
@@ -86,7 +91,7 @@ msgstr "la mise à niveau est déjà programmée"
 
 #: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "le fichier déclencheur n’existe pas. Fermeture silencieuse."
 
 #: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
@@ -111,11 +116,11 @@ msgstr ""
 #: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Impossible de faire correspondre le paquet : %s"
 
 #: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Impossible de faire correspondre certains paquets"
 
 #: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
@@ -173,35 +178,36 @@ msgstr "erreur de connexion à snapperd : %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "création d’un pré-instantané"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "pré-instantané %d créé"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "erreur de création du pré-instantané : %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"le post-instantané a été ignoré car la création du pré-instantané a échoué"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "création d’un post-instantané"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "post-instantané %d créé"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "erreur de création du post-instantané : %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"

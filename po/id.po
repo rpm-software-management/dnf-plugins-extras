@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 07:44+0200\n"
-"PO-Revision-Date: 2018-09-11 07:11+0000\n"
+"POT-Creation-Date: 2018-10-15 09:53+0200\n"
+"PO-Revision-Date: 2018-10-14 04:47+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr "warna langit"
 
 #: ../plugins/system_upgrade.py:56
 msgid "Need a --releasever greater than the current system version."
-msgstr ""
+msgstr "Perlu suatu --releasever yang lebih dari versi sistem saat ini."
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:58
@@ -29,192 +29,204 @@ msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Pengunduhan selesai! Gunakan 'dnf system-upgrade reboot' untuk memulai peningkatan.\n"
+"Untuk menghapus metadata dan transaksi yang tersinggah gunakan 'dnf system-upgrade clean'."
 
 #: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
+"Maaf, Anda perlu memakai 'download --releasever' sebagai pengganti '--"
+"network'."
 
 #: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "Boot berikut tampaknya memuat log peningkatan:"
 
 #: ../plugins/system_upgrade.py:246
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- tidak ada log yang ditemukan --"
 
 #: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Tidak bisa menemukan log dengan indeks ini."
 
 #: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Tidak bisa mencari entri jurnal systemd yang cocok"
 
 #: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "Menyiapkan sistem untuk peningkatan ke suatu rilis baru"
 
 #: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
+"pertahankan paket-paket yang terpasang bila versi dari rilis baru lebih tua"
 
 #: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "log mana yang akan ditampilkan"
 
 #: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Sebelum Anda melanjutkan pastikan bahwa sistem Anda telah ditingkatkan "
+"secara penuh dengan menjalankan \"dnf --refresh upgrade\". Apakah Anda "
+"hendak melanjutkan"
 
 #: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Operasi dibatalkan."
 
 #: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
-msgstr ""
+msgstr "sistem tidak siap untuk ditingkatkan"
 
 #: ../plugins/system_upgrade.py:418
 msgid "upgrade is already scheduled"
-msgstr ""
+msgstr "peningkatan telah dijadwalkan"
 
 #: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "berkas pemicu tidak ada. keluar diam-diam."
 
 #: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "alat peningkatan lain sedang berjalan. keluar diam-diam."
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "gunakan 'dnf system-upgrade reboot' untuk memulai peningkatan"
 
 #: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "Reboot untuk melakukan peningkatan"
 
 #: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "Memulai peningkatan sistem. Ini akan makan waktu."
 
 #: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Tidak bisa menemukan paket yang cocok: %s"
 
 #: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Tidak bisa menemukan beberapa paket yang cocok"
 
 #: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "Membersihkan data yang diunduh..."
 
 #: ../plugins/system_upgrade.py:550
 msgid "Download finished."
-msgstr ""
+msgstr "Pengunduhan selesai."
 
 #: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "Peningkatan selesai! Membersihkan dan reboot..."
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr ""
+msgstr "Untuk informasi lebih banyak jalankan:"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "Pemanggilan ke API Tracer berakhir tak terduga:"
 
 #: ../plugins/tracer.py:99
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Harap kunjungi https://github.com/FrostyX/tracer/issues dan laporkan "
+"masalah. Terima kasih"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
-msgstr ""
+msgstr "Kami mohon maaf atas ketidaknyamanannya"
 
 #: ../plugins/rpm_conf.py:67
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
+msgstr "Menambahkan '{}' ke daftar paket penanganan bagi rpmconf"
 
 #: ../plugins/rpm_conf.py:73
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "plugin rpmconf tidak akan berjalan pada mode non-interaktif"
 
 #: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
+msgstr "mengabaikan sys.exit dari rpmconf karena kurang variabel MERGE"
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "mengabaikan sys.exit dari rpmconf karena berkas yang hilang"
 
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr ""
+msgstr "menyambung ke snapperd gagal: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "membuat pre_snapshot"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "pre_snapshot %d dibuat"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "pembuatan pre_snapshot gagal: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr ""
+msgstr "melewati post_snapshot karena pembuatan pre_snapshot gagal"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "membuat post_snapshot"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "post_snapshot %d dibuat"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "pembuatan post_snapshot gagal: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"
 msgstr ""
+"Pasang paket-paket yang didefinisikan dalam sebuah berkas kickstart pada "
+"sistem Anda"
 
 #: ../plugins/kickstart.py:64
 msgid "kickstart file"
-msgstr ""
+msgstr "berkas kickstart"
 
 #: ../plugins/kickstart.py:82
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr ""
+msgstr "berkas tidak bisa diurai: %s"
 
 #: ../plugins/kickstart.py:99
 #, python-format
 msgid "No package %s available."
-msgstr ""
+msgstr "Tidak tersedia paket %s."
 
 #: ../plugins/kickstart.py:104
 msgid "Nothing to do."
-msgstr ""
+msgstr "Tidak ada yang perlu dilakukan."
 
 #: ../plugins/torproxy.py:32
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "Menonaktifkan plugin torproxy: tidak bisa menyambung ke jaringan Tor"
