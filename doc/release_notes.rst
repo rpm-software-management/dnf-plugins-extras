@@ -5,6 +5,14 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.1 Release Notes
+===================
+
+Bugs fixed in 4.0.1:
+
+* :rhbug:`1649745`
+
+===================
 4.0.0 Release Notes
 ===================
 

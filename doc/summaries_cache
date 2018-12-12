@@ -154,5 +154,9 @@
     [
         1643551,
         "[abrt] dnf: raw_decode(): decoder.py:355:raw_decode:json.decoder.JSONDecodeError: Expecting value: line 1 column 79 (char 78)"
+    ],
+    [
+        1649745,
+        "system-upgrade fails with JSONDecodeError if state file corrupt"
     ]
 ]
