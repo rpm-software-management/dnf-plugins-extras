@@ -86,6 +86,10 @@ class State(object):
                 self._data = json.load(fp)
         except IOError:
             self._data = {}
+        except ValueError:
+            self._data = {}
+            logger.warning(_("Failed loading state file: %s, continuing with "
+                             "empty state.") % self.statefile)
 
     def write(self):
         dnf.util.ensure_dir(os.path.dirname(self.statefile))
