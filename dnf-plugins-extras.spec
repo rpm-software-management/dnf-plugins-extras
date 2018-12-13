@@ -239,7 +239,6 @@ Provides:       dnf-command(offline-upgrade)
 Provides:       %{name}-offline-upgrade = %{version}-%{release}
 Provides:       offline-upgrade = %{version}-%{release}
 Provides:       dnf-plugin-offline-upgrade = %{version}-%{release}
-Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-offline-upgrade < 0.10
 %endif
 Provides:       python2-%{name}-offline-upgrade = %{version}-%{release}
@@ -268,7 +267,6 @@ Provides:       offline-upgrade = %{version}-%{release}
 Provides:       dnf-plugin-offline-upgrade = %{version}-%{release}
 Provides:       python3-%{name}-offline-upgrade = %{version}-%{release}
 Obsoletes:      python3-%{name}-offline-upgrade < %{dnf_plugins_extra_obsolete}
-Obsoletes:      fedup < 0.9.4
 Obsoletes:      dnf-plugin-offline-upgrade < 0.10
 Conflicts:      python2-dnf-plugin-offline-upgrade < %{version}-%{release}
 BuildRequires:  pkgconfig(systemd)
