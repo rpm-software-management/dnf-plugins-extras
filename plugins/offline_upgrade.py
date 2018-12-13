@@ -205,12 +205,10 @@ def list_logs():
     print(_('The following boots appear to contain upgrade logs:'))
     n = -1
     for n, entry in enumerate(find_boots(ID_TO_IDENTIFY_BOOTS)):
-        print('{} / {.hex}: {:%Y-%m-%d %H:%M:%S} {}→{}'.format(
+        print('{} / {.hex}: {:%Y-%m-%d %H:%M:%S}'.format(
             n + 1,
             entry['_BOOT_ID'],
-            entry['__REALTIME_TIMESTAMP'],
-            entry.get('SYSTEM_RELEASEVER', '??'),
-            entry.get('TARGET_RELEASEVER', '??')))
+            entry['__REALTIME_TIMESTAMP']))
     if n == -1:
         print(_('-- no logs were found --'))
 
