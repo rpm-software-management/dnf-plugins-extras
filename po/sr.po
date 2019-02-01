@@ -1,17 +1,16 @@
-# Momcilo Medic <medicmomcilo@gmail.com>, 2015. #zanata
-# Marko Kostic <marko.m.kostic@gmail.com>, 2017. #zanata
+# Marko Kostic <marko.m.kostic@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-15 09:53+0200\n"
-"PO-Revision-Date: 2017-09-08 01:12+0000\n"
+"PO-Revision-Date: 2019-01-31 08:22+0000\n"
 "Last-Translator: Marko Kostic <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -30,12 +29,14 @@ msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Преузимање је готово! Унесите „dnf system-upgrade reboot“ да бисте започели надоградњу система.\n"
+"Да бисте уклонили кеширане метаподатке и трансакцију, унесите „dnf system-upgrade clean“"
 
 #: ../plugins/system_upgrade.py:61
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
-"Нажалост, морате користити 'download --releasever' уместо параметра '--"
-"network'"
+"Нажалост, морате користити „download --releasever“ уместо параметра "
+"„--network“"
 
 #: ../plugins/system_upgrade.py:236
 msgid "The following boots appear to contain upgrade logs:"
@@ -47,11 +48,11 @@ msgstr "-- нема нађених записника --"
 
 #: ../plugins/system_upgrade.py:261
 msgid "Cannot find logs with this index."
-msgstr "Не могу нађи записнике са овим индексом."
+msgstr "Не могу наћи записнике са овим индексом."
 
 #: ../plugins/system_upgrade.py:270
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Не могу да нађем подударање у журналу за наведени унос"
 
 #: ../plugins/system_upgrade.py:289
 msgid "Prepare system for upgrade to a new release"
@@ -59,21 +60,26 @@ msgstr "Припрема система за надоградњу на ново 
 
 #: ../plugins/system_upgrade.py:299
 msgid "keep installed packages if the new release's version is older"
-msgstr "задржи инсталиране пакете ако је верзија у новом издању старија"
+msgstr ""
+"задржи инсталиране пакете ако је издање пакета старије у новом издању "
+"система"
 
 #: ../plugins/system_upgrade.py:303
 msgid "which logs to show"
-msgstr ""
+msgstr "које записнике приказати"
 
 #: ../plugins/system_upgrade.py:359
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Пре него што наставите, постарајте се да је ваш систем у потпуности ажуран "
+"тако што ћете извршити наредбу „dnf --refresh upgrade“. Да ли желите да "
+"наставите"
 
 #: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."
-msgstr ""
+msgstr "Радња је отказана."
 
 #: ../plugins/system_upgrade.py:416
 msgid "system is not ready for upgrade"
@@ -85,7 +91,7 @@ msgstr "надоградња је већ заказана"
 
 #: ../plugins/system_upgrade.py:424
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "окидачка датотека не постоји. излазим тихо."
 
 #: ../plugins/system_upgrade.py:427
 msgid "another upgrade tool is running. exiting quietly."
@@ -94,11 +100,12 @@ msgstr "друга алатка за надограђивање већ ради.
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:433
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr "искористите 'dnf system-upgrade reboot' за започињање надограђивања"
+msgstr ""
+"унесите „dnf system-upgrade reboot“ да започнете надограђивање система"
 
 #: ../plugins/system_upgrade.py:450
 msgid "Rebooting to perform upgrade."
-msgstr "Поново се покрећем зарад извршавања надоградње."
+msgstr "Поново покрећем систем за извршавање надоградње."
 
 #: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
 msgid "Starting system upgrade. This will take a while."
@@ -107,11 +114,11 @@ msgstr "Започињем надоградњу система. Ово ће по
 #: ../plugins/system_upgrade.py:504
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Не могу да нађем подударање за пакет: %s"
 
 #: ../plugins/system_upgrade.py:509
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Не могу да нађем подударања за неке од пакета"
 
 #: ../plugins/system_upgrade.py:512
 msgid "Cleaning up downloaded data..."
@@ -123,11 +130,11 @@ msgstr "Преузимање је завршено."
 
 #: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Надограђивање је обављено! Чистим и поново се покрећем..."
+msgstr "Надограђивање је обављено! Чистим и поново покрећем систем..."
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr "За више података извршите:"
+msgstr "За више података покрените:"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
@@ -169,35 +176,37 @@ msgstr "повезивање на snapperd неуспешно: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "правим рани _снимак стања"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "направио рани _снимак стања %d"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "стварање раног _снимка стања није успело: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"прескачем позни _снимак стања зато што стварање раног _снимка стања није "
+"успело"
 
 #: ../plugins/snapper.py:77
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "правим позни _снимак стања"
 
 #: ../plugins/snapper.py:82
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "направио позни _снимак стања %d"
 
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "стварање позног _снимка стања није успело: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"

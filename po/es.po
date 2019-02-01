@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2018-08-22 08:32+0000\n"
 "Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
 "Language-Team: Spanish\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 4.6.2\n"
 
@@ -100,7 +100,7 @@ msgstr "el archivo disparador no existe. Saliendo silenciosamente."
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "existe otra herramienta de actualización en ejecución. Saliendo "
-"silenciosamente."
+"silenciosamente. "
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:433
