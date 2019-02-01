@@ -100,7 +100,7 @@ msgstr "el archivo disparador no existe. Saliendo silenciosamente."
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "existe otra herramienta de actualización en ejecución. Saliendo "
-"silenciosamente. "
+"silenciosamente."
 
 #. Translators: do not change "reboot" here
 #: ../plugins/system_upgrade.py:433

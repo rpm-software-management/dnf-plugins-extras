@@ -152,11 +152,11 @@ msgstr "rpmconf 插件不在非交互模式下运行"
 
 #: ../plugins/rpm_conf.py:86
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "由于缺失MERGE 变量， 忽略rpmconf 的sys.exit "
+msgstr "由于缺失MERGE 变量， 忽略rpmconf 的sys.exit"
 
 #: ../plugins/rpm_conf.py:90
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "由于缺失文件， 忽略rpmconf 的sys.exit "
+msgstr "由于缺失文件， 忽略rpmconf 的sys.exit"
 
 #: ../plugins/snapper.py:49
 #, python-format

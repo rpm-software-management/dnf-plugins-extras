@@ -136,7 +136,7 @@ msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr "Pour plus d’informations, lancez : "
+msgstr "Pour plus d’informations, lancez :"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"

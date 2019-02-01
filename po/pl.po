@@ -152,8 +152,8 @@ msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
-"Proszę zgłosić błąd na stronie https://github.com/FrostyX/tracer/issues (w "
-"języku angielskim)"
+"Proszę zgłosić błąd na stronie https://github.com/FrostyX/tracer/issues "
+"(w języku angielskim)"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"

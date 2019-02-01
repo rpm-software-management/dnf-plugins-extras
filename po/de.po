@@ -73,7 +73,7 @@ msgid ""
 msgstr ""
 "Bevor Sie fortfahren, stelle Sie bitte sicher, das alle Aktualisierungen "
 "installiert sind. Dies kann durch den Aufruf von \"dnf --refresh upgrade\" "
-"erfolgen. Wollen Sie fortfahren? "
+"erfolgen. Wollen Sie fortfahren?"
 
 #: ../plugins/system_upgrade.py:363
 msgid "Operation aborted."

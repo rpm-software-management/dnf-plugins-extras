@@ -179,7 +179,7 @@ msgstr "pre_snapshot %d створаны"
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr "стварэнне pre_snapshot не атрымалася: %s "
+msgstr "стварэнне pre_snapshot не атрымалася: %s"
 
 #: ../plugins/snapper.py:71
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
@@ -197,7 +197,7 @@ msgstr "post_snapshot %d створаны"
 #: ../plugins/snapper.py:86
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr "стварэнне post_snapshot не атрымалася: %s "
+msgstr "стварэнне post_snapshot не атрымалася: %s"
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"
