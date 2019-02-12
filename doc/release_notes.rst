@@ -5,6 +5,12 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.2 Release Notes
+===================
+
+Minor changes
+
+===================
 4.0.1 Release Notes
 ===================
 
