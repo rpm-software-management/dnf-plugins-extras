@@ -24,6 +24,7 @@ This documents extras plugins of DNF:
 .. toctree::
    :maxdepth: 1
 
+   kickstart
    release_notes
    rpmconf
    snapper
