@@ -20,7 +20,6 @@
 
 import json
 import io
-import iniparse.compat as ini
 
 import pycurl
 
@@ -72,14 +71,14 @@ class TorProxy(dnf.Plugin):
         if not conf.has_section('main') or not conf.getboolean("main", "enabled"):
             return
 
-        try:
+        if conf.has_section("torproxy") and conf.has_option("torproxy", "port"):
             self._port = conf.get("torproxy", "port")
-        except ini.Error:
+        else:
             self._port = '9050'
 
-        try:
+        if conf.has_section("torproxy") and conf.has_option("torproxy", "host"):
             self._host = conf.get("torproxy", "host")
-        except ini.Error:
+        else:
             self._host = '127.0.0.1'
 
         if self._check_tor_working():
