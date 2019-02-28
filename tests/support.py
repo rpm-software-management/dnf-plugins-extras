@@ -73,7 +73,7 @@ class FakeConf(dnf.conf.Conf):
                 ('disable_excludes', []),
                 ('diskspacecheck', True),
                 ('exclude', []),
-                ('include', []),
+                ('includepkgs', []),
                 ('install_weak_deps', True),
                 ('history_record', False),
                 ('installonly_limit', 0),
@@ -89,7 +89,7 @@ class FakeConf(dnf.conf.Conf):
                 ('tsflags', []),
                 ('strict', True),
                 ] + list(kwargs.items()):
-            setattr(self, optname, dnf.conf.Value(val, dnf.conf.PRIO_DEFAULT))
+            self._set_value(optname, val, dnf.conf.PRIO_DEFAULT)
 
     @property
     def releasever(self):
