@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 09:53+0200\n"
+"POT-Creation-Date: 2019-03-11 10:36+0100\n"
 "PO-Revision-Date: 2017-07-01 03:51+0000\n"
 "Last-Translator: Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>\n"
 "Language-Team: Japanese\n"
@@ -16,110 +16,115 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:40
+#: ../plugins/system_upgrade.py:41
 msgid "the color of the sky"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr "--releasever は、現在のシステムのバージョン番号よりも大きくなければなりません。"
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:58
+#: ../plugins/system_upgrade.py:59
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:236
+#: ../plugins/system_upgrade.py:122
+#, python-format
+msgid "Failed loading state file: %s, continuing with empty state."
+msgstr ""
+
+#: ../plugins/system_upgrade.py:243
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:246
+#: ../plugins/system_upgrade.py:253
 msgid "-- no logs were found --"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:261
+#: ../plugins/system_upgrade.py:268
 msgid "Cannot find logs with this index."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:270
+#: ../plugins/system_upgrade.py:277
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:289
+#: ../plugins/system_upgrade.py:296
 msgid "Prepare system for upgrade to a new release"
 msgstr "システムに新リリースにアップグレードするための準備をしてください"
 
-#: ../plugins/system_upgrade.py:299
+#: ../plugins/system_upgrade.py:306
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:303
+#: ../plugins/system_upgrade.py:310
 msgid "which logs to show"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:359
+#: ../plugins/system_upgrade.py:366
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:363
+#: ../plugins/system_upgrade.py:370
 msgid "Operation aborted."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:427
 msgid "system is not ready for upgrade"
 msgstr "システムはアップグレードの準備ができてません。"
 
-#: ../plugins/system_upgrade.py:418
+#: ../plugins/system_upgrade.py:429
 msgid "upgrade is already scheduled"
 msgstr "アップグレードは既に予定されています"
 
-#: ../plugins/system_upgrade.py:424
+#: ../plugins/system_upgrade.py:435
 msgid "trigger file does not exist. exiting quietly."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:438
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:433
+#: ../plugins/system_upgrade.py:444
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:450
+#: ../plugins/system_upgrade.py:461
 msgid "Rebooting to perform upgrade."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
+#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
 msgid "Starting system upgrade. This will take a while."
 msgstr "system upgrade を起動中。しばらく時間がかかります。"
 
-#: ../plugins/system_upgrade.py:504
+#: ../plugins/system_upgrade.py:515
 #, python-format
 msgid "Unable to match package: %s"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:509
+#: ../plugins/system_upgrade.py:520
 msgid "Unable to match some of packages"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:512
+#: ../plugins/system_upgrade.py:523
 msgid "Cleaning up downloaded data..."
 msgstr "ダウンロード済みデータを掃除しています..."
 
-#: ../plugins/system_upgrade.py:550
+#: ../plugins/system_upgrade.py:563
 msgid "Download finished."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
+#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "アップグレードは完了しました！ 掃除と再起動中..."
 
@@ -176,20 +181,20 @@ msgstr ""
 msgid "creating pre_snapshot failed: %s"
 msgstr ""
 
-#: ../plugins/snapper.py:71
+#: ../plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
 
-#: ../plugins/snapper.py:77
+#: ../plugins/snapper.py:80
 msgid "creating post_snapshot"
 msgstr ""
 
-#: ../plugins/snapper.py:82
+#: ../plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
 msgstr ""
 
-#: ../plugins/snapper.py:86
+#: ../plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr ""
@@ -216,6 +221,6 @@ msgstr ""
 msgid "Nothing to do."
 msgstr "行うべき処理がありません。"
 
-#: ../plugins/torproxy.py:32
+#: ../plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""

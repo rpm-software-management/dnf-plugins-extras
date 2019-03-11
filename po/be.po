@@ -1,10 +1,11 @@
 # Viktar Siarheichyk <veq@fedoraproject.org>, 2018. #zanata
+# Viktar Siarheichyk <veq@fedoraproject.org>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 09:53+0200\n"
-"PO-Revision-Date: 2018-09-26 09:07+0000\n"
+"POT-Creation-Date: 2019-03-11 10:36+0100\n"
+"PO-Revision-Date: 2019-02-11 11:11+0000\n"
 "Last-Translator: Viktar Siarheichyk <veq@fedoraproject.org>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -15,16 +16,16 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:40
+#: ../plugins/system_upgrade.py:41
 msgid "the color of the sky"
 msgstr "колер неба"
 
-#: ../plugins/system_upgrade.py:56
+#: ../plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr "Трэба, каб --releasever быў болей за версію гэтай сістэмы."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:58
+#: ../plugins/system_upgrade.py:59
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -32,39 +33,44 @@ msgstr ""
 "Загрузка скончана! Для запуску абнаўлення можна ўжыць 'dnf system-upgrade reboot'.\n"
 "Для выдалення закэшаваных метаданых і транзакцый можна ўжыць 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Выбачаемся, трэба ужыць 'download --releasever' замест '--network'"
 
-#: ../plugins/system_upgrade.py:236
+#: ../plugins/system_upgrade.py:122
+#, python-format
+msgid "Failed loading state file: %s, continuing with empty state."
+msgstr "Не атрымалася загрузіць файл стану: %s, працягваем з пустым станам."
+
+#: ../plugins/system_upgrade.py:243
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "У наступных запусках ёсць пратаколы абнаўлення:"
 
-#: ../plugins/system_upgrade.py:246
+#: ../plugins/system_upgrade.py:253
 msgid "-- no logs were found --"
 msgstr "-- не знойдзена пратаколаў --"
 
-#: ../plugins/system_upgrade.py:261
+#: ../plugins/system_upgrade.py:268
 msgid "Cannot find logs with this index."
 msgstr "Не знойдзена пратаколаў з гэтым індэксам."
 
-#: ../plugins/system_upgrade.py:270
+#: ../plugins/system_upgrade.py:277
 msgid "Unable to match systemd journal entry"
 msgstr "Не знойдзена супадзенняў з запісамі журнала systemd"
 
-#: ../plugins/system_upgrade.py:289
+#: ../plugins/system_upgrade.py:296
 msgid "Prepare system for upgrade to a new release"
 msgstr "Сістэма рыхтуецца да абнаўлення да новага выпуску"
 
-#: ../plugins/system_upgrade.py:299
+#: ../plugins/system_upgrade.py:306
 msgid "keep installed packages if the new release's version is older"
 msgstr "захаваць інсталяваныя пакеты, калі версія новага выпуску даўнейшая"
 
-#: ../plugins/system_upgrade.py:303
+#: ../plugins/system_upgrade.py:310
 msgid "which logs to show"
 msgstr "якія пратаколы паказваць"
 
-#: ../plugins/system_upgrade.py:359
+#: ../plugins/system_upgrade.py:366
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -72,57 +78,57 @@ msgstr ""
 "Перад тым, як ісці далей, праверце, што ваша сістэма цалкам абноўленая, "
 "запусціўшы \"dnf --refresh upgrade\". Працягваць"
 
-#: ../plugins/system_upgrade.py:363
+#: ../plugins/system_upgrade.py:370
 msgid "Operation aborted."
 msgstr "Аперацыя перарваная."
 
-#: ../plugins/system_upgrade.py:416
+#: ../plugins/system_upgrade.py:427
 msgid "system is not ready for upgrade"
 msgstr "сістэма не гатовая да абнаўлення"
 
-#: ../plugins/system_upgrade.py:418
+#: ../plugins/system_upgrade.py:429
 msgid "upgrade is already scheduled"
 msgstr "абнаўленне ўжо запланаванае"
 
-#: ../plugins/system_upgrade.py:424
+#: ../plugins/system_upgrade.py:435
 msgid "trigger file does not exist. exiting quietly."
 msgstr "файл трыгера адсутнічае. Ціха сканчаем працу."
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:438
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "працуе іншая прылада абнаўлення. Ціха сканчаем працу."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:433
+#: ../plugins/system_upgrade.py:444
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "'dnf system-upgrade reboot' пачынае абнаўленне"
 
-#: ../plugins/system_upgrade.py:450
+#: ../plugins/system_upgrade.py:461
 msgid "Rebooting to perform upgrade."
 msgstr "Сістэма перазапускаецца для абнаўлення."
 
-#: ../plugins/system_upgrade.py:472 ../plugins/system_upgrade.py:478
+#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
 msgid "Starting system upgrade. This will take a while."
 msgstr "Запуск абнаўлення сістэмы. Гэта зойме час."
 
-#: ../plugins/system_upgrade.py:504
+#: ../plugins/system_upgrade.py:515
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Пакет %s не супадае"
 
-#: ../plugins/system_upgrade.py:509
+#: ../plugins/system_upgrade.py:520
 msgid "Unable to match some of packages"
 msgstr "Некаторыя пакеты не супадаюць"
 
-#: ../plugins/system_upgrade.py:512
+#: ../plugins/system_upgrade.py:523
 msgid "Cleaning up downloaded data..."
 msgstr "Загружаныя даныя чысцяцца."
 
-#: ../plugins/system_upgrade.py:550
+#: ../plugins/system_upgrade.py:563
 msgid "Download finished."
 msgstr "Загрузка скончаная."
 
-#: ../plugins/system_upgrade.py:554 ../plugins/system_upgrade.py:555
+#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Абнаўленне гатова! Чысцім і перазапускаем сістэму..."
 
@@ -181,20 +187,20 @@ msgstr "pre_snapshot %d створаны"
 msgid "creating pre_snapshot failed: %s"
 msgstr "стварэнне pre_snapshot не атрымалася: %s"
 
-#: ../plugins/snapper.py:71
+#: ../plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr "post_snapshot прапускаецца, бо стварэнне pre_snapshot не атрымалася"
 
-#: ../plugins/snapper.py:77
+#: ../plugins/snapper.py:80
 msgid "creating post_snapshot"
 msgstr "стварэнне post_snapshot"
 
-#: ../plugins/snapper.py:82
+#: ../plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
 msgstr "post_snapshot %d створаны"
 
-#: ../plugins/snapper.py:86
+#: ../plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr "стварэнне post_snapshot не атрымалася: %s"
@@ -221,6 +227,6 @@ msgstr "Пакет %s недаступны."
 msgid "Nothing to do."
 msgstr "Няма чаго рабіць."
 
-#: ../plugins/torproxy.py:32
+#: ../plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "Плагін torproxy адключаны: не атрымалася далучыцца да сеткі Tor"
