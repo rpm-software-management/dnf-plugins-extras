@@ -5,6 +5,18 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.4 Release Notes
+===================
+
+* Use improved config parser that preserves order of data
+* [system-upgrade] Save module_platform_id option through system upgrade (RhBug:1656509)
+* [system-upgrade] On modular systems, system upgrade requires the next module_platform_id
+
+Bugs fixed in 4.0.4:
+
+* :rhbug:`1656509`
+
+===================
 4.0.2 Release Notes
 ===================
 

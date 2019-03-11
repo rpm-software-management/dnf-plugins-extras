@@ -158,5 +158,9 @@
     [
         1649745,
         "system-upgrade fails with JSONDecodeError if state file corrupt"
+    ],
+    [
+        1656509,
+        "F29 to Rawhide (F30) upgrades fail, seems to be modularity-related"
     ]
 ]
