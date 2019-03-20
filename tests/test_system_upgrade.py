@@ -154,7 +154,7 @@ class I18NTestCaseBase(unittest.TestCase):
     def setUpClass(cls):
         cls.localedir = tempfile.mkdtemp(prefix='i18ntest')
         cls.msgdir = os.path.join(cls.localedir, TESTLANG+"/LC_MESSAGES")
-        cls.msgfile = system_upgrade.TEXTDOMAIN + ".mo"
+        cls.msgfile = "dnf-plugins-extras" + ".mo"
         os.makedirs(cls.msgdir)
         shutil.copy2(TESTLANG_MO, os.path.join(cls.msgdir, cls.msgfile))
 
@@ -163,7 +163,7 @@ class I18NTestCaseBase(unittest.TestCase):
         shutil.rmtree(cls.localedir)
 
     def setUp(self):
-        self.t = gettext.translation(system_upgrade.TEXTDOMAIN, self.localedir,
+        self.t = gettext.translation("dnf-plugins-extras", self.localedir,
                                      languages=[TESTLANG], fallback=True)
         self.gettext = self.t.gettext
 
@@ -173,7 +173,7 @@ class I18NTestCase(I18NTestCaseBase):
     def test_selftest(self):
         self.assertIn(self.msgfile, os.listdir(self.msgdir))
         self.assertIn(TESTLANG, os.listdir(self.localedir))
-        t = gettext.translation(system_upgrade.TEXTDOMAIN, self.localedir,
+        t = gettext.translation("dnf-plugins-extras", self.localedir,
                                 languages=[TESTLANG], fallback=False)
         info = t.info()
         self.assertIn("language", info)
