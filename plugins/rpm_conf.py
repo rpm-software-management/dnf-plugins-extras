@@ -60,8 +60,6 @@ class Rpmconf(dnf.Plugin):
         if not self._interactive:
             return
 
-        tmp = []
-
         for pkg in self.base.transaction.install_set:
             logger.debug(
                 _("Adding '{}' to list of handling "
