@@ -263,7 +263,7 @@ def pick_boot(message_id, n):
     try:
         if n == 0:
             raise IndexError
-        elif n > 0:
+        if n > 0:
             n -= 1
         return boots[n]['_BOOT_ID']
     except IndexError:
