@@ -361,6 +361,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.base.conf.gpgcheck = True
         self.command.base.conf.destdir = "/grape/wine"
         self.command.base.conf.install_weak_deps = True
+        self.command.base.conf.module_platform_id = ''
         self.command.transaction_download()
         with offline_upgrade.State() as state:
             self.assertEqual(state.download_status, "complete")
