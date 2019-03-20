@@ -117,8 +117,8 @@ class TestRpmConf(unittest.TestCase):
         return create_file(*self.conf_file_rpmsave)
 
     def test_non_interactive(self):
-        c_path, c_content = self._create_conf()
-        new_path, new_content = self._create_rpmnew()
+        _, _ = self._create_conf()
+        _, _ = self._create_rpmnew()
 
         with self.rpmconf_plugin as rpmconf,\
                 mock.patch("rpmconf.rpmconf.RpmConf.flush_input", return_value='S'),\
@@ -164,8 +164,8 @@ class TestRpmConf(unittest.TestCase):
         self.assertEqual(new_result, new_content)
 
     def test_frontend_env(self):
-        c_path, c_content = self._create_conf()
-        new_path, new_content = self._create_rpmnew()
+        c_path, _ = self._create_conf()
+        new_path, _ = self._create_rpmnew()
 
         def merge_conf_files(_, conf_file, other_file):
             self.assertEqual(conf_file, c_path)
