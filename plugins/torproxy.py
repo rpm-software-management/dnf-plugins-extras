@@ -58,13 +58,12 @@ class TorProxy(dnf.Plugin):
 
         try:
             c.perform()
-            result = json.loads(buf.getvalue().decode("ascii"))['IsTor']
+            return json.loads(buf.getvalue().decode("ascii"))['IsTor']
         # TODO fix me, need to have a better exception filter
         except Exception as e:
             logger.error(e)
-            result = False
 
-        return result
+        return False
 
     def config(self):
         conf = self.read_config(self.base.conf)
