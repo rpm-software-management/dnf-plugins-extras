@@ -192,9 +192,10 @@ class MaskableKickstartParserTest(unittest.TestCase):
         """Test mask_all."""
         original_sections = {
             section_open: self._parser.getSection(section_open)
-            for section_open in self.ALL_SECTION_OPENS}
-        assert all(not isinstance(section, pykickstart.sections.NullSection)
-                   for section in original_sections.values())
+            for section_open in self.ALL_SECTION_OPENS
+        }
+        for section in original_sections.values():
+            self.assertNotIsInstance(section, pykickstart.sections.NullSection)
 
         self._parser.mask_all(self.EXCLUDED_SECTION_OPENS)
 
