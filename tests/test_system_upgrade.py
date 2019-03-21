@@ -261,8 +261,8 @@ class CommandTestCase(CommandTestCaseBase):
     # self-tests for the command test cases
     def test_state(self):
         # initial state: no status
-        self.assertEqual(self.command.state.download_status, None)
-        self.assertEqual(self.command.state.upgrade_status, None)
+        self.assertIsNone(self.command.state.download_status)
+        self.assertIsNone(self.command.state.upgrade_status)
 
 class CleanCommandTestCase(CommandTestCaseBase):
     def test_pre_configure_clean(self):
@@ -286,8 +286,8 @@ class CleanCommandTestCase(CommandTestCaseBase):
         # run cleanup
         self.command.run_clean()
         # state is cleared
-        self.assertEqual(self.command.state.download_status, None)
-        self.assertEqual(self.command.state.upgrade_status, None)
+        self.assertIsNone(self.command.state.download_status)
+        self.assertIsNone(self.command.state.upgrade_status)
 
 
 class RebootCheckCommandTestCase(CommandTestCaseBase):
