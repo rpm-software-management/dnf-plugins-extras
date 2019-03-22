@@ -396,8 +396,8 @@ class CommandTestCase(CommandTestCaseBase):
     # self-tests for the command test cases
     def test_state(self):
         # initial state: no status
-        self.assertEqual(self.command.state.download_status, None)
-        self.assertEqual(self.command.state.upgrade_status, None)
+        self.assertIsNone(self.command.state.download_status)
+        self.assertIsNone(self.command.state.upgrade_status)
 
     def test_print_help(self):
         # pylint: disable=protected-access
