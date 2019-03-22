@@ -184,7 +184,7 @@ class PlymouthTransactionProgressTestCase(unittest.TestCase):
             # updating plymouth display means two plymouth calls
             call.assert_has_calls([
                 mock.call((PLYMOUTH, "system-update", "--progress", "0")),
-                mock.call((PLYMOUTH, "display-message", "--text", msg))
+                mock.call((PLYMOUTH, "display-message", "--text", msg)),
             ], any_order=True)
 
     def test_filter_calls(self, call):
