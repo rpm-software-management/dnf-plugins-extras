@@ -316,7 +316,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         parser.add_argument('--number', type=int, help=_('which logs to show'))
 
     def log_status(self, message, message_id):
-        "Log directly to the journal"
+        """Log directly to the journal."""
         journal.send(message,
                      MESSAGE_ID=message_id,
                      PRIORITY=journal.LOG_NOTICE,
