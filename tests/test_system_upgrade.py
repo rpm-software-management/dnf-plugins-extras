@@ -307,7 +307,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
         self.command.configure_reboot()
         self.assertTrue(self.cli.demands.root_user)
 
-    def check_reboot(self, status='complete', lexists=False, dnfverok=True):
+    def check_reboot(self, status='complete', lexists=False):
         with patch('system_upgrade.os.path.lexists') as lexists_func,\
                 patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
             self.command.state.download_status = status
@@ -315,15 +315,15 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
             self.command.check_reboot()
 
     def test_check_reboot_ok(self):
-        self.check_reboot(status='complete', lexists=False, dnfverok=True)
+        self.check_reboot(status='complete', lexists=False)
 
     def test_check_reboot_no_download(self):
         with self.assertRaises(CliError):
-            self.check_reboot(status=None, lexists=False, dnfverok=True)
+            self.check_reboot(status=None, lexists=False)
 
     def test_check_reboot_link_exists(self):
         with self.assertRaises(CliError):
-            self.check_reboot(status='complete', lexists=True, dnfverok=True)
+            self.check_reboot(status='complete', lexists=True)
 
     def test_run_prepare(self):
         with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
