@@ -34,7 +34,7 @@ from tests.support import mock
 if tests.support.PY3:
     from itertools import zip_longest
 else:
-    from itertools import izip_longest as zip_longest
+    zip_longest = None
 
 if tests.support.PY3:
     import rpm_conf
