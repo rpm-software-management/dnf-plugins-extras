@@ -210,7 +210,8 @@ class PlymouthTransactionProgress(dnf.callback.TransactionProgress):
         Plymouth.progress(int(100.0 * current / total))
         Plymouth.message(self._fmt_event(package, action, current, total))
 
-    def _fmt_event(self, package, action, current, total):
+    @staticmethod
+    def _fmt_event(package, action, current, total):
         action = dnf.transaction.ACTIONS.get(action, action)
         return "[{0:d}/{1:d}] {2} {3}...".format(
             current, total, action, package)
