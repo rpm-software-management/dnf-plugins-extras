@@ -74,7 +74,7 @@ def disable_screen_blanking():
         tty = open(TTY_NAME, 'wb')
         tty.write(b'\33[9;0]')
     except Exception as e:  # pylint: disable=broad-except
-        print(_("Screen blanking can't be disabled: %s") % e)
+        logger.error(_("Screen blanking can't be disabled: %s"), e)
 
 
 def complete_version_str():
@@ -307,7 +307,7 @@ class OfflineUpgradeCommand(dnf.cli.Command):
                             help=_("keep installed packages if the new "
                                    "version is older"))
         parser.add_argument('tid', nargs=1, choices=CMDS,
-                            metavar="[%s]" % "|".join(CMDS))
+                            metavar="[{0}]".format("|".join(CMDS)))
         parser.add_argument('--number', type=int, help=_('which logs to show'))
 
     def check_state_versioning(self):
