@@ -15,12 +15,12 @@
 # Red Hat, Inc.
 #
 
-""" Common code for dnf-plugins-extras"""
+"""Common code for dnf-plugins-extras."""
+
 from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import unicode_literals
 
-import argparse
 import dnf.exceptions
 import logging
 
