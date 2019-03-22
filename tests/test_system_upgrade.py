@@ -14,10 +14,8 @@ from dnf.callback import (PKG_CLEANUP, PKG_DOWNGRADE, PKG_INSTALL,
                           PKG_VERIFY, TRANS_POST)
 
 import unittest
-try:
-    from unittest import mock
-except ImportError:
-    import mock
+
+from tests.support import mock
 patch = mock.patch
 
 
