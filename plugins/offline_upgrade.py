@@ -20,23 +20,24 @@
 """offline_upgrade.py - DNF plugin to handle major-version offline upgrades."""
 
 from __future__ import unicode_literals
-from distutils.version import StrictVersion
-from subprocess import call, Popen
+
 import json
 import os
 import os.path
 import uuid
-
-from systemd import journal
-
-from dnfpluginsextras import _, logger
+from distutils.version import StrictVersion
+from subprocess import Popen, call
 
 import dnf
 import dnf.cli
-from dnf.cli import CliError
 import dnf.transaction
+from dnf.cli import CliError
+
+from dnfpluginsextras import _, logger
 
 import libdnf.conf
+
+from systemd import journal
 
 
 # Translators: This string is only used in unit tests.
