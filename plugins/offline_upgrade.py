@@ -72,7 +72,7 @@ def disable_screen_blanking():
     try:
         tty = open(TTY_NAME, 'wb')
         tty.write(b'\33[9;0]')
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-except
         print("Screen blanking can't be disabled: %s" % e)
 
 
