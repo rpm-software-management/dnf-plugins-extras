@@ -86,7 +86,7 @@ def clear_dir(path):
             pass
 
 
-def checkReleaseVer(conf, target=None):
+def check_release_ver(conf, target=None):
     if dnf.rpm.detect_releasever(conf.installroot) == conf.releasever:
         raise CliError(RELEASEVER_MSG)
     if target and target != conf.releasever:
@@ -423,7 +423,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == check_*: do any action-specific checks ===============================
 
     def check_download(self):
-        checkReleaseVer(self.base.conf, target=self.opts.releasever)
+        check_release_ver(self.base.conf, target=self.opts.releasever)
         dnf.util.ensure_dir(self.base.conf.cachedir)
         if self.base.conf.destdir:
             dnf.util.ensure_dir(self.base.conf.destdir)
