@@ -240,7 +240,7 @@ class I18NTestCaseBase(unittest.TestCase):
         shutil.rmtree(cls.localedir)
 
     def setUp(self):
-        self.t = gettext.translation(offline_upgrade.TEXTDOMAIN, self.localedir,
+        self.t = gettext.translation("dnf-plugins-extras", self.localedir,
                                      languages=[TESTLANG], fallback=True)
         self.gettext = self.t.gettext
 
@@ -250,7 +250,7 @@ class I18NTestCase(I18NTestCaseBase):
     def test_selftest(self):
         self.assertIn(self.msgfile, os.listdir(self.msgdir))
         self.assertIn(TESTLANG, os.listdir(self.localedir))
-        t = gettext.translation(offline_upgrade.TEXTDOMAIN, self.localedir,
+        t = gettext.translation("dnf-plugins-extras", self.localedir,
                                 languages=[TESTLANG], fallback=False)
         info = t.info()
         self.assertIn("language", info)
