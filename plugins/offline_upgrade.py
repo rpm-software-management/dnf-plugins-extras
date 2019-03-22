@@ -29,11 +29,13 @@ import uuid
 
 from systemd import journal
 
-from dnf.cli import CliError
 from dnfpluginsextras import _, logger
+
 import dnf
 import dnf.cli
+from dnf.cli import CliError
 import dnf.transaction
+
 import libdnf.conf
 
 
