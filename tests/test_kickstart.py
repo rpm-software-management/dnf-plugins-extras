@@ -21,7 +21,7 @@ from __future__ import unicode_literals
 import dnf
 import logging
 import os
-import tests.support as support
+from tests import support
 import tempfile
 import unittest
 
