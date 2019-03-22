@@ -25,11 +25,13 @@ import tests.support as support
 import tempfile
 import unittest
 
+from tests.support import mock
+
 if not support.PY3:
     import kickstart
     import pykickstart
 else:
-    pykickstart = unittest.mock.Mock()
+    pykickstart = mock.Mock()
 
 class _KickstartFileFixture(object):
     """Test fixture containing a kickstart file."""
