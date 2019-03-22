@@ -54,7 +54,7 @@ class TorProxy(dnf.Plugin):
         c.setopt(pycurl.PROXYUSERNAME, 'check')
         c.setopt(pycurl.PROXYPASSWORD, 'check')
 
-        c.setopt(c.WRITEFUNCTION, buf.write)
+        c.setopt(pycurl.WRITEFUNCTION, buf.write)
 
         try:
             c.perform()
