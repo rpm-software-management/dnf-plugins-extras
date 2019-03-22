@@ -221,33 +221,33 @@ def find_boots(message_id):
 
 def list_logs():
     print(_('The following boots appear to contain upgrade logs:'))
-    n = -1
-    for n, entry in enumerate(find_boots(ID_TO_IDENTIFY_BOOTS)):
+    log_number = -1
+    for log_number, entry in enumerate(find_boots(ID_TO_IDENTIFY_BOOTS)):
         print('{} / {.hex}: {:%Y-%m-%d %H:%M:%S}'.format(
-            n + 1,
+            log_number + 1,
             entry['_BOOT_ID'],
             entry['__REALTIME_TIMESTAMP']))
-    if n == -1:
+    if log_number == -1:
         print(_('-- no logs were found --'))
 
 
-def pick_boot(message_id, n):
+def pick_boot(message_id, log_number):
     boots = list(find_boots(message_id))
     # Positive indices index all found boots starting with 1 and going forward,
     # zero is the current boot, and -1, -2, -3 are previous going backwards.
     # This is the same as journalctl.
     try:
-        if n == 0:
+        if log_number == 0:
             raise IndexError
-        elif n > 0:
-            n -= 1
-        return boots[n]['_BOOT_ID']
+        if log_number > 0:
+            log_number -= 1
+        return boots[log_number]['_BOOT_ID']
     except IndexError:
         raise CliError(_("Cannot find logs with this index."))
 
 
-def show_log(n):
-    boot_id = pick_boot(ID_TO_IDENTIFY_BOOTS, n)
+def show_log(log_number):
+    boot_id = pick_boot(ID_TO_IDENTIFY_BOOTS, log_number)
     process = Popen(['journalctl', '--boot', boot_id.hex])
     process.wait()
     if process.returncode != 0:
