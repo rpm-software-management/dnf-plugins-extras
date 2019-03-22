@@ -50,12 +50,13 @@ def create_file(path, content):
 
 class RpmconfPluginStub(object):
 
-    def __init__(self, prefix, pkgname, conf_file):
+    def __init__(self, pkgname, conf_file):
         self.packages = [pkgname]
-        self.frontend = None
-        self.diff = None
-        self._interactive = True
         self._conf_file = conf_file
+        self.diff = None
+        self.frontend = None
+        self._interactive = True
+        self._patches = []
 
     def __enter__(self):
         self._patches = [
@@ -99,8 +100,7 @@ class TestRpmConf(unittest.TestCase):
             '{0}.rpmsave'.format(self.conf_file[0]),
             b'package = bad\ntrue = true\n')
 
-        self.rpmconf_plugin = RpmconfPluginStub(self.prefix,
-                                                self.pkgname,
+        self.rpmconf_plugin = RpmconfPluginStub(self.pkgname,
                                                 self.conf_file[0])
         self.addCleanup(rmtree, self.prefix)
 
@@ -141,7 +141,7 @@ class TestRpmConf(unittest.TestCase):
             if os.environ.get("MERGE"):
                 del os.environ["MERGE"]
             try:
-                rpmconf.frontent = 'env'
+                rpmconf.frontend = 'env'
                 rpmconf.run()
             except SystemExit as e:
                 if e.code in (errno.ENOENT, errno.EINTR):
