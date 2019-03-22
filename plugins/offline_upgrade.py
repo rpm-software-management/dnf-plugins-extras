@@ -237,8 +237,7 @@ def show_log(n):
     boot_id = pick_boot(ID_TO_IDENTIFY_BOOTS, n)
     process = Popen(['journalctl', '--boot', boot_id.hex])
     process.wait()
-    rc = process.returncode
-    if rc == 1:
+    if process.returncode != 0:
         raise dnf.exceptions.Error(_("Unable to match systemd journal entry"))
 
 
