@@ -38,6 +38,8 @@ class TorProxy(dnf.Plugin):
     def __init__(self, base, cli):
         super(TorProxy, self).__init__(base, cli)
         self.base = base
+        self._host = '127.0.0.1'
+        self._port = '9050'
 
     def _check_tor_working(self):
 
@@ -73,13 +75,9 @@ class TorProxy(dnf.Plugin):
 
         if conf.has_section("torproxy") and conf.has_option("torproxy", "port"):
             self._port = conf.get("torproxy", "port")
-        else:
-            self._port = '9050'
 
         if conf.has_section("torproxy") and conf.has_option("torproxy", "host"):
             self._host = conf.get("torproxy", "host")
-        else:
-            self._host = '127.0.0.1'
 
         if self._check_tor_working():
             for name, repo in self.base.repos.items():
