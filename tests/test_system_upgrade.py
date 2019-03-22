@@ -378,7 +378,7 @@ class DownloadCommandTestCase(CommandTestCase):
 
     def test_transaction_download(self):
         pkg = mock.MagicMock()
-        repo = pkg = mock.MagicMock()
+        repo = mock.MagicMock()
         repo.id = 'test'
         pkg.name = "kernel"
         pkg.repo = repo
