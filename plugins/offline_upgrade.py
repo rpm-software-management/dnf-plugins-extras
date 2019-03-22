@@ -195,6 +195,7 @@ class PlymouthOutput(object):
     def progress(self, percent):
         return self._plymouth("system-update", "--progress", str(percent))
 
+
 # A single PlymouthOutput instance for us to use within this module
 Plymouth = PlymouthOutput()
 
