@@ -172,7 +172,7 @@ class PlymouthOutput(object):
 
     def __init__(self):
         self.alive = True
-        self._last_args = dict()
+        self._last_args = {}
         self._last_msg = None
 
     def _plymouth(self, cmd, *args):
