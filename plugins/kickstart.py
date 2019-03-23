@@ -86,10 +86,9 @@ class KickstartCommand(dnf.cli.Command):
             self.base.read_comps()
         try:
             self.base.install_grouplist(group_names)
+            are_groups_installed = True
         except dnf.exceptions.Error:
             are_groups_installed = False
-        else:
-            are_groups_installed = True
 
         are_packages_installed = False
         for pattern in packages.packageList:
