@@ -100,7 +100,7 @@ def disable_blanking():
         tty = open('/dev/tty0', 'wb')
         tty.write(b'\33[9;0]')
     except Exception as e:
-        print("Screen blanking can't be disabled: %s" % e)
+        print(_("Screen blanking can't be disabled: %s") % e)
 
 # --- State object - for tracking upgrade state between runs ------------------
 
