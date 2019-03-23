@@ -72,11 +72,12 @@ class TorProxy(dnf.Plugin):
         if not conf.has_section('main') or not conf.getboolean("main", "enabled"):
             return
 
-        if conf.has_section("torproxy") and conf.has_option("torproxy", "port"):
-            self._port = conf.get("torproxy", "port")
+        if conf.has_section("torproxy"):
+            if conf.has_option("torproxy", "port"):
+                self._port = conf.get("torproxy", "port")
 
-        if conf.has_section("torproxy") and conf.has_option("torproxy", "host"):
-            self._host = conf.get("torproxy", "host")
+            if conf.has_option("torproxy", "host"):
+                self._host = conf.get("torproxy", "host")
 
         if self._check_tor_working():
             for name, repo in self.base.repos.items():
