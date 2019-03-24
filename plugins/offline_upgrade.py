@@ -163,8 +163,12 @@ class State(object):
 
 
 class PlymouthOutput(object):
-    """A plymouth output helper class that filters duplicate calls, and stops
-    calling the plymouth binary if we fail to contact it."""
+    """A plymouth output helper class.
+
+    Filters duplicate calls, and stops calling the plymouth binary if we
+    fail to contact it.
+    """
+
     def __init__(self):
         self.alive = True
         self._last_args = dict()
