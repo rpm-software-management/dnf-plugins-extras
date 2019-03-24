@@ -73,7 +73,7 @@ def disable_screen_blanking():
         tty = open(TTY_NAME, 'wb')
         tty.write(b'\33[9;0]')
     except Exception as e:  # pylint: disable=broad-except
-        print("Screen blanking can't be disabled: %s" % e)
+        print(_("Screen blanking can't be disabled: %s") % e)
 
 
 def complete_version_str():
@@ -213,7 +213,7 @@ class PlymouthTransactionProgress(dnf.callback.TransactionProgress):
     @staticmethod
     def _fmt_event(package, action, current, total):
         action = dnf.transaction.ACTIONS.get(action, action)
-        return "[{0:d}/{1:d}] {2} {3}...".format(
+        return "[{0:d}/{1:d}] {2} {3}...".format(  # pylint: disable=W9903
             current, total, action, package)
 
 # --- journal helpers -------------------------------------------------
@@ -241,7 +241,7 @@ def list_logs():
     print(_('The following boots appear to contain upgrade logs:'))
     log_number = -1
     for log_number, entry in enumerate(find_boots(ID_TO_IDENTIFY_BOOTS)):
-        print('{} / {.hex}: {:%c}'.format(
+        print('{} / {.hex}: {:%c}'.format(  # pylint: disable=W9903
             log_number + 1,
             entry['_BOOT_ID'],
             entry['__REALTIME_TIMESTAMP']))
