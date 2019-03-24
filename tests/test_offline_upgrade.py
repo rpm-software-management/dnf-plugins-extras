@@ -180,7 +180,7 @@ class PlymouthTransactionProgressTestCase(unittest.TestCase):
     def test_display(self, call):
         for action in self.actions:
             self.display.progress(self.pkg, action, 0, 100, 1, 1000)
-            msg = self.display._fmt_event(self.pkg, action, 1, 1000)
+            msg = self.display._fmt_event(self.pkg, action, 1, 1000)  # noqa: SF01
             # updating plymouth display means two plymouth calls
             call.assert_has_calls([
                 mock.call((PLYMOUTH, "system-update", "--progress", "0")),
@@ -191,7 +191,7 @@ class PlymouthTransactionProgressTestCase(unittest.TestCase):
         action = PKG_INSTALL
         # first display update -> set percentage and text
         self.display.progress(self.pkg, action, 0, 100, 1, 1000)
-        msg1 = self.display._fmt_event(self.pkg, action, 1, 1000)
+        msg1 = self.display._fmt_event(self.pkg, action, 1, 1000)  # noqa: SF01
         call.assert_has_calls([
             mock.call((PLYMOUTH, "system-update", "--progress", "0")),
             mock.call((PLYMOUTH, "display-message", "--text", msg1)),
@@ -209,7 +209,7 @@ class PlymouthTransactionProgressTestCase(unittest.TestCase):
         # new item: new message ("[2/1000] ..."), but percentage still 0..
         self.display.progress(self.pkg, action, 0, 100, 2, 1000)
         # old message hidden, new message displayed. no new percentage.
-        msg2 = self.display._fmt_event(self.pkg, action, 2, 1000)
+        msg2 = self.display._fmt_event(self.pkg, action, 2, 1000)  # noqa: SF01
         call.assert_has_calls([
             mock.call((PLYMOUTH, "system-update", "--progress", "0")),
             mock.call((PLYMOUTH, "display-message", "--text", msg1)),
