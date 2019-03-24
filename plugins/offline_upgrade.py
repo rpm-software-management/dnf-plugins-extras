@@ -139,7 +139,7 @@ class State(object):
             self.write()
 
     # helper function for creating properties. pylint: disable=protected-access
-    def _prop(option):  # pylint: disable=no-self-argument
+    def _prop(option):  # pylint: disable=no-self-argument; # noqa: N805
         def setprop(self, value):
             self._data[option] = value
 
