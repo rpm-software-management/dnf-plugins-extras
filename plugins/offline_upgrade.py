@@ -350,7 +350,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         self.base.conf.gpgcheck = self.state.gpgcheck
         self.base.conf.best = self.state.best
         if self.state.exclude is None:
-            self.state.exclude = []
+            with self.state as state:
+                state.exclude = []
         self.base.conf.exclude = libdnf.conf.VectorString(self.state.exclude)
         self.base.conf.install_weak_deps = self.state.install_weak_deps
         self.base.conf.module_platform_id = self.state.module_platform_id
