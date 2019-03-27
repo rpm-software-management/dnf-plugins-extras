@@ -130,18 +130,17 @@ class State(object):
             return self._data.get(option)
         return property(getprop, setprop)
 
-    download_status = _prop("download_status")
-    destdir = _prop("destdir")
-    gpgcheck = _prop("gpgcheck")
-    upgrade_status = _prop("upgrade_status")
-    distro_sync = _prop("distro_sync")
     allow_erasing = _prop("allow_erasing")
-    enable_disable_repos = _prop("enable_disable_repos")
     best = _prop("best")
+    distro_sync = _prop("distro_sync")
+    download_status = _prop("download_status")
+    repos_ed = _prop("repos_ed")
     exclude = _prop("exclude")
+    gpgcheck = _prop("gpgcheck")
     install_packages = _prop("install_packages")
     install_weak_deps = _prop("install_weak_deps")
     module_platform_id = _prop("module_platform_id")
+    upgrade_status = _prop("upgrade_status")
 
 # --- Plymouth output helpers -------------------------------------------------
 
@@ -327,8 +326,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
 
     def pre_configure_upgrade(self):
         self._set_cachedir()
-        if self.state.enable_disable_repos:
-            self.opts.repos_ed = self.state.enable_disable_repos
+        if self.state.repos_ed:
+            self.opts.repos_ed = self.state.repos_ed
 
     # == configure_*: set up action-specific demands ==========================
 
@@ -501,7 +500,7 @@ class OfflineUpgradeCommand(dnf.cli.Command):
             state.install_packages = install_packages
             state.install_weak_deps = self.base.conf.install_weak_deps
             state.module_platform_id = self.base.conf.module_platform_id
-            state.enable_disable_repos = self.opts.repos_ed
+            state.repos_ed = self.opts.repos_ed
             state.destdir = self.base.conf.destdir
         logger.info(DOWNLOAD_FINISHED_MSG)
         self.log_status(_("Download finished."),
