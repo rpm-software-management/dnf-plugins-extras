@@ -238,7 +238,7 @@ def list_logs():
     print(_('The following boots appear to contain upgrade logs:'))
     log_number = -1
     for log_number, entry in enumerate(find_boots(ID_TO_IDENTIFY_BOOTS)):
-        print('{} / {.hex}: {:%Y-%m-%d %H:%M:%S}'.format(
+        print('{} / {.hex}: {:%c}'.format(
             log_number + 1,
             entry['_BOOT_ID'],
             entry['__REALTIME_TIMESTAMP']))
