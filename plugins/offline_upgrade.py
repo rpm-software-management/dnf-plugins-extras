@@ -78,6 +78,14 @@ def complete_version_str():
     return "{} {}".format(DNFVERSION, OFFLINE_UPGRADE_PLUGIN_VERSION)
 
 
+def log_status(message, message_id):
+    """Log directly to the journal."""
+    journal.send(message,
+                 MESSAGE_ID=message_id,
+                 PRIORITY=journal.LOG_NOTICE,
+                 DNF_VERSION=dnf.const.VERSION)
+
+
 # --- State object - for tracking upgrade state between runs ------------------
 
 
@@ -292,13 +300,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
                             metavar="[%s]" % "|".join(CMDS))
         parser.add_argument('--number', type=int, help=_('which logs to show'))
 
-    def log_status(self, message, message_id):
-        "Log directly to the journal"
-        journal.send(message,
-                     MESSAGE_ID=message_id,
-                     PRIORITY=journal.LOG_NOTICE,
-                     DNF_VERSION=dnf.const.VERSION)
-
     def check_state_versioning(self):
         if self.state.versioning is None:
             with self.state as state:
@@ -418,8 +419,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.upgrade_status = 'ready'
 
-        self.log_status(_("Rebooting to perform upgrade."),
-                        REBOOT_REQUESTED_ID)
+        log_status(_("Rebooting to perform upgrade."),
+                   REBOOT_REQUESTED_ID)
         reboot()
 
     def run_download(self):
@@ -438,8 +439,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.upgrade_status = 'incomplete'
 
-        self.log_status(_("Starting offline upgrade. This will take a while."),
-                        UPGRADE_STARTED_ID)
+        log_status(_("Starting offline upgrade. This will take a while."),
+                   UPGRADE_STARTED_ID)
 
         # reset the splash mode and let the user know we're running
         Plymouth.set_mode("updates")
@@ -502,15 +503,15 @@ class OfflineUpgradeCommand(dnf.cli.Command):
             state.module_platform_id = self.base.conf.module_platform_id
             state.repos_ed = self.opts.repos_ed
         logger.info(DOWNLOAD_FINISHED_MSG)
-        self.log_status(_("Download finished."),
-                        DOWNLOAD_FINISHED_ID)
+        log_status(_("Download finished."),
+                   DOWNLOAD_FINISHED_ID)
 
     def transaction_upgrade(self):
         with self.state as state:
             state.upgrade_status = 'complete'
         Plymouth.message(_("Upgrade complete!"))
-        self.log_status(_("Upgrade complete!"),
-                        UPGRADE_FINISHED_ID)
+        log_status(_("Upgrade complete!"),
+                   UPGRADE_FINISHED_ID)
         Plymouth.message(_("Press Ctrl-Alt-Del to reboot if it does not reboot."))
         Plymouth.message(_("Rebooting..."))
         logger.info(_("Rebooting..."))
