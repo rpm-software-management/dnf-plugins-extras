@@ -48,6 +48,7 @@ UPGRADE_FINISHED_ID = uuid.UUID('963fa099b0324b61a82179e4e2f3b71b')
 ID_TO_IDENTIFY_BOOTS = UPGRADE_STARTED_ID
 
 DNFVERSION = StrictVersion(dnf.const.VERSION)
+OFFLINE_UPGRADE_PLUGIN_VERSION = "4.0.4"
 
 # To be able to test
 TTY_NAME = '/dev/tty0'
@@ -71,6 +72,11 @@ def disable_screen_blanking():
         tty.write(b'\33[9;0]')
     except Exception as e:
         print("Screen blanking can't be disabled: %s" % e)
+
+
+def complete_version_str():
+    return "{} {}".format(DNFVERSION, OFFLINE_UPGRADE_PLUGIN_VERSION)
+
 
 # --- State object - for tracking upgrade state between runs ------------------
 
@@ -140,6 +146,7 @@ class State(object):
     install_packages = _prop("install_packages")
     install_weak_deps = _prop("install_weak_deps")
     module_platform_id = _prop("module_platform_id")
+    versioning = _prop("versioning")
     upgrade_status = _prop("upgrade_status")
 
 # --- Plymouth output helpers -------------------------------------------------
@@ -292,6 +299,15 @@ class OfflineUpgradeCommand(dnf.cli.Command):
                      PRIORITY=journal.LOG_NOTICE,
                      DNF_VERSION=dnf.const.VERSION)
 
+    def check_state_versioning(self):
+        if self.state.versioning is None:
+            with self.state as state:
+                state.versioning = complete_version_str()
+        elif self.state.versioning != complete_version_str():
+            self.state.clear()
+            raise CliError(_("State file version mismatch, ")
+                           + _("run 'dnf offline-upgrade download' again"))
+
     def pre_configure(self):
         self._call_sub("pre_configure")
 
@@ -314,7 +330,11 @@ class OfflineUpgradeCommand(dnf.cli.Command):
     def pre_configure_download(self):
         self.state.clear()
 
+    def pre_configure_reboot(self):
+        self.check_state_versioning()
+
     def pre_configure_upgrade(self):
+        self.check_state_versioning()
         if self.state.repos_ed:
             self.opts.repos_ed = self.state.repos_ed
 
