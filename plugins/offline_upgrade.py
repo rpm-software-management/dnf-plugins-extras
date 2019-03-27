@@ -411,15 +411,12 @@ class OfflineUpgradeCommand(dnf.cli.Command):
 
     # == run_*: run the action/prep the transaction ===========================
 
-    def run_prepare(self):
+    def run_reboot(self):
         # make the magic symlink
         os.symlink(self.base.conf.cachedir, MAGIC_SYMLINK)
         # set upgrade_status so that the upgrade can run
         with self.state as state:
             state.upgrade_status = 'ready'
-
-    def run_reboot(self):
-        self.run_prepare()
 
         self.log_status(_("Rebooting to perform upgrade."),
                         REBOOT_REQUESTED_ID)
