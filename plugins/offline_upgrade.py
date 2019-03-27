@@ -49,6 +49,9 @@ ID_TO_IDENTIFY_BOOTS = UPGRADE_STARTED_ID
 
 DNFVERSION = StrictVersion(dnf.const.VERSION)
 
+# To be able to test
+TTY_NAME = '/dev/tty0'
+
 PLYMOUTH = '/usr/bin/plymouth'
 MAGIC_SYMLINK = '/system-update'
 
@@ -62,9 +65,9 @@ def reboot():
     Popen(["systemctl", "reboot"])
 
 
-def disable_blanking():
+def disable_screen_blanking():
     try:
-        tty = open('/dev/tty0', 'wb')
+        tty = open(TTY_NAME, 'wb')
         tty.write(b'\33[9;0]')
     except Exception as e:
         print("Screen blanking can't be disabled: %s" % e)
@@ -434,8 +437,7 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         Plymouth.progress(0)
         Plymouth.message(_("Starting offline upgrade. This will take a while."))
 
-        # disable screen blanking
-        disable_blanking()
+        disable_screen_blanking()
 
         # NOTE: We *assume* that depsolving here will yield the same
         # transaction as it did during the download, but we aren't doing
