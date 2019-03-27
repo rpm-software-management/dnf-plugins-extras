@@ -310,22 +310,11 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         if callable(subfunc):
             subfunc()
 
-    def _set_cachedir(self):
-        # set download directories from json state file
-        self.base.conf.destdir = self.state.destdir if self.state.destdir else None
-
     # == pre_configure_*: set up action-specific demands ==========================
     def pre_configure_download(self):
         self.state.clear()
 
-        # only download subcommand accepts --destdir command line option
-        self.base.conf.destdir = self.opts.destdir if self.opts.destdir else None
-
-    def pre_configure_reboot(self):
-        self._set_cachedir()
-
     def pre_configure_upgrade(self):
-        self._set_cachedir()
         if self.state.repos_ed:
             self.opts.repos_ed = self.state.repos_ed
 
@@ -375,10 +364,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         pass
 
     # == check_*: do any action-specific checks ===============================
-
-    def check_download(self):
-        if self.base.conf.destdir:
-            dnf.util.ensure_dir(self.base.conf.destdir)
 
     def check_reboot(self):
         if self.state.upgrade_status == 'complete':
@@ -431,7 +416,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.download_status = 'downloading'
             state.exclude = list(self.base.conf.exclude)
-            state.destdir = self.base.conf.destdir
 
     def run_upgrade(self):
         # change the upgrade status (so we can detect crashed upgrades later)
@@ -501,7 +485,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
             state.install_weak_deps = self.base.conf.install_weak_deps
             state.module_platform_id = self.base.conf.module_platform_id
             state.repos_ed = self.opts.repos_ed
-            state.destdir = self.base.conf.destdir
         logger.info(DOWNLOAD_FINISHED_MSG)
         self.log_status(_("Download finished."),
                         DOWNLOAD_FINISHED_ID)
