@@ -80,29 +80,39 @@ class State(object):
     statefile = '/var/lib/dnf/offline-upgrade.json'
 
     def __init__(self):
-        self._data = {}
-        self._read()
+        if not os.path.exists(self.statefile):
+            self._data = {}
+            return
 
-    def _read(self):
         try:
-            with open(self.statefile) as fp:
-                self._data = json.load(fp)
-        except IOError:
-            self._data = {}
-        except ValueError:
-            self._data = {}
-            logger.warning(_("Failed loading state file: %s, continuing with "
-                             "empty state.") % self.statefile)
+            with open(self.statefile) as file_p:
+                self._data = json.load(file_p)
+            if isinstance(self._data, dict):
+                return
+        except (IOError, ValueError):
+            pass
+
+        self._data = {}
+        logger.warning(_("Failed loading state file: %s, continuing with "
+                         "empty state."), self.statefile)
 
     def write(self):
-        dnf.util.ensure_dir(os.path.dirname(self.statefile))
-        with open(self.statefile, 'w') as outf:
-            json.dump(self._data, outf)
+        try:
+            dnf.util.ensure_dir(os.path.dirname(self.statefile))
+            with open(self.statefile, 'w') as outf:
+                json.dump(self._data, outf)
+        except Exception as e:  # pylint: disable=broad-except
+            logger.critical(_("State file '%s' write error: %s"), self.statefile, e)
+            raise SystemExit(-1)
 
     def clear(self):
-        if os.path.exists(self.statefile):
-            os.unlink(self.statefile)
-        self._read()
+        try:
+            if os.path.exists(self.statefile):
+                os.unlink(self.statefile)
+        except Exception as e:  # pylint: disable=broad-except
+            logger.critical(_("State file '%s' unlink error: %s"), self.statefile, e)
+            raise SystemExit(-1)
+        self.__init__()
 
     def __enter__(self):
         return self
