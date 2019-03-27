@@ -360,9 +360,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         self.base.conf.assumeyes = True
         self.cli.demands.transaction_display = PlymouthTransactionProgress()
 
-    def configure_log(self):
-        pass
-
     # == check_*: do any action-specific checks ===============================
 
     def check_reboot(self):
@@ -398,9 +395,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
 
     def run_reboot(self):
         self.run_prepare()
-
-        if not self.opts.tid[0] == "reboot":
-            return
 
         self.log_status(_("Rebooting to perform upgrade."),
                         REBOOT_REQUESTED_ID)
@@ -496,10 +490,6 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         self.log_status(_("Upgrade complete!"),
                         UPGRADE_FINISHED_ID)
         Plymouth.message(_("Press Ctrl-Alt-Del to reboot if it does not reboot."))
-        if self.opts.tid[0] == "upgrade":
-            Plymouth.message(_("Rebooting..."))
-            logger.info(_("Rebooting..."))
-            reboot()
-        else:
-            Plymouth.message(_("No action after upgrade."))
-            logger.info(_("No action after upgrade."))
+        Plymouth.message(_("Rebooting..."))
+        logger.info(_("Rebooting..."))
+        reboot()
