@@ -23,7 +23,6 @@ import dnf
 import dnf.cli.option_parser
 import logging
 import sys
-import unittest
 
 PY3 = False
 if sys.version_info.major >= 3:
@@ -170,11 +169,3 @@ class CliStub(object):
 
 class DemandsStub(object):
     pass
-
-
-class TestCase(unittest.TestCase):
-    def assertEmpty(self, collection):
-        return self.assertEqual(len(collection), 0)
-
-    if not PY3:
-        assertCountEqual = unittest.TestCase.assertItemsEqual
