@@ -316,8 +316,8 @@ class OfflineUpgradeCommand(dnf.cli.Command):
                 state.versioning = complete_version_str()
         elif self.state.versioning != complete_version_str():
             self.state.clear()
-            raise CliError(_("State file version mismatch, ")
-                           + _("run 'dnf offline-upgrade download' again"))
+            raise CliError(_("State file version mismatch, ") +
+                           _("run 'dnf offline-upgrade download' again"))
 
     def pre_configure(self):
         self._call_sub("pre_configure")
@@ -396,15 +396,15 @@ class OfflineUpgradeCommand(dnf.cli.Command):
 
     def check_reboot(self):
         if self.state.upgrade_status == 'complete':
-            raise CliError(_("system is already upgraded, ")
-                           + _("run 'dnf offline-upgrade download' again"))
+            raise CliError(_("system is already upgraded, ") +
+                           _("run 'dnf offline-upgrade download' again"))
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
         if os.path.lexists(MAGIC_SYMLINK):
             raise CliError(_("upgrade is already scheduled"))
         if not os.path.isdir(self.base.conf.cachedir):
-            raise CliError(_("package cache directory missing, ")
-                           + _("run 'dnf offline-upgrade download' again"))
+            raise CliError(_("package cache directory missing, ") +
+                           _("run 'dnf offline-upgrade download' again"))
         # FUTURE: checkRPMDBStatus(self.state.download_transaction_id)
 
     def check_upgrade(self):
