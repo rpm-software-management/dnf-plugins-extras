@@ -5,6 +5,9 @@
 # Because of hypothesis limits possibilities
 # pylint: disable=no-self-argument,no-value-for-parameter
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 import argparse
 import collections
 import gettext
@@ -31,6 +34,7 @@ from dnfpluginsextras import logger
 
 import offline_upgrade
 from offline_upgrade import CliError, PLYMOUTH
+from tests import support
 from tests.support import mock
 
 patch = mock.patch
@@ -433,7 +437,7 @@ class DownloadCommandTestCase(CommandTestCaseBase):
     # - command is: download
     # - opt distro_sync is True
     def setUp(self):
-        super().setUp()
+        super(DownloadCommandTestCase, self).setUp()
         self.cli.demands.allow_erasing = True
         self.command.opts.tid = ["download"]
         self.command.opts.distro_sync = None
@@ -535,7 +539,7 @@ class RebootCommandTestCase(CommandTestCaseBase):
     # - command is: reboot
     # - by default state contains some meaninful values
     def setUp(self):
-        super().setUp()
+        super(RebootCommandTestCase, self).setUp()
         self.command.opts.tid = ["reboot"]
         with self.command.state as state:
             state.allow_erasing = False
@@ -639,7 +643,7 @@ class RebootCommandTestCase(CommandTestCaseBase):
 
 class UpgradeCommandTestCase(CommandTestCaseBase):
     def setUp(self):
-        super().setUp()
+        super(UpgradeCommandTestCase, self).setUp()
         self.command.opts.tid = ["upgrade"]
 
     # This is needed because hypothesis does run setUp/tearDown only
@@ -830,7 +834,7 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
 
 class LogCommandTestCase(CommandTestCaseBase):
     def setUp(self):
-        super().setUp()
+        super(LogCommandTestCase, self).setUp()
         self.command.opts.tid = ["log"]
 
     def test_configure(self):
@@ -857,6 +861,7 @@ class LogCommandTestCase(CommandTestCaseBase):
         with patch('offline_upgrade.journal.Reader'):
             self.assertFalse(list(offline_upgrade.find_boots(offline_upgrade.ID_TO_IDENTIFY_BOOTS)))
 
+    @unittest.skipUnless(support.PY3, "test_list_logs not compat with Py2")
     def test_list_logs(self):
         stdout_stream_h = logging.StreamHandler(sys.stdout)
         logger.addHandler(stdout_stream_h)
@@ -930,7 +935,10 @@ class PluginTestCase(unittest.TestCase):
     def test_plugin_nocli(self):  # pylint: disable=no-self-use
         base = mock.MagicMock()
         cli = mock.MagicMock()
-        cli.__bool__.return_value = False
+        if support.PY3:
+            cli.__bool__.return_value = False
+        else:
+            cli.__nonzero__.return_value = False
 
         offline_upgrade.OfflineUpgradePlugin(base, cli)
         cli.register_command.assert_not_called()
