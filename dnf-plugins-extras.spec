@@ -347,6 +347,7 @@ $releasever and $basearch.
 
 %prep
 %autosetup
+sed -ri 's/^(OFFLINE_UPGRADE_PLUGIN_VERSION) *=.*/\1 = "%{version}-%{release}"/' plugins/offline_upgrade.py
 %if %{with python2}
 mkdir python2
 %endif
