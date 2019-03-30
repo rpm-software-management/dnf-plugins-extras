@@ -28,6 +28,7 @@ BuildRequires:  gettext
 # py2
 BuildRequires:  python2-devel
 BuildRequires:  python2-dnf >= %{dnf_lowest_compatible}
+BuildRequires:  python2-hypothesis
 BuildRequires:  python2-nose
 BuildRequires:  python2-sphinx
 %endif
@@ -35,6 +36,7 @@ BuildRequires:  python2-sphinx
 # py3
 BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
+BuildRequires:  python3-hypothesis
 BuildRequires:  python3-nose
 BuildRequires:  python3-sphinx
 %endif
