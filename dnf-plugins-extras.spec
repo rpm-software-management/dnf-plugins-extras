@@ -26,8 +26,10 @@ BuildRequires:  cmake
 BuildRequires:  gettext
 %if %{with python2}
 # py2
+BuildRequires:  python2-backports-unittest_mock
 BuildRequires:  python2-devel
 BuildRequires:  python2-dnf >= %{dnf_lowest_compatible}
+BuildRequires:  python2-mock
 BuildRequires:  python2-nose
 BuildRequires:  python2-sphinx
 %endif

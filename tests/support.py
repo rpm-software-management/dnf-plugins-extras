@@ -28,10 +28,11 @@ PY3 = False
 if sys.version_info.major >= 3:
     PY3 = True
 
-if PY3:
-    from unittest import mock
-else:
-    from . import mock
+if not PY3:
+    import backports.unittest_mock
+    backports.unittest_mock.install()
+from unittest import mock  # noqa: F401
+
 
 def command_configure(cmd, args):
     parser = dnf.cli.option_parser.OptionParser()
