@@ -155,6 +155,10 @@ class State(object):
     target_releasever = _prop("target_releasever")
     system_releasever = _prop("system_releasever")
     gpgcheck = _prop("gpgcheck")
+    # list of repos with gpgcheck=True
+    gpgcheck_repos = _prop("gpgcheck_repos")
+    # list of repos with repo_gpgcheck=True
+    repo_gpgcheck_repos = _prop("repo_gpgcheck_repos")
     upgrade_status = _prop("upgrade_status")
     distro_sync = _prop("distro_sync")
     allow_erasing = _prop("allow_erasing")
@@ -402,6 +406,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
         self.base.conf.gpgcheck = self.state.gpgcheck
+        for repo in self.base.repos.values():
+            repo.gpgcheck = repo.id in self.state.gpgcheck_repos
+            repo.repo_gpgcheck = repo.id in self.state.repo_gpgcheck_repos
         self.base.conf.best = self.state.best
         if self.state.exclude is None:
             self.state.exclude = []
@@ -557,6 +564,10 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.distro_sync = self.opts.distro_sync
             state.allow_erasing = self.cli.demands.allow_erasing
             state.gpgcheck = self.base.conf.gpgcheck
+            state.gpgcheck_repos = [
+                repo.id for repo in self.base.repos.values() if repo.gpgcheck]
+            state.repo_gpgcheck_repos = [
+                repo.id for repo in self.base.repos.values() if repo.repo_gpgcheck]
             state.best = self.base.conf.best
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
