@@ -1,13 +1,14 @@
 # Tommy He <lovenemesis@fedoraproject.org>, 2015. #zanata
 # mosquito <sensor.wen@gmail.com>, 2016. #zanata
 # cheng ye <18969068329@163.com>, 2017. #zanata
+# Jerry Lee <lchopn@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 10:36+0100\n"
-"PO-Revision-Date: 2017-07-24 07:36+0000\n"
-"Last-Translator: cheng ye <18969068329@163.com>\n"
+"POT-Creation-Date: 2019-06-05 10:59+0200\n"
+"PO-Revision-Date: 2019-05-02 09:49+0000\n"
+"Last-Translator: Jerry Lee <lchopn@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -17,115 +18,122 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:41
+#: ../plugins/system_upgrade.py:43
 msgid "the color of the sky"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:57
+#: ../plugins/system_upgrade.py:59
 msgid "Need a --releasever greater than the current system version."
 msgstr "--releasever 需要大于当前系统版本。"
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"下载完成！使用 'dnf system-upgrade reboot' 来开始升级。\n"
+"要删除已缓存的元数据和事务，请使用 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:62
+#: ../plugins/system_upgrade.py:64
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "很抱歉，您需要使用 'download --releasever' 代替 '--network' 选项"
 
-#: ../plugins/system_upgrade.py:122
+#: ../plugins/system_upgrade.py:103
+#, python-format
+msgid "Screen blanking can't be disabled: %s"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:124
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:243
+#: ../plugins/system_upgrade.py:253
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "以下引导信息包含升级日志："
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:263
 msgid "-- no logs were found --"
 msgstr "-- 未发现日志 --"
 
-#: ../plugins/system_upgrade.py:268
+#: ../plugins/system_upgrade.py:278
 msgid "Cannot find logs with this index."
 msgstr "无法找到此索引日志。"
 
-#: ../plugins/system_upgrade.py:277
+#: ../plugins/system_upgrade.py:287
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:296
+#: ../plugins/system_upgrade.py:306
 msgid "Prepare system for upgrade to a new release"
 msgstr "为升级至新发布版本准备系统"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:316
 msgid "keep installed packages if the new release's version is older"
 msgstr "如果新发行版的包较旧，则保持已安装软件包"
 
-#: ../plugins/system_upgrade.py:310
+#: ../plugins/system_upgrade.py:320
 msgid "which logs to show"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:366
+#: ../plugins/system_upgrade.py:376
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:370
+#: ../plugins/system_upgrade.py:380
 msgid "Operation aborted."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:440
 msgid "system is not ready for upgrade"
 msgstr "系统并未准备好升级"
 
-#: ../plugins/system_upgrade.py:429
+#: ../plugins/system_upgrade.py:442
 msgid "upgrade is already scheduled"
 msgstr "已计划升级"
 
-#: ../plugins/system_upgrade.py:435
+#: ../plugins/system_upgrade.py:448
 msgid "trigger file does not exist. exiting quietly."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:438
+#: ../plugins/system_upgrade.py:451
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "另一个升级工具正在运行。默默退出。"
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:444
+#: ../plugins/system_upgrade.py:457
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "使用 'dnf system-upgrade reboot' 来开始升级"
 
-#: ../plugins/system_upgrade.py:461
+#: ../plugins/system_upgrade.py:474
 msgid "Rebooting to perform upgrade."
 msgstr "重新启动进行升级。"
 
-#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
 msgid "Starting system upgrade. This will take a while."
 msgstr "正在开始系统升级。这需要一些时间。"
 
-#: ../plugins/system_upgrade.py:515
+#: ../plugins/system_upgrade.py:528
 #, python-format
 msgid "Unable to match package: %s"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:520
+#: ../plugins/system_upgrade.py:533
 msgid "Unable to match some of packages"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:523
+#: ../plugins/system_upgrade.py:536
 msgid "Cleaning up downloaded data..."
 msgstr "正在清理已下载的数据…"
 
-#: ../plugins/system_upgrade.py:563
+#: ../plugins/system_upgrade.py:580
 msgid "Download finished."
 msgstr "下载完成。"
 
-#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
+#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "升级完成。正在清理并重启…"
 
@@ -147,19 +155,19 @@ msgstr "请访问https://github.com/FrostyX/tracer/issues 并提交此错误。�
 msgid "We apologize for any inconvenience"
 msgstr "为给您带来的不便感到抱歉"
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "正在添加 '{}' 至需要 rpmconf 处理的软件包列表"
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "rpmconf 插件不在非交互模式下运行"
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "由于缺失MERGE 变量， 忽略rpmconf 的sys.exit"
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "由于缺失文件， 忽略rpmconf 的sys.exit"
 
@@ -213,12 +221,12 @@ msgstr "Kickstart 文件"
 msgid "file cannot be parsed: %s"
 msgstr "文件不能被解析： %s"
 
-#: ../plugins/kickstart.py:99
+#: ../plugins/kickstart.py:98
 #, python-format
 msgid "No package %s available."
 msgstr "无可用软件包 %s。"
 
-#: ../plugins/kickstart.py:104
+#: ../plugins/kickstart.py:103
 msgid "Nothing to do."
 msgstr "无需任何处理。"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 10:36+0100\n"
+"POT-Creation-Date: 2019-06-05 10:59+0200\n"
 "PO-Revision-Date: 2019-02-03 10:28+0000\n"
 "Last-Translator: Marko Kostic <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian\n"
@@ -15,16 +15,16 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:41
+#: ../plugins/system_upgrade.py:43
 msgid "the color of the sky"
 msgstr "боја неба"
 
-#: ../plugins/system_upgrade.py:57
+#: ../plugins/system_upgrade.py:59
 msgid "Need a --releasever greater than the current system version."
 msgstr "Потребан ми је --releasever већи од тренутног издања система."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -32,49 +32,54 @@ msgstr ""
 "Преузимање је готово! Унесите „dnf system-upgrade reboot“ да бисте започели надоградњу система.\n"
 "Да бисте уклонили кеширане метаподатке и трансакцију, унесите „dnf system-upgrade clean“"
 
-#: ../plugins/system_upgrade.py:62
+#: ../plugins/system_upgrade.py:64
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Нажалост, морате користити „download --releasever“ уместо параметра "
 "„--network“"
 
-#: ../plugins/system_upgrade.py:122
+#: ../plugins/system_upgrade.py:103
+#, python-format
+msgid "Screen blanking can't be disabled: %s"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:124
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 "Неуспех при учитавању датотеке стања: %s, настављам са празним стањем."
 
-#: ../plugins/system_upgrade.py:243
+#: ../plugins/system_upgrade.py:253
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Делује да следећа подизања система садрже записнике о надограђивању:"
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:263
 msgid "-- no logs were found --"
 msgstr "-- нема нађених записника --"
 
-#: ../plugins/system_upgrade.py:268
+#: ../plugins/system_upgrade.py:278
 msgid "Cannot find logs with this index."
 msgstr "Не могу наћи записнике са овим индексом."
 
-#: ../plugins/system_upgrade.py:277
+#: ../plugins/system_upgrade.py:287
 msgid "Unable to match systemd journal entry"
 msgstr "Не могу да нађем подударање у журналу за наведени унос"
 
-#: ../plugins/system_upgrade.py:296
+#: ../plugins/system_upgrade.py:306
 msgid "Prepare system for upgrade to a new release"
 msgstr "Припрема система за надоградњу на ново издање"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:316
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "задржи инсталиране пакете ако је издање пакета старије у новом издању "
 "система"
 
-#: ../plugins/system_upgrade.py:310
+#: ../plugins/system_upgrade.py:320
 msgid "which logs to show"
 msgstr "које записнике приказати"
 
-#: ../plugins/system_upgrade.py:366
+#: ../plugins/system_upgrade.py:376
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -83,58 +88,58 @@ msgstr ""
 "тако што ћете извршити наредбу „dnf --refresh upgrade“. Да ли желите да "
 "наставите"
 
-#: ../plugins/system_upgrade.py:370
+#: ../plugins/system_upgrade.py:380
 msgid "Operation aborted."
 msgstr "Радња је отказана."
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:440
 msgid "system is not ready for upgrade"
 msgstr "систем није спреман за надоградњу"
 
-#: ../plugins/system_upgrade.py:429
+#: ../plugins/system_upgrade.py:442
 msgid "upgrade is already scheduled"
 msgstr "надоградња је већ заказана"
 
-#: ../plugins/system_upgrade.py:435
+#: ../plugins/system_upgrade.py:448
 msgid "trigger file does not exist. exiting quietly."
 msgstr "окидачка датотека не постоји. излазим тихо."
 
-#: ../plugins/system_upgrade.py:438
+#: ../plugins/system_upgrade.py:451
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "друга алатка за надограђивање већ ради. излазим тихо."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:444
+#: ../plugins/system_upgrade.py:457
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr ""
 "унесите „dnf system-upgrade reboot“ да започнете надограђивање система"
 
-#: ../plugins/system_upgrade.py:461
+#: ../plugins/system_upgrade.py:474
 msgid "Rebooting to perform upgrade."
 msgstr "Поново покрећем систем за извршавање надоградње."
 
-#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
 msgid "Starting system upgrade. This will take a while."
 msgstr "Започињем надоградњу система. Ово ће потрајати."
 
-#: ../plugins/system_upgrade.py:515
+#: ../plugins/system_upgrade.py:528
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Не могу да нађем подударање за пакет: %s"
 
-#: ../plugins/system_upgrade.py:520
+#: ../plugins/system_upgrade.py:533
 msgid "Unable to match some of packages"
 msgstr "Не могу да нађем подударања за неке од пакета"
 
-#: ../plugins/system_upgrade.py:523
+#: ../plugins/system_upgrade.py:536
 msgid "Cleaning up downloaded data..."
 msgstr "Чистим преузете податке..."
 
-#: ../plugins/system_upgrade.py:563
+#: ../plugins/system_upgrade.py:580
 msgid "Download finished."
 msgstr "Преузимање је завршено."
 
-#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
+#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Надограђивање је обављено! Чистим и поново покрећем систем..."
 
@@ -158,20 +163,20 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Извињавамо се због било каквих непријатности"
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr "Додајем '{}' на списак пакета за управљање за rpmconf"
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "rpmconf прикључак неће радити у неинтерактивном режиму"
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr ""
 "занемарујем sys.exit из rpmconf-a због тога што недостаје MERGE променљива"
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "занемарујем sys.exit из rpmconf-а зато што недостаје датотека"
 
@@ -227,12 +232,12 @@ msgstr "кикстарт датотека"
 msgid "file cannot be parsed: %s"
 msgstr "не могу обрадити датотеку: %s"
 
-#: ../plugins/kickstart.py:99
+#: ../plugins/kickstart.py:98
 #, python-format
 msgid "No package %s available."
 msgstr "Пакет „%s“ није доступан."
 
-#: ../plugins/kickstart.py:104
+#: ../plugins/kickstart.py:103
 msgid "Nothing to do."
 msgstr "Нема посла."
 

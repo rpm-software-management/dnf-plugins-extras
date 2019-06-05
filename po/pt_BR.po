@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 10:36+0100\n"
+"POT-Creation-Date: 2019-06-05 10:59+0200\n"
 "PO-Revision-Date: 2018-10-14 11:12+0000\n"
 "Last-Translator: Luiz Fernando Pereira <luizfernandopereira@outlook.com.br>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:41
+#: ../plugins/system_upgrade.py:43
 msgid "the color of the sky"
 msgstr "a cor do céu"
 
-#: ../plugins/system_upgrade.py:57
+#: ../plugins/system_upgrade.py:59
 msgid "Need a --releasever greater than the current system version."
 msgstr "Necessita de um --releasever maior que o da versão do sistema atual."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -35,46 +35,51 @@ msgstr ""
 "Download completo! Use 'dnf system-upgrade reboot' para iniciar a atualização.\n"
 "Para remover os metadados e a transação em cache use 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:62
+#: ../plugins/system_upgrade.py:64
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Desculpe, você precisa utilizar 'download --releasever' ao invés de '--"
 "network'"
 
-#: ../plugins/system_upgrade.py:122
+#: ../plugins/system_upgrade.py:103
+#, python-format
+msgid "Screen blanking can't be disabled: %s"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:124
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:243
+#: ../plugins/system_upgrade.py:253
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "As seguintes inicializações parecem conter registros de atualizações:"
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:263
 msgid "-- no logs were found --"
 msgstr "-- nenhum registro encontrado --"
 
-#: ../plugins/system_upgrade.py:268
+#: ../plugins/system_upgrade.py:278
 msgid "Cannot find logs with this index."
 msgstr "Não foi possível encontrar registros com este índice."
 
-#: ../plugins/system_upgrade.py:277
+#: ../plugins/system_upgrade.py:287
 msgid "Unable to match systemd journal entry"
 msgstr "Não é possível corresponder à entrada no diário do systemd"
 
-#: ../plugins/system_upgrade.py:296
+#: ../plugins/system_upgrade.py:306
 msgid "Prepare system for upgrade to a new release"
 msgstr "Preparar o sistema para atualizar para uma nova versão"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:316
 msgid "keep installed packages if the new release's version is older"
 msgstr "manter os pacotes instalados se os da nova versão forem mais antigos"
 
-#: ../plugins/system_upgrade.py:310
+#: ../plugins/system_upgrade.py:320
 msgid "which logs to show"
 msgstr "quais logs exibir"
 
-#: ../plugins/system_upgrade.py:366
+#: ../plugins/system_upgrade.py:376
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -82,57 +87,57 @@ msgstr ""
 "Antes de continuar certifique-se que o seu sistema está totalmente "
 "atualizado rodando \"dnf --refresh upgrade\". Você quer continuar"
 
-#: ../plugins/system_upgrade.py:370
+#: ../plugins/system_upgrade.py:380
 msgid "Operation aborted."
 msgstr "Operação abortada."
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:440
 msgid "system is not ready for upgrade"
 msgstr "o sistema não está pronto para uma atualização"
 
-#: ../plugins/system_upgrade.py:429
+#: ../plugins/system_upgrade.py:442
 msgid "upgrade is already scheduled"
 msgstr "a atualização já está agendada"
 
-#: ../plugins/system_upgrade.py:435
+#: ../plugins/system_upgrade.py:448
 msgid "trigger file does not exist. exiting quietly."
 msgstr "O arquivo de gatilho não existe. Saindo silenciosamente."
 
-#: ../plugins/system_upgrade.py:438
+#: ../plugins/system_upgrade.py:451
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "outra ferramenta de atualização em execução. saindo silenciosamente."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:444
+#: ../plugins/system_upgrade.py:457
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "Utilize 'dnf system-upgrade reboot' para iniciar a atualização"
 
-#: ../plugins/system_upgrade.py:461
+#: ../plugins/system_upgrade.py:474
 msgid "Rebooting to perform upgrade."
 msgstr "Reiniciando para realizar a atualização."
 
-#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
 msgid "Starting system upgrade. This will take a while."
 msgstr "Iniciando a atualização do sistema. Isso vai levar algum tempo."
 
-#: ../plugins/system_upgrade.py:515
+#: ../plugins/system_upgrade.py:528
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Não foi possível corresponder o pacote: %s"
 
-#: ../plugins/system_upgrade.py:520
+#: ../plugins/system_upgrade.py:533
 msgid "Unable to match some of packages"
 msgstr "Não foi possível corresponder algum dos pacotes"
 
-#: ../plugins/system_upgrade.py:523
+#: ../plugins/system_upgrade.py:536
 msgid "Cleaning up downloaded data..."
 msgstr "Limpando os dados descarregados..."
 
-#: ../plugins/system_upgrade.py:563
+#: ../plugins/system_upgrade.py:580
 msgid "Download finished."
 msgstr "Download concluído."
 
-#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
+#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Atualização completa! Limpando e reiniciando..."
 
@@ -155,20 +160,20 @@ msgstr ""
 msgid "We apologize for any inconvenience"
 msgstr "Nos desculpamos por qualquer inconveniência"
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 "Adicionando '{}' para a lista de pacotes de manipulação para o rpmconf"
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr "O plugin rpmconf não será executado em modo não interativo"
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr "ignorando sys.exit de rpmconf devido a falta da variável MERGE"
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr "ignorando sys.exit de rpmconf devido a falta de arquivo"
 
@@ -223,12 +228,12 @@ msgstr "arquivo kickstart"
 msgid "file cannot be parsed: %s"
 msgstr "arquivo não pode ser analisado: %s"
 
-#: ../plugins/kickstart.py:99
+#: ../plugins/kickstart.py:98
 #, python-format
 msgid "No package %s available."
 msgstr "Nenhum pacote %s disponível."
 
-#: ../plugins/kickstart.py:104
+#: ../plugins/kickstart.py:103
 msgid "Nothing to do."
 msgstr "Nada a ser feito."
 

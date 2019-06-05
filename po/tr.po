@@ -1,11 +1,12 @@
 # Muhammet Kara <muhammet.k@gmail.com>, 2018. #zanata
+# Serdar Sağlam <teknomobil@msn.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 10:36+0100\n"
-"PO-Revision-Date: 2018-05-01 03:07+0000\n"
-"Last-Translator: Muhammet Kara <muhammet.k@gmail.com>\n"
+"POT-Creation-Date: 2019-06-05 10:59+0200\n"
+"PO-Revision-Date: 2019-05-12 07:35+0000\n"
+"Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -15,115 +16,122 @@ msgstr ""
 "X-Generator: Zanata 4.6.2\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:41
+#: ../plugins/system_upgrade.py:43
 msgid "the color of the sky"
-msgstr ""
+msgstr "gökyüzünün rengi"
 
-#: ../plugins/system_upgrade.py:57
+#: ../plugins/system_upgrade.py:59
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"İndirme tamamlandı! Yükseltmeye başlamak için 'dnf system-upgrade reboot' kullan.\n"
+"Önbelleğe alınmış üst verileri ve işlemi kaldırmak için 'dnf system-update clean' kullan"
 
-#: ../plugins/system_upgrade.py:62
+#: ../plugins/system_upgrade.py:64
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:122
+#: ../plugins/system_upgrade.py:103
+#, python-format
+msgid "Screen blanking can't be disabled: %s"
+msgstr "Ekran boşluğu devre dışı bırakılamıyor: %s"
+
+#: ../plugins/system_upgrade.py:124
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:243
-msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
-
 #: ../plugins/system_upgrade.py:253
+msgid "The following boots appear to contain upgrade logs:"
+msgstr "Aşağıdaki botlar yükseltme günlüklerini içeriyor gibi görünüyor:"
+
+#: ../plugins/system_upgrade.py:263
 msgid "-- no logs were found --"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:268
+#: ../plugins/system_upgrade.py:278
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Bu indeksli günlükler bulunamıyor."
 
-#: ../plugins/system_upgrade.py:277
+#: ../plugins/system_upgrade.py:287
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Systemd günlüğü girişi eşleşemiyor"
 
-#: ../plugins/system_upgrade.py:296
+#: ../plugins/system_upgrade.py:306
 msgid "Prepare system for upgrade to a new release"
 msgstr "Sistemi yeni bir sürüme yükseltmeye hazırla"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:316
 msgid "keep installed packages if the new release's version is older"
-msgstr ""
+msgstr "Yeni sürümün sürümü daha eskiyse yüklü paketleri sakla"
 
-#: ../plugins/system_upgrade.py:310
+#: ../plugins/system_upgrade.py:320
 msgid "which logs to show"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:366
+#: ../plugins/system_upgrade.py:376
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:370
+#: ../plugins/system_upgrade.py:380
 msgid "Operation aborted."
 msgstr "İşlem iptal edildi."
 
-#: ../plugins/system_upgrade.py:427
+#: ../plugins/system_upgrade.py:440
 msgid "system is not ready for upgrade"
 msgstr "sistem yükseltme için hazır değil"
 
-#: ../plugins/system_upgrade.py:429
+#: ../plugins/system_upgrade.py:442
 msgid "upgrade is already scheduled"
 msgstr "yükseltme zaten zamanlandı"
 
-#: ../plugins/system_upgrade.py:435
+#: ../plugins/system_upgrade.py:448
 msgid "trigger file does not exist. exiting quietly."
-msgstr ""
+msgstr "tetikleyici dosyası mevcut değil. sessizce çıkıyorum."
 
-#: ../plugins/system_upgrade.py:438
+#: ../plugins/system_upgrade.py:451
 msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
+msgstr "başka bir yükseltme aracı çalışıyor. sessizce çıkıyorum."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:444
+#: ../plugins/system_upgrade.py:457
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "yükseltmeye başlamak için 'dnf system-upgrade reboot' kullan"
 
-#: ../plugins/system_upgrade.py:461
+#: ../plugins/system_upgrade.py:474
 msgid "Rebooting to perform upgrade."
 msgstr "Yükseltmeyi gerçekleştirmek için yeniden başlatılıyor."
 
-#: ../plugins/system_upgrade.py:483 ../plugins/system_upgrade.py:489
+#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
 msgid "Starting system upgrade. This will take a while."
 msgstr "Sistem yükseltme başlatılıyor. Bu biraz zaman alacak."
 
-#: ../plugins/system_upgrade.py:515
+#: ../plugins/system_upgrade.py:528
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Paket eşleştirilemedi: %s"
 
-#: ../plugins/system_upgrade.py:520
+#: ../plugins/system_upgrade.py:533
 msgid "Unable to match some of packages"
 msgstr "Bazı paketler eşleştirilemedi"
 
-#: ../plugins/system_upgrade.py:523
+#: ../plugins/system_upgrade.py:536
 msgid "Cleaning up downloaded data..."
 msgstr "İndirme verileri temizleniyor..."
 
-#: ../plugins/system_upgrade.py:563
+#: ../plugins/system_upgrade.py:580
 msgid "Download finished."
 msgstr "İndirme tamamlandı."
 
-#: ../plugins/system_upgrade.py:567 ../plugins/system_upgrade.py:568
+#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Yükseltme tamamlandı! Temizlik yapılıyor ve yeniden başlatılıyor..."
 
@@ -133,38 +141,40 @@ msgstr "Daha fazla bilgi için şunu çalıştırın:"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "Tracer API'sine yapılan çağrı beklenmedik bir şekilde sona erdi:"
 
 #: ../plugins/tracer.py:99
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Lütfen https://github.com/FrostyX/tracer/issues adresini ziyaret edin ve "
+"sorunu gönderin. Teşekkürler"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
-msgstr ""
+msgstr "Verdiğimiz rahatsızlıktan dolayı özür dileriz"
 
-#: ../plugins/rpm_conf.py:67
+#: ../plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:73
+#: ../plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:86
+#: ../plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr ""
 
-#: ../plugins/rpm_conf.py:90
+#: ../plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
 msgstr ""
 
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr ""
+msgstr "snapperd'a bağlanılamadı: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
@@ -200,26 +210,26 @@ msgstr ""
 
 #: ../plugins/kickstart.py:59
 msgid "Install packages defined in a kickstart file on your system"
-msgstr ""
+msgstr "Sisteminizde kickstart dosyasında tanımlanan paketleri kurun"
 
 #: ../plugins/kickstart.py:64
 msgid "kickstart file"
-msgstr ""
+msgstr "kickstart dosyası"
 
 #: ../plugins/kickstart.py:82
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr ""
+msgstr "dosya ayrıştırılamıyor: %s"
 
-#: ../plugins/kickstart.py:99
+#: ../plugins/kickstart.py:98
 #, python-format
 msgid "No package %s available."
-msgstr ""
+msgstr "%s paketi yok."
 
-#: ../plugins/kickstart.py:104
+#: ../plugins/kickstart.py:103
 msgid "Nothing to do."
 msgstr "Yapılacak hiçbir şey yok."
 
 #: ../plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "Torproxy eklentisini devre dışı bırak: Tor ağına bağlanılamıyor"
