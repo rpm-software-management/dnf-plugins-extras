@@ -154,6 +154,10 @@ class State(object):
     repos_ed = _prop("repos_ed")
     exclude = _prop("exclude")
     gpgcheck = _prop("gpgcheck")
+    # list of repos with gpgcheck=True
+    gpgcheck_repos = _prop("gpgcheck_repos")
+    # list of repos with repo_gpgcheck=True
+    repo_gpgcheck_repos = _prop("repo_gpgcheck_repos")
     install_packages = _prop("install_packages")
     install_weak_deps = _prop("install_weak_deps")
     module_platform_id = _prop("module_platform_id")
@@ -379,6 +383,9 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
         self.base.conf.gpgcheck = self.state.gpgcheck
+        for repo in self.base.repos.values():
+            repo.gpgcheck = repo.id in self.state.gpgcheck_repos
+            repo.repo_gpgcheck = repo.id in self.state.repo_gpgcheck_repos
         self.base.conf.best = self.state.best
         if self.state.exclude is None:
             with self.state as state:
@@ -507,6 +514,10 @@ class OfflineUpgradeCommand(dnf.cli.Command):
             state.distro_sync = self.opts.distro_sync
             state.allow_erasing = self.cli.demands.allow_erasing
             state.gpgcheck = self.base.conf.gpgcheck
+            state.gpgcheck_repos = [
+                repo.id for repo in self.base.repos.values() if repo.gpgcheck]
+            state.repo_gpgcheck_repos = [
+                repo.id for repo in self.base.repos.values() if repo.repo_gpgcheck]
             state.best = self.base.conf.best
             state.install_packages = install_packages
             state.install_weak_deps = self.base.conf.install_weak_deps
