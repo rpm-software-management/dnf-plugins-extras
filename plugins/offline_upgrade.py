@@ -315,10 +315,7 @@ class OfflineUpgradeCommand(dnf.cli.Command):
         parser.add_argument('--number', type=int, help=_('which logs to show'))
 
     def check_state_versioning(self):
-        if self.state.versioning is None:
-            with self.state as state:
-                state.versioning = complete_version_str()
-        elif self.state.versioning != complete_version_str():
+        if self.state.versioning is None or self.state.versioning != complete_version_str():
             self.state.clear()
             raise CliError(_("State file version mismatch, ") +
                            _("run 'dnf offline-upgrade download' again"))
