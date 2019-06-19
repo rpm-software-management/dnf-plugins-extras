@@ -534,14 +534,10 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
+        self.state.clear()
         clear_dir(self.base.conf.cachedir)
         if self.base.conf.destdir:
             clear_dir(self.base.conf.destdir)
-        with self.state as state:
-            state.download_status = None
-            state.upgrade_status = None
-            state.destdir = None
-            state.install_packages = {}
 
     def run_log(self):
         if self.opts.number:
