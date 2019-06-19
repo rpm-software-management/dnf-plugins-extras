@@ -44,6 +44,10 @@ def draw_distro_sync(draw):
     return draw(st.one_of(st.none(), st.booleans()))
 
 
+def draw_versioning(draw):
+    return draw(st.one_of(st.none(), st.just('aaa'), st.just('bbb')))
+
+
 def draw_repos_ed(draw):
     return draw(st.one_of(st.none(),
                           st.just(False),
@@ -471,6 +475,7 @@ class DownloadCommandTestCase(CommandTestCaseBase):
         return {
             'distro_sync': draw_distro_sync(draw),
             'repos_ed': draw_repos_ed(draw),
+            'versioning': draw_versioning(draw),
         }
 
     #
@@ -661,6 +666,8 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
             'module_platform_id': '',
             'repos_ed': [],
             'upgrade_status': None,
+            'versioning': "aaa",
+
         }
         if os.path.exists(self.statefile):
             os.unlink(self.statefile)
@@ -692,13 +699,20 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
             'exclude': draw_exclude(draw),
             'repos_ed': draw_repos_ed(draw),
             'upgrade_status': draw_upgrade_status(draw),
+            'versioning': draw_versioning(draw),
         }
 
     #
     def api_pre_configure(self, kwargs):
         self._args(kwargs)
-        with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
-            self.command.pre_configure()
+        with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK), \
+                patch('offline_upgrade.complete_version_str', return_value=kwargs['versioning']):
+            if kwargs['versioning'] == 'aaa':
+                self.command.pre_configure()
+            else:
+                kwargs['fail'] = True
+                with self.assertRaises(CliError):
+                    self.command.pre_configure()
         if self.command.opts.repos_ed or self.command.state.repos_ed:
             self.assertEqual(self.command.opts.repos_ed, self.command.state.repos_ed)
 
@@ -942,3 +956,13 @@ class PluginTestCase(unittest.TestCase):
 
         offline_upgrade.OfflineUpgradePlugin(base, cli)
         cli.register_command.assert_not_called()
+
+    def test_complete_version_str(self):
+        with patch('offline_upgrade.DNFVERSION', '1'), \
+                patch('offline_upgrade.OFFLINE_UPGRADE_PLUGIN_VERSION', '2'):
+            rv = offline_upgrade.complete_version_str()
+            self.assertEqual(rv, '1 2')
+
+    def test_complete_version_str_2(self):
+        rv = offline_upgrade.complete_version_str()
+        self.assertNotEqual(rv, ' ')
