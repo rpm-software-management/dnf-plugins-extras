@@ -4,6 +4,8 @@
 # pylint: disable=W9903
 # Because of hypothesis limits possibilities
 # pylint: disable=no-self-argument,no-value-for-parameter
+# Not splitting this for now
+# pylint: disable=too-many-lines
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
