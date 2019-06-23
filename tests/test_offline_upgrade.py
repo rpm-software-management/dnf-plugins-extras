@@ -39,19 +39,23 @@ from tests.support import mock
 patch = mock.patch
 
 
+def draw_allow_erasing(draw):
+    return draw(st.one_of(st.none(), st.booleans()))
+
+
+def draw_best(draw):
+    return draw(st.one_of(st.none(), st.booleans()))
+
+
 def draw_distro_sync(draw):
     return draw(st.one_of(st.none(), st.booleans()))
 
 
-def draw_versioning(draw):
-    return draw(st.one_of(st.none(), st.just('aaa'), st.just('bbb')))
-
-
-def draw_repos_ed(draw):
+def draw_download_status(draw):
     return draw(st.one_of(st.none(),
-                          st.just(False),
-                          st.just([]),
-                          st.just([['*', 'disable'], ['test', 'enable']])))
+                          st.just('complete'),
+                          st.just('downloading'),
+                          st.just('foo')))
 
 
 def draw_exclude(draw):
@@ -61,12 +65,47 @@ def draw_exclude(draw):
                                    min_size=1, max_size=10, unique=True)))
 
 
+def draw_gpgcheck(draw):
+    return draw(st.one_of(st.none(), st.booleans()))
+
+
+def draw_gpgcheck_repos(draw):
+    return draw(st.one_of(st.just([]),
+                          st.lists(st.sampled_from(['foo', 'test0', 'test1', 'test2', 'test3']),
+                                   min_size=0, unique=True)))
+
+
+def draw_install_weak_deps(draw):
+    return draw(st.one_of(st.none(), st.booleans()))
+
+
+def draw_module_platform_id(draw):
+    return draw(st.text())
+
+
+def draw_repos_ed(draw):
+    return draw(st.one_of(st.none(),
+                          st.just(False),
+                          st.just([]),
+                          st.just([['*', 'disable'], ['test', 'enable']])))
+
+
+def draw_repo_gpgcheck_repos(draw):
+    return draw_gpgcheck_repos(draw)
+
+
 def draw_upgrade_status(draw):
     return draw(st.one_of(st.none(),
                           st.just('ready'),
                           st.just('incomplete'),
                           st.just('complete'),
                           st.text()))
+
+
+def draw_versioning(draw):
+    return draw(st.one_of(st.none(),
+                          st.just('aaa'),
+                          st.just('bbb')))
 
 
 def make_repos():
@@ -423,6 +462,33 @@ class CommandTestCaseBase(unittest.TestCase):
         self.TTY_NAME = os.path.join(self.statedir, "tty")
         self.MAGIC_SYMLINK = os.path.join(self.statedir, "symlink")
 
+    # This is needed because hypothesis does run setUp/tearDown only
+    # once per test method
+    def _init(self):
+        self.default_state = {}  # pylint: disable=attribute-defined-outside-init
+        self.cli.demands.allow_erasing = None
+        self.command.opts.distro_sync = None
+        self.command.opts.repos_ed = None
+        self.command.base.conf.best = None
+        self.command.base.conf.exclude = []
+        self.command.base.conf.gpgcheck = None
+        self.command.base.conf.install_weak_deps = None
+        self.command.base.conf.module_platform_id = None
+        self.command.base.conf.tsflags = []
+        if os.path.lexists(self.MAGIC_SYMLINK):
+            os.unlink(self.MAGIC_SYMLINK)
+        self.command.base.repos = make_repos()
+
+    # Generic version to call 'draw_<one of keys>(draw)'
+    def gen_args(draw, keys):  # noqa: N805
+        d = {}
+        g = globals().copy()
+        for k in keys:
+            n = 'draw_{0}'.format(k)
+            if n in g:
+                d[k] = g[n](draw)
+        return d
+
     def _state(self, kwargs):
         with self.command.state as state:
             for k in kwargs:
@@ -480,28 +546,22 @@ class DownloadCommandTestCase(CommandTestCaseBase):
     # - opt distro_sync is True
     def setUp(self):
         super(DownloadCommandTestCase, self).setUp()
-        self.cli.demands.allow_erasing = True
         self.command.opts.tid = ["download"]
-        self.command.opts.distro_sync = None
-        self.command.opts.repos_ed = None
-        self.command.base.conf.best = True
-        self.command.base.conf.exclude = []
-        self.command.base.conf.gpgcheck = False
-        self.command.base.conf.install_weak_deps = True
-        self.command.base.conf.module_platform_id = ''
-        self.command.base.conf.tsflags = []
-        self.command.base.repos = make_repos()
 
+    def _init(self):
+        super(DownloadCommandTestCase, self)._init()
+        if os.path.exists(self.statefile):
+            os.unlink(self.statefile)
+        with self.command.state as state:
+            for k in self.default_state:
+                setattr(state, k, self.default_state[k])
         pkg = MockPackage("kernel", self.command.base.repos['test0'])
         self.cli.base.transaction.install_set = [pkg]
 
     @st.composite
     def _gen_args(draw):  # noqa: N805
-        return {
-            'distro_sync': draw_distro_sync(draw),
-            'repos_ed': draw_repos_ed(draw),
-            'versioning': draw_versioning(draw),
-        }
+        keys = ('distro_sync', 'repos_ed', 'versioning')
+        return CommandTestCaseBase.gen_args(draw, keys)
 
     #
     def api_pre_configure(self, kwargs):
@@ -535,25 +595,30 @@ class DownloadCommandTestCase(CommandTestCaseBase):
     @unittest.skip("Covered with test_all")
     @ht.given(kwargs=_gen_args())
     def test_pre_configure(self, kwargs):
+        self._init()
         self.api_pre_configure(kwargs)
 
     @unittest.skip("Covered with test_all")
     @ht.given(kwargs=_gen_args())
     def test_configure(self, kwargs):
+        self._init()
         self.api_configure(kwargs)
 
     @unittest.skip("Covered with test_all")
     @ht.given(kwargs=_gen_args())
     def test_run(self, kwargs):
+        self._init()
         self.api_run(kwargs)
 
     @unittest.skip("Covered with test_all")
     @ht.given(kwargs=_gen_args())
     def test_run_transaction(self, kwargs):
+        self._init()
         self.api_run_transaction(kwargs)
 
     @ht.given(kwargs=_gen_args())
     def test_all(self, kwargs):
+        self._init()
         self.api_pre_configure(kwargs)
         if 'fail' not in kwargs:
             self.api_configure(kwargs)
@@ -564,6 +629,15 @@ class DownloadCommandTestCase(CommandTestCaseBase):
 
 
 class RebootCommandTestCase(CommandTestCaseBase):
+
+    keys_to_generate = (
+        'download_status',
+        'gpgcheck_repos',
+        'repo_gpgcheck_repos',
+        'upgrade_status',
+        'versioning',
+    )
+
     # This is mostly integration testing
     #
     # Only public command api calls are tested, marked as api_*
@@ -574,31 +648,52 @@ class RebootCommandTestCase(CommandTestCaseBase):
     def setUp(self):
         super(RebootCommandTestCase, self).setUp()
         self.command.opts.tid = ["reboot"]
+
+    def _init(self):
+        super(RebootCommandTestCase, self)._init()
+        if os.path.exists(self.statefile):
+            os.unlink(self.statefile)
         with self.command.state as state:
-            state.allow_erasing = False
-            state.best = False
-            state.distro_sync = True
-            state.download_status = 'complete'
-            state.repos_ed = []
-            state.exclude = []
-            state.gpgcheck = False
-            # There really is something but go without for now
-            state.install_packages = None
-            state.install_weak_deps = False
+            for k in self.default_state:
+                setattr(state, k, self.default_state[k])
+            for k in RebootCommandTestCase.keys_to_generate:
+                setattr(state, k, None)
+
+    @st.composite
+    def _gen_args(draw):  # noqa: N805
+        return CommandTestCaseBase.gen_args(draw, RebootCommandTestCase.keys_to_generate)
 
     #
-    def api_pre_configure(self):
-        self.command.pre_configure()
+    def api_pre_configure(self, kwargs):
+        self._state(kwargs)
+        with patch('offline_upgrade.complete_version_str', return_value='aaa'):
+            if kwargs['versioning'] == 'aaa':
+                self.command.pre_configure()
+            else:
+                kwargs['fail'] = True
+                with self.assertRaises(CliError):
+                    self.command.pre_configure()
 
-    def api_configure(self, lexists=False):
+    def api_configure(self, kwargs, lexists=False):
+        self._state(kwargs)
         self.cli.demands.root_user = None
         with patch('offline_upgrade.os.path.lexists') as lexists_func:
             lexists_func.return_value = lexists
-            self.command.configure()
+            if kwargs['download_status'] == 'complete' and kwargs['upgrade_status'] != 'complete':
+                self.command.configure()
+            else:
+                kwargs['fail'] = True
+                with self.assertRaises(CliError):
+                    self.command.configure()
+
+        if 'fail' in kwargs:
+            return
+
         self.assertTrue(self.cli.demands.root_user)
         self.assertTrue(os.path.isdir(self.command.base.conf.cachedir))
 
-    def api_run(self):
+    def api_run(self, kwargs):
+        self._state(kwargs)
         self.cli.demands.root_user = True
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK) as symlink, \
                 patch('offline_upgrade.Popen') as popen_mock, \
@@ -619,119 +714,113 @@ class RebootCommandTestCase(CommandTestCaseBase):
         # This might be overkill
         self.assertTrue(popen_mock.called_once_with(mock.call(["systemctl", "reboot"])))
 
-    def api_run_transaction(self):
+    def api_run_transaction(self, kwargs):
+        self._state(kwargs)
         self.command.run_transaction()
 
     #
     @unittest.skip("Covered with test_all")
-    def test_pre_configure(self):
-        self.api_pre_configure()
-
-    def test_pre_configure_ver(self):
-        with self.command.state as state:
-            state.versioning = "foo"
-        with self.assertRaises(CliError):
-            self.api_pre_configure()
-        self.assertFalse(os.path.exists(self.statefile))
+    @ht.given(kwargs=_gen_args())
+    def test_pre_configure(self, kwargs):
+        self._init()
+        self.api_pre_configure(kwargs)
 
     #
     @unittest.skip("Covered with test_all")
-    def test_configure(self):
-        self.api_configure()
+    @ht.given(kwargs=_gen_args())
+    def test_configure(self, kwargs):
+        self._init()
+        self.api_configure(kwargs)
 
-    def test_configure_wo_dir(self):
+    @ht.given(kwargs=_gen_args())
+    def test_configure_wo_dir(self, kwargs):
+        if kwargs['upgrade_status'] == 'complete' or kwargs['download_status'] != 'complete':
+            return
+        self._init()
         self.command.base.conf.cachedir = os.path.join(self.statedir, "wo_dir")
         with self.assertRaises(CliError):
-            self.api_configure()
+            self.api_configure(kwargs)
 
-    def test_configure_no_download_yet(self):
-        with self.command.state as state:
-            state.download_status = None
+    @ht.given(kwargs=_gen_args())
+    def test_configure_link_exists(self, kwargs):
+        if kwargs['upgrade_status'] == 'complete' or kwargs['download_status'] != 'complete':
+            return
+        self._init()
         with self.assertRaises(CliError):
-            self.api_configure()
-
-    def test_configure_link_exists(self):
-        with self.assertRaises(CliError):
-            self.api_configure(lexists=True)
-
-    def test_configure_already_upgraded(self):
-        with self.command.state as state:
-            state.upgrade_status = 'complete'
-        with self.assertRaises(CliError):
-            self.api_configure()
+            self.api_configure(kwargs, lexists=True)
 
     #
     @unittest.skip("Covered with test_all")
-    def test_run(self):
-        self.api_run()
+    @ht.given(kwargs=_gen_args())
+    def test_run(self, kwargs):
+        self._init()
+        self.api_run(kwargs)
 
     #
     @unittest.skip("Covered with test_all")
-    def test_run_transaction(self):
-        self.api_run_transaction()
+    @ht.given(kwargs=_gen_args())
+    def test_run_transaction(self, kwargs):
+        self._init()
+        self.api_run_transaction(kwargs)
 
-    def test_all(self):
-        self.api_pre_configure()
-        self.api_configure()
-        self.api_run()
-        self.api_run_transaction()
+    #
+    @ht.given(kwargs=_gen_args())
+    def test_all(self, kwargs):
+        self._init()
+        self.api_pre_configure(kwargs)
+        if 'fail' not in kwargs:
+            self.api_configure(kwargs)
+            if 'fail' not in kwargs:
+                self.api_run(kwargs)
+                if 'fail' not in kwargs:
+                    self.api_run_transaction(kwargs)
 
 
 class UpgradeCommandTestCase(CommandTestCaseBase):
+    keys_to_generate = (
+        'allow_erasing',
+        'best',
+        'distro_sync',
+        'download_status',
+        'exclude',
+        'gpgcheck',
+        'gpgcheck_repos',
+        'install_weak_deps',
+        'module_platform_id',
+        'repos_ed',
+        'repo_gpgcheck_repos',
+        'upgrade_status',
+        'versioning',
+    )
+
     def setUp(self):
         super(UpgradeCommandTestCase, self).setUp()
         self.command.opts.tid = ["upgrade"]
 
-    # This is needed because hypothesis does run setUp/tearDown only
-    # once per test method
     def _init(self):
-        self.default_state = {  # pylint: disable=attribute-defined-outside-init
-            'allow_erasing': False,
-            'best': False,
-            'distro_sync': True,
-            'download_status': None,
-            'exclude': None,
-            'gpgcheck': False,
-            'install_packages': {"test": ["kernel"]},
-            'install_weak_deps': False,
-            'module_platform_id': '',
-            'repos_ed': [],
-            'upgrade_status': None,
-            'versioning': "aaa",
-
-        }
+        super(UpgradeCommandTestCase, self)._init()
+        self.default_state.update({  # xpylint: disable=attribute-defined-outside-init
+            # There really is something but go without for now
+            'install_packages': {'test0': ["kernel"]},
+        })
         if os.path.exists(self.statefile):
             os.unlink(self.statefile)
         with self.command.state as state:
             for k in self.default_state:
                 setattr(state, k, self.default_state[k])
-        self.cli.demands.allow_erasing = None
-        self.command.opts.distro_sync = None
-        self.command.opts.repos_ed = None
-        self.command.base.conf.best = None
-        self.command.base.conf.exclude = None
-        self.command.base.conf.gpgcheck = None
-        self.command.base.conf.install_weak_deps = None
-        self.command.base.conf.module_platform_id = None
-        self.command.base.conf.tsflags = None
-        if os.path.lexists(self.MAGIC_SYMLINK):
-            os.unlink(self.MAGIC_SYMLINK)
+            for k in UpgradeCommandTestCase.keys_to_generate:
+                setattr(state, k, None)
         os.symlink(self.command.base.conf.cachedir, self.MAGIC_SYMLINK)
 
     @st.composite
     def _gen_args(draw):  # noqa: N805
-        return {
-            'exclude': draw_exclude(draw),
-            'repos_ed': draw_repos_ed(draw),
-            'upgrade_status': draw_upgrade_status(draw),
-            'versioning': draw_versioning(draw),
-        }
+        return CommandTestCaseBase.gen_args(draw, UpgradeCommandTestCase.keys_to_generate)
 
     #
     def api_pre_configure(self, kwargs):
         self._state(kwargs)
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK), \
-                patch('offline_upgrade.complete_version_str', return_value=kwargs['versioning']):
+                patch('offline_upgrade.complete_version_str', return_value='aaa'):
             if kwargs['versioning'] == 'aaa':
                 self.command.pre_configure()
             else:
