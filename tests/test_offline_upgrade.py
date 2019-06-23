@@ -9,7 +9,6 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import argparse
-import collections
 import gettext
 import io
 import logging
@@ -70,6 +69,19 @@ def draw_upgrade_status(draw):
                           st.text()))
 
 
+def make_repos():
+    prefix = 'test'
+    count = 0
+    repos = {}
+    for gpgcheck in (True, False):
+        for repo_gpgcheck in (True, False):
+            name = prefix + str(count)
+            count += 1
+            repo = MockRepo(name, gpgcheck, repo_gpgcheck)
+            repos[name] = repo
+    return repos
+
+
 class MockJournalReader:
     def add_match(self, *args, **kwargs):
         pass
@@ -101,6 +113,22 @@ class MockJournalReader:
                 '__REALTIME_TIMESTAMP': _convert_realtime(1553439309893999),
             },
         ])
+
+
+class MockRepo:  # pylint: disable=too-few-public-methods
+    def __init__(self, name, gpgcheck, repo_gpgcheck):
+        self.id = name
+        self.gpgcheck = gpgcheck
+        self.repo_gpgcheck = repo_gpgcheck
+
+
+class MockPackage:  # pylint: disable=too-few-public-methods
+    def __init__(self, name, repo):
+        self.name = name
+        self.repo = repo
+
+    def __str__(self):
+        return self.name
 
 
 @patch('offline_upgrade.call', return_value=0)
@@ -462,18 +490,9 @@ class DownloadCommandTestCase(CommandTestCaseBase):
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
         self.command.base.conf.tsflags = []
+        self.command.base.repos = make_repos()
 
-        class Package():  # pylint: disable=too-few-public-methods
-            def __init__(self, name, repo):
-                self.name = name
-                self.repo = repo
-
-            def __str__(self):
-                return self.name
-
-        repo = collections.namedtuple('Repo', ['id'])
-        repo.id = "test"
-        pkg = Package("kernel", repo)
+        pkg = MockPackage("kernel", self.command.base.repos['test0'])
         self.cli.base.transaction.install_set = [pkg]
 
     @st.composite
@@ -509,7 +528,7 @@ class DownloadCommandTestCase(CommandTestCaseBase):
         with patch('offline_upgrade.journal.send') as send_mock:
             self.command.run_transaction()
         self.assertEqual(self.command.state.download_status, 'complete')
-        self.assertEqual(self.command.state.install_packages, {"test": ["kernel"]})
+        self.assertEqual(self.command.state.install_packages, {"test0": ["kernel"]})
         self.assertEqual(send_mock.call_args[1]['MESSAGE_ID'], offline_upgrade.DOWNLOAD_FINISHED_ID)
 
     #
