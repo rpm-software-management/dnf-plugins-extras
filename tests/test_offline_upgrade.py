@@ -395,6 +395,12 @@ class CommandTestCaseBase(unittest.TestCase):
         self.TTY_NAME = os.path.join(self.statedir, "tty")
         self.MAGIC_SYMLINK = os.path.join(self.statedir, "symlink")
 
+    def _state(self, kwargs):
+        with self.command.state as state:
+            for k in kwargs:
+                self.default_state[k] = kwargs[k]
+                setattr(state, k, kwargs[k])
+
     def tearDown(self):
         shutil.rmtree(self.statedir)
         offline_upgrade.State.statefile = self.old_statefile
@@ -687,12 +693,6 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
             os.unlink(self.MAGIC_SYMLINK)
         os.symlink(self.command.base.conf.cachedir, self.MAGIC_SYMLINK)
 
-    def _args(self, kwargs):
-        with self.command.state as state:
-            for k in kwargs:
-                self.default_state[k] = kwargs[k]
-                setattr(state, k, kwargs[k])
-
     @st.composite
     def _gen_args(draw):  # noqa: N805
         return {
@@ -704,7 +704,7 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
 
     #
     def api_pre_configure(self, kwargs):
-        self._args(kwargs)
+        self._state(kwargs)
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK), \
                 patch('offline_upgrade.complete_version_str', return_value=kwargs['versioning']):
             if kwargs['versioning'] == 'aaa':
@@ -717,7 +717,7 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
             self.assertEqual(self.command.opts.repos_ed, self.command.state.repos_ed)
 
     def api_configure(self, kwargs):
-        self._args(kwargs)
+        self._state(kwargs)
 
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
             if kwargs['upgrade_status'] == 'ready':
@@ -753,7 +753,7 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
         self.assertFalse(os.path.lexists(self.MAGIC_SYMLINK))
 
     def api_run(self, kwargs, install_side_effect=None):
-        self._args(kwargs)
+        self._state(kwargs)
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK), \
                 patch('offline_upgrade.journal.send') as send_mock, \
                 patch('offline_upgrade.call', return_value=0):  # as call_mock:
@@ -770,7 +770,7 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
         #    call_mock.assert_any_call((PLYMOUTH, "change-mode", "--updates"))
 
     def api_run_transaction(self, kwargs):
-        self._args(kwargs)
+        self._state(kwargs)
         with patch('offline_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK), \
                 patch('offline_upgrade.journal.send') as send_mock, \
                 patch('offline_upgrade.Popen') as popen_mock, \
