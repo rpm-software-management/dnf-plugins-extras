@@ -401,6 +401,10 @@ class CommandTestCaseBase(unittest.TestCase):
                 self.default_state[k] = kwargs[k]
                 setattr(state, k, kwargs[k])
 
+    def _cmd_opts(self, kwargs):
+        for k in kwargs:
+            setattr(self.command.opts, k, kwargs[k])
+
     def tearDown(self):
         shutil.rmtree(self.statedir)
         offline_upgrade.State.statefile = self.old_statefile
@@ -472,10 +476,6 @@ class DownloadCommandTestCase(CommandTestCaseBase):
         pkg = Package("kernel", repo)
         self.cli.base.transaction.install_set = [pkg]
 
-    def _args(self, kwargs):
-        for k in kwargs:
-            setattr(self.command.opts, k, kwargs[k])
-
     @st.composite
     def _gen_args(draw):  # noqa: N805
         return {
@@ -486,11 +486,11 @@ class DownloadCommandTestCase(CommandTestCaseBase):
 
     #
     def api_pre_configure(self, kwargs):
-        self._args(kwargs)
+        self._cmd_opts(kwargs)
         self.command.pre_configure()
 
     def api_configure(self, kwargs):
-        self._args(kwargs)
+        self._cmd_opts(kwargs)
         self.command.configure()
         # This is kind of pointless
         self.assertTrue(self.cli.demands.root_user)
@@ -500,12 +500,12 @@ class DownloadCommandTestCase(CommandTestCaseBase):
         self.assertIn("test", self.command.base.conf.tsflags)
 
     def api_run(self, kwargs):
-        self._args(kwargs)
+        self._cmd_opts(kwargs)
         self.command.run()
         self.assertEqual(self.command.state.download_status, 'downloading')
 
     def api_run_transaction(self, kwargs):
-        self._args(kwargs)
+        self._cmd_opts(kwargs)
         with patch('offline_upgrade.journal.send') as send_mock:
             self.command.run_transaction()
         self.assertEqual(self.command.state.download_status, 'complete')
