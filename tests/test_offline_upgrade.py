@@ -402,6 +402,11 @@ class StateTestCase(unittest.TestCase):
         self.state.clear()
         self.assertIs(os.path.isfile(self.statefile), False)
 
+    def test_clear_missing(self):
+        self.state = self.StateClass()
+        self.state.clear()
+        self.assertIs(os.path.isfile(self.statefile), False)
+
     def test_clear_asdir(self):
         self.state = self.StateClass()
         with self.state:
