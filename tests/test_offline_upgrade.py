@@ -536,9 +536,12 @@ class DownloadCommandTestCase(CommandTestCaseBase):
     @ht.given(kwargs=_gen_args())
     def test_all(self, kwargs):
         self.api_pre_configure(kwargs)
-        self.api_configure(kwargs)
-        self.api_run(kwargs)
-        self.api_run_transaction(kwargs)
+        if 'fail' not in kwargs:
+            self.api_configure(kwargs)
+            if 'fail' not in kwargs:
+                self.api_run(kwargs)
+                if 'fail' not in kwargs:
+                    self.api_run_transaction(kwargs)
 
 
 class RebootCommandTestCase(CommandTestCaseBase):
@@ -583,6 +586,9 @@ class RebootCommandTestCase(CommandTestCaseBase):
                 patch('offline_upgrade.journal.send') as send_mock:
             popen_mock.return_value.returncode = 0
             self.command.run()
+
+        if 'fail' in kwargs:
+            return
 
         self.assertTrue(self.cli.demands.root_user)
         self.assertTrue(os.path.isdir(self.command.base.conf.cachedir))
@@ -841,9 +847,12 @@ class UpgradeCommandTestCase(CommandTestCaseBase):
     def test_all(self, kwargs):
         self._init()
         self.api_pre_configure(kwargs)
-        self.api_configure(kwargs)
-        self.api_run(kwargs)
-        self.api_run_transaction(kwargs)
+        if 'fail' not in kwargs:
+            self.api_configure(kwargs)
+            if 'fail' not in kwargs:
+                self.api_run(kwargs)
+                if 'fail' not in kwargs:
+                    self.api_run_transaction(kwargs)
 
 
 class LogCommandTestCase(CommandTestCaseBase):
