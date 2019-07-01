@@ -1,6 +1,6 @@
 # kickstart.py, supplies the 'kickstart' command.
 #
-# Copyright (C) 2013  Red Hat, Inc.
+# Copyright (C) 2013-2019  Red Hat, Inc.
 #
 # This copyrighted material is made available to anyone wishing to use,
 # modify, copy, or redistribute it subject to the terms and conditions of
@@ -24,6 +24,7 @@ import pykickstart.parser
 
 from dnfpluginsextras import _, logger
 import dnf.cli
+import libdnf
 
 
 def parse_kickstart_packages(path):
@@ -80,27 +81,33 @@ class KickstartCommand(dnf.cli.Command):
             packages = parse_kickstart_packages(path)
         except pykickstart.errors.KickstartError:
             raise dnf.exceptions.Error(_('file cannot be parsed: %s') % path)
-        group_names = [group.name for group in packages.groupList]
-
-        if group_names:
+        include_list = ["@{}".format(group.name) for group in packages.groupList]
+        exclude_list = ["@{}".format(group.name) for group in packages.excludedGroupList]
+        if include_list:
             self.base.read_comps()
+
+        # handle packages
+        for pkg_name in self.data.packages.excludedList:
+            exclude_list.append(pkg_name)
+
+        for pkg_name in self.data.packages.packageList:
+            include_list.append(pkg_name)
+
         try:
-            self.base.install_grouplist(group_names)
-            are_groups_installed = True
-        except dnf.exceptions.Error:
-            are_groups_installed = False
-
-        are_packages_installed = False
-        for pattern in packages.packageList:
-            try:
-                self.base.install(pattern)
-            except dnf.exceptions.MarkingError:
-                logger.info(_('No package %s available.'), pattern)
-            else:
-                are_packages_installed = True
-
-        if not are_groups_installed and not are_packages_installed:
-            raise dnf.exceptions.Error(_('Nothing to do.'))
+            self.base.install_specs(install=include_list, exclude=exclude_list)
+        except dnf.exceptions.MarkingErrors as e:
+            if self.base.conf.strict:
+                if e.no_match_group_specs or e.error_group_specs or e.no_match_pkg_specs or \
+                        e.error_pkg_specs:
+                    raise
+                if e.module_depsolv_errors and e.module_depsolv_errors[1] != \
+                        libdnf.module.ModulePackageContainer.ModuleErrorType_ERROR_IN_DEFAULTS:
+                    raise
+            logger.error(str(e))
+        except dnf.exceptions.Error as e:
+            if self.base.conf.strict:
+                raise
+            logger.error(str(e))
 
 
 class MaskableKickstartParser(pykickstart.parser.KickstartParser):
