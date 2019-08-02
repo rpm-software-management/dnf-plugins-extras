@@ -21,10 +21,11 @@
 
 from __future__ import unicode_literals
 from distutils.version import StrictVersion
-from subprocess import call, Popen
+from subprocess import call, Popen, check_output, CalledProcessError
 import json
 import os
 import os.path
+import re
 import uuid
 
 from systemd import journal
@@ -34,6 +35,7 @@ from dnfpluginsextras import _, logger
 import dnf
 import dnf.cli
 from dnf.cli import CliError
+from dnf.i18n import ucd
 import dnf.transaction
 
 import libdnf.conf
@@ -203,7 +205,14 @@ class PlymouthOutput(object):
         self._last_msg = msg
         return self._plymouth("display-message", "--text", msg)
 
-    def set_mode(self, mode):
+    def set_mode(self):
+        mode = 'updates'
+        try:
+            s = check_output([PLYMOUTH, '--help'])
+            if re.search('--system-upgrade', ucd(s)):
+                mode = 'system-upgrade'
+        except (CalledProcessError, OSError):
+            pass
         return self._plymouth("change-mode", "--" + mode)
 
     def progress(self, percent):
@@ -497,7 +506,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
                         UPGRADE_STARTED_ID)
 
         # reset the splash mode and let the user know we're running
-        Plymouth.set_mode("updates")
+        Plymouth.set_mode()
         Plymouth.progress(0)
         Plymouth.message(_("Starting system upgrade. This will take a while."))
 
