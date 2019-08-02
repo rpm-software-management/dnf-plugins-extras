@@ -40,11 +40,6 @@ class PlymouthTestCase(unittest.TestCase):
         self.assertEqual(call.call_count, 2)
         self.assertTrue(self.ply.alive)
 
-    def test_mode_no_plymouth(self, call):
-        call.side_effect = OSError(2, 'No such file or directory')
-        self.ply.set_mode("updates")
-        self.assertFalse(self.ply.alive)
-
     def test_message(self, call):
         self.ply.message(self.msg)
         call.assert_called_once_with(self.msg_args)
@@ -84,9 +79,22 @@ class PlymouthTestCase(unittest.TestCase):
         call.assert_called_once_with(
             (PLYMOUTH, "system-update", "--progress", str(27)))
 
-    def test_mode(self, call):
-        self.ply.set_mode("updates")
+    @patch('system_upgrade.check_output',
+           return_value="this plymouth does support --system-upgrade mode")
+    def test_mode(self, check_output, call):
+        self.ply.set_mode()
+        call.assert_called_once_with((PLYMOUTH, "change-mode", "--system-upgrade"))
+
+    @patch('system_upgrade.check_output',
+           return_value="this plymouth doesn't support system-upgrade mode")
+    def test_mode_no_system_upgrade_plymouth(self, check_output, call):
+        self.ply.set_mode()
         call.assert_called_once_with((PLYMOUTH, "change-mode", "--updates"))
+
+    def test_mode_no_plymouth(self, call):
+        call.side_effect = OSError(2, 'No such file or directory')
+        self.ply.set_mode()
+        self.assertFalse(self.ply.alive)
 
 
 @patch('system_upgrade.call', return_value=0)
