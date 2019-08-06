@@ -5,6 +5,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.5 Release Notes
+===================
+
+- [system-upgrade] Save gpgcheck and repo_gpgcheck repo options (RhBug:1693677)
+- Add showvars plugin for showing what DNF vars are set for the dnf runtime
+
+Bugs fixed in 4.0.5:
+
+* :rhbug:`1693677`
+
+===================
 4.0.4 Release Notes
 ===================
 

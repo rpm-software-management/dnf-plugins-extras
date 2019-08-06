@@ -162,5 +162,9 @@
     [
         1656509,
         "F29 to Rawhide (F30) upgrades fail, seems to be modularity-related"
+    ],
+    [
+        1693677,
+        "dnf system-upgrade seems to ignore --nogpgcheck again"
     ]
 ]
