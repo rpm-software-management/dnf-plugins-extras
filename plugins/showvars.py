@@ -49,14 +49,14 @@ class ShowVarsCommand(commands.Command):
         dnfvars = dnf.conf.substitutions.Substitutions()
         dnfvars.update_from_etc(self.base.conf.installroot)
 
-        defined = dnfvars.keys()
+        defined = list(dnfvars.keys())
         defined.append('basearch')
         defined.append('releasever')
         defined.sort()
         for var in defined:
-            if defined == 'basearch':
+            if var == 'basearch':
                 print("basearch=" + self.base.conf.basearch)
-            elif defined == 'releasever':
+            elif var == 'releasever':
                 print("releasever=" + self.base.conf.releasever)
             else:
                 print(var + '=' + dnfvars[var])
