@@ -182,7 +182,7 @@ class TestRpmConf(unittest.TestCase):
 
             lines = stdout.getvalue().splitlines()
 
-        expected_last_line = "File {0} was removed by 3rd party. Skipping.".format(new_path)
+        expected_last_line = "File {0} has been merged.".format(new_path)
         self.assertEqual(lines[-1], expected_last_line)
 
     def test_diff_output(self):
