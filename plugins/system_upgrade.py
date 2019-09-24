@@ -414,10 +414,14 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # use the saved value for --allowerasing, etc.
         self.opts.distro_sync = self.state.distro_sync
         self.cli.demands.allow_erasing = self.state.allow_erasing
-        self.base.conf.gpgcheck = self.state.gpgcheck
-        for repo in self.base.repos.values():
-            repo.gpgcheck = repo.id in self.state.gpgcheck_repos
-            repo.repo_gpgcheck = repo.id in self.state.repo_gpgcheck_repos
+        if self.state.gpgcheck is not None:
+            self.base.conf.gpgcheck = self.state.gpgcheck
+        if self.state.gpgcheck_repos is not None:
+            for repo in self.base.repos.values():
+                repo.gpgcheck = repo.id in self.state.gpgcheck_repos
+        if self.state.repo_gpgcheck_repos is not None:
+            for repo in self.base.repos.values():
+                repo.repo_gpgcheck = repo.id in self.state.repo_gpgcheck_repos
         self.base.conf.best = self.state.best
         if self.state.exclude is None:
             self.state.exclude = []
