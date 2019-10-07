@@ -72,6 +72,20 @@ def reboot():
     Popen(["systemctl", "reboot"])
 
 
+def get_url_from_os_release():
+    key = "UPGRADE_GUIDE_URL="
+    for path in ["/etc/os-release", "/usr/lib/os-release"]:
+        try:
+            with open(path) as release_file:
+                for line in release_file:
+                    line = line.strip()
+                    if line.startswith(key):
+                        return line[len(key):].strip('"')
+        except IOError:
+            continue
+    return None
+
+
 # DNF-FIXME: dnf.util.clear_dir() doesn't delete regular files :/
 def clear_dir(path):
     if not os.path.isdir(path):
@@ -381,6 +395,10 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == configure_*: set up action-specific demands ==========================
 
     def configure_download(self):
+        help_url = get_url_from_os_release()
+        if help_url:
+            msg = _('Additional information for System Upgrade: {}')
+            logger.info(msg.format(ucd(help_url)))
         if self.base._promptWanted():
             msg = _('Before you continue ensure that your system is fully upgraded by running '
                     '"dnf --refresh upgrade". Do you want to continue')
