@@ -168,6 +168,7 @@ class State(object):
     best = _prop("best")
     exclude = _prop("exclude")
     install_packages = _prop("install_packages")
+    remove_packages = _prop("remove_packages")
     install_weak_deps = _prop("install_weak_deps")
     module_platform_id = _prop("module_platform_id")
 
@@ -533,6 +534,14 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
         errs = []
 
+        for pkgspec in self.state.remove_packages:
+            try:
+                self.base.remove(pkgspec)
+            except dnf.exceptions.MarkingError:
+                msg = _('Unable to match package: %s')
+                logger.info(msg, self.base.output.term.bold(pkgspec))
+                errs.append(pkgspec)
+
         for repo_id, pkg_spec_list in self.state.install_packages.items():
             for pkgspec in pkg_spec_list:
                 try:
@@ -555,6 +564,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.upgrade_status = None
             state.destdir = None
             state.install_packages = {}
+            state.remove_packages = []
 
     def run_log(self):
         if self.opts.number:
@@ -569,6 +579,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         install_packages = {}
         for pkg in downloads:
             install_packages.setdefault(pkg.repo.id, []).append(str(pkg))
+        remove_packages = [str(pkg) for pkg in self.cli.base.transaction.remove_set]
 
         # Okay! Write out the state so the upgrade can use it.
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)
@@ -585,6 +596,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
             state.install_packages = install_packages
+            state.remove_packages = remove_packages
             state.install_weak_deps = self.base.conf.install_weak_deps
             state.module_platform_id = self.base.conf.module_platform_id
             state.enable_disable_repos = self.opts.repos_ed
