@@ -5,6 +5,24 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.6 Release Notes
+===================
+
+- [system-upgrade] Use --system-upgrade plymouth mode (RhBug:1681584)
+- [system-upgrade] Fix traceback caused by setting gpgcheck options (RhBug:1751103,1746346)
+- Fix kickstart plugin (RhBug:1649093)
+- [system-upgrade] Ensure identical transaction in download and update steps (RhBug:1758588)
+- [system-upgrade] Provide distro specific url for help with system-upgrade
+
+Bugs fixed in 4.0.6:
+
+* :rhbug:`1649093`
+* :rhbug:`1681584`
+* :rhbug:`1758588`
+* :rhbug:`1751103`
+* :rhbug:`1746346`
+
+===================
 4.0.5 Release Notes
 ===================
 

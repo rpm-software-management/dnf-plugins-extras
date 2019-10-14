@@ -166,5 +166,25 @@
     [
         1693677,
         "dnf system-upgrade seems to ignore --nogpgcheck again"
+    ],
+    [
+        1649093,
+        "\"dnf kickstart mykickstart.ks\" crashes with AttributeError: 'BaseCli' object has no attribute 'install_grouplist'"
+    ],
+    [
+        1681584,
+        "RFE: Use \"plymouth change-mode --system-upgrade\" on systems upgrades"
+    ],
+    [
+        1758588,
+        "dnf system-upgrade reboot fails due to depresolv difference with download"
+    ],
+    [
+        1751103,
+        "[abrt] dnf: configure_upgrade(): system_upgrade.py:410:configure_upgrade:TypeError: argument of type 'NoneType' is not iterable"
+    ],
+    [
+        1746346,
+        "dnf-system-upgrade.service traceback, breaks packagekit offline updates"
     ]
 ]
