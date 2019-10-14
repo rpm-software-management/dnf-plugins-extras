@@ -128,6 +128,13 @@ class BaseCliStub(object):
         if not self._available_groups:
             raise dnf.exceptions.CompsError('no group available')
 
+    def install_specs(self, install, exclude=None, reponame=None, strict=True, forms=None):
+        for spec in install:
+            if spec.startswith("@"):
+                self.installed_groups.add(spec[1:])
+            else:
+                self.installed_pkgs.add(spec)
+
 class CliStub(object):
     """A class mocking `dnf.cli.Cli`."""
 
