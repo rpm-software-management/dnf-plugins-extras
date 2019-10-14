@@ -87,10 +87,10 @@ class KickstartCommand(dnf.cli.Command):
             self.base.read_comps()
 
         # handle packages
-        for pkg_name in self.data.packages.excludedList:
+        for pkg_name in packages.excludedList:
             exclude_list.append(pkg_name)
 
-        for pkg_name in self.data.packages.packageList:
+        for pkg_name in packages.packageList:
             include_list.append(pkg_name)
 
         try:
