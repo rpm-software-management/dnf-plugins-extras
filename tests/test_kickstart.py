@@ -27,11 +27,9 @@ import unittest
 
 from tests.support import mock
 
-if not support.PY3:
-    import kickstart
-    import pykickstart
-else:
-    pykickstart = mock.Mock()
+import kickstart
+import pykickstart
+
 
 class _KickstartFileFixture(object):
     """Test fixture containing a kickstart file."""
@@ -85,7 +83,7 @@ class _KickstartCommandFixture(_KickstartFileFixture):
         base.read_all_repos()
         base.basecmd = self._command.aliases[0]
 
-@unittest.skipIf(support.PY3, "pykickstart not available in Py3")
+
 class KickstartCommandTest(_KickstartCommandFixture, unittest.TestCase):
     """Unit tests of kickstart.KickstartCommand."""
 
@@ -118,7 +116,7 @@ class KickstartCommandTest(_KickstartCommandFixture, unittest.TestCase):
         support.command_run(self._command, [self._path])
         self.assertEqual(self._command.cli.base.installed_pkgs, {self.KICKSTART_PACKAGE})
 
-@unittest.skipIf(support.PY3, "pykickstart not available in Py3")
+
 class KickstartCommandNoCompAGroupTest(_KickstartCommandFixture, unittest.TestCase):
     """Unit tests of kickstart.KickstartCommand with no available group and a group in the file."""
 
@@ -128,7 +126,7 @@ class KickstartCommandNoCompAGroupTest(_KickstartCommandFixture, unittest.TestCa
         """Test whether it fails."""
         self.assertRaises(dnf.exceptions.Error, support.command_run, self._command, [self._path])
 
-@unittest.skipIf(support.PY3, "pykickstart not available in Py3")
+
 class KickstartCommandNoCompNoGroupTest(_KickstartCommandFixture, unittest.TestCase):
     """Unit tests of kickstart.KickstartCommand with no available group and no group in the file."""
 
@@ -144,7 +142,6 @@ class KickstartCommandNoCompNoGroupTest(_KickstartCommandFixture, unittest.TestC
             self.fail()
 
 
-@unittest.skipIf(support.PY3, "pykickstart not available in Py3")
 class MaskableKickstartParserTest(unittest.TestCase):
     """Unit tests of kickstart.MaskableKickstartParser."""
 
@@ -179,7 +176,7 @@ class MaskableKickstartParserTest(unittest.TestCase):
             else:
                 self.assertIsInstance(section, pykickstart.sections.NullSection)
 
-@unittest.skipIf(support.PY3, "pykickstart not available in Py3")
+
 class ParseKickstartPackagesTest(_KickstartFileFixture, unittest.TestCase):
     """Unit tests of kickstart.parse_kickstart_packages."""
 
