@@ -5,6 +5,13 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.7 Release Notes
+===================
+
+- Fix kickstart plugin
+- Enable kickstart tests for PY3
+
+===================
 4.0.6 Release Notes
 ===================
 
