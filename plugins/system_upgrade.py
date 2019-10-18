@@ -535,6 +535,16 @@ class SystemUpgradeCommand(dnf.cli.Command):
         reboot()
 
     def run_download(self):
+        #  downstream hack to narrow missing upgrade path with modules between dist versions
+        if self.opts.command not in ['offline-upgrade', 'offline-distrosync']:
+            if dnf.base.WITH_MODULES:
+                module_base = dnf.module.module_base.ModuleBase(self.base)
+                try:
+                    module_base.reset(["*"])
+                except dnf.exceptions.MarkingErrors:
+                    # When no module is available, just pass
+                    pass
+
         # Mark everything in the world for upgrade/sync
         if self.opts.distro_sync:
             self.base.distro_sync()
