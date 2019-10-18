@@ -514,6 +514,15 @@ class SystemUpgradeCommand(dnf.cli.Command):
         else:
             self.base.upgrade_all()
 
+        #  downstream hack to narrow libgit2 changes in distribution
+        if (self.base.conf.releasever == "31" and dnf.base.WITH_MODULES):
+            module_base = dnf.module.module_base.ModuleBase(self.base)
+            try:
+                module_base.reset(["libgit2"])
+            except dnf.exceptions.MarkingErrors:
+                # When module "libgit2" is not available, just pass
+                pass
+
         with self.state as state:
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever
