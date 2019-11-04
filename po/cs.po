@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-05 10:59+0200\n"
+"POT-Creation-Date: 2019-11-03 21:47-0500\n"
 "PO-Revision-Date: 2019-04-02 03:20+0000\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech\n"
@@ -19,17 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: ../plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr ""
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Zakázání zásuvného modulu torproxy: nelze se připojit do sítě Tor"
+
+#: ../plugins/kickstart.py:60
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Instalovat balíčky definované v souboru kickstartu vašeho systému"
+
+#: ../plugins/kickstart.py:65
+msgid "kickstart file"
+msgstr "soubor kickstart"
+
+#: ../plugins/kickstart.py:83
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "soubor nelze parsovat: %s"
+
+#: ../plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
+
+#: ../plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
+
+#: ../plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
+
+#: ../plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:43
+#: ../plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "barva oblohy"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr "Verze --releasever musí být vyšší než verze aktuálního systému."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:63
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -37,50 +74,54 @@ msgstr ""
 "Stahování dokončeno! Stahování dokončeno! Aktualizaci spustíte příkazem 'dnf system-upgrade reboot'.\n"
 "Pro vymazání transakce a uložených metadat spusťte 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:64
+#: ../plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Promiňte, místo '--network' musíte použít 'download --releasever'"
 
-#: ../plugins/system_upgrade.py:103
+#: ../plugins/system_upgrade.py:119
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "Zatmívání obrazovky nemůže být zakázáno: %s"
 
-#: ../plugins/system_upgrade.py:124
+#: ../plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Nepodařilo se načíst stavový soubor: %s, pokračuje prázdným stavem."
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:277
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Následující boot obsahuje záznamy aktualizace systému:"
 
-#: ../plugins/system_upgrade.py:263
+#: ../plugins/system_upgrade.py:287
 msgid "-- no logs were found --"
 msgstr "-- nenalezeny žádné záznamy --"
 
-#: ../plugins/system_upgrade.py:278
+#: ../plugins/system_upgrade.py:302
 msgid "Cannot find logs with this index."
 msgstr "Nenalezeny žádné záznamy s tímto indexem."
 
-#: ../plugins/system_upgrade.py:287
+#: ../plugins/system_upgrade.py:311
 msgid "Unable to match systemd journal entry"
 msgstr "Nepodařilo se získat požadovaný záznam systemd žurnálu"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:330
 msgid "Prepare system for upgrade to a new release"
 msgstr "Připravit systém k aktualizaci na novou verzi"
 
-#: ../plugins/system_upgrade.py:316
+#: ../plugins/system_upgrade.py:340
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "ponechat nainstalované balíčky, pokud se v novém vydání nachází starší verze"
 
-#: ../plugins/system_upgrade.py:320
+#: ../plugins/system_upgrade.py:344
 msgid "which logs to show"
 msgstr "které záznamy zobrazit"
 
-#: ../plugins/system_upgrade.py:376
+#: ../plugins/system_upgrade.py:401
+msgid "Additional information for System Upgrade: {}"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:404
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -88,57 +129,57 @@ msgstr ""
 "Předtím než budete pokračovat, ujistěte se, že váš systém je aktuální pomocí"
 " příkazu \"dnf --refresh upgrade\". Přejete si pokračovat?"
 
-#: ../plugins/system_upgrade.py:380
+#: ../plugins/system_upgrade.py:408
 msgid "Operation aborted."
 msgstr "Operace přerušena."
 
-#: ../plugins/system_upgrade.py:440
+#: ../plugins/system_upgrade.py:472
 msgid "system is not ready for upgrade"
 msgstr "systém není na aktualizaci připraven"
 
-#: ../plugins/system_upgrade.py:442
+#: ../plugins/system_upgrade.py:474
 msgid "upgrade is already scheduled"
 msgstr "aktualizace je už naplánována"
 
-#: ../plugins/system_upgrade.py:448
+#: ../plugins/system_upgrade.py:480
 msgid "trigger file does not exist. exiting quietly."
 msgstr "Spouštěcí soubor neexistuje. Tiché ukončení."
 
-#: ../plugins/system_upgrade.py:451
+#: ../plugins/system_upgrade.py:483
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "už běží jiný aktualizační nástroj, končím."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:457
+#: ../plugins/system_upgrade.py:489
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "pro zahájení aktualizace zadejte 'dnf system-upgrade reboot'"
 
-#: ../plugins/system_upgrade.py:474
+#: ../plugins/system_upgrade.py:506
 msgid "Rebooting to perform upgrade."
 msgstr "Restartuji, aby se provedla aktualizace."
 
-#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
+#: ../plugins/system_upgrade.py:528 ../plugins/system_upgrade.py:534
 msgid "Starting system upgrade. This will take a while."
 msgstr "Spouští se aktualizace systému. To může nějakou dobu trvat."
 
-#: ../plugins/system_upgrade.py:528
+#: ../plugins/system_upgrade.py:559 ../plugins/system_upgrade.py:568
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Nepodařilo se najít balíček: %s"
 
-#: ../plugins/system_upgrade.py:533
+#: ../plugins/system_upgrade.py:573
 msgid "Unable to match some of packages"
 msgstr "Nepodařilo se najít některé balíčky"
 
-#: ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:576
 msgid "Cleaning up downloaded data..."
 msgstr "Mazání stažených dat…"
 
-#: ../plugins/system_upgrade.py:580
+#: ../plugins/system_upgrade.py:623
 msgid "Download finished."
 msgstr "Stahování dokončeno."
 
-#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
+#: ../plugins/system_upgrade.py:627 ../plugins/system_upgrade.py:628
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Aktualizace dokončena! Čištění a restart systému…"
 
@@ -161,22 +202,6 @@ msgstr ""
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
 msgstr "Omlouváme se za způsobené nepříjemnosti"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -216,29 +241,3 @@ msgstr "obraz %d vytvořen"
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr "selhalo vytvoření obrazu: %s"
-
-#: ../plugins/kickstart.py:59
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Instalovat balíčky definované v souboru kickstartu vašeho systému"
-
-#: ../plugins/kickstart.py:64
-msgid "kickstart file"
-msgstr "soubor kickstart"
-
-#: ../plugins/kickstart.py:82
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "soubor nelze parsovat: %s"
-
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "Balíček %s není k dispozici."
-
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "Není co dělat"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Zakázání zásuvného modulu torproxy: nelze se připojit do sítě Tor"

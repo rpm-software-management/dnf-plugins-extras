@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-05 10:59+0200\n"
-"PO-Revision-Date: 2019-02-06 09:21+0000\n"
+"POT-Creation-Date: 2019-11-03 21:47-0500\n"
+"PO-Revision-Date: 2019-10-28 09:56+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish\n"
 "Language: da\n"
@@ -15,17 +15,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: ../plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "Vis alle aktive dnf-variabler"
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr ""
+"Deaktiverer torproxy-plugin: kan ikke oprette forbindelse til Tor-netværket"
+
+#: ../plugins/kickstart.py:60
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Installer pakker som er defineret i en kickstarter-fil på dit system"
+
+#: ../plugins/kickstart.py:65
+msgid "kickstart file"
+msgstr "kickstart-fil"
+
+#: ../plugins/kickstart.py:83
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "filen kan ikke fortolkes: %s"
+
+#: ../plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Tilføjer '{}' til at liste over håndteringspakker til rpmconf"
+
+#: ../plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "rpmconf-plugin kan ikke køre i ikke-interaktiv-tilstand"
+
+#: ../plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "ignorerer sys.exit fra rpmconf pga. manglende MERGE-variabel"
+
+#: ../plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "ignorerer sys.exit fra rpmconf pga. manglende fil"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:43
+#: ../plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "himlens farve"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr "Skal have en --releasever større end den nuværende systemversion."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:63
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -33,50 +71,54 @@ msgstr ""
 "Download færdig! Brug 'dnf system-upgrade reboot' til at genstarte opgraderingen.\n"
 "Brug 'dnf system-upgrade clean' til at fjerne mellemlageret metadata og transaktion"
 
-#: ../plugins/system_upgrade.py:64
+#: ../plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Beklager, du skal bruge 'download --releasever' i stedet for '--network'"
 
-#: ../plugins/system_upgrade.py:103
+#: ../plugins/system_upgrade.py:119
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
-msgstr ""
+msgstr "Rydning af skærm kan ikke deaktiveres: %s"
 
-#: ../plugins/system_upgrade.py:124
+#: ../plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Kunne ikke indlæse tilstandsfilen: %s, fortsætter med tom tilstand."
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:277
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Følgende opstarter ser ud til at indeholde opgraderingslogge:"
 
-#: ../plugins/system_upgrade.py:263
+#: ../plugins/system_upgrade.py:287
 msgid "-- no logs were found --"
 msgstr "-- der blev ikke fundet nogen logge --"
 
-#: ../plugins/system_upgrade.py:278
+#: ../plugins/system_upgrade.py:302
 msgid "Cannot find logs with this index."
 msgstr "Kan ikke finde logge med dette indeks."
 
-#: ../plugins/system_upgrade.py:287
+#: ../plugins/system_upgrade.py:311
 msgid "Unable to match systemd journal entry"
 msgstr "Kan ikke matche systemd-journalpost"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:330
 msgid "Prepare system for upgrade to a new release"
 msgstr "Forbered systemet til opgradering til en ny udgivelse"
 
-#: ../plugins/system_upgrade.py:316
+#: ../plugins/system_upgrade.py:340
 msgid "keep installed packages if the new release's version is older"
 msgstr "bevar installerede pakker hvis den nye udgivelses version er ældre"
 
-#: ../plugins/system_upgrade.py:320
+#: ../plugins/system_upgrade.py:344
 msgid "which logs to show"
 msgstr "hvilke logge som skal vises"
 
-#: ../plugins/system_upgrade.py:376
+#: ../plugins/system_upgrade.py:401
+msgid "Additional information for System Upgrade: {}"
+msgstr "Yderligere information for systemopgradering: {}"
+
+#: ../plugins/system_upgrade.py:404
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -84,57 +126,57 @@ msgstr ""
 "Inden du fortsætter, så sørg for at dit system er fuldt opgraderet ved at "
 "køre \"dnf --refresh upgrade\". Vil du fortsætte"
 
-#: ../plugins/system_upgrade.py:380
+#: ../plugins/system_upgrade.py:408
 msgid "Operation aborted."
 msgstr "Handling afbrudt."
 
-#: ../plugins/system_upgrade.py:440
+#: ../plugins/system_upgrade.py:472
 msgid "system is not ready for upgrade"
 msgstr "systemet er ikke klar til opgradering"
 
-#: ../plugins/system_upgrade.py:442
+#: ../plugins/system_upgrade.py:474
 msgid "upgrade is already scheduled"
 msgstr "opgradering er allerede planlagt"
 
-#: ../plugins/system_upgrade.py:448
+#: ../plugins/system_upgrade.py:480
 msgid "trigger file does not exist. exiting quietly."
 msgstr "udløserfil findes ikke - afslutter stille."
 
-#: ../plugins/system_upgrade.py:451
+#: ../plugins/system_upgrade.py:483
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "der kører et andet opgraderingsvæktøj - afslutter stille."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:457
+#: ../plugins/system_upgrade.py:489
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "brug 'dnf system-upgrade reboot' til at begynde opgraderingen"
 
-#: ../plugins/system_upgrade.py:474
+#: ../plugins/system_upgrade.py:506
 msgid "Rebooting to perform upgrade."
 msgstr "Genstart for at udføre opgraderingen."
 
-#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
+#: ../plugins/system_upgrade.py:528 ../plugins/system_upgrade.py:534
 msgid "Starting system upgrade. This will take a while."
 msgstr "Starter systemopgradering - det kan tage noget tid."
 
-#: ../plugins/system_upgrade.py:528
+#: ../plugins/system_upgrade.py:559 ../plugins/system_upgrade.py:568
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Kan ikke matche pakke: %s"
 
-#: ../plugins/system_upgrade.py:533
+#: ../plugins/system_upgrade.py:573
 msgid "Unable to match some of packages"
 msgstr "Nogle pakker kan ikke matches"
 
-#: ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:576
 msgid "Cleaning up downloaded data..."
 msgstr "Rydder op i downloadet data..."
 
-#: ../plugins/system_upgrade.py:580
+#: ../plugins/system_upgrade.py:623
 msgid "Download finished."
 msgstr "Download færdig."
 
-#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
+#: ../plugins/system_upgrade.py:627 ../plugins/system_upgrade.py:628
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Opgradering gennemført! Rydder op og genstarter..."
 
@@ -157,22 +199,6 @@ msgstr ""
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
 msgstr "Vi beklager ulejligheden"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Tilføjer '{}' til at liste over håndteringspakker til rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "rpmconf-plugin kan ikke køre i ikke-interaktiv-tilstand"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "ignorerer sys.exit fra rpmconf pga. manglende MERGE-variabel"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ignorerer sys.exit fra rpmconf pga. manglende fil"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -210,30 +236,3 @@ msgstr "oprettede post_snapshot %d"
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr "kunne ikke oprette post_snapshot: %s"
-
-#: ../plugins/kickstart.py:59
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Installer pakker som er defineret i en kickstarter-fil på dit system"
-
-#: ../plugins/kickstart.py:64
-msgid "kickstart file"
-msgstr "kickstart-fil"
-
-#: ../plugins/kickstart.py:82
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "filen kan ikke fortolkes: %s"
-
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "Pakken %s er ikke tilgængelig."
-
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "Intet at gøre."
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
-"Deaktiverer torproxy-plugin: kan ikke oprette forbindelse til Tor-netværket"

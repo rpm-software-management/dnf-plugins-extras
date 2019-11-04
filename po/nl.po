@@ -1,11 +1,11 @@
-# Richard E. van der Luit <nippur@fedoraproject.org>, 2016. #zanata
+# Geert Warrink <geert.warrink@onsnet.nu>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-05 10:59+0200\n"
-"PO-Revision-Date: 2016-04-24 08:38+0000\n"
-"Last-Translator: Richard E. van der Luit <nippur@fedoraproject.org>\n"
+"POT-Creation-Date: 2019-11-03 21:47-0500\n"
+"PO-Revision-Date: 2019-10-15 05:08+0000\n"
+"Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -14,217 +14,230 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:43
-msgid "the color of the sky"
-msgstr ""
+#: ../plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "toon alle actieve dnf variabelen"
 
-#: ../plugins/system_upgrade.py:59
-msgid "Need a --releasever greater than the current system version."
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
+"Torproxy plug-in uitschakelen: kan geen verbinding maken met het Tor netwerk"
+
+#: ../plugins/kickstart.py:60
+msgid "Install packages defined in a kickstart file on your system"
+msgstr ""
+"Installeer pakketten gedefinieerd in een kickstart-bestand op je systeem"
+
+#: ../plugins/kickstart.py:65
+msgid "kickstart file"
+msgstr "kickstart-bestand"
+
+#: ../plugins/kickstart.py:83
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "bestand kan niet ontleed worden: %s"
+
+#: ../plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr ""
+"Toevoegen van '{}' aan lijst met af te handelen pakketten voor rpmconf"
+
+#: ../plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "rpmconf plug-in kan niet draaien in niet-interactieve modus"
+
+#: ../plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr ""
+"sys.exit van rpmconf wordt genegeerd wegens ontbrekende MERGE variabele"
+
+#: ../plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "sys.exit van rpmconfig wordt genegeerd wegens ontbrekend bestand"
+
+#. Translators: This string is only used in unit tests.
+#: ../plugins/system_upgrade.py:45
+msgid "the color of the sky"
+msgstr "de kleur van de lucht"
+
+#: ../plugins/system_upgrade.py:61
+msgid "Need a --releasever greater than the current system version."
+msgstr "Er is een grotere --releasever nodig dan de huidige systeemversie."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:63
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
 msgstr ""
+"Download compleet! Gebruik 'dnf system-upgrade reboot' om de upgrade te starten.\n"
+"Gebruik 'dnf system-upgrade clean' om metagegevens en transacties in de cache te verwijderen"
 
-#: ../plugins/system_upgrade.py:64
+#: ../plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
+"Sorry, je moet 'download --releasever' gebruiken in plaats van '--network'"
 
-#: ../plugins/system_upgrade.py:103
+#: ../plugins/system_upgrade.py:119
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
-msgstr ""
+msgstr "Schermonderdrukking kan niet worden uitgeschakeld: %s"
 
-#: ../plugins/system_upgrade.py:124
+#: ../plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
+msgstr "Laden van statusbestand mislukt: %s, doorgaan met lege status."
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:277
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
-
-#: ../plugins/system_upgrade.py:263
-msgid "-- no logs were found --"
-msgstr ""
-
-#: ../plugins/system_upgrade.py:278
-msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "De volgende boots lijken upgrade-logboeken te bevatten:"
 
 #: ../plugins/system_upgrade.py:287
+msgid "-- no logs were found --"
+msgstr "-- geen logs gevonden --"
+
+#: ../plugins/system_upgrade.py:302
+msgid "Cannot find logs with this index."
+msgstr "Kan geen logs vinden met deze index."
+
+#: ../plugins/system_upgrade.py:311
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "Kan systemd journaalingang niet matchen"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:330
 msgid "Prepare system for upgrade to a new release"
-msgstr ""
+msgstr "Prepareer systeem voor upgrade naar een nieuwe release"
 
-#: ../plugins/system_upgrade.py:316
+#: ../plugins/system_upgrade.py:340
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
+"behoud geïnstalleerde pakketten als de versie van de nieuwe release ouder is"
 
-#: ../plugins/system_upgrade.py:320
+#: ../plugins/system_upgrade.py:344
 msgid "which logs to show"
-msgstr ""
+msgstr "welke logboeken worden getoond"
 
-#: ../plugins/system_upgrade.py:376
+#: ../plugins/system_upgrade.py:401
+msgid "Additional information for System Upgrade: {}"
+msgstr "Extra informatie voor Systeem Upgrade: {}"
+
+#: ../plugins/system_upgrade.py:404
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
+"Controleer voordat je doorgaat of jouw systeem volledig is geüpgraded door "
+"\"dnf --refresh upgrade\" uit te voeren. Wil je doorgaan"
 
-#: ../plugins/system_upgrade.py:380
+#: ../plugins/system_upgrade.py:408
 msgid "Operation aborted."
-msgstr ""
+msgstr "Operatie afgebroken."
 
-#: ../plugins/system_upgrade.py:440
+#: ../plugins/system_upgrade.py:472
 msgid "system is not ready for upgrade"
-msgstr ""
-
-#: ../plugins/system_upgrade.py:442
-msgid "upgrade is already scheduled"
-msgstr ""
-
-#: ../plugins/system_upgrade.py:448
-msgid "trigger file does not exist. exiting quietly."
-msgstr ""
-
-#: ../plugins/system_upgrade.py:451
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:457
-msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr ""
+msgstr "systeem is niet klaar voor upgrade"
 
 #: ../plugins/system_upgrade.py:474
+msgid "upgrade is already scheduled"
+msgstr "upgrade is al gepland"
+
+#: ../plugins/system_upgrade.py:480
+msgid "trigger file does not exist. exiting quietly."
+msgstr "trigger-bestand bestaat niet. rustig afsluiten."
+
+#: ../plugins/system_upgrade.py:483
+msgid "another upgrade tool is running. exiting quietly."
+msgstr "er is een ander upgrade-tool actief. rustig afsluiten."
+
+#. Translators: do not change "reboot" here
+#: ../plugins/system_upgrade.py:489
+msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
+msgstr "gebruik 'dnf system-upgrade reboot' om de upgrade te starten"
+
+#: ../plugins/system_upgrade.py:506
 msgid "Rebooting to perform upgrade."
-msgstr ""
+msgstr "Opnieuw opstarten om upgrade uit te voeren."
 
-#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
+#: ../plugins/system_upgrade.py:528 ../plugins/system_upgrade.py:534
 msgid "Starting system upgrade. This will take a while."
-msgstr ""
+msgstr "Systeem upgrade starten. Dit gaat even duren."
 
-#: ../plugins/system_upgrade.py:528
+#: ../plugins/system_upgrade.py:559 ../plugins/system_upgrade.py:568
 #, python-format
 msgid "Unable to match package: %s"
-msgstr ""
+msgstr "Kan pakket niet matchen: %s"
 
-#: ../plugins/system_upgrade.py:533
+#: ../plugins/system_upgrade.py:573
 msgid "Unable to match some of packages"
-msgstr ""
+msgstr "Kan sommige pakketten niet matchen"
 
-#: ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:576
 msgid "Cleaning up downloaded data..."
-msgstr ""
+msgstr "Gedownloade data opschonen ..."
 
-#: ../plugins/system_upgrade.py:580
+#: ../plugins/system_upgrade.py:623
 msgid "Download finished."
-msgstr ""
+msgstr "Download voltooid."
 
-#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
+#: ../plugins/system_upgrade.py:627 ../plugins/system_upgrade.py:628
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr ""
+msgstr "Upgrade voltooid! Opschonen en opnieuw opstarten ..."
 
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr "Voor meer informatie :"
+msgstr "Uitvoeren voor meer informatie :"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "Aanroep van Tracer API is onverwacht beëindigd:"
 
 #: ../plugins/tracer.py:99
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
+"Bezoek https://github.com/FrostyX/tracer/issues en dien dit probleem in. "
+"Dank je"
 
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
-msgstr ""
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "We verontschuldigen ons voor enig ongemak"
 
 #: ../plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr ""
+msgstr "verbinding naar snapperd mislukte: %s"
 
 #: ../plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "pre_snapshot maken"
 
 #: ../plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "pre_snapshot %d is aangemaakt"
 
 #: ../plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "aanmaken van pre_snapshot mislukte: %s"
 
 #: ../plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"post_snapshot wordt overgeslagen omdat het aanmaken van pre_snapshot "
+"mislukte"
 
 #: ../plugins/snapper.py:80
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "post_snapshot aanmaken"
 
 #: ../plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "post_snapshot %d is aangemaakt"
 
 #: ../plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
-
-#: ../plugins/kickstart.py:59
-msgid "Install packages defined in a kickstart file on your system"
-msgstr ""
-
-#: ../plugins/kickstart.py:64
-msgid "kickstart file"
-msgstr ""
-
-#: ../plugins/kickstart.py:82
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr ""
-
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr ""
-
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr ""
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
+msgstr "aanmaken van post_snapshot mislukte: %s"

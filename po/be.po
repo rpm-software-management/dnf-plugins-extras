@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-05 10:59+0200\n"
-"PO-Revision-Date: 2019-02-11 11:11+0000\n"
+"POT-Creation-Date: 2019-11-03 21:47-0500\n"
+"PO-Revision-Date: 2019-08-02 03:15+0000\n"
 "Last-Translator: Viktar Siarheichyk <veq@fedoraproject.org>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -15,17 +15,54 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: ../plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "паказаць усе актыўныя зменныя dnf"
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Плагін torproxy адключаны: не атрымалася далучыцца да сеткі Tor"
+
+#: ../plugins/kickstart.py:60
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Інсталяцыя на вашу сістэму пакетаў, пададзеных у файле kickstart"
+
+#: ../plugins/kickstart.py:65
+msgid "kickstart file"
+msgstr "файл kickstart"
+
+#: ../plugins/kickstart.py:83
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "не атрымалася разабраць файл: %s"
+
+#: ../plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "'{}' даданы да спісу пакетаў для апрацоўкі rpmconf"
+
+#: ../plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "плагін rpmconf не працуе ў неінтэрактыўным рэжыме"
+
+#: ../plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "sys.exit з rpmconf ігнаруецца, бо пераменная MERGE адсутнічае"
+
+#: ../plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "sys.exit з rpmconf ігнаруецца, бо файл адсутнічае"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:43
+#: ../plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "колер неба"
 
-#: ../plugins/system_upgrade.py:59
+#: ../plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr "Трэба, каб --releasever быў болей за версію гэтай сістэмы."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:63
 msgid ""
 "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf system-upgrade clean'"
@@ -33,49 +70,53 @@ msgstr ""
 "Загрузка скончана! Для запуску абнаўлення можна ўжыць 'dnf system-upgrade reboot'.\n"
 "Для выдалення закэшаваных метаданых і транзакцый можна ўжыць 'dnf system-upgrade clean'"
 
-#: ../plugins/system_upgrade.py:64
+#: ../plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Выбачаемся, трэба ужыць 'download --releasever' замест '--network'"
 
-#: ../plugins/system_upgrade.py:103
+#: ../plugins/system_upgrade.py:119
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
-msgstr ""
+msgstr "Гашэнне экрану выключыць нельга: %s"
 
-#: ../plugins/system_upgrade.py:124
+#: ../plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Не атрымалася загрузіць файл стану: %s, працягваем з пустым станам."
 
-#: ../plugins/system_upgrade.py:253
+#: ../plugins/system_upgrade.py:277
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "У наступных запусках ёсць пратаколы абнаўлення:"
 
-#: ../plugins/system_upgrade.py:263
+#: ../plugins/system_upgrade.py:287
 msgid "-- no logs were found --"
 msgstr "-- не знойдзена пратаколаў --"
 
-#: ../plugins/system_upgrade.py:278
+#: ../plugins/system_upgrade.py:302
 msgid "Cannot find logs with this index."
 msgstr "Не знойдзена пратаколаў з гэтым індэксам."
 
-#: ../plugins/system_upgrade.py:287
+#: ../plugins/system_upgrade.py:311
 msgid "Unable to match systemd journal entry"
 msgstr "Не знойдзена супадзенняў з запісамі журнала systemd"
 
-#: ../plugins/system_upgrade.py:306
+#: ../plugins/system_upgrade.py:330
 msgid "Prepare system for upgrade to a new release"
 msgstr "Сістэма рыхтуецца да абнаўлення да новага выпуску"
 
-#: ../plugins/system_upgrade.py:316
+#: ../plugins/system_upgrade.py:340
 msgid "keep installed packages if the new release's version is older"
 msgstr "захаваць інсталяваныя пакеты, калі версія новага выпуску даўнейшая"
 
-#: ../plugins/system_upgrade.py:320
+#: ../plugins/system_upgrade.py:344
 msgid "which logs to show"
 msgstr "якія пратаколы паказваць"
 
-#: ../plugins/system_upgrade.py:376
+#: ../plugins/system_upgrade.py:401
+msgid "Additional information for System Upgrade: {}"
+msgstr ""
+
+#: ../plugins/system_upgrade.py:404
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -83,57 +124,57 @@ msgstr ""
 "Перад тым, як ісці далей, праверце, што ваша сістэма цалкам абноўленая, "
 "запусціўшы \"dnf --refresh upgrade\". Працягваць"
 
-#: ../plugins/system_upgrade.py:380
+#: ../plugins/system_upgrade.py:408
 msgid "Operation aborted."
 msgstr "Аперацыя перарваная."
 
-#: ../plugins/system_upgrade.py:440
+#: ../plugins/system_upgrade.py:472
 msgid "system is not ready for upgrade"
 msgstr "сістэма не гатовая да абнаўлення"
 
-#: ../plugins/system_upgrade.py:442
+#: ../plugins/system_upgrade.py:474
 msgid "upgrade is already scheduled"
 msgstr "абнаўленне ўжо запланаванае"
 
-#: ../plugins/system_upgrade.py:448
+#: ../plugins/system_upgrade.py:480
 msgid "trigger file does not exist. exiting quietly."
 msgstr "файл трыгера адсутнічае. Ціха сканчаем працу."
 
-#: ../plugins/system_upgrade.py:451
+#: ../plugins/system_upgrade.py:483
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "працуе іншая прылада абнаўлення. Ціха сканчаем працу."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:457
+#: ../plugins/system_upgrade.py:489
 msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
 msgstr "'dnf system-upgrade reboot' пачынае абнаўленне"
 
-#: ../plugins/system_upgrade.py:474
+#: ../plugins/system_upgrade.py:506
 msgid "Rebooting to perform upgrade."
 msgstr "Сістэма перазапускаецца для абнаўлення."
 
-#: ../plugins/system_upgrade.py:496 ../plugins/system_upgrade.py:502
+#: ../plugins/system_upgrade.py:528 ../plugins/system_upgrade.py:534
 msgid "Starting system upgrade. This will take a while."
 msgstr "Запуск абнаўлення сістэмы. Гэта зойме час."
 
-#: ../plugins/system_upgrade.py:528
+#: ../plugins/system_upgrade.py:559 ../plugins/system_upgrade.py:568
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Пакет %s не супадае"
 
-#: ../plugins/system_upgrade.py:533
+#: ../plugins/system_upgrade.py:573
 msgid "Unable to match some of packages"
 msgstr "Некаторыя пакеты не супадаюць"
 
-#: ../plugins/system_upgrade.py:536
+#: ../plugins/system_upgrade.py:576
 msgid "Cleaning up downloaded data..."
 msgstr "Загружаныя даныя чысцяцца."
 
-#: ../plugins/system_upgrade.py:580
+#: ../plugins/system_upgrade.py:623
 msgid "Download finished."
 msgstr "Загрузка скончаная."
 
-#: ../plugins/system_upgrade.py:584 ../plugins/system_upgrade.py:585
+#: ../plugins/system_upgrade.py:627 ../plugins/system_upgrade.py:628
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Абнаўленне гатова! Чысцім і перазапускаем сістэму..."
 
@@ -156,22 +197,6 @@ msgstr ""
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
 msgstr "Выбачаемся за нязручнасці"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "'{}' даданы да спісу пакетаў для апрацоўкі rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "плагін rpmconf не працуе ў неінтэрактыўным рэжыме"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "sys.exit з rpmconf ігнаруецца, бо пераменная MERGE адсутнічае"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "sys.exit з rpmconf ігнаруецца, бо файл адсутнічае"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -209,29 +234,3 @@ msgstr "post_snapshot %d створаны"
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr "стварэнне post_snapshot не атрымалася: %s"
-
-#: ../plugins/kickstart.py:59
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Інсталяцыя на вашу сістэму пакетаў, пададзеных у файле kickstart"
-
-#: ../plugins/kickstart.py:64
-msgid "kickstart file"
-msgstr "файл kickstart"
-
-#: ../plugins/kickstart.py:82
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "не атрымалася разабраць файл: %s"
-
-#: ../plugins/kickstart.py:98
-#, python-format
-msgid "No package %s available."
-msgstr "Пакет %s недаступны."
-
-#: ../plugins/kickstart.py:103
-msgid "Nothing to do."
-msgstr "Няма чаго рабіць."
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Плагін torproxy адключаны: не атрымалася далучыцца да сеткі Tor"
