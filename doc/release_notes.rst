@@ -5,6 +5,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.8 Release Notes
+===================
+
+- Set clean_requirements_on_remove=False during remove (RhBug:1764169)
+
+Bugs fixed in 4.0.8:
+
+* :rhbug:`1764169`
+
+===================
 4.0.7 Release Notes
 ===================
 

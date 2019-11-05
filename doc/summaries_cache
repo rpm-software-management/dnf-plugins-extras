@@ -186,5 +186,9 @@
     [
         1746346,
         "dnf-system-upgrade.service traceback, breaks packagekit offline updates"
+    ],
+    [
+        1764169,
+        "system upgrade fails when packages need to be reinstalled, they are not downloaded"
     ]
 ]
