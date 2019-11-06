@@ -452,6 +452,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # and don't ask any questions (we confirmed all this beforehand)
         self.base.conf.assumeyes = True
         self.cli.demands.transaction_display = PlymouthTransactionProgress()
+        # upgrade operation already removes all element that must be removed. Additional removal
+        # could trigger unwanted changes in transaction.
+        self.base.conf.clean_requirements_on_remove = False
 
     def configure_clean(self):
         self.cli.demands.root_user = True
