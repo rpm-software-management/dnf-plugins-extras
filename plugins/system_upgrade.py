@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2015 Red Hat, Inc.
+# Copyright (c) 2015-2020 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -60,8 +60,8 @@ MAGIC_SYMLINK = '/system-update'
 RELEASEVER_MSG = _(
     "Need a --releasever greater than the current system version.")
 DOWNLOAD_FINISHED_MSG = _(  # Translators: do not change "reboot" here
-    "Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
-    "To remove cached metadata and transaction use 'dnf system-upgrade clean'")
+    "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+    "To remove cached metadata and transaction use 'dnf {command} clean'")
 CANT_RESET_RELEASEVER = _(
     "Sorry, you need to use 'download --releasever' instead of '--network'")
 
@@ -176,6 +176,7 @@ class State(object):
     # list of repos with repo_gpgcheck=True
     repo_gpgcheck_repos = _prop("repo_gpgcheck_repos")
     upgrade_status = _prop("upgrade_status")
+    upgrade_command = _prop("upgrade_command")
     distro_sync = _prop("distro_sync")
     allow_erasing = _prop("allow_erasing")
     enable_disable_repos = _prop("enable_disable_repos")
@@ -326,8 +327,8 @@ class SystemUpgradePlugin(dnf.Plugin):
 
 
 class SystemUpgradeCommand(dnf.cli.Command):
-    aliases = ('system-upgrade', 'fedup')
-    summary = _("Prepare system for upgrade to a new release")
+    aliases = ('system-upgrade', 'fedup', 'offline-upgrade', 'offline-distrosync',)
+    summary = _("Prepare system for upgrade to a new release or perform offline upgrade/distrosync")
 
     def __init__(self, cli):
         super(SystemUpgradeCommand, self).__init__(cli)
@@ -380,6 +381,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # only download subcommand accepts --destdir command line option
         self.base.conf.cachedir = DEFAULT_DATADIR
         self.base.conf.destdir = self.opts.destdir if self.opts.destdir else None
+        if 'offline-distrosync' == self.opts.command and not self.opts.distro_sync:
+            raise CliError(
+                _("Command 'offline-distrosync' cannot be used with --no-downgrade option"))
+        elif 'offline-upgrade' == self.opts.command:
+            self.opts.distro_sync = False
 
     def pre_configure_reboot(self):
         self._set_cachedir()
@@ -396,16 +402,18 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == configure_*: set up action-specific demands ==========================
 
     def configure_download(self):
-        help_url = get_url_from_os_release()
-        if help_url:
-            msg = _('Additional information for System Upgrade: {}')
-            logger.info(msg.format(ucd(help_url)))
-        if self.base._promptWanted():
-            msg = _('Before you continue ensure that your system is fully upgraded by running '
-                    '"dnf --refresh upgrade". Do you want to continue')
-            if self.base.conf.assumeno or not self.base.output.userconfirm(
-                    msg='{} [y/N]: '.format(msg), defaultyes_msg='{} [Y/n]: '.format(msg)):
-                raise CliError(_("Operation aborted."))
+        if 'system-upgrade' == self.opts.command or 'fedup' == self.opts.command:
+            help_url = get_url_from_os_release()
+            if help_url:
+                msg = _('Additional information for System Upgrade: {}')
+                logger.info(msg.format(ucd(help_url)))
+            if self.base._promptWanted():
+                msg = _('Before you continue ensure that your system is fully upgraded by running '
+                        '"dnf --refresh upgrade". Do you want to continue')
+                if self.base.conf.assumeno or not self.base.output.userconfirm(
+                        msg='{} [y/N]: '.format(msg), defaultyes_msg='{} [Y/n]: '.format(msg)):
+                    raise CliError(_("Operation aborted."))
+            check_release_ver(self.base.conf, target=self.opts.releasever)
         self.cli.demands.root_user = True
         self.cli.demands.resolving = True
         self.cli.demands.available_repos = True
@@ -465,7 +473,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == check_*: do any action-specific checks ===============================
 
     def check_download(self):
-        check_release_ver(self.base.conf, target=self.opts.releasever)
         dnf.util.ensure_dir(self.base.conf.cachedir)
         if self.base.conf.destdir:
             dnf.util.ensure_dir(self.base.conf.destdir)
@@ -525,16 +532,23 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def run_upgrade(self):
         # change the upgrade status (so we can detect crashed upgrades later)
+        command = ''
         with self.state as state:
             state.upgrade_status = 'incomplete'
+            command = state.upgrade_command
+        if command == 'offline-upgrade':
+            msg = _("Starting offline upgrade. This will take a while.")
+        elif command == 'offline-distrosync':
+            msg = _("Starting offline distrosync. This will take a while.")
+        else:
+            msg = _("Starting system upgrade. This will take a while.")
 
-        self.log_status(_("Starting system upgrade. This will take a while."),
-                        UPGRADE_STARTED_ID)
+        self.log_status(msg, UPGRADE_STARTED_ID)
 
         # reset the splash mode and let the user know we're running
         Plymouth.set_mode()
         Plymouth.progress(0)
-        Plymouth.message(_("Starting system upgrade. This will take a while."))
+        Plymouth.message(msg)
 
         # disable screen blanking
         disable_blanking()
@@ -583,6 +597,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.download_status = None
             state.upgrade_status = None
+            state.upgrade_command = None
             state.destdir = None
             state.install_packages = {}
             state.remove_packages = []
@@ -622,7 +637,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.module_platform_id = self.base.conf.module_platform_id
             state.enable_disable_repos = self.opts.repos_ed
             state.destdir = self.base.conf.destdir
-        logger.info(DOWNLOAD_FINISHED_MSG)
+            state.upgrade_command = self.opts.command
+        msg = DOWNLOAD_FINISHED_MSG.format(command=self.opts.command)
+        logger.info(msg)
         self.log_status(_("Download finished."),
                         DOWNLOAD_FINISHED_ID)
 
