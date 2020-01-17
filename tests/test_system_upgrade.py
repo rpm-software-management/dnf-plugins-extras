@@ -393,6 +393,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.cli.base.transaction.install_set = [pkg]
         self.command.opts = mock.MagicMock()
         self.command.opts.distro_sync = "distro_sync"
+        self.command.opts.command = "system_upgrade"
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = "best"
@@ -409,6 +410,7 @@ class DownloadCommandTestCase(CommandTestCase):
             self.assertEqual(state.allow_erasing, "allow_erasing")
             self.assertEqual(state.best, "best")
             self.assertEqual(state.destdir, "/grape/wine")
+            self.assertEqual(state.upgrade_command, "system_upgrade")
 
 
 class UpgradeCommandTestCase(CommandTestCase):
