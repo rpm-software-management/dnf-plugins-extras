@@ -392,25 +392,55 @@ class DownloadCommandTestCase(CommandTestCase):
         pkg.repo = repo
         self.cli.base.transaction.install_set = [pkg]
         self.command.opts = mock.MagicMock()
-        self.command.opts.distro_sync = "distro_sync"
+        self.command.opts.distro_sync = True
         self.command.opts.command = "system_upgrade"
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
-        self.command.base.conf.best = "best"
+        self.command.base.conf.best = True
         self.command.base.conf.installroot = "/"
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
-        self.command.base.conf.destdir = "/grape/wine"
+        self.command.opts.destdir = "/grape/wine"
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
+        self.command.pre_configure_download()
         self.command.transaction_download()
         with system_upgrade.State() as state:
             self.assertEqual(state.download_status, "complete")
-            self.assertEqual(state.distro_sync, "distro_sync")
+            self.assertEqual(state.distro_sync, True)
             self.assertEqual(state.allow_erasing, "allow_erasing")
-            self.assertEqual(state.best, "best")
+            self.assertEqual(state.best, True)
             self.assertEqual(state.destdir, "/grape/wine")
             self.assertEqual(state.upgrade_command, "system_upgrade")
+
+    def test_transaction_download_offline_upgrade(self):
+        pkg = mock.MagicMock()
+        repo = mock.MagicMock()
+        repo.id = 'test'
+        pkg.name = "kernel"
+        pkg.repo = repo
+        self.cli.base.transaction.install_set = [pkg]
+        self.command.opts = mock.MagicMock()
+        self.command.opts.distro_sync = True
+        self.command.opts.command = "offline-upgrade"
+        self.command.opts.repos_ed = []
+        self.cli.demands.allow_erasing = "allow_erasing"
+        self.command.base.conf.best = True
+        self.command.base.conf.installroot = "/"
+        self.command.base.conf.releasever = "35"
+        self.command.base.conf.gpgcheck = True
+        self.command.opts.destdir = "/grape/wine"
+        self.command.base.conf.install_weak_deps = True
+        self.command.base.conf.module_platform_id = ''
+        self.command.pre_configure_download()
+        self.command.transaction_download()
+        with system_upgrade.State() as state:
+            self.assertEqual(state.download_status, "complete")
+            self.assertEqual(state.distro_sync, False)
+            self.assertEqual(state.allow_erasing, "allow_erasing")
+            self.assertEqual(state.best, True)
+            self.assertEqual(state.destdir, "/grape/wine")
+            self.assertEqual(state.upgrade_command, "offline-upgrade")
 
 
 class UpgradeCommandTestCase(CommandTestCase):
