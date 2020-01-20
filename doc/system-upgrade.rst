@@ -23,6 +23,10 @@ DNF system-upgrade Plugin
 Description
 -----------
 
+DNF system-upgrades plugin provides three commands: ``system-upgrade``, ``offline-upgrade``, and
+``offline-distrosync``. Only ``system-upgrade`` command requires increase of distribution major
+version (``--releasever``) compared to installed version.
+
 ``dnf system-upgrade`` can be used to upgrade a Fedora system to a new major
 release. It replaces fedup (the old Fedora Upgrade tool). Before you proceed ensure that your system
 is fully upgraded (``dnf --refresh upgrade``).
@@ -35,7 +39,7 @@ Synopsis
 
 On modular system, also set the ``module_platform_id``. For example, for Fedora 30:
 
-    ``dnf system-upgrade download --releasever 30 --setopt='module_platform_id=platform:f30' [OPTIONS]``
+``dnf system-upgrade download --releasever 30 --setopt='module_platform_id=platform:f30' [OPTIONS]``
 
 ``dnf system-upgrade reboot``
 
@@ -44,6 +48,26 @@ On modular system, also set the ``module_platform_id``. For example, for Fedora 
 ``dnf system-upgrade log``
 
 ``dnf system-upgrade log --number=<number>``
+
+``dnf offline-upgrade download [OPTIONS]``
+
+``dnf offline-upgrade reboot``
+
+``dnf offline-upgrade clean``
+
+``dnf offline-upgrade log``
+
+``dnf offline-upgrade log --number=<number>``
+
+``dnf offline-distrosync download [OPTIONS]``
+
+``dnf offline-distrosync reboot``
+
+``dnf offline-distrosync clean``
+
+``dnf offline-distrosync log``
+
+``dnf offline-distrosync log --number=<number>``
 
 -----------
 Subcommands
@@ -88,7 +112,8 @@ Options
 ``--no-downgrade``
     Behave like ``dnf update``: do not install packages from the new release
     if they are older than what is currently installed. This is the opposite of
-    ``--distro-sync``. If both are specified, the last option will be used.
+    ``--distro-sync``. If both are specified, the last option will be used. The option cannot be
+    used with the ``offline-distrosync` command.
 
 ``--number``
     Applied with ``log`` subcommand will show the log specified by the number.
