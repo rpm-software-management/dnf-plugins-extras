@@ -495,8 +495,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # Delete symlink ASAP to avoid reboot loops
         dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
         if not self.state.upgrade_status == 'ready':
-            raise CliError(  # Translators: do not change "reboot" here
-                _("use 'dnf system-upgrade reboot' to begin the upgrade"))
+            command = self.state.upgrade_command
+            msg = _("use 'dnf {command} reboot' to begin the upgrade").format(command=command)
+            raise CliError(msg)
 
     # == run_*: run the action/prep the transaction ===========================
 
