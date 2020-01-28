@@ -324,11 +324,13 @@ class SystemUpgradePlugin(dnf.Plugin):
         super(SystemUpgradePlugin, self).__init__(base, cli)
         if cli:
             cli.register_command(SystemUpgradeCommand)
+            cli.register_command(OfflineUpgradeCommand)
+            cli.register_command(OfflineDistrosyncCommand)
 
 
 class SystemUpgradeCommand(dnf.cli.Command):
-    aliases = ('system-upgrade', 'fedup', 'offline-upgrade', 'offline-distrosync',)
-    summary = _("Prepare system for upgrade to a new release or perform offline upgrade/distrosync")
+    aliases = ('system-upgrade', 'fedup',)
+    summary = _("Prepare system for upgrade to a new release")
 
     def __init__(self, cli):
         super(SystemUpgradeCommand, self).__init__(cli)
@@ -651,3 +653,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.run_clean()
         if self.opts.tid[0] == "upgrade":
             reboot()
+
+
+class OfflineUpgradeCommand(SystemUpgradeCommand):
+    aliases = ('offline-upgrade',)
+    summary = _("Prepare offline upgrade of the system")
+
+
+class OfflineDistrosyncCommand(SystemUpgradeCommand):
+    aliases = ('offline-distrosync',)
+    summary = _("Prepare offline distrosync of the system")
