@@ -39,7 +39,7 @@ Synopsis
 
 On modular system, also set the ``module_platform_id``. For example, for Fedora 30:
 
-``dnf system-upgrade download --releasever 30 --setopt='module_platform_id=platform:f30' [OPTIONS]``
+``dnf system-upgrade download --releasever 30 [OPTIONS]``
 
 ``dnf system-upgrade reboot``
 
