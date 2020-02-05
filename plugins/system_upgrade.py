@@ -482,6 +482,10 @@ class SystemUpgradeCommand(dnf.cli.Command):
     def check_reboot(self):
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
+        if self.state.upgrade_command != self.opts.command:
+            msg = _("the download transaction was prepare for '{0}' but not for '{1}'").format(
+                self.state.upgrade_command, self.opts.command)
+            raise CliError(msg)
         if os.path.lexists(MAGIC_SYMLINK):
             raise CliError(_("upgrade is already scheduled"))
         dnf.util.ensure_dir(DEFAULT_DATADIR)

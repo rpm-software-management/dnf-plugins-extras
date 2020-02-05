@@ -315,15 +315,24 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
         self.command.configure_reboot()
         self.assertTrue(self.cli.demands.root_user)
 
-    def check_reboot(self, status='complete', lexists=False):
+    def check_reboot(self, status='complete', lexists=False, command='system-upgrade',
+                     state_command='system-upgrade'):
         with patch('system_upgrade.os.path.lexists') as lexists_func,\
                 patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
             self.command.state.download_status = status
+            self.command.opts = mock.MagicMock()
+            self.command.opts.command = command
+            self.command.state.upgrade_command = state_command
             lexists_func.return_value = lexists
             self.command.check_reboot()
 
     def test_check_reboot_ok(self):
         self.check_reboot(status='complete', lexists=False)
+
+    def test_check_reboot_different_command(self):
+        with self.assertRaises(CliError):
+            self.check_reboot(status='complete', lexists=False, command='system-upgrade',
+                              state_command='offline-upgrade')
 
     def test_check_reboot_no_download(self):
         with self.assertRaises(CliError):
