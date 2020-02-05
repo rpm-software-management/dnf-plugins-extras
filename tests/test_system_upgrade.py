@@ -319,6 +319,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
                      state_command='system-upgrade'):
         with patch('system_upgrade.os.path.lexists') as lexists_func,\
                 patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
+            self.command.state.state_version = 1
             self.command.state.download_status = status
             self.command.opts = mock.MagicMock()
             self.command.opts.command = command
@@ -375,14 +376,16 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
 class DownloadCommandTestCase(CommandTestCase):
     def test_pre_configure_download_default(self):
         self.command.opts = mock.MagicMock()
+        self.command.opts.destdir = None
+        self.command.base.conf.destdir = None
         self.command.pre_configure_download()
         self.assertEqual(self.command.base.conf.cachedir, DEFAULT_DATADIR)
 
     def test_pre_configure_download_destdir(self):
         self.command.opts = mock.MagicMock()
-        self.command.opts.destdir = "/grape/wine"
+        self.command.opts.destdir = self.statedir
         self.command.pre_configure_download()
-        self.assertEqual(self.command.base.conf.destdir, "/grape/wine")
+        self.assertEqual(self.command.base.conf.destdir, self.statedir)
 
     def test_configure_download(self):
         self.command.opts = mock.MagicMock()
@@ -409,7 +412,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.base.conf.installroot = "/"
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
-        self.command.opts.destdir = "/grape/wine"
+        self.command.opts.destdir = self.statedir
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
         self.command.pre_configure_download()
@@ -419,7 +422,7 @@ class DownloadCommandTestCase(CommandTestCase):
             self.assertEqual(state.distro_sync, True)
             self.assertEqual(state.allow_erasing, "allow_erasing")
             self.assertEqual(state.best, True)
-            self.assertEqual(state.destdir, "/grape/wine")
+            self.assertEqual(state.destdir, self.statedir)
             self.assertEqual(state.upgrade_command, "system_upgrade")
 
     def test_transaction_download_offline_upgrade(self):
@@ -438,7 +441,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.base.conf.installroot = "/"
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
-        self.command.opts.destdir = "/grape/wine"
+        self.command.opts.destdir = self.statedir
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
         self.command.pre_configure_download()
@@ -448,7 +451,7 @@ class DownloadCommandTestCase(CommandTestCase):
             self.assertEqual(state.distro_sync, False)
             self.assertEqual(state.allow_erasing, "allow_erasing")
             self.assertEqual(state.best, True)
-            self.assertEqual(state.destdir, "/grape/wine")
+            self.assertEqual(state.destdir, self.statedir)
             self.assertEqual(state.upgrade_command, "offline-upgrade")
 
 
