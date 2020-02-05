@@ -65,6 +65,8 @@ DOWNLOAD_FINISHED_MSG = _(  # Translators: do not change "reboot" here
 CANT_RESET_RELEASEVER = _(
     "Sorry, you need to use 'download --releasever' instead of '--network'")
 
+STATE_VERSION = 1
+
 # --- Miscellaneous helper functions ------------------------------------------
 
 
@@ -166,6 +168,9 @@ class State(object):
             return self._data.get(option)
         return property(getprop, setprop)
 
+    #  !!! Increase STATE_VERSION for any changes in data structure like a new property or a new
+    #  data structure !!!
+    state_version = _prop("state_version")
     download_status = _prop("download_status")
     destdir = _prop("destdir")
     target_releasever = _prop("target_releasever")
@@ -356,11 +361,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
                      DNF_VERSION=dnf.const.VERSION)
 
     def pre_configure(self):
+        self._call_sub("check")
         self._call_sub("pre_configure")
 
     def configure(self):
         self._call_sub("configure")
-        self._call_sub("check")
 
     def run(self):
         self._call_sub("run")
@@ -372,6 +377,12 @@ class SystemUpgradeCommand(dnf.cli.Command):
         subfunc = getattr(self, name + '_' + self.opts.tid[0], None)
         if callable(subfunc):
             subfunc()
+
+    def _check_state_version(self, command):
+        if self.state.state_version != STATE_VERSION:
+            msg = _("Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+                    "").format(command=command)
+            raise CliError(msg)
 
     def _set_cachedir(self):
         # set download directories from json state file
@@ -388,6 +399,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
                 _("Command 'offline-distrosync' cannot be used with --no-downgrade option"))
         elif 'offline-upgrade' == self.opts.command:
             self.opts.distro_sync = False
+        dnf.util.ensure_dir(self.base.conf.cachedir)
+        if self.base.conf.destdir:
+            dnf.util.ensure_dir(self.base.conf.destdir)
 
     def pre_configure_reboot(self):
         self._set_cachedir()
@@ -474,17 +488,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     # == check_*: do any action-specific checks ===============================
 
-    def check_download(self):
-        dnf.util.ensure_dir(self.base.conf.cachedir)
-        if self.base.conf.destdir:
-            dnf.util.ensure_dir(self.base.conf.destdir)
-
     def check_reboot(self):
         if not self.state.download_status == 'complete':
             raise CliError(_("system is not ready for upgrade"))
+        self._check_state_version(self.opts.command)
         if self.state.upgrade_command != self.opts.command:
-            msg = _("the download transaction was prepare for '{0}' but not for '{1}'").format(
-                self.state.upgrade_command, self.opts.command)
+            msg = _("the transaction was not prepared for '{command}'. "
+                    "Rerun 'dnf {command} download [OPTIONS]'").format(command=self.opts.command)
             raise CliError(msg)
         if os.path.lexists(MAGIC_SYMLINK):
             raise CliError(_("upgrade is already scheduled"))
@@ -500,8 +510,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
             raise SystemExit(0)
         # Delete symlink ASAP to avoid reboot loops
         dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
+        command = self.state.upgrade_command
+        if not command:
+            command = self.opts.command
+        self._check_state_version(command)
         if not self.state.upgrade_status == 'ready':
-            command = self.state.upgrade_command
             msg = _("use 'dnf {command} reboot' to begin the upgrade").format(command=command)
             raise CliError(msg)
 
