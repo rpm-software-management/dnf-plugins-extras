@@ -320,7 +320,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
                      state_command='system-upgrade'):
         with patch('system_upgrade.os.path.lexists') as lexists_func,\
                 patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
-            self.command.state.state_version = 1
+            self.command.state.state_version = 2
             self.command.state.download_status = status
             self.command.opts = mock.MagicMock()
             self.command.opts.command = command

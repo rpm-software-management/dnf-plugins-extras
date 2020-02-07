@@ -65,7 +65,7 @@ DOWNLOAD_FINISHED_MSG = _(  # Translators: do not change "reboot" here
 CANT_RESET_RELEASEVER = _(
     "Sorry, you need to use 'download --releasever' instead of '--network'")
 
-STATE_VERSION = 1
+STATE_VERSION = 2
 
 # --- Miscellaneous helper functions ------------------------------------------
 
@@ -373,6 +373,9 @@ class SystemUpgradeCommand(dnf.cli.Command):
     def run_transaction(self):
         self._call_sub("transaction")
 
+    def run_resolved(self):
+        self._call_sub("resolved")
+
     def _call_sub(self, name):
         subfunc = getattr(self, name + '_' + self.opts.tid[0], None)
         if callable(subfunc):
@@ -388,6 +391,24 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # set download directories from json state file
         self.base.conf.cachedir = DEFAULT_DATADIR
         self.base.conf.destdir = self.state.destdir if self.state.destdir else None
+
+    def _get_forward_reverse_pkg_reason_pairs(self):
+        """
+        forward = {repoid:{pkg_nevra: {tsi.action: tsi.reason}}
+        reverse = {pkg_nevra: {tsi.action: tsi.reason}}
+        :return: forward, reverse
+        """
+        forward = {}
+        reverse = {}
+        for tsi in self.cli.base.transaction:
+            if tsi.action in dnf.transaction.FORWARD_ACTIONS:
+                pkg = tsi.pkg
+                forward.setdefault(pkg.repo.id, {}).setdefault(
+                    str(pkg), {})[tsi.action] = tsi.reason
+            elif tsi.action in dnf.transaction.BACKWARD_ACTIONS + \
+                    [libdnf.transaction.TransactionItemAction_REINSTALLED]:
+                reverse.setdefault(str(tsi.pkg), {})[tsi.action] = tsi.reason
+        return forward, reverse
 
     # == pre_configure_*: set up action-specific demands ==========================
     def pre_configure_download(self):
@@ -586,7 +607,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
         errs = []
 
-        for pkgspec in self.state.remove_packages:
+        for pkgspec in self.state.remove_packages.keys():
             try:
                 self.base.remove(pkgspec)
             except dnf.exceptions.MarkingError:
@@ -594,8 +615,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
                 logger.info(msg, self.base.output.term.bold(pkgspec))
                 errs.append(pkgspec)
 
-        for repo_id, pkg_spec_list in self.state.install_packages.items():
-            for pkgspec in pkg_spec_list:
+        for repo_id, pkg_spec_dict in self.state.install_packages.items():
+            for pkgspec in pkg_spec_dict.keys():
                 try:
                     self.base.install(pkgspec, reponame=repo_id)
                 except dnf.exceptions.MarkingError:
@@ -626,14 +647,37 @@ class SystemUpgradeCommand(dnf.cli.Command):
         else:
             list_logs()
 
+    # == resolved_*: do staff after succesful resolvement =====================
+
+    def resolved_upgrade(self):
+        """Adjust transaction reasons according to stored values"""
+        if not self.cli.base.transaction:
+            return
+        install_packages = self.state.install_packages
+        remove_packages = self.state.remove_packages
+        for tsi in self.cli.base.transaction:
+            if tsi.action in dnf.transaction.FORWARD_ACTIONS:
+                pkg = tsi.pkg
+                try:
+                    stored_reason = install_packages[pkg.repo.id][str(pkg)][str(tsi.action)]
+                    if stored_reason != tsi.reason:
+                        tsi.reason = stored_reason
+                except KeyError:
+                    pass
+            elif tsi.action in dnf.transaction.BACKWARD_ACTIONS + \
+                    [libdnf.transaction.TransactionItemAction_REINSTALLED]:
+                pkg = tsi.pkg
+                try:
+                    stored_reason = remove_packages[str(pkg)][str(tsi.action)]
+                    if stored_reason != tsi.reason:
+                        tsi.reason = stored_reason
+                except KeyError:
+                    pass
+
     # == transaction_*: do stuff after a successful transaction ===============
 
     def transaction_download(self):
-        downloads = self.cli.base.transaction.install_set
-        install_packages = {}
-        for pkg in downloads:
-            install_packages.setdefault(pkg.repo.id, []).append(str(pkg))
-        remove_packages = [str(pkg) for pkg in self.cli.base.transaction.remove_set]
+        install_packages, remove_packages = self._get_forward_reverse_pkg_reason_pairs()
 
         # Okay! Write out the state so the upgrade can use it.
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)
