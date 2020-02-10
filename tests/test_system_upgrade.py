@@ -259,6 +259,7 @@ class CommandTestCaseBase(unittest.TestCase):
         self.command = system_upgrade.SystemUpgradeCommand(cli=self.cli)
         self.command.base.conf.cachedir = os.path.join(self.statedir, "cache")
         self.command.base.conf.destdir = None
+        system_upgrade.DEFAULT_DATADIR = os.path.join(self.statedir, 'default_datadir')
 
     def tearDown(self):
         shutil.rmtree(self.statedir)
@@ -346,7 +347,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
     def test_run_prepare(self):
         with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
             self.command.run_prepare()
-        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), DEFAULT_DATADIR)
+        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), system_upgrade.DEFAULT_DATADIR)
         self.assertEqual(self.command.state.upgrade_status, 'ready')
 
     @patch('system_upgrade.SystemUpgradeCommand.run_prepare')
@@ -379,7 +380,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.destdir = None
         self.command.base.conf.destdir = None
         self.command.pre_configure_download()
-        self.assertEqual(self.command.base.conf.cachedir, DEFAULT_DATADIR)
+        self.assertEqual(self.command.base.conf.cachedir, system_upgrade.DEFAULT_DATADIR)
 
     def test_pre_configure_download_destdir(self):
         self.command.opts = mock.MagicMock()
