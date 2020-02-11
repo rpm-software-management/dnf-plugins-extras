@@ -399,9 +399,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
                 _("Command 'offline-distrosync' cannot be used with --no-downgrade option"))
         elif 'offline-upgrade' == self.opts.command:
             self.opts.distro_sync = False
-        dnf.util.ensure_dir(self.base.conf.cachedir)
-        if self.base.conf.destdir:
-            dnf.util.ensure_dir(self.base.conf.destdir)
 
     def pre_configure_reboot(self):
         self._set_cachedir()
