@@ -419,6 +419,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.pre_configure_download()
         self.command.transaction_download()
         with system_upgrade.State() as state:
+            self.assertEqual(state.state_version, system_upgrade.STATE_VERSION)
             self.assertEqual(state.download_status, "complete")
             self.assertEqual(state.distro_sync, True)
             self.assertEqual(state.allow_erasing, "allow_erasing")

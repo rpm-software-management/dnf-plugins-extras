@@ -613,6 +613,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
             clear_dir(self.base.conf.destdir)
         with self.state as state:
             state.download_status = None
+            state.state_version = None
             state.upgrade_status = None
             state.upgrade_command = None
             state.destdir = None
@@ -638,6 +639,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)
         with self.state as state:
             state.download_status = 'complete'
+            state.state_version = STATE_VERSION
             state.distro_sync = self.opts.distro_sync
             state.allow_erasing = self.cli.demands.allow_erasing
             state.gpgcheck = self.base.conf.gpgcheck
