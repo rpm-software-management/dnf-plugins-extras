@@ -26,6 +26,7 @@ import json
 import os
 import os.path
 import re
+import sys
 import uuid
 
 from systemd import journal
@@ -449,7 +450,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
                         '"dnf --refresh upgrade". Do you want to continue')
                 if self.base.conf.assumeno or not self.base.output.userconfirm(
                         msg='{} [y/N]: '.format(msg), defaultyes_msg='{} [Y/n]: '.format(msg)):
-                    raise CliError(_("Operation aborted."))
+                    logger.error(_("Operation aborted."))
+                    sys.exit(1)
             check_release_ver(self.base.conf, target=self.opts.releasever)
         self.cli.demands.root_user = True
         self.cli.demands.resolving = True
