@@ -398,15 +398,18 @@ class SystemUpgradeCommand(dnf.cli.Command):
         reverse = {pkg_nevra: {tsi.action: tsi.reason}}
         :return: forward, reverse
         """
+        backward_action = set(dnf.transaction.BACKWARD_ACTIONS +\
+                          [libdnf.transaction.TransactionItemAction_REINSTALLED])
+        forward_actions = set(dnf.transaction.FORWARD_ACTIONS)
+
         forward = {}
         reverse = {}
         for tsi in self.cli.base.transaction:
-            if tsi.action in dnf.transaction.FORWARD_ACTIONS:
+            if tsi.action in forward_actions:
                 pkg = tsi.pkg
                 forward.setdefault(pkg.repo.id, {}).setdefault(
                     str(pkg), {})[tsi.action] = tsi.reason
-            elif tsi.action in dnf.transaction.BACKWARD_ACTIONS + \
-                    [libdnf.transaction.TransactionItemAction_REINSTALLED]:
+            elif tsi.action in backward_action:
                 reverse.setdefault(str(tsi.pkg), {})[tsi.action] = tsi.reason
         return forward, reverse
 
@@ -653,10 +656,14 @@ class SystemUpgradeCommand(dnf.cli.Command):
         """Adjust transaction reasons according to stored values"""
         if not self.cli.base.transaction:
             return
+        backward_action = set(dnf.transaction.BACKWARD_ACTIONS + \
+                              [libdnf.transaction.TransactionItemAction_REINSTALLED])
+        forward_actions = set(dnf.transaction.FORWARD_ACTIONS)
+
         install_packages = self.state.install_packages
         remove_packages = self.state.remove_packages
         for tsi in self.cli.base.transaction:
-            if tsi.action in dnf.transaction.FORWARD_ACTIONS:
+            if tsi.action in forward_actions:
                 pkg = tsi.pkg
                 try:
                     stored_reason = install_packages[pkg.repo.id][str(pkg)][str(tsi.action)]
@@ -664,8 +671,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
                         tsi.reason = stored_reason
                 except KeyError:
                     pass
-            elif tsi.action in dnf.transaction.BACKWARD_ACTIONS + \
-                    [libdnf.transaction.TransactionItemAction_REINSTALLED]:
+            elif tsi.action in backward_action:
                 pkg = tsi.pkg
                 try:
                     stored_reason = remove_packages[str(pkg)][str(tsi.action)]
