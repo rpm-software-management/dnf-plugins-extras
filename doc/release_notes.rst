@@ -5,6 +5,21 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.0.9 Release Notes
+===================
+
+- [doc] move manpages for plugins to "dnf-PLUGIN" (RhBug:1706386)
+- Add offline-upgrade and offline-distrosync commands
+- [doc] Add description for new offline command
+- Store reason for system-upgrade plugin
+- Do not show Operation aborted as an error (RhBug:1797427)
+
+Bugs fixed in 4.0.9:
+
+* :rhbug:`1706386`
+* :rhbug:`1797427`
+
+===================
 4.0.8 Release Notes
 ===================
 

@@ -190,5 +190,13 @@
     [
         1764169,
         "system upgrade fails when packages need to be reinstalled, they are not downloaded"
+    ],
+    [
+        1706386,
+        "[RFE] Discoverable man page names for DNF plugins"
+    ],
+    [
+        1797427,
+        "'dnf system-upgrade download' misleading message"
     ]
 ]
