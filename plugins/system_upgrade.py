@@ -252,7 +252,18 @@ class PlymouthTransactionProgress(dnf.callback.TransactionProgress):
         self._update_plymouth(package, action, ts_done, ts_total)
 
     def _update_plymouth(self, package, action, current, total):
-        Plymouth.progress(int(100.0 * current / total))
+        # Prevents quick jumps of progressbar when pretrans scriptlets
+        # and TRANS_PREPARATION are reported as 1/1
+        if total == 1:
+            return
+        # Verification goes through all the packages again,
+        # which resets the "current" param value, this prevents
+        # resetting of the progress bar as well. (Rhbug:1809096)
+        if action != dnf.callback.PKG_VERIFY:
+            Plymouth.progress(int(90.0 * current / total))
+        else:
+            Plymouth.progress(90 + int(10.0 * current / total))
+
         Plymouth.message(self._fmt_event(package, action, current, total))
 
     def _fmt_event(self, package, action, current, total):
