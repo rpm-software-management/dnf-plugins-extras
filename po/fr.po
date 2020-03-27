@@ -1,199 +1,199 @@
 # Jérôme Fenal <jfenal@gmail.com>, 2017. #zanata
 # Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2018. #zanata
 # Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2019. #zanata
+# Julien Humbert <julroy67@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-03 21:47-0500\n"
-"PO-Revision-Date: 2019-05-08 02:50+0000\n"
-"Last-Translator: Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>\n"
-"Language-Team: French\n"
+"POT-Creation-Date: 2020-03-19 15:27+0100\n"
+"PO-Revision-Date: 2020-03-22 07:00+0000\n"
+"Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
+"Language-Team: French <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Zanata 4.6.2\n"
-
-#: ../plugins/showvars.py:46
-msgid "show all active dnf variables"
-msgstr "affiche toutes les variables actives de dnf"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr ""
-"Désactivation de l’extension torproxy : impossible de se connecter au réseau"
-" Tor"
-
-#: ../plugins/kickstart.py:60
-msgid "Install packages defined in a kickstart file on your system"
-msgstr ""
-"Installe les paquets définis dans un fichier kickstart sur votre système."
-
-#: ../plugins/kickstart.py:65
-msgid "kickstart file"
-msgstr "Fichier kickstart"
-
-#: ../plugins/kickstart.py:83
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "le fichier ne peut être analysé : %s"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Ajout de '{}' à la liste de paquets s’occupant de rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "le greffon rpmconf ne sera pas lancé en mode non-interactif"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
-"sys.exit de rpmconf a été ignoré, du fait de l’absence de variable MERGE"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "sys.exit de rpmconf a été ignoré, du fait de l’absence d’un fichier"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:45
+#: ../plugins/system_upgrade.py:46
 msgid "the color of the sky"
 msgstr "la couleur du ciel"
 
-#: ../plugins/system_upgrade.py:61
+#: ../plugins/system_upgrade.py:62
 msgid "Need a --releasever greater than the current system version."
 msgstr "--releasever doit être supérieure à la version courante du système."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:63
+#: ../plugins/system_upgrade.py:64
+#, python-brace-format
 msgid ""
-"Download complete! Use 'dnf system-upgrade reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf system-upgrade clean'"
+"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+"To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
-"Téléchargement terminé ! Utilisez « dnf system-upgrade reboot » pour démarrer la mise à niveau.\n"
-"Pour supprimer les métadonnées et transactions en cache, utilisez «  dnf system-upgrade clean »"
+"Téléchargement complété ! Utilisez « dnf {command} reboot » pour démarrer la mise à jour.\n"
+"Pour supprimer les métadonnées et les transactions en cache, utilisez « dnf {command} clean »"
 
-#: ../plugins/system_upgrade.py:66
+#: ../plugins/system_upgrade.py:67
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Désolé, vous devez utiliser « download --releasever » au lieu de « --network"
 " »"
 
-#: ../plugins/system_upgrade.py:119
+#: ../plugins/system_upgrade.py:122
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "L’extinction de l’affichage ne peut pas être désactivé : %s"
 
-#: ../plugins/system_upgrade.py:140
+#: ../plugins/system_upgrade.py:143
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
-"Échec du chargement du fichier d'état : %s, poursuite avec un état vide."
+"Échec du chargement du fichier d’état : %s, poursuite avec un état vide."
 
-#: ../plugins/system_upgrade.py:277
+#: ../plugins/system_upgrade.py:295
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Les démarrages suivants contiennent des journaux de mises à niveau :"
 
-#: ../plugins/system_upgrade.py:287
+#: ../plugins/system_upgrade.py:305
 msgid "-- no logs were found --"
 msgstr "-- aucun journal n’a été trouvé --"
 
-#: ../plugins/system_upgrade.py:302
+#: ../plugins/system_upgrade.py:320
 msgid "Cannot find logs with this index."
 msgstr "Journaux introuvables avec cet index."
 
-#: ../plugins/system_upgrade.py:311
+#: ../plugins/system_upgrade.py:329
 msgid "Unable to match systemd journal entry"
 msgstr "Impossible de faire correspondre l’entrée de journal systemd"
 
-#: ../plugins/system_upgrade.py:330
+#: ../plugins/system_upgrade.py:350
 msgid "Prepare system for upgrade to a new release"
 msgstr "Préparer le système pour une mise à niveau vers une nouvelle version"
 
-#: ../plugins/system_upgrade.py:340
+#: ../plugins/system_upgrade.py:360
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "garde les paquets installés si la version provenant du système à niveau est "
 "plus ancienne"
 
-#: ../plugins/system_upgrade.py:344
+#: ../plugins/system_upgrade.py:364
 msgid "which logs to show"
 msgstr "les journaux à afficher"
 
-#: ../plugins/system_upgrade.py:401
-msgid "Additional information for System Upgrade: {}"
+#: ../plugins/system_upgrade.py:398
+#, python-brace-format
+msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
+"Version des données incompatibles. Veuillez exécuter à nouveau « dnf "
+"{command} download [OPTIONS] »"
 
-#: ../plugins/system_upgrade.py:404
+#: ../plugins/system_upgrade.py:435
+msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+msgstr ""
+"La commande « offline-distrosync » ne peut pas être utilisée avec --no-"
+"downgrade option"
+
+#: ../plugins/system_upgrade.py:457
+msgid "Additional information for System Upgrade: {}"
+msgstr "Informations complémentaires pour les mises à jour système : {}"
+
+#: ../plugins/system_upgrade.py:460
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 "Avant de continuer, assurez-vous que votre système est complètement à jour "
-"en lançant « dnf --refresh upgrade ». Voulez-vous continuer ?"
+"en lançant « dnf --refresh upgrade ». Voulez-vous continuer"
 
-#: ../plugins/system_upgrade.py:408
+#: ../plugins/system_upgrade.py:464
 msgid "Operation aborted."
 msgstr "Opération avortée."
 
-#: ../plugins/system_upgrade.py:472
+#: ../plugins/system_upgrade.py:527
 msgid "system is not ready for upgrade"
 msgstr "le système n’est pas prêt pour la mise à niveau"
 
-#: ../plugins/system_upgrade.py:474
+#: ../plugins/system_upgrade.py:530
+#, python-brace-format
+msgid ""
+"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+"download [OPTIONS]'"
+msgstr ""
+"la transaction n’était pas préparée pour « {command} ». Veuillez exécuter "
+"« dnf {command} download [OPTIONS] » à nouveau"
+
+#: ../plugins/system_upgrade.py:534
 msgid "upgrade is already scheduled"
 msgstr "la mise à niveau est déjà programmée"
 
-#: ../plugins/system_upgrade.py:480
+#: ../plugins/system_upgrade.py:540
 msgid "trigger file does not exist. exiting quietly."
 msgstr "le fichier déclencheur n’existe pas. Fermeture silencieuse."
 
-#: ../plugins/system_upgrade.py:483
+#: ../plugins/system_upgrade.py:543
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "un autre outil de mise à niveau est en fonctionnement. Fermeture "
 "silencieuse."
 
-#. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:489
-msgid "use 'dnf system-upgrade reboot' to begin the upgrade"
-msgstr "utilisez « dnf system-upgrade reboot » pour démarrer la mise à niveau"
+#: ../plugins/system_upgrade.py:552
+#, python-brace-format
+msgid "use 'dnf {command} reboot' to begin the upgrade"
+msgstr "utilisez « dnf {command} reboot » pour démarrer la mise à jour"
 
-#: ../plugins/system_upgrade.py:506
+#: ../plugins/system_upgrade.py:570
 msgid "Rebooting to perform upgrade."
 msgstr "Redémarrage pour réaliser la mise à niveau."
 
-#: ../plugins/system_upgrade.py:528 ../plugins/system_upgrade.py:534
+#: ../plugins/system_upgrade.py:594
+msgid "Starting offline upgrade. This will take a while."
+msgstr ""
+"Démarrage de la mise à jour hors ligne. Cela prendra un certain temps."
+
+#: ../plugins/system_upgrade.py:596
+msgid "Starting offline distrosync. This will take a while."
+msgstr "Démarrage du distrosync hors ligne. Cela prendra un certain temps."
+
+#: ../plugins/system_upgrade.py:598
 msgid "Starting system upgrade. This will take a while."
 msgstr ""
 "Démarrage du processus de mise à niveau. Cela peut prendre un certain temps."
 
-#: ../plugins/system_upgrade.py:559 ../plugins/system_upgrade.py:568
+#: ../plugins/system_upgrade.py:630 ../plugins/system_upgrade.py:639
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Impossible de faire correspondre le paquet : %s"
 
-#: ../plugins/system_upgrade.py:573
+#: ../plugins/system_upgrade.py:644
 msgid "Unable to match some of packages"
 msgstr "Impossible de faire correspondre certains paquets"
 
-#: ../plugins/system_upgrade.py:576
+#: ../plugins/system_upgrade.py:647
 msgid "Cleaning up downloaded data..."
 msgstr "Nettoyage des données téléchargées …"
 
-#: ../plugins/system_upgrade.py:623
+#: ../plugins/system_upgrade.py:725
 msgid "Download finished."
 msgstr "Téléchargement terminé."
 
-#: ../plugins/system_upgrade.py:627 ../plugins/system_upgrade.py:628
+#: ../plugins/system_upgrade.py:729 ../plugins/system_upgrade.py:730
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
 
+#: ../plugins/system_upgrade.py:739
+msgid "Prepare offline upgrade of the system"
+msgstr "Préparation de la mise à jour hors ligne du système"
+
+#: ../plugins/system_upgrade.py:744
+msgid "Prepare offline distrosync of the system"
+msgstr "Préparation du distrosync du système hors ligne"
+
 #: ../plugins/tracer.py:70
 msgid "For more information run:"
-msgstr "Pour plus d’informations, lancez :"
+msgstr "Pour plus d’informations, lancez :"
 
 #: ../plugins/tracer.py:97
 msgid "Call to Tracer API ended unexpectedly:"
@@ -210,6 +210,27 @@ msgstr ""
 #: ../plugins/tracer.py:101
 msgid "We apologize for any inconvenience"
 msgstr "Nous nous excusons de tout désagrément"
+
+#: ../plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Ajout de « {} » à la liste de paquets s’occupant de rpmconf"
+
+#: ../plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "le greffon rpmconf ne sera pas lancé en mode non-interactif"
+
+#: ../plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr ""
+"sys.exit de rpmconf a été ignoré, du fait de l’absence de variable MERGE"
+
+#: ../plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "sys.exit de rpmconf a été ignoré, du fait de l’absence d’un fichier"
+
+#: ../plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "affiche toutes les variables actives de dnf"
 
 #: ../plugins/snapper.py:49
 #, python-format
@@ -248,3 +269,23 @@ msgstr "post-instantané %d créé"
 #, python-format
 msgid "creating post_snapshot failed: %s"
 msgstr "erreur de création du post-instantané : %s"
+
+#: ../plugins/kickstart.py:60
+msgid "Install packages defined in a kickstart file on your system"
+msgstr ""
+"Installe les paquets définis dans un fichier kickstart sur votre système"
+
+#: ../plugins/kickstart.py:65
+msgid "kickstart file"
+msgstr "Fichier kickstart"
+
+#: ../plugins/kickstart.py:83
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "le fichier ne peut être analysé : %s"
+
+#: ../plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr ""
+"Désactivation de l’extension torproxy : impossible de se connecter au réseau"
+" Tor"
