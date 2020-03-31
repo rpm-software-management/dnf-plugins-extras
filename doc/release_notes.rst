@@ -4,6 +4,16 @@ Extras DNF Plugins Release Notes
 
 .. contents::
 
+====================
+4.0.10 Release Notes
+====================
+
+- Ensure plymouth progressbar is filled up only once (RhBug:1809096)
+
+Bugs fixed in 4.0.10:
+
+* :rhbug:`1809096`
+
 ===================
 4.0.9 Release Notes
 ===================

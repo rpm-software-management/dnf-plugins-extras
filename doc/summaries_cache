@@ -198,5 +198,9 @@
     [
         1797427,
         "'dnf system-upgrade download' misleading message"
+    ],
+    [
+        1809096,
+        "Progressbar during offline upgrade phase gets reset after entering \"Verifying phase\""
     ]
 ]
