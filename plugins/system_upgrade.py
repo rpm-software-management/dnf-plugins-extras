@@ -572,6 +572,34 @@ class SystemUpgradeCommand(dnf.cli.Command):
         reboot()
 
     def run_download(self):
+        #  downstream hack to narrow missing upgrade path with modules between dist versions
+        if self.opts.command not in ['offline-upgrade', 'offline-distrosync']:
+            if dnf.base.WITH_MODULES:
+                module_container = self.base._moduleContainer
+                module_names = set()
+                for module in module_container.getModulePackages():
+                    module_names.add(module.getName())
+
+                for module_name in module_names:
+                    enabled_stream = module_container.getEnabledStream(module_name)
+                    default_stream = module_container.getDefaultStream(module_name)
+                    # This check is a hotfix to prevent multiple module operations for the same module,
+                    # it prevents raising: libdnf::ModulePackageContainer::EnableMultipleStreamsException
+                    if not (enabled_stream and default_stream):
+                        module_container.reset(module_name)
+
+                # Update modular excludes
+                hot_fix_repos = [i.id for i in self.base.repos.iter_enabled() if i.module_hotfixes]
+                try:
+                    solver_errors = self.base.sack.filter_modules(
+                        module_container, hot_fix_repos, self.base.conf.installroot,
+                        self.base.conf.module_platform_id, update_only=True, debugsolver=self.base.conf.debug_solver)
+                except hawkey.Exception as e:
+                    raise dnf.exceptions.Error(ucd(e))
+                if solver_errors:
+                    logger.warning(
+                        dnf.module.module_base.format_modular_solver_errors(solver_errors[0]))
+
         # Mark everything in the world for upgrade/sync
         if self.opts.distro_sync:
             self.base.distro_sync()
@@ -720,6 +748,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.enable_disable_repos = self.opts.repos_ed
             state.destdir = self.base.conf.destdir
             state.upgrade_command = self.opts.command
+
+        if self.opts.command not in ['offline-upgrade', 'offline-distrosync']:
+            if dnf.base.WITH_MODULES:
+                self.base._moduleContainer.save()
+
         msg = DOWNLOAD_FINISHED_MSG.format(command=self.opts.command)
         logger.info(msg)
         self.log_status(_("Download finished."),
