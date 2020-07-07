@@ -19,7 +19,6 @@
 
 """system_upgrade.py - DNF plugin to handle major-version system upgrades."""
 
-from __future__ import unicode_literals
 from distutils.version import StrictVersion
 from subprocess import call, Popen, check_output, CalledProcessError
 import json

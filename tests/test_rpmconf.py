@@ -15,9 +15,6 @@
 # Red Hat, Inc.
 #
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
-
 import errno
 import os
 from shutil import rmtree
@@ -31,15 +28,9 @@ from dnf.pycomp import StringIO
 import tests.support
 from tests.support import mock
 
-if tests.support.PY3:
-    from itertools import zip_longest
-else:
-    zip_longest = None
+from itertools import zip_longest
 
-if tests.support.PY3:
-    import rpm_conf
-else:
-    rpm_conf = None
+import rpm_conf
 
 
 def create_file(path, content):
@@ -77,7 +68,6 @@ class RpmconfPluginStub(object):
         run = rpm_conf.Rpmconf.transaction
 
 
-@unittest.skipUnless(tests.support.PY3, "rpmconf not available in Py2")
 class TestRpmConf(unittest.TestCase):
 
     def setUp(self):

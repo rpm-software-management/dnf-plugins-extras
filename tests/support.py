@@ -16,22 +16,12 @@
 # Red Hat, Inc.
 #
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
-
 import dnf
 import dnf.cli.option_parser
 import logging
 import sys
 
-PY3 = False
-if sys.version_info.major >= 3:
-    PY3 = True
-
-if PY3:
-    from unittest import mock
-else:
-    from . import mock
+from unittest import mock
 
 def command_configure(cmd, args):
     parser = dnf.cli.option_parser.OptionParser()

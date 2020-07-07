@@ -17,9 +17,6 @@
 # Red Hat, Inc.
 #
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
-
 import pykickstart.parser
 
 from dnfpluginsextras import _, logger
