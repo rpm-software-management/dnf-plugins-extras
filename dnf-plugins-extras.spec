@@ -1,4 +1,4 @@
-%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.19}
+%{!?dnf_lowest_compatible: %global dnf_lowest_compatible 4.4.3}
 %global dnf_plugins_extra_obsolete 2.0.0
 
 %undefine __cmake_in_source_build

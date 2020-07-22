@@ -37,6 +37,7 @@ import dnf.cli
 from dnf.cli import CliError
 from dnf.i18n import ucd
 import dnf.transaction
+from dnf.transaction_sr import serialize_transaction, TransactionReplay
 
 import libdnf.conf
 
@@ -55,6 +56,8 @@ DNFVERSION = StrictVersion(dnf.const.VERSION)
 
 PLYMOUTH = '/usr/bin/plymouth'
 DEFAULT_DATADIR = '/var/lib/dnf/system-upgrade'
+STATE_FILE = DEFAULT_DATADIR + '/system-upgrade-state.json'
+TRANSACTION_FILE = DEFAULT_DATADIR + '/system-upgrade-transaction.json'
 MAGIC_SYMLINK = '/system-update'
 
 RELEASEVER_MSG = _(
@@ -128,7 +131,7 @@ def disable_blanking():
 
 # DNF-INTEGRATION-NOTE: basically the same thing as dnf.persistor.JSONDB
 class State(object):
-    statefile = '/var/lib/dnf/system-upgrade.json'
+    statefile = STATE_FILE
 
     def __init__(self):
         self._data = {}
@@ -186,13 +189,7 @@ class State(object):
     upgrade_status = _prop("upgrade_status")
     upgrade_command = _prop("upgrade_command")
     distro_sync = _prop("distro_sync")
-    allow_erasing = _prop("allow_erasing")
     enable_disable_repos = _prop("enable_disable_repos")
-    best = _prop("best")
-    exclude = _prop("exclude")
-    install_packages = _prop("install_packages")
-    remove_packages = _prop("remove_packages")
-    install_weak_deps = _prop("install_weak_deps")
     module_platform_id = _prop("module_platform_id")
 
 # --- Plymouth output helpers -------------------------------------------------
@@ -492,7 +489,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         self.cli.demands.sack_activation = True
         # use the saved value for --allowerasing, etc.
         self.opts.distro_sync = self.state.distro_sync
-        self.cli.demands.allow_erasing = self.state.allow_erasing
         if self.state.gpgcheck is not None:
             self.base.conf.gpgcheck = self.state.gpgcheck
         if self.state.gpgcheck_repos is not None:
@@ -501,11 +497,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         if self.state.repo_gpgcheck_repos is not None:
             for repo in self.base.repos.values():
                 repo.repo_gpgcheck = repo.id in self.state.repo_gpgcheck_repos
-        self.base.conf.best = self.state.best
-        if self.state.exclude is None:
-            self.state.exclude = []
-        self.base.conf.exclude = libdnf.conf.VectorString(self.state.exclude)
-        self.base.conf.install_weak_deps = self.state.install_weak_deps
         self.base.conf.module_platform_id = self.state.module_platform_id
         # don't try to get new metadata, 'cuz we're offline
         self.cli.demands.cacheonly = True
@@ -515,6 +506,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # upgrade operation already removes all element that must be removed. Additional removal
         # could trigger unwanted changes in transaction.
         self.base.conf.clean_requirements_on_remove = False
+        self.base.conf.install_weak_deps = False
 
     def configure_clean(self):
         self.cli.demands.root_user = True
@@ -593,7 +585,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
         with self.state as state:
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever
-            state.exclude = list(self.base.conf.exclude)
             state.destdir = self.base.conf.destdir
 
     def run_upgrade(self):
@@ -619,41 +610,8 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # disable screen blanking
         disable_blanking()
 
-        # NOTE: We *assume* that depsolving here will yield the same
-        # transaction as it did during the download, but we aren't doing
-        # anything to *ensure* that; if the metadata changed, or if depsolving
-        # is non-deterministic in some way, we could end up with a different
-        # transaction and then the upgrade will fail due to missing packages.
-        #
-        # One way to *guarantee* that we have the same transaction would be
-        # to save & restore the Transaction object, but there's no documented
-        # way to save a Transaction to disk.
-        #
-        # So far, though, the above assumption seems to hold. So... onward!
-
-        # add the downloaded RPMs to the sack
-
-        errs = []
-
-        for pkgspec in self.state.remove_packages.keys():
-            try:
-                self.base.remove(pkgspec)
-            except dnf.exceptions.MarkingError:
-                msg = _('Unable to match package: %s')
-                logger.info(msg, self.base.output.term.bold(pkgspec))
-                errs.append(pkgspec)
-
-        for repo_id, pkg_spec_dict in self.state.install_packages.items():
-            for pkgspec in pkg_spec_dict.keys():
-                try:
-                    self.base.install(pkgspec, reponame=repo_id)
-                except dnf.exceptions.MarkingError:
-                    msg = _('Unable to match package: %s')
-                    logger.info(msg, self.base.output.term.bold(pkgspec + " " + repo_id))
-                    errs.append(pkgspec)
-
-        if errs:
-            raise dnf.exceptions.MarkingError(_("Unable to match some of packages"))
+        self.replay = TransactionReplay(self.base, TRANSACTION_FILE)
+        self.replay.run()
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
@@ -666,8 +624,6 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.upgrade_status = None
             state.upgrade_command = None
             state.destdir = None
-            state.install_packages = {}
-            state.remove_packages = []
 
     def run_log(self):
         if self.opts.number:
@@ -679,36 +635,21 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def resolved_upgrade(self):
         """Adjust transaction reasons according to stored values"""
-        if not self.cli.base.transaction:
-            return
-        backward_action = set(dnf.transaction.BACKWARD_ACTIONS + \
-                              [libdnf.transaction.TransactionItemAction_REINSTALLED])
-        forward_actions = set(dnf.transaction.FORWARD_ACTIONS)
-
-        install_packages = self.state.install_packages
-        remove_packages = self.state.remove_packages
-        for tsi in self.cli.base.transaction:
-            if tsi.action in forward_actions:
-                pkg = tsi.pkg
-                try:
-                    stored_reason = install_packages[pkg.repo.id][str(pkg)][str(tsi.action)]
-                    if stored_reason != tsi.reason:
-                        tsi.reason = stored_reason
-                except KeyError:
-                    pass
-            elif tsi.action in backward_action:
-                pkg = tsi.pkg
-                try:
-                    stored_reason = remove_packages[str(pkg)][str(tsi.action)]
-                    if stored_reason != tsi.reason:
-                        tsi.reason = stored_reason
-                except KeyError:
-                    pass
+        self.replay.post_transaction()
 
     # == transaction_*: do stuff after a successful transaction ===============
 
     def transaction_download(self):
-        install_packages, remove_packages = self._get_forward_reverse_pkg_reason_pairs()
+        data = serialize_transaction(self.base.history.get_current())
+        try:
+            with open(TRANSACTION_FILE, "w") as f:
+                json.dump(data, f, indent=4, sort_keys=True)
+                f.write("\n")
+
+            print(_("Transaction saved to {}.").format(TRANSACTION_FILE))
+
+        except OSError as e:
+            raise dnf.cli.CliError(_('Error storing transaction: {}').format(str(e)))
 
         # Okay! Write out the state so the upgrade can use it.
         system_ver = dnf.rpm.detect_releasever(self.base.conf.installroot)
@@ -716,26 +657,21 @@ class SystemUpgradeCommand(dnf.cli.Command):
             state.download_status = 'complete'
             state.state_version = STATE_VERSION
             state.distro_sync = self.opts.distro_sync
-            state.allow_erasing = self.cli.demands.allow_erasing
             state.gpgcheck = self.base.conf.gpgcheck
             state.gpgcheck_repos = [
                 repo.id for repo in self.base.repos.values() if repo.gpgcheck]
             state.repo_gpgcheck_repos = [
                 repo.id for repo in self.base.repos.values() if repo.repo_gpgcheck]
-            state.best = self.base.conf.best
             state.system_releasever = system_ver
             state.target_releasever = self.base.conf.releasever
-            state.install_packages = install_packages
-            state.remove_packages = remove_packages
-            state.install_weak_deps = self.base.conf.install_weak_deps
             state.module_platform_id = self.base.conf.module_platform_id
             state.enable_disable_repos = self.opts.repos_ed
             state.destdir = self.base.conf.destdir
             state.upgrade_command = self.opts.command
+
         msg = DOWNLOAD_FINISHED_MSG.format(command=self.opts.command)
         logger.info(msg)
-        self.log_status(_("Download finished."),
-                        DOWNLOAD_FINISHED_ID)
+        self.log_status(_("Download finished."), DOWNLOAD_FINISHED_ID)
 
     def transaction_upgrade(self):
         Plymouth.message(_("Upgrade complete! Cleaning up and rebooting..."))
