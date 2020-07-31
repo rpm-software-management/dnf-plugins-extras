@@ -3,3 +3,13 @@
 TAGS
 *~
 build/
+.coverage
+.tox/
+coverage/
+flake8-report.txt
+dependency-check-report.html
+.instrumental.cov
+instrumental-result-html/
+.hypothesis/
+.idea/
+.secrets.baseline
