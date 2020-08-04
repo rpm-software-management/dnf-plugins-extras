@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 15:27+0100\n"
+"POT-Creation-Date: 2020-07-18 09:18-0400\n"
 "PO-Revision-Date: 2019-04-02 03:20+0000\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: Czech\n"
@@ -19,80 +19,152 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: plugins/kickstart.py:57
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Instalovat balíčky definované v souboru kickstartu vašeho systému"
+
+#: plugins/kickstart.py:62
+msgid "kickstart file"
+msgstr "soubor kickstart"
+
+#: plugins/kickstart.py:80
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "soubor nelze parsovat: %s"
+
+#: plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
+
+#: plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
+
+#: plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
+
+#: plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
+
+#: plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr ""
+
+#: plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr "selhalo připojení ke Snapperu: %s"
+
+#: plugins/snapper.py:55
+msgid "creating pre_snapshot"
+msgstr "vytváření obrazu před transakcí"
+
+#: plugins/snapper.py:61
+#, python-format
+msgid "created pre_snapshot %d"
+msgstr "obraz %d vytvořen"
+
+#: plugins/snapper.py:65
+#, python-format
+msgid "creating pre_snapshot failed: %s"
+msgstr "selhalo vytvoření obrazu: %s"
+
+#: plugins/snapper.py:74
+msgid "skipping post_snapshot because creation of pre_snapshot failed"
+msgstr ""
+"Přeskakuji vytváření obrazu po transakci, protože selhalo vytváření obrazu "
+"před transakcí"
+
+#: plugins/snapper.py:80
+msgid "creating post_snapshot"
+msgstr "vytváření obrazu po transakci"
+
+#: plugins/snapper.py:85
+#, python-format
+msgid "created post_snapshot %d"
+msgstr "obraz %d vytvořen"
+
+#: plugins/snapper.py:89
+#, python-format
+msgid "creating post_snapshot failed: %s"
+msgstr "selhalo vytvoření obrazu: %s"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:46
+#: plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "barva oblohy"
 
-#: ../plugins/system_upgrade.py:62
+#: plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr "Verze --releasever musí být vyšší než verze aktuálního systému."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:64
+#: plugins/system_upgrade.py:63
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:67
+#: plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Promiňte, místo '--network' musíte použít 'download --releasever'"
 
-#: ../plugins/system_upgrade.py:122
+#: plugins/system_upgrade.py:121
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "Zatmívání obrazovky nemůže být zakázáno: %s"
 
-#: ../plugins/system_upgrade.py:143
+#: plugins/system_upgrade.py:142
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Nepodařilo se načíst stavový soubor: %s, pokračuje prázdným stavem."
 
-#: ../plugins/system_upgrade.py:295
+#: plugins/system_upgrade.py:294
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Následující boot obsahuje záznamy aktualizace systému:"
 
-#: ../plugins/system_upgrade.py:305
+#: plugins/system_upgrade.py:304
 msgid "-- no logs were found --"
 msgstr "-- nenalezeny žádné záznamy --"
 
-#: ../plugins/system_upgrade.py:320
+#: plugins/system_upgrade.py:319
 msgid "Cannot find logs with this index."
 msgstr "Nenalezeny žádné záznamy s tímto indexem."
 
-#: ../plugins/system_upgrade.py:329
+#: plugins/system_upgrade.py:328
 msgid "Unable to match systemd journal entry"
 msgstr "Nepodařilo se získat požadovaný záznam systemd žurnálu"
 
-#: ../plugins/system_upgrade.py:350
+#: plugins/system_upgrade.py:349
 msgid "Prepare system for upgrade to a new release"
 msgstr "Připravit systém k aktualizaci na novou verzi"
 
-#: ../plugins/system_upgrade.py:360
+#: plugins/system_upgrade.py:359
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "ponechat nainstalované balíčky, pokud se v novém vydání nachází starší verze"
 
-#: ../plugins/system_upgrade.py:364
+#: plugins/system_upgrade.py:363
 msgid "which logs to show"
 msgstr "které záznamy zobrazit"
 
-#: ../plugins/system_upgrade.py:398
+#: plugins/system_upgrade.py:397
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:435
+#: plugins/system_upgrade.py:434
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:457
+#: plugins/system_upgrade.py:456
 msgid "Additional information for System Upgrade: {}"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:460
+#: plugins/system_upgrade.py:459
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -100,92 +172,96 @@ msgstr ""
 "Předtím než budete pokračovat, ujistěte se, že váš systém je aktuální pomocí"
 " příkazu \"dnf --refresh upgrade\". Přejete si pokračovat?"
 
-#: ../plugins/system_upgrade.py:464
+#: plugins/system_upgrade.py:463
 msgid "Operation aborted."
 msgstr "Operace přerušena."
 
-#: ../plugins/system_upgrade.py:527
+#: plugins/system_upgrade.py:526
 msgid "system is not ready for upgrade"
 msgstr "systém není na aktualizaci připraven"
 
-#: ../plugins/system_upgrade.py:530
+#: plugins/system_upgrade.py:529
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:534
+#: plugins/system_upgrade.py:533
 msgid "upgrade is already scheduled"
 msgstr "aktualizace je už naplánována"
 
-#: ../plugins/system_upgrade.py:540
+#: plugins/system_upgrade.py:539
 msgid "trigger file does not exist. exiting quietly."
 msgstr "Spouštěcí soubor neexistuje. Tiché ukončení."
 
-#: ../plugins/system_upgrade.py:543
+#: plugins/system_upgrade.py:542
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "už běží jiný aktualizační nástroj, končím."
 
-#: ../plugins/system_upgrade.py:552
+#: plugins/system_upgrade.py:551
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:570
+#: plugins/system_upgrade.py:569
 msgid "Rebooting to perform upgrade."
 msgstr "Restartuji, aby se provedla aktualizace."
 
-#: ../plugins/system_upgrade.py:594
+#: plugins/system_upgrade.py:593
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:595
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:597
 msgid "Starting system upgrade. This will take a while."
 msgstr "Spouští se aktualizace systému. To může nějakou dobu trvat."
 
-#: ../plugins/system_upgrade.py:630 ../plugins/system_upgrade.py:639
+#: plugins/system_upgrade.py:629 plugins/system_upgrade.py:638
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Nepodařilo se najít balíček: %s"
 
-#: ../plugins/system_upgrade.py:644
+#: plugins/system_upgrade.py:643
 msgid "Unable to match some of packages"
 msgstr "Nepodařilo se najít některé balíčky"
 
-#: ../plugins/system_upgrade.py:647
+#: plugins/system_upgrade.py:646
 msgid "Cleaning up downloaded data..."
 msgstr "Mazání stažených dat…"
 
-#: ../plugins/system_upgrade.py:725
+#: plugins/system_upgrade.py:724
 msgid "Download finished."
 msgstr "Stahování dokončeno."
 
-#: ../plugins/system_upgrade.py:729 ../plugins/system_upgrade.py:730
+#: plugins/system_upgrade.py:728 plugins/system_upgrade.py:729
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Aktualizace dokončena! Čištění a restart systému…"
 
-#: ../plugins/system_upgrade.py:739
+#: plugins/system_upgrade.py:738
 msgid "Prepare offline upgrade of the system"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:744
+#: plugins/system_upgrade.py:743
 msgid "Prepare offline distrosync of the system"
 msgstr ""
 
-#: ../plugins/tracer.py:70
+#: plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Zakázání zásuvného modulu torproxy: nelze se připojit do sítě Tor"
+
+#: plugins/tracer.py:69
 msgid "For more information run:"
 msgstr "Pro více informací spustit:"
 
-#: ../plugins/tracer.py:97
+#: plugins/tracer.py:96
 msgid "Call to Tracer API ended unexpectedly:"
 msgstr "Volání Tracer API neočekávaně skončilo"
 
-#: ../plugins/tracer.py:99
+#: plugins/tracer.py:98
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
@@ -193,82 +269,6 @@ msgstr ""
 "Navštivte prosím https://github.com/FrostyX/tracer/issues a nahlašte "
 "problém. Děkuji"
 
-#: ../plugins/tracer.py:101
+#: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Omlouváme se za způsobené nepříjemnosti"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Přidání '{}' do seznamu balíčků ovládání pro rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "zásuvný modul rpmconf nebude v neinteraktivním režimu spuštěn"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "ignorování sys.exit z rpmconf kvůli chybějící proměnné MERGE"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ignorování sys.exit z rpmconf kvůli chybějícímu souboru"
-
-#: ../plugins/showvars.py:46
-msgid "show all active dnf variables"
-msgstr ""
-
-#: ../plugins/snapper.py:49
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr "selhalo připojení ke Snapperu: %s"
-
-#: ../plugins/snapper.py:55
-msgid "creating pre_snapshot"
-msgstr "vytváření obrazu před transakcí"
-
-#: ../plugins/snapper.py:61
-#, python-format
-msgid "created pre_snapshot %d"
-msgstr "obraz %d vytvořen"
-
-#: ../plugins/snapper.py:65
-#, python-format
-msgid "creating pre_snapshot failed: %s"
-msgstr "selhalo vytvoření obrazu: %s"
-
-#: ../plugins/snapper.py:74
-msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr ""
-"Přeskakuji vytváření obrazu po transakci, protože selhalo vytváření obrazu "
-"před transakcí"
-
-#: ../plugins/snapper.py:80
-msgid "creating post_snapshot"
-msgstr "vytváření obrazu po transakci"
-
-#: ../plugins/snapper.py:85
-#, python-format
-msgid "created post_snapshot %d"
-msgstr "obraz %d vytvořen"
-
-#: ../plugins/snapper.py:89
-#, python-format
-msgid "creating post_snapshot failed: %s"
-msgstr "selhalo vytvoření obrazu: %s"
-
-#: ../plugins/kickstart.py:60
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Instalovat balíčky definované v souboru kickstartu vašeho systému"
-
-#: ../plugins/kickstart.py:65
-msgid "kickstart file"
-msgstr "soubor kickstart"
-
-#: ../plugins/kickstart.py:83
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "soubor nelze parsovat: %s"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Zakázání zásuvného modulu torproxy: nelze se připojit do sítě Tor"

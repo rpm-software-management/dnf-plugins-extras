@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 15:27+0100\n"
+"POT-Creation-Date: 2020-07-18 09:18-0400\n"
 "PO-Revision-Date: 2020-02-15 12:29+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
@@ -25,18 +25,90 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: plugins/kickstart.py:57
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Instaluje pakiety podane w pliku kickstart w systemie"
+
+#: plugins/kickstart.py:62
+msgid "kickstart file"
+msgstr "plik kickstart"
+
+#: plugins/kickstart.py:80
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "nie można przetworzyć pliku: %s"
+
+#: plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "Dodawanie „{}” do listy obsługiwanych pakietów dla rpmconf"
+
+#: plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "Wtyczka rpmconf nie będzie działała w trybie nieinteraktywnym"
+
+#: plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "ignorowanie sys.exit z rpmconf z powodu braku zmiennej „MERGE”"
+
+#: plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "ignorowanie sys.exit z rpmconf z powodu braku pliku"
+
+#: plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "wyświetla wszystkie aktywne zmienne DNF"
+
+#: plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr "połączenie ze snapperd się nie powiodło: %s"
+
+#: plugins/snapper.py:55
+msgid "creating pre_snapshot"
+msgstr "tworzenie „pre_snapshot”"
+
+#: plugins/snapper.py:61
+#, python-format
+msgid "created pre_snapshot %d"
+msgstr "utworzono „pre_snapshot” %d"
+
+#: plugins/snapper.py:65
+#, python-format
+msgid "creating pre_snapshot failed: %s"
+msgstr "utworzenie „pre_snapshot” się nie powiodło: %s"
+
+#: plugins/snapper.py:74
+msgid "skipping post_snapshot because creation of pre_snapshot failed"
+msgstr ""
+"pomijanie „post_snapshot”, ponieważ utworzenie „pre_snapshot” się nie "
+"powiodło"
+
+#: plugins/snapper.py:80
+msgid "creating post_snapshot"
+msgstr "tworzenie „post_snapshot”"
+
+#: plugins/snapper.py:85
+#, python-format
+msgid "created post_snapshot %d"
+msgstr "utworzono „post_snapshot” %d"
+
+#: plugins/snapper.py:89
+#, python-format
+msgid "creating post_snapshot failed: %s"
+msgstr "utworzenie „post_snapshot” się nie powiodło: %s"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:46
+#: plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "kolor nieba"
 
-#: ../plugins/system_upgrade.py:62
+#: plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 "Parametr „--releasever” wymaga wartości wyższej niż wersja obecnego systemu."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:64
+#: plugins/system_upgrade.py:63
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
@@ -45,67 +117,67 @@ msgstr ""
 "Ukończono pobieranie. Polecenie „dnf {command} reboot” rozpocznie aktualizację systemu.\n"
 "Do usunięcia metadanych i transakcji z pamięci podręcznej można użyć polecenia „dnf {command} clean”."
 
-#: ../plugins/system_upgrade.py:67
+#: plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Należy użyć opcji „download --releasever” zamiast „--network”"
 
-#: ../plugins/system_upgrade.py:122
+#: plugins/system_upgrade.py:121
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "Nie można wyłączyć wygaszania ekranu: %s"
 
-#: ../plugins/system_upgrade.py:143
+#: plugins/system_upgrade.py:142
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 "Wczytanie pliku stanu się nie powiodło: %s, kontynuowanie z pustym stanem."
 
-#: ../plugins/system_upgrade.py:295
+#: plugins/system_upgrade.py:294
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Następujące uruchomienia zawierają dzienniki aktualizacji:"
 
-#: ../plugins/system_upgrade.py:305
+#: plugins/system_upgrade.py:304
 msgid "-- no logs were found --"
 msgstr "-- nie odnaleziono dzienników --"
 
-#: ../plugins/system_upgrade.py:320
+#: plugins/system_upgrade.py:319
 msgid "Cannot find logs with this index."
 msgstr "Nie można odnaleźć dzienników za pomocą tego indeksu."
 
-#: ../plugins/system_upgrade.py:329
+#: plugins/system_upgrade.py:328
 msgid "Unable to match systemd journal entry"
 msgstr "Nie można dopasować wpisu dziennika systemd"
 
-#: ../plugins/system_upgrade.py:350
+#: plugins/system_upgrade.py:349
 msgid "Prepare system for upgrade to a new release"
 msgstr "Przygotowuje system do aktualizacji do nowego wydania"
 
-#: ../plugins/system_upgrade.py:360
+#: plugins/system_upgrade.py:359
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "zachowuje zainstalowane pakiety, jeśli wersja nowego wydania jest starsza"
 
-#: ../plugins/system_upgrade.py:364
+#: plugins/system_upgrade.py:363
 msgid "which logs to show"
 msgstr "które dzienniki wyświetlić"
 
-#: ../plugins/system_upgrade.py:398
+#: plugins/system_upgrade.py:397
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 "Niezgodna wersja danych. Należy ponownie wykonać polecenie „dnf {command} "
 "download [OPCJE]”"
 
-#: ../plugins/system_upgrade.py:435
+#: plugins/system_upgrade.py:434
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 "Polecenie „offline-distrosync” nie może być używane z opcją --no-downgrade"
 
-#: ../plugins/system_upgrade.py:457
+#: plugins/system_upgrade.py:456
 msgid "Additional information for System Upgrade: {}"
 msgstr "Dodatkowe informacje dla aktualizacji systemu: {}"
 
-#: ../plugins/system_upgrade.py:460
+#: plugins/system_upgrade.py:459
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -113,15 +185,15 @@ msgstr ""
 "Przed kontynuacją należy upewnić się, że system jest całkowicie "
 "zaktualizowany wykonując polecenie „dnf --refresh upgrade”. Kontynuować?"
 
-#: ../plugins/system_upgrade.py:464
+#: plugins/system_upgrade.py:463
 msgid "Operation aborted."
 msgstr "Przerwano działanie."
 
-#: ../plugins/system_upgrade.py:527
+#: plugins/system_upgrade.py:526
 msgid "system is not ready for upgrade"
 msgstr "system nie jest gotowy na aktualizację"
 
-#: ../plugins/system_upgrade.py:530
+#: plugins/system_upgrade.py:529
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
@@ -130,81 +202,85 @@ msgstr ""
 "transakcja dla „{command}” nie została przygotowana. Należy ponownie wykonać"
 " polecenie „dnf {command} download [OPCJE]”"
 
-#: ../plugins/system_upgrade.py:534
+#: plugins/system_upgrade.py:533
 msgid "upgrade is already scheduled"
 msgstr "aktualizacja jest już zaplanowana"
 
-#: ../plugins/system_upgrade.py:540
+#: plugins/system_upgrade.py:539
 msgid "trigger file does not exist. exiting quietly."
 msgstr "plik wyzwalacza nie istnieje. Ciche kończenie działania."
 
-#: ../plugins/system_upgrade.py:543
+#: plugins/system_upgrade.py:542
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "inne narzędzie do aktualizacji systemu jest uruchomione. Ciche kończenie "
 "działania."
 
-#: ../plugins/system_upgrade.py:552
+#: plugins/system_upgrade.py:551
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr "polecenie „dnf {command} reboot” rozpocznie aktualizację systemu"
 
-#: ../plugins/system_upgrade.py:570
+#: plugins/system_upgrade.py:569
 msgid "Rebooting to perform upgrade."
 msgstr "Ponowne uruchamianie, aby wykonać aktualizację."
 
-#: ../plugins/system_upgrade.py:594
+#: plugins/system_upgrade.py:593
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Rozpoczynanie aktualizacji w trybie offline. Może to chwilę zająć."
 
-#: ../plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:595
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 "Rozpoczynanie synchronizacji dystrybucji w trybie offline. Może to chwilę "
 "zająć."
 
-#: ../plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:597
 msgid "Starting system upgrade. This will take a while."
 msgstr "Rozpoczynanie aktualizacji systemu. Może to chwilę zająć."
 
-#: ../plugins/system_upgrade.py:630 ../plugins/system_upgrade.py:639
+#: plugins/system_upgrade.py:629 plugins/system_upgrade.py:638
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Nie można dopasować pakietu: %s"
 
-#: ../plugins/system_upgrade.py:644
+#: plugins/system_upgrade.py:643
 msgid "Unable to match some of packages"
 msgstr "Nie można dopasować części pakietów"
 
-#: ../plugins/system_upgrade.py:647
+#: plugins/system_upgrade.py:646
 msgid "Cleaning up downloaded data..."
 msgstr "Czyszczenie pobranych danych…"
 
-#: ../plugins/system_upgrade.py:725
+#: plugins/system_upgrade.py:724
 msgid "Download finished."
 msgstr "Ukończono pobieranie."
 
-#: ../plugins/system_upgrade.py:729 ../plugins/system_upgrade.py:730
+#: plugins/system_upgrade.py:728 plugins/system_upgrade.py:729
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Ukończono aktualizację systemu. Czyszczenie i ponowne uruchamianie…"
 
-#: ../plugins/system_upgrade.py:739
+#: plugins/system_upgrade.py:738
 msgid "Prepare offline upgrade of the system"
 msgstr "Przygotowuje aktualizację systemu w trybie offline"
 
-#: ../plugins/system_upgrade.py:744
+#: plugins/system_upgrade.py:743
 msgid "Prepare offline distrosync of the system"
 msgstr "Przygotowuje synchronizację dystrybucji w trybie offline"
 
-#: ../plugins/tracer.py:70
+#: plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Wyłączanie wtyczki torproxy: nie można połączyć z siecią Tor"
+
+#: plugins/tracer.py:69
 msgid "For more information run:"
 msgstr "Więcej informacji:"
 
-#: ../plugins/tracer.py:97
+#: plugins/tracer.py:96
 msgid "Call to Tracer API ended unexpectedly:"
 msgstr "Wywołanie do API Tracer nieoczekiwanie zakończyło działanie:"
 
-#: ../plugins/tracer.py:99
+#: plugins/tracer.py:98
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
@@ -212,82 +288,6 @@ msgstr ""
 "Proszę zgłosić błąd na stronie https://github.com/FrostyX/tracer/issues "
 "(w języku angielskim)"
 
-#: ../plugins/tracer.py:101
+#: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Przepraszamy za niedogodności"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "Dodawanie „{}” do listy obsługiwanych pakietów dla rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "Wtyczka rpmconf nie będzie działała w trybie nieinteraktywnym"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "ignorowanie sys.exit z rpmconf z powodu braku zmiennej „MERGE”"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ignorowanie sys.exit z rpmconf z powodu braku pliku"
-
-#: ../plugins/showvars.py:46
-msgid "show all active dnf variables"
-msgstr "wyświetla wszystkie aktywne zmienne DNF"
-
-#: ../plugins/snapper.py:49
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr "połączenie ze snapperd się nie powiodło: %s"
-
-#: ../plugins/snapper.py:55
-msgid "creating pre_snapshot"
-msgstr "tworzenie „pre_snapshot”"
-
-#: ../plugins/snapper.py:61
-#, python-format
-msgid "created pre_snapshot %d"
-msgstr "utworzono „pre_snapshot” %d"
-
-#: ../plugins/snapper.py:65
-#, python-format
-msgid "creating pre_snapshot failed: %s"
-msgstr "utworzenie „pre_snapshot” się nie powiodło: %s"
-
-#: ../plugins/snapper.py:74
-msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr ""
-"pomijanie „post_snapshot”, ponieważ utworzenie „pre_snapshot” się nie "
-"powiodło"
-
-#: ../plugins/snapper.py:80
-msgid "creating post_snapshot"
-msgstr "tworzenie „post_snapshot”"
-
-#: ../plugins/snapper.py:85
-#, python-format
-msgid "created post_snapshot %d"
-msgstr "utworzono „post_snapshot” %d"
-
-#: ../plugins/snapper.py:89
-#, python-format
-msgid "creating post_snapshot failed: %s"
-msgstr "utworzenie „post_snapshot” się nie powiodło: %s"
-
-#: ../plugins/kickstart.py:60
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Instaluje pakiety podane w pliku kickstart w systemie"
-
-#: ../plugins/kickstart.py:65
-msgid "kickstart file"
-msgstr "plik kickstart"
-
-#: ../plugins/kickstart.py:83
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "nie można przetworzyć pliku: %s"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Wyłączanie wtyczki torproxy: nie można połączyć z siecią Tor"

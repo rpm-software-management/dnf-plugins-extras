@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-19 15:27+0100\n"
+"POT-Creation-Date: 2020-07-18 09:18-0400\n"
 "PO-Revision-Date: 2019-08-02 03:15+0000\n"
 "Last-Translator: Viktar Siarheichyk <veq@fedoraproject.org>\n"
 "Language-Team: Belarusian\n"
@@ -15,79 +15,149 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Zanata 4.6.2\n"
 
+#: plugins/kickstart.py:57
+msgid "Install packages defined in a kickstart file on your system"
+msgstr "Інсталяцыя на вашу сістэму пакетаў, пададзеных у файле kickstart"
+
+#: plugins/kickstart.py:62
+msgid "kickstart file"
+msgstr "файл kickstart"
+
+#: plugins/kickstart.py:80
+#, python-format
+msgid "file cannot be parsed: %s"
+msgstr "не атрымалася разабраць файл: %s"
+
+#: plugins/rpm_conf.py:65
+msgid "Adding '{}' to list of handling packages for rpmconf"
+msgstr "'{}' даданы да спісу пакетаў для апрацоўкі rpmconf"
+
+#: plugins/rpm_conf.py:71
+msgid "rpmconf plugin will not run in non-interactive mode"
+msgstr "плагін rpmconf не працуе ў неінтэрактыўным рэжыме"
+
+#: plugins/rpm_conf.py:84
+msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
+msgstr "sys.exit з rpmconf ігнаруецца, бо пераменная MERGE адсутнічае"
+
+#: plugins/rpm_conf.py:88
+msgid "ignoring sys.exit from rpmconf due to missing file"
+msgstr "sys.exit з rpmconf ігнаруецца, бо файл адсутнічае"
+
+#: plugins/showvars.py:46
+msgid "show all active dnf variables"
+msgstr "паказаць усе актыўныя зменныя dnf"
+
+#: plugins/snapper.py:49
+#, python-format
+msgid "connect to snapperd failed: %s"
+msgstr "не атрымалася далучыцца да snapperd: %s"
+
+#: plugins/snapper.py:55
+msgid "creating pre_snapshot"
+msgstr "стварэнне pre_snapshot"
+
+#: plugins/snapper.py:61
+#, python-format
+msgid "created pre_snapshot %d"
+msgstr "pre_snapshot %d створаны"
+
+#: plugins/snapper.py:65
+#, python-format
+msgid "creating pre_snapshot failed: %s"
+msgstr "стварэнне pre_snapshot не атрымалася: %s"
+
+#: plugins/snapper.py:74
+msgid "skipping post_snapshot because creation of pre_snapshot failed"
+msgstr "post_snapshot прапускаецца, бо стварэнне pre_snapshot не атрымалася"
+
+#: plugins/snapper.py:80
+msgid "creating post_snapshot"
+msgstr "стварэнне post_snapshot"
+
+#: plugins/snapper.py:85
+#, python-format
+msgid "created post_snapshot %d"
+msgstr "post_snapshot %d створаны"
+
+#: plugins/snapper.py:89
+#, python-format
+msgid "creating post_snapshot failed: %s"
+msgstr "стварэнне post_snapshot не атрымалася: %s"
+
 #. Translators: This string is only used in unit tests.
-#: ../plugins/system_upgrade.py:46
+#: plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "колер неба"
 
-#: ../plugins/system_upgrade.py:62
+#: plugins/system_upgrade.py:61
 msgid "Need a --releasever greater than the current system version."
 msgstr "Трэба, каб --releasever быў болей за версію гэтай сістэмы."
 
 #. Translators: do not change "reboot" here
-#: ../plugins/system_upgrade.py:64
+#: plugins/system_upgrade.py:63
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:67
+#: plugins/system_upgrade.py:66
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr "Выбачаемся, трэба ужыць 'download --releasever' замест '--network'"
 
-#: ../plugins/system_upgrade.py:122
+#: plugins/system_upgrade.py:121
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "Гашэнне экрану выключыць нельга: %s"
 
-#: ../plugins/system_upgrade.py:143
+#: plugins/system_upgrade.py:142
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Не атрымалася загрузіць файл стану: %s, працягваем з пустым станам."
 
-#: ../plugins/system_upgrade.py:295
+#: plugins/system_upgrade.py:294
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "У наступных запусках ёсць пратаколы абнаўлення:"
 
-#: ../plugins/system_upgrade.py:305
+#: plugins/system_upgrade.py:304
 msgid "-- no logs were found --"
 msgstr "-- не знойдзена пратаколаў --"
 
-#: ../plugins/system_upgrade.py:320
+#: plugins/system_upgrade.py:319
 msgid "Cannot find logs with this index."
 msgstr "Не знойдзена пратаколаў з гэтым індэксам."
 
-#: ../plugins/system_upgrade.py:329
+#: plugins/system_upgrade.py:328
 msgid "Unable to match systemd journal entry"
 msgstr "Не знойдзена супадзенняў з запісамі журнала systemd"
 
-#: ../plugins/system_upgrade.py:350
+#: plugins/system_upgrade.py:349
 msgid "Prepare system for upgrade to a new release"
 msgstr "Сістэма рыхтуецца да абнаўлення да новага выпуску"
 
-#: ../plugins/system_upgrade.py:360
+#: plugins/system_upgrade.py:359
 msgid "keep installed packages if the new release's version is older"
 msgstr "захаваць інсталяваныя пакеты, калі версія новага выпуску даўнейшая"
 
-#: ../plugins/system_upgrade.py:364
+#: plugins/system_upgrade.py:363
 msgid "which logs to show"
 msgstr "якія пратаколы паказваць"
 
-#: ../plugins/system_upgrade.py:398
+#: plugins/system_upgrade.py:397
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:435
+#: plugins/system_upgrade.py:434
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:457
+#: plugins/system_upgrade.py:456
 msgid "Additional information for System Upgrade: {}"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:460
+#: plugins/system_upgrade.py:459
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -95,92 +165,96 @@ msgstr ""
 "Перад тым, як ісці далей, праверце, што ваша сістэма цалкам абноўленая, "
 "запусціўшы \"dnf --refresh upgrade\". Працягваць"
 
-#: ../plugins/system_upgrade.py:464
+#: plugins/system_upgrade.py:463
 msgid "Operation aborted."
 msgstr "Аперацыя перарваная."
 
-#: ../plugins/system_upgrade.py:527
+#: plugins/system_upgrade.py:526
 msgid "system is not ready for upgrade"
 msgstr "сістэма не гатовая да абнаўлення"
 
-#: ../plugins/system_upgrade.py:530
+#: plugins/system_upgrade.py:529
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:534
+#: plugins/system_upgrade.py:533
 msgid "upgrade is already scheduled"
 msgstr "абнаўленне ўжо запланаванае"
 
-#: ../plugins/system_upgrade.py:540
+#: plugins/system_upgrade.py:539
 msgid "trigger file does not exist. exiting quietly."
 msgstr "файл трыгера адсутнічае. Ціха сканчаем працу."
 
-#: ../plugins/system_upgrade.py:543
+#: plugins/system_upgrade.py:542
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "працуе іншая прылада абнаўлення. Ціха сканчаем працу."
 
-#: ../plugins/system_upgrade.py:552
+#: plugins/system_upgrade.py:551
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:570
+#: plugins/system_upgrade.py:569
 msgid "Rebooting to perform upgrade."
 msgstr "Сістэма перазапускаецца для абнаўлення."
 
-#: ../plugins/system_upgrade.py:594
+#: plugins/system_upgrade.py:593
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:595
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 
-#: ../plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:597
 msgid "Starting system upgrade. This will take a while."
 msgstr "Запуск абнаўлення сістэмы. Гэта зойме час."
 
-#: ../plugins/system_upgrade.py:630 ../plugins/system_upgrade.py:639
+#: plugins/system_upgrade.py:629 plugins/system_upgrade.py:638
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Пакет %s не супадае"
 
-#: ../plugins/system_upgrade.py:644
+#: plugins/system_upgrade.py:643
 msgid "Unable to match some of packages"
 msgstr "Некаторыя пакеты не супадаюць"
 
-#: ../plugins/system_upgrade.py:647
+#: plugins/system_upgrade.py:646
 msgid "Cleaning up downloaded data..."
 msgstr "Загружаныя даныя чысцяцца."
 
-#: ../plugins/system_upgrade.py:725
+#: plugins/system_upgrade.py:724
 msgid "Download finished."
 msgstr "Загрузка скончаная."
 
-#: ../plugins/system_upgrade.py:729 ../plugins/system_upgrade.py:730
+#: plugins/system_upgrade.py:728 plugins/system_upgrade.py:729
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Абнаўленне гатова! Чысцім і перазапускаем сістэму..."
 
-#: ../plugins/system_upgrade.py:739
+#: plugins/system_upgrade.py:738
 msgid "Prepare offline upgrade of the system"
 msgstr ""
 
-#: ../plugins/system_upgrade.py:744
+#: plugins/system_upgrade.py:743
 msgid "Prepare offline distrosync of the system"
 msgstr ""
 
-#: ../plugins/tracer.py:70
+#: plugins/torproxy.py:31
+msgid "Disabling torproxy plugin: cannot connect to the Tor network"
+msgstr "Плагін torproxy адключаны: не атрымалася далучыцца да сеткі Tor"
+
+#: plugins/tracer.py:69
 msgid "For more information run:"
 msgstr "Каб атрымаць болей інфармацыі:"
 
-#: ../plugins/tracer.py:97
+#: plugins/tracer.py:96
 msgid "Call to Tracer API ended unexpectedly:"
 msgstr "Запуск Tracer API скончыўся нечакана:"
 
-#: ../plugins/tracer.py:99
+#: plugins/tracer.py:98
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
@@ -188,80 +262,6 @@ msgstr ""
 "Калі ласка, паведаміце аб памылцы на "
 "https://github.com/FrostyX/tracer/issues . Дзякуй!"
 
-#: ../plugins/tracer.py:101
+#: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Выбачаемся за нязручнасці"
-
-#: ../plugins/rpm_conf.py:65
-msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "'{}' даданы да спісу пакетаў для апрацоўкі rpmconf"
-
-#: ../plugins/rpm_conf.py:71
-msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "плагін rpmconf не працуе ў неінтэрактыўным рэжыме"
-
-#: ../plugins/rpm_conf.py:84
-msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "sys.exit з rpmconf ігнаруецца, бо пераменная MERGE адсутнічае"
-
-#: ../plugins/rpm_conf.py:88
-msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "sys.exit з rpmconf ігнаруецца, бо файл адсутнічае"
-
-#: ../plugins/showvars.py:46
-msgid "show all active dnf variables"
-msgstr "паказаць усе актыўныя зменныя dnf"
-
-#: ../plugins/snapper.py:49
-#, python-format
-msgid "connect to snapperd failed: %s"
-msgstr "не атрымалася далучыцца да snapperd: %s"
-
-#: ../plugins/snapper.py:55
-msgid "creating pre_snapshot"
-msgstr "стварэнне pre_snapshot"
-
-#: ../plugins/snapper.py:61
-#, python-format
-msgid "created pre_snapshot %d"
-msgstr "pre_snapshot %d створаны"
-
-#: ../plugins/snapper.py:65
-#, python-format
-msgid "creating pre_snapshot failed: %s"
-msgstr "стварэнне pre_snapshot не атрымалася: %s"
-
-#: ../plugins/snapper.py:74
-msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr "post_snapshot прапускаецца, бо стварэнне pre_snapshot не атрымалася"
-
-#: ../plugins/snapper.py:80
-msgid "creating post_snapshot"
-msgstr "стварэнне post_snapshot"
-
-#: ../plugins/snapper.py:85
-#, python-format
-msgid "created post_snapshot %d"
-msgstr "post_snapshot %d створаны"
-
-#: ../plugins/snapper.py:89
-#, python-format
-msgid "creating post_snapshot failed: %s"
-msgstr "стварэнне post_snapshot не атрымалася: %s"
-
-#: ../plugins/kickstart.py:60
-msgid "Install packages defined in a kickstart file on your system"
-msgstr "Інсталяцыя на вашу сістэму пакетаў, пададзеных у файле kickstart"
-
-#: ../plugins/kickstart.py:65
-msgid "kickstart file"
-msgstr "файл kickstart"
-
-#: ../plugins/kickstart.py:83
-#, python-format
-msgid "file cannot be parsed: %s"
-msgstr "не атрымалася разабраць файл: %s"
-
-#: ../plugins/torproxy.py:31
-msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "Плагін torproxy адключаны: не атрымалася далучыцца да сеткі Tor"
