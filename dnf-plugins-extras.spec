@@ -1,6 +1,8 @@
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 4.2.19}
 %global dnf_plugins_extra_obsolete 2.0.0
 
+%undefine __cmake_in_source_build
+
 Name:           dnf-plugins-extras
 Version:        4.0.10
 Release:        1%{?dist}
@@ -146,19 +148,14 @@ $releasever and $basearch.
 
 %prep
 %autosetup
-mkdir python3
 
 %build
-pushd python3
-  %cmake .. -DPYTHON_DESIRED:FILEPATH=%{__python3}
-  %make_build
-  make doc-man
-popd
+  %cmake -DPYTHON_DESIRED:FILEPATH=%{__python3}
+  %cmake_build
+  %cmake_build --target doc-man
 
 %install
-pushd python3
-  %make_install
-popd
+  %cmake_install
 
 mkdir -p %{buildroot}%{_unitdir}/system-update.target.wants/
 pushd %{buildroot}%{_unitdir}/system-update.target.wants/
