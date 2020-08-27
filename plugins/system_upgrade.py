@@ -580,6 +580,16 @@ class SystemUpgradeCommand(dnf.cli.Command):
         else:
             self.base.upgrade_all()
 
+        if self.opts.command not in ['offline-upgrade', 'offline-distrosync']:
+            # Mark all installed groups and environments for upgrade
+            self.base.read_comps()
+            installed_groups = [g.id for g in self.base.comps.groups if self.base.history.group.get(g.id)]
+            if installed_groups:
+                self.base.env_group_upgrade(installed_groups)
+            installed_environments = [g.id for g in self.base.comps.environments if self.base.history.env.get(g.id)]
+            if installed_environments:
+                self.base.env_group_upgrade(installed_environments)
+
         with self.state as state:
             state.download_status = 'downloading'
             state.target_releasever = self.base.conf.releasever

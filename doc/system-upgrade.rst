@@ -31,6 +31,9 @@ version (``--releasever``) compared to installed version.
 release. It replaces fedup (the old Fedora Upgrade tool). Before you proceed ensure that your system
 is fully upgraded (``dnf --refresh upgrade``).
 
+The ``system-upgrade`` command also performes additional actions necessary for the upgrade of the
+system, for example an upgrade of groups and environments.
+
 --------
 Synopsis
 --------
