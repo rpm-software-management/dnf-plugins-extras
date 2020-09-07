@@ -125,6 +125,10 @@ Notes
 ``dnf system-upgrade reboot`` does not create a "System Upgrade" boot item. The
 upgrade will start regardless of which boot item is chosen.
 
+The ``DNF_SYSTEM_UPGRADE_NO_REBOOT`` environment variable can be set to a
+non-empty value to disable the actual reboot performed by ``system-upgrade``
+(e.g. for testing purposes).
+
 Since this is a DNF plugin, options accepted by ``dnf`` are also valid here,
 such as ``--allowerasing``.
 See :manpage:`dnf(8)` for more information.
