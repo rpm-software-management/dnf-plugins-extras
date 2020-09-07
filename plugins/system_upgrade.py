@@ -71,7 +71,10 @@ STATE_VERSION = 2
 
 
 def reboot():
-    Popen(["systemctl", "reboot"])
+    if os.getenv("DNF_SYSTEM_UPGRADE_NO_REBOOT", default=False):
+        logger.info(_("Reboot turned off, not rebooting."))
+    else:
+        Popen(["systemctl", "reboot"])
 
 
 def get_url_from_os_release():
