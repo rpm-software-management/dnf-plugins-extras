@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-18 09:18-0400\n"
+"POT-Creation-Date: 2020-09-14 09:18-0400\n"
 "PO-Revision-Date: 2020-03-22 07:00+0000\n"
 "Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fr/>\n"
@@ -115,65 +115,69 @@ msgstr ""
 "Désolé, vous devez utiliser « download --releasever » au lieu de « --network"
 " »"
 
-#: plugins/system_upgrade.py:121
+#: plugins/system_upgrade.py:75
+msgid "Reboot turned off, not rebooting."
+msgstr ""
+
+#: plugins/system_upgrade.py:124
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "L’extinction de l’affichage ne peut pas être désactivé : %s"
 
-#: plugins/system_upgrade.py:142
+#: plugins/system_upgrade.py:145
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 "Échec du chargement du fichier d’état : %s, poursuite avec un état vide."
 
-#: plugins/system_upgrade.py:294
+#: plugins/system_upgrade.py:297
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Les démarrages suivants contiennent des journaux de mises à niveau :"
 
-#: plugins/system_upgrade.py:304
+#: plugins/system_upgrade.py:307
 msgid "-- no logs were found --"
 msgstr "-- aucun journal n’a été trouvé --"
 
-#: plugins/system_upgrade.py:319
+#: plugins/system_upgrade.py:322
 msgid "Cannot find logs with this index."
 msgstr "Journaux introuvables avec cet index."
 
-#: plugins/system_upgrade.py:328
+#: plugins/system_upgrade.py:331
 msgid "Unable to match systemd journal entry"
 msgstr "Impossible de faire correspondre l’entrée de journal systemd"
 
-#: plugins/system_upgrade.py:349
+#: plugins/system_upgrade.py:352
 msgid "Prepare system for upgrade to a new release"
 msgstr "Préparer le système pour une mise à niveau vers une nouvelle version"
 
-#: plugins/system_upgrade.py:359
+#: plugins/system_upgrade.py:362
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "garde les paquets installés si la version provenant du système à niveau est "
 "plus ancienne"
 
-#: plugins/system_upgrade.py:363
+#: plugins/system_upgrade.py:366
 msgid "which logs to show"
 msgstr "les journaux à afficher"
 
-#: plugins/system_upgrade.py:397
+#: plugins/system_upgrade.py:400
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 "Version des données incompatibles. Veuillez exécuter à nouveau « dnf "
 "{command} download [OPTIONS] »"
 
-#: plugins/system_upgrade.py:434
+#: plugins/system_upgrade.py:437
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 "La commande « offline-distrosync » ne peut pas être utilisée avec --no-"
 "downgrade option"
 
-#: plugins/system_upgrade.py:456
+#: plugins/system_upgrade.py:459
 msgid "Additional information for System Upgrade: {}"
 msgstr "Informations complémentaires pour les mises à jour système : {}"
 
-#: plugins/system_upgrade.py:459
+#: plugins/system_upgrade.py:462
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -181,15 +185,15 @@ msgstr ""
 "Avant de continuer, assurez-vous que votre système est complètement à jour "
 "en lançant « dnf --refresh upgrade ». Voulez-vous continuer"
 
-#: plugins/system_upgrade.py:463
+#: plugins/system_upgrade.py:466
 msgid "Operation aborted."
 msgstr "Opération avortée."
 
-#: plugins/system_upgrade.py:526
+#: plugins/system_upgrade.py:529
 msgid "system is not ready for upgrade"
 msgstr "le système n’est pas prêt pour la mise à niveau"
 
-#: plugins/system_upgrade.py:529
+#: plugins/system_upgrade.py:532
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
@@ -198,69 +202,69 @@ msgstr ""
 "la transaction n’était pas préparée pour « {command} ». Veuillez exécuter "
 "« dnf {command} download [OPTIONS] » à nouveau"
 
-#: plugins/system_upgrade.py:533
+#: plugins/system_upgrade.py:536
 msgid "upgrade is already scheduled"
 msgstr "la mise à niveau est déjà programmée"
 
-#: plugins/system_upgrade.py:539
+#: plugins/system_upgrade.py:542
 msgid "trigger file does not exist. exiting quietly."
 msgstr "le fichier déclencheur n’existe pas. Fermeture silencieuse."
 
-#: plugins/system_upgrade.py:542
+#: plugins/system_upgrade.py:545
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "un autre outil de mise à niveau est en fonctionnement. Fermeture "
 "silencieuse."
 
-#: plugins/system_upgrade.py:551
+#: plugins/system_upgrade.py:554
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr "utilisez « dnf {command} reboot » pour démarrer la mise à jour"
 
-#: plugins/system_upgrade.py:569
+#: plugins/system_upgrade.py:572
 msgid "Rebooting to perform upgrade."
 msgstr "Redémarrage pour réaliser la mise à niveau."
 
-#: plugins/system_upgrade.py:593
+#: plugins/system_upgrade.py:596
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 "Démarrage de la mise à jour hors ligne. Cela prendra un certain temps."
 
-#: plugins/system_upgrade.py:595
+#: plugins/system_upgrade.py:598
 msgid "Starting offline distrosync. This will take a while."
 msgstr "Démarrage du distrosync hors ligne. Cela prendra un certain temps."
 
-#: plugins/system_upgrade.py:597
+#: plugins/system_upgrade.py:600
 msgid "Starting system upgrade. This will take a while."
 msgstr ""
 "Démarrage du processus de mise à niveau. Cela peut prendre un certain temps."
 
-#: plugins/system_upgrade.py:629 plugins/system_upgrade.py:638
+#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Impossible de faire correspondre le paquet : %s"
 
-#: plugins/system_upgrade.py:643
+#: plugins/system_upgrade.py:646
 msgid "Unable to match some of packages"
 msgstr "Impossible de faire correspondre certains paquets"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:649
 msgid "Cleaning up downloaded data..."
 msgstr "Nettoyage des données téléchargées …"
 
-#: plugins/system_upgrade.py:724
+#: plugins/system_upgrade.py:727
 msgid "Download finished."
 msgstr "Téléchargement terminé."
 
-#: plugins/system_upgrade.py:728 plugins/system_upgrade.py:729
+#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
 
-#: plugins/system_upgrade.py:738
+#: plugins/system_upgrade.py:741
 msgid "Prepare offline upgrade of the system"
 msgstr "Préparation de la mise à jour hors ligne du système"
 
-#: plugins/system_upgrade.py:743
+#: plugins/system_upgrade.py:746
 msgid "Prepare offline distrosync of the system"
 msgstr "Préparation du distrosync du système hors ligne"
 

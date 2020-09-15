@@ -1,21 +1,21 @@
-# Göran Uddeborg <goeran@uddeborg.se>, 2017. #zanata
-# Göran Uddeborg <goeran@uddeborg.se>, 2018. #zanata
-# Göran Uddeborg <goeran@uddeborg.se>, 2019. #zanata
+# Göran Uddeborg <goeran@uddeborg.se>, 2017. #zanata, 2020.
+# Göran Uddeborg <goeran@uddeborg.se>, 2018. #zanata, 2020.
+# Göran Uddeborg <goeran@uddeborg.se>, 2019. #zanata, 2020.
 # Göran Uddeborg <goeran@uddeborg.se>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-18 09:18-0400\n"
-"PO-Revision-Date: 2020-03-07 10:25+0000\n"
+"POT-Creation-Date: 2020-09-14 09:18-0400\n"
+"PO-Revision-Date: 2020-08-17 21:29+0000\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
-"Language-Team: Swedish\n"
+"Language-Team: Swedish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -105,7 +105,7 @@ msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
-"Hämtningen färdig!  Använd ”dnf {command} reboot” för att starta uppgraderingen.\n"
+"Hämtningen färdig! Använd ”dnf {command} reboot” för att starta uppgraderingen.\n"
 "För att ta bort cachade metadata och transaktioner, använd ”dnf {command} clean”"
 
 #: plugins/system_upgrade.py:66
@@ -113,145 +113,149 @@ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Tyvärr, du behöver använda ”download --releasever” istället för ”--network”"
 
-#: plugins/system_upgrade.py:121
+#: plugins/system_upgrade.py:75
+msgid "Reboot turned off, not rebooting."
+msgstr ""
+
+#: plugins/system_upgrade.py:124
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "Skärmsläckning kan inte avaktiveras: %s"
 
-#: plugins/system_upgrade.py:142
+#: plugins/system_upgrade.py:145
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 "Misslyckades att läsa in tillståndsfilen: %s, fortsätter med ett tomt "
 "tillstånd."
 
-#: plugins/system_upgrade.py:294
+#: plugins/system_upgrade.py:297
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "Följande uppstarter verkar innehålla uppgraderingsloggar:"
 
-#: plugins/system_upgrade.py:304
+#: plugins/system_upgrade.py:307
 msgid "-- no logs were found --"
 msgstr "— inga loggar hittades —"
 
-#: plugins/system_upgrade.py:319
+#: plugins/system_upgrade.py:322
 msgid "Cannot find logs with this index."
 msgstr "Kan inte hitta loggar med detta index."
 
-#: plugins/system_upgrade.py:328
+#: plugins/system_upgrade.py:331
 msgid "Unable to match systemd journal entry"
 msgstr "Kan inte matcha någon systemd journalpost"
 
-#: plugins/system_upgrade.py:349
+#: plugins/system_upgrade.py:352
 msgid "Prepare system for upgrade to a new release"
 msgstr "Förbered systemet för uppgradering till en ny utgåva"
 
-#: plugins/system_upgrade.py:359
+#: plugins/system_upgrade.py:362
 msgid "keep installed packages if the new release's version is older"
 msgstr "behåll installerade paket om den nya utgåvans version är äldre"
 
-#: plugins/system_upgrade.py:363
+#: plugins/system_upgrade.py:366
 msgid "which logs to show"
 msgstr "vilka loggar som skall visas"
 
-#: plugins/system_upgrade.py:397
+#: plugins/system_upgrade.py:400
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
-"Ofullständig version av data.  Kör om ”dnf {command} download [FLAGGOR]”"
+"Ofullständig version av data. Kör om ”dnf {command} download [FLAGGOR]”"
 
-#: plugins/system_upgrade.py:434
+#: plugins/system_upgrade.py:437
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
-"Kommandot  ”offline-distrosync” kan inte användas med flaggan --no-downgrade"
+"Kommandot ”offline-distrosync” kan inte användas med flaggan --no-downgrade"
 
-#: plugins/system_upgrade.py:456
+#: plugins/system_upgrade.py:459
 msgid "Additional information for System Upgrade: {}"
 msgstr "Ytterligare information för systemuppgraderingen: {}"
 
-#: plugins/system_upgrade.py:459
+#: plugins/system_upgrade.py:462
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 "Före du fortsätter, förvissa dig om att ditt system är helt uppgraderat "
-"genom att köra ”dnf --refresh upgrade”.  Vill du fortsätta"
+"genom att köra ”dnf --refresh upgrade”. Vill du fortsätta"
 
-#: plugins/system_upgrade.py:463
+#: plugins/system_upgrade.py:466
 msgid "Operation aborted."
 msgstr "Åtgärden avbruten."
 
-#: plugins/system_upgrade.py:526
+#: plugins/system_upgrade.py:529
 msgid "system is not ready for upgrade"
 msgstr "systemet är inte redo för en uppgradering"
 
-#: plugins/system_upgrade.py:529
+#: plugins/system_upgrade.py:532
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
-"transaktionen förbereddes inte för ”{command}”.  Kör om ”dnf {command} "
+"transaktionen förbereddes inte för ”{command}”. Kör om ”dnf {command} "
 "download [FLAGGOR]”"
 
-#: plugins/system_upgrade.py:533
+#: plugins/system_upgrade.py:536
 msgid "upgrade is already scheduled"
 msgstr "uppgraderingen är redan schemalagd"
 
-#: plugins/system_upgrade.py:539
+#: plugins/system_upgrade.py:542
 msgid "trigger file does not exist. exiting quietly."
 msgstr "triggerfilen finns inte. avslutar tyst."
 
-#: plugins/system_upgrade.py:542
+#: plugins/system_upgrade.py:545
 msgid "another upgrade tool is running. exiting quietly."
-msgstr "ett annat uppgraderingsverktyg kör.  avslutar tyst."
+msgstr "ett annat uppgraderingsverktyg kör. avslutar tyst."
 
-#: plugins/system_upgrade.py:551
+#: plugins/system_upgrade.py:554
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr "använd ”dnf {command} reboot” för att påbörja uppgraderingen"
 
-#: plugins/system_upgrade.py:569
+#: plugins/system_upgrade.py:572
 msgid "Rebooting to perform upgrade."
 msgstr "Startar om för att utföra uppgraderingen."
 
-#: plugins/system_upgrade.py:593
+#: plugins/system_upgrade.py:596
 msgid "Starting offline upgrade. This will take a while."
-msgstr "Påbörjar frånkopplad uppgradering.  Detta kommer ta en stund."
+msgstr "Påbörjar frånkopplad uppgradering. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:595
+#: plugins/system_upgrade.py:598
 msgid "Starting offline distrosync. This will take a while."
-msgstr "Påbörjar frånkopplad distrosync.  Detta kommer ta en stund."
+msgstr "Påbörjar frånkopplad distrosync. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:597
+#: plugins/system_upgrade.py:600
 msgid "Starting system upgrade. This will take a while."
-msgstr "Påbörjar systemuppgraderingen.  Detta kommer ta en stund."
+msgstr "Påbörjar systemuppgraderingen. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:629 plugins/system_upgrade.py:638
+#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Kan inte matcha paketet: %s"
 
-#: plugins/system_upgrade.py:643
+#: plugins/system_upgrade.py:646
 msgid "Unable to match some of packages"
 msgstr "Kan inte matcha några av paketen"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:649
 msgid "Cleaning up downloaded data..."
 msgstr "Rensar upp hämtade data …"
 
-#: plugins/system_upgrade.py:724
+#: plugins/system_upgrade.py:727
 msgid "Download finished."
 msgstr "Hämtningen klar."
 
-#: plugins/system_upgrade.py:728 plugins/system_upgrade.py:729
+#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Uppgraderingen är klar!  Rensar upp och startar om …"
+msgstr "Uppgraderingen är klar! Rensar upp och startar om …"
 
-#: plugins/system_upgrade.py:738
+#: plugins/system_upgrade.py:741
 msgid "Prepare offline upgrade of the system"
 msgstr "Förbered frånkopplad uppdatering av systemet"
 
-#: plugins/system_upgrade.py:743
+#: plugins/system_upgrade.py:746
 msgid "Prepare offline distrosync of the system"
 msgstr "Förbered frånkopplad distrosync av systemet"
 
@@ -273,8 +277,7 @@ msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
 msgstr ""
-"Besök https://github.com/FrostyX/tracer/issues och skicka in problemet.  "
-"Tack"
+"Besök https://github.com/FrostyX/tracer/issues och skicka in problemet. Tack"
 
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
