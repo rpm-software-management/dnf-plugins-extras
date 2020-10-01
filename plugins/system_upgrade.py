@@ -55,10 +55,6 @@ ID_TO_IDENTIFY_BOOTS = UPGRADE_STARTED_ID
 DNFVERSION = StrictVersion(dnf.const.VERSION)
 
 PLYMOUTH = '/usr/bin/plymouth'
-DEFAULT_DATADIR = '/var/lib/dnf/system-upgrade'
-STATE_FILE = DEFAULT_DATADIR + '/system-upgrade-state.json'
-TRANSACTION_FILE = DEFAULT_DATADIR + '/system-upgrade-transaction.json'
-MAGIC_SYMLINK = '/system-update'
 
 RELEASEVER_MSG = _(
     "Need a --releasever greater than the current system version.")
@@ -131,9 +127,8 @@ def disable_blanking():
 
 # DNF-INTEGRATION-NOTE: basically the same thing as dnf.persistor.JSONDB
 class State(object):
-    statefile = STATE_FILE
-
-    def __init__(self):
+    def __init__(self, statefile):
+        self.statefile = statefile
         self._data = {}
         self._read()
 
@@ -350,7 +345,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def __init__(self, cli):
         super(SystemUpgradeCommand, self).__init__(cli)
-        self.state = State()
+        self.datadir = os.path.join(cli.base.conf.installroot, 'var/lib/dnf/system-upgrade')
+        self.transaction_file = os.path.join(self.datadir, 'system-upgrade-transaction.json')
+        self.magic_symlink = os.path.join(cli.base.conf.installroot, 'system-update')
+
+        self.state = State(os.path.join(self.datadir, 'system-upgrade-state.json'))
 
     @staticmethod
     def set_argparser(parser):
@@ -400,7 +399,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def _set_cachedir(self):
         # set download directories from json state file
-        self.base.conf.cachedir = DEFAULT_DATADIR
+        self.base.conf.cachedir = self.datadir
         self.base.conf.destdir = self.state.destdir if self.state.destdir else None
 
     def _get_forward_reverse_pkg_reason_pairs(self):
@@ -427,7 +426,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == pre_configure_*: set up action-specific demands ==========================
     def pre_configure_download(self):
         # only download subcommand accepts --destdir command line option
-        self.base.conf.cachedir = DEFAULT_DATADIR
+        self.base.conf.cachedir = self.datadir
         self.base.conf.destdir = self.opts.destdir if self.opts.destdir else None
         if 'offline-distrosync' == self.opts.command and not self.opts.distro_sync:
             raise CliError(
@@ -524,20 +523,20 @@ class SystemUpgradeCommand(dnf.cli.Command):
             msg = _("the transaction was not prepared for '{command}'. "
                     "Rerun 'dnf {command} download [OPTIONS]'").format(command=self.opts.command)
             raise CliError(msg)
-        if os.path.lexists(MAGIC_SYMLINK):
+        if os.path.lexists(self.magic_symlink):
             raise CliError(_("upgrade is already scheduled"))
-        dnf.util.ensure_dir(DEFAULT_DATADIR)
+        dnf.util.ensure_dir(self.datadir)
         # FUTURE: checkRPMDBStatus(self.state.download_transaction_id)
 
     def check_upgrade(self):
-        if not os.path.lexists(MAGIC_SYMLINK):
+        if not os.path.lexists(self.magic_symlink):
             logger.info(_("trigger file does not exist. exiting quietly."))
             raise SystemExit(0)
-        if os.readlink(MAGIC_SYMLINK) != DEFAULT_DATADIR:
+        if os.readlink(self.magic_symlink) != self.datadir:
             logger.info(_("another upgrade tool is running. exiting quietly."))
             raise SystemExit(0)
         # Delete symlink ASAP to avoid reboot loops
-        dnf.yum.misc.unlink_f(MAGIC_SYMLINK)
+        dnf.yum.misc.unlink_f(self.magic_symlink)
         command = self.state.upgrade_command
         if not command:
             command = self.opts.command
@@ -550,7 +549,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def run_prepare(self):
         # make the magic symlink
-        os.symlink(DEFAULT_DATADIR, MAGIC_SYMLINK)
+        os.symlink(self.datadir, self.magic_symlink)
         # set upgrade_status so that the upgrade can run
         with self.state as state:
             state.upgrade_status = 'ready'
@@ -610,7 +609,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
         # disable screen blanking
         disable_blanking()
 
-        self.replay = TransactionReplay(self.base, TRANSACTION_FILE)
+        self.replay = TransactionReplay(self.base, self.transaction_file)
         self.replay.run()
 
     def run_clean(self):
@@ -642,11 +641,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
     def transaction_download(self):
         data = serialize_transaction(self.base.history.get_current())
         try:
-            with open(TRANSACTION_FILE, "w") as f:
+            with open(self.transaction_file, "w") as f:
                 json.dump(data, f, indent=4, sort_keys=True)
                 f.write("\n")
 
-            print(_("Transaction saved to {}.").format(TRANSACTION_FILE))
+            print(_("Transaction saved to {}.").format(self.transaction_file))
 
         except OSError as e:
             raise dnf.cli.CliError(_('Error storing transaction: {}').format(str(e)))
