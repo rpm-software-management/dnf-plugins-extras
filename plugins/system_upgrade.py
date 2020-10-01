@@ -146,7 +146,7 @@ class State(object):
     def write(self):
         dnf.util.ensure_dir(os.path.dirname(self.statefile))
         with open(self.statefile, 'w') as outf:
-            json.dump(self._data, outf)
+            json.dump(self._data, outf, indent=4, sort_keys=True)
 
     def clear(self):
         if os.path.exists(self.statefile):
