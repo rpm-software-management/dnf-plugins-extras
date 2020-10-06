@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 09:18-0400\n"
+"POT-Creation-Date: 2020-10-05 09:18-0400\n"
 "PO-Revision-Date: 2020-03-22 07:00+0000\n"
 "Last-Translator: Julien Humbert <julroy67@gmail.com>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fr/>\n"
@@ -225,46 +225,46 @@ msgstr "utilisez « dnf {command} reboot » pour démarrer la mise à jour"
 msgid "Rebooting to perform upgrade."
 msgstr "Redémarrage pour réaliser la mise à niveau."
 
-#: plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:606
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 "Démarrage de la mise à jour hors ligne. Cela prendra un certain temps."
 
-#: plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:608
 msgid "Starting offline distrosync. This will take a while."
 msgstr "Démarrage du distrosync hors ligne. Cela prendra un certain temps."
 
-#: plugins/system_upgrade.py:600
+#: plugins/system_upgrade.py:610
 msgid "Starting system upgrade. This will take a while."
 msgstr ""
 "Démarrage du processus de mise à niveau. Cela peut prendre un certain temps."
 
-#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
+#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Impossible de faire correspondre le paquet : %s"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:656
 msgid "Unable to match some of packages"
 msgstr "Impossible de faire correspondre certains paquets"
 
-#: plugins/system_upgrade.py:649
+#: plugins/system_upgrade.py:659
 msgid "Cleaning up downloaded data..."
 msgstr "Nettoyage des données téléchargées …"
 
-#: plugins/system_upgrade.py:727
+#: plugins/system_upgrade.py:737
 msgid "Download finished."
 msgstr "Téléchargement terminé."
 
-#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
+#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
 
-#: plugins/system_upgrade.py:741
+#: plugins/system_upgrade.py:751
 msgid "Prepare offline upgrade of the system"
 msgstr "Préparation de la mise à jour hors ligne du système"
 
-#: plugins/system_upgrade.py:746
+#: plugins/system_upgrade.py:756
 msgid "Prepare offline distrosync of the system"
 msgstr "Préparation du distrosync du système hors ligne"
 

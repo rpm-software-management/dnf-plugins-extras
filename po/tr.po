@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 09:18-0400\n"
-"PO-Revision-Date: 2020-09-06 18:29+0000\n"
+"POT-Creation-Date: 2020-10-05 09:18-0400\n"
+"PO-Revision-Date: 2020-09-18 19:29+0000\n"
 "Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/tr/>\n"
 "Language: tr\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:75
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "Yeniden başlatma kapalı, yeniden başlatılmıyor."
 
 #: plugins/system_upgrade.py:124
 #, python-format
@@ -216,45 +216,45 @@ msgstr "yükseltmeye başlamak için 'dnf {command} reboot' komutunu kullanın"
 msgid "Rebooting to perform upgrade."
 msgstr "Yükseltmeyi gerçekleştirmek için yeniden başlatılıyor."
 
-#: plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:606
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Çevrim dışı yükseltme başlatılıyor. Bu biraz zaman alacak."
 
-#: plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:608
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 "Çevrim dışı dağıtım eşzamanlaması başlatılıyor. Bu biraz zaman alacak."
 
-#: plugins/system_upgrade.py:600
+#: plugins/system_upgrade.py:610
 msgid "Starting system upgrade. This will take a while."
 msgstr "Sistem yükseltme başlatılıyor. Bu biraz zaman alacak."
 
-#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
+#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Paket eşleştirilemedi: %s"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:656
 msgid "Unable to match some of packages"
 msgstr "Bazı paketler eşleştirilemedi"
 
-#: plugins/system_upgrade.py:649
+#: plugins/system_upgrade.py:659
 msgid "Cleaning up downloaded data..."
 msgstr "İndirilen veriler temizleniyor..."
 
-#: plugins/system_upgrade.py:727
+#: plugins/system_upgrade.py:737
 msgid "Download finished."
 msgstr "İndirme tamamlandı."
 
-#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
+#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Yükseltme tamamlandı! Temizlik yapılıyor ve yeniden başlatılıyor..."
 
-#: plugins/system_upgrade.py:741
+#: plugins/system_upgrade.py:751
 msgid "Prepare offline upgrade of the system"
 msgstr "Sistemi çevrim dışı yükseltmeye hazırla"
 
-#: plugins/system_upgrade.py:746
+#: plugins/system_upgrade.py:756
 msgid "Prepare offline distrosync of the system"
 msgstr "Sistemi çevrim dışı dağıtım eşzamanlamasına hazırla"
 

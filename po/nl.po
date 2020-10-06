@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 09:18-0400\n"
-"PO-Revision-Date: 2020-03-22 07:00+0000\n"
+"POT-Creation-Date: 2020-10-05 09:18-0400\n"
+"PO-Revision-Date: 2020-09-18 19:29+0000\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Dutch <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.3\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -115,7 +115,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:75
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "Opnieuw opstarten is uitgeschakeld, niet opnieuw opstarten."
 
 #: plugins/system_upgrade.py:124
 #, python-format
@@ -219,44 +219,44 @@ msgstr "gebruik 'dnf {command} reboot' om te beginnen met de upgrade"
 msgid "Rebooting to perform upgrade."
 msgstr "Opnieuw opstarten om upgrade uit te voeren."
 
-#: plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:606
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Offline upgrade starten. Dit gaat even duren."
 
-#: plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:608
 msgid "Starting offline distrosync. This will take a while."
 msgstr "Offline distrosync starten. Dit gaat even duren."
 
-#: plugins/system_upgrade.py:600
+#: plugins/system_upgrade.py:610
 msgid "Starting system upgrade. This will take a while."
 msgstr "Systeem upgrade starten. Dit gaat even duren."
 
-#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
+#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Kan pakket niet matchen: %s"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:656
 msgid "Unable to match some of packages"
 msgstr "Kan sommige pakketten niet matchen"
 
-#: plugins/system_upgrade.py:649
+#: plugins/system_upgrade.py:659
 msgid "Cleaning up downloaded data..."
 msgstr "Gedownloade data opschonen ..."
 
-#: plugins/system_upgrade.py:727
+#: plugins/system_upgrade.py:737
 msgid "Download finished."
 msgstr "Download voltooid."
 
-#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
+#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Upgrade voltooid! Opschonen en opnieuw opstarten ..."
 
-#: plugins/system_upgrade.py:741
+#: plugins/system_upgrade.py:751
 msgid "Prepare offline upgrade of the system"
 msgstr "Offline upgrade van het systeem voorbereiden"
 
-#: plugins/system_upgrade.py:746
+#: plugins/system_upgrade.py:756
 msgid "Prepare offline distrosync of the system"
 msgstr "Offline distrosync van het systeem voorbereiden"
 

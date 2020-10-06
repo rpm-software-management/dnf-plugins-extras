@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 09:18-0400\n"
-"PO-Revision-Date: 2020-08-17 21:29+0000\n"
+"POT-Creation-Date: 2020-10-05 09:18-0400\n"
+"PO-Revision-Date: 2020-09-18 19:29+0000\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/sv/>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -115,7 +115,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:75
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "Omstart avslaget, startar inte om."
 
 #: plugins/system_upgrade.py:124
 #, python-format
@@ -218,44 +218,44 @@ msgstr "använd ”dnf {command} reboot” för att påbörja uppgraderingen"
 msgid "Rebooting to perform upgrade."
 msgstr "Startar om för att utföra uppgraderingen."
 
-#: plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:606
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Påbörjar frånkopplad uppgradering. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:608
 msgid "Starting offline distrosync. This will take a while."
 msgstr "Påbörjar frånkopplad distrosync. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:600
+#: plugins/system_upgrade.py:610
 msgid "Starting system upgrade. This will take a while."
 msgstr "Påbörjar systemuppgraderingen. Detta kommer ta en stund."
 
-#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
+#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Kan inte matcha paketet: %s"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:656
 msgid "Unable to match some of packages"
 msgstr "Kan inte matcha några av paketen"
 
-#: plugins/system_upgrade.py:649
+#: plugins/system_upgrade.py:659
 msgid "Cleaning up downloaded data..."
 msgstr "Rensar upp hämtade data …"
 
-#: plugins/system_upgrade.py:727
+#: plugins/system_upgrade.py:737
 msgid "Download finished."
 msgstr "Hämtningen klar."
 
-#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
+#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Uppgraderingen är klar! Rensar upp och startar om …"
 
-#: plugins/system_upgrade.py:741
+#: plugins/system_upgrade.py:751
 msgid "Prepare offline upgrade of the system"
 msgstr "Förbered frånkopplad uppdatering av systemet"
 
-#: plugins/system_upgrade.py:746
+#: plugins/system_upgrade.py:756
 msgid "Prepare offline distrosync of the system"
 msgstr "Förbered frånkopplad distrosync av systemet"
 

@@ -3,27 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Piotr Drąg <piotrdrag@gmail.com>, 2015
-# Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata
-# Piotr Drąg <piotrdrag@gmail.com>, 2016. #zanata
-# Piotr Drąg <piotrdrag@gmail.com>, 2017. #zanata
-# Piotr Drąg <piotrdrag@gmail.com>, 2018. #zanata
-# Piotr Drąg <piotrdrag@gmail.com>, 2019. #zanata
+# Piotr Drąg <piotrdrag@gmail.com>, 2015, 2020.
+# Piotr Drąg <piotrdrag@gmail.com>, 2015. #zanata, 2020.
+# Piotr Drąg <piotrdrag@gmail.com>, 2016. #zanata, 2020.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017. #zanata, 2020.
+# Piotr Drąg <piotrdrag@gmail.com>, 2018. #zanata, 2020.
+# Piotr Drąg <piotrdrag@gmail.com>, 2019. #zanata, 2020.
 # Piotr Drąg <piotrdrag@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 09:18-0400\n"
-"PO-Revision-Date: 2020-02-15 12:29+0000\n"
+"POT-Creation-Date: 2020-10-05 09:18-0400\n"
+"PO-Revision-Date: 2020-09-15 14:34+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/dnf-plugins-extras/language/pl/)\n"
+"Language-Team: Polish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.2.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -123,7 +123,7 @@ msgstr "Należy użyć opcji „download --releasever” zamiast „--network”
 
 #: plugins/system_upgrade.py:75
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "Wyłączono ponowne uruchamianie, nie zostanie ponownie uruchomiony."
 
 #: plugins/system_upgrade.py:124
 #, python-format
@@ -229,46 +229,46 @@ msgstr "polecenie „dnf {command} reboot” rozpocznie aktualizację systemu"
 msgid "Rebooting to perform upgrade."
 msgstr "Ponowne uruchamianie, aby wykonać aktualizację."
 
-#: plugins/system_upgrade.py:596
+#: plugins/system_upgrade.py:606
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Rozpoczynanie aktualizacji w trybie offline. Może to chwilę zająć."
 
-#: plugins/system_upgrade.py:598
+#: plugins/system_upgrade.py:608
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 "Rozpoczynanie synchronizacji dystrybucji w trybie offline. Może to chwilę "
 "zająć."
 
-#: plugins/system_upgrade.py:600
+#: plugins/system_upgrade.py:610
 msgid "Starting system upgrade. This will take a while."
 msgstr "Rozpoczynanie aktualizacji systemu. Może to chwilę zająć."
 
-#: plugins/system_upgrade.py:632 plugins/system_upgrade.py:641
+#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
 #, python-format
 msgid "Unable to match package: %s"
 msgstr "Nie można dopasować pakietu: %s"
 
-#: plugins/system_upgrade.py:646
+#: plugins/system_upgrade.py:656
 msgid "Unable to match some of packages"
 msgstr "Nie można dopasować części pakietów"
 
-#: plugins/system_upgrade.py:649
+#: plugins/system_upgrade.py:659
 msgid "Cleaning up downloaded data..."
 msgstr "Czyszczenie pobranych danych…"
 
-#: plugins/system_upgrade.py:727
+#: plugins/system_upgrade.py:737
 msgid "Download finished."
 msgstr "Ukończono pobieranie."
 
-#: plugins/system_upgrade.py:731 plugins/system_upgrade.py:732
+#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Ukończono aktualizację systemu. Czyszczenie i ponowne uruchamianie…"
 
-#: plugins/system_upgrade.py:741
+#: plugins/system_upgrade.py:751
 msgid "Prepare offline upgrade of the system"
 msgstr "Przygotowuje aktualizację systemu w trybie offline"
 
-#: plugins/system_upgrade.py:746
+#: plugins/system_upgrade.py:756
 msgid "Prepare offline distrosync of the system"
 msgstr "Przygotowuje synchronizację dystrybucji w trybie offline"
 
