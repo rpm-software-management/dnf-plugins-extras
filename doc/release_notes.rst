@@ -5,7 +5,7 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
-4.0.11 Release Notes
+4.0.12 Release Notes
 ====================
 
 - Update Cmake to pull translations from weblate
@@ -19,7 +19,7 @@ Extras DNF Plugins Release Notes
 - Bug fixes:
   - Bugs fixed (RhBug:1863434)
 
-Bugs fixed in 4.0.11:
+Bugs fixed in 4.0.12:
 
 * :rhbug:`1860408`
 * :rhbug:`1845562`
