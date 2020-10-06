@@ -202,5 +202,17 @@
     [
         1809096,
         "Progressbar during offline upgrade phase gets reset after entering \"Verifying phase\""
+    ],
+    [
+        1860408,
+        "Perform \"dnf mark install fedora-repos-modular\"-like action on upgrades to Fedora 33/34"
+    ],
+    [
+        1845562,
+        "system-upgrade plugin should do \"dnf group upgrade\" as part of transaction solution"
+    ],
+    [
+        1863434,
+        "dnf-plugins-extras: FTBFS in Fedora rawhide/f33"
     ]
 ]

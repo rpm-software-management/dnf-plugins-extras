@@ -5,6 +5,27 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.11 Release Notes
+====================
+
+- Update Cmake to pull translations from weblate
+- Drop Python 2 support
+- README: Add Installation, Contribution, etc.
+
+- New features:
+  - Add the DNF_SYSTEM_UPGRADE_NO_REBOOT env variable to control system-upgrade reboot.
+  - [system-upgrade] Upgrade groups and environments (RhBug:1845562,1860408)
+
+- Bug fixes:
+  - Bugs fixed (RhBug:1863434)
+
+Bugs fixed in 4.0.11:
+
+* :rhbug:`1860408`
+* :rhbug:`1845562`
+* :rhbug:`1863434`
+
+====================
 4.0.10 Release Notes
 ====================
 
