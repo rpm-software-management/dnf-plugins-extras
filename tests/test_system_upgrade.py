@@ -410,7 +410,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = "/"
+        self.command.base.conf.installroot = self.statedir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
         self.command.opts.destdir = self.statedir
@@ -440,7 +440,7 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = "/"
+        self.command.base.conf.installroot = self.statedir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
         self.command.opts.destdir = self.statedir
