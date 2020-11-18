@@ -343,9 +343,11 @@ class SystemUpgradeCommand(dnf.cli.Command):
     aliases = ('system-upgrade', 'fedup',)
     summary = _("Prepare system for upgrade to a new release")
 
+    DATADIR = 'var/lib/dnf/system-upgrade'
+
     def __init__(self, cli):
         super(SystemUpgradeCommand, self).__init__(cli)
-        self.datadir = os.path.join(cli.base.conf.installroot, 'var/lib/dnf/system-upgrade')
+        self.datadir = os.path.join(cli.base.conf.installroot, self.DATADIR)
         self.transaction_file = os.path.join(self.datadir, 'system-upgrade-transaction.json')
         self.magic_symlink = os.path.join(cli.base.conf.installroot, 'system-update')
 

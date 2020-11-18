@@ -2,7 +2,7 @@
 
 import system_upgrade
 
-from system_upgrade import PLYMOUTH, CliError, DEFAULT_DATADIR
+from system_upgrade import PLYMOUTH, CliError
 
 import os
 import tempfile
@@ -160,7 +160,7 @@ class I18NTestCaseBase(unittest.TestCase):
     @classmethod
     @unittest.skip("There is no translation yet to system-upgrade")
     def setUpClass(cls):
-        cls.localedir = tempfile.mkdtemp(prefix='i18ntest')
+        cls.localedir = tempfile.mkdtemp(prefix='system_upgrade_test_i18n-')
         cls.msgdir = os.path.join(cls.localedir, TESTLANG+"/LC_MESSAGES")
         cls.msgfile = "dnf-plugins-extras" + ".mo"
         os.makedirs(cls.msgdir)
@@ -203,18 +203,17 @@ class I18NTestCase(I18NTestCaseBase):
 class StateTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.statedir = tempfile.mkdtemp(prefix="state.test.")
+        cls.statedir = tempfile.mkdtemp(prefix="system_upgrade_test_state-")
         cls.StateClass = system_upgrade.State
-        cls.StateClass.statefile = os.path.join(cls.statedir, "state")
 
     def setUp(self):
-        self.state = self.StateClass()
+        self.state = self.StateClass(os.path.join(self.statedir, "state"))
 
     def test_bool_value(self):
         with self.state:
             self.state.distro_sync = True
         del self.state
-        self.state = self.StateClass()
+        self.state = self.StateClass(os.path.join(self.statedir, "state"))
         self.assertIs(self.state.distro_sync, True)
 
     @classmethod
@@ -224,7 +223,7 @@ class StateTestCase(unittest.TestCase):
 
 class UtilTestCase(unittest.TestCase):
     def setUp(self):
-        self.tmpdir = tempfile.mkdtemp(prefix='util.test.')
+        self.tmpdir = tempfile.mkdtemp(prefix='system_upgrade_test_util-')
         self.dirs = ["dir1", "dir2"]
         self.files = ["file1", "dir2/file2"]
         for d in self.dirs:
@@ -251,19 +250,15 @@ class UtilTestCase(unittest.TestCase):
 
 class CommandTestCaseBase(unittest.TestCase):
     def setUp(self):
-        self.statedir = tempfile.mkdtemp(prefix="command.test.statedir.")
-        self.statefile = os.path.join(self.statedir, "state")
-        self.old_statefile = system_upgrade.State.statefile
-        system_upgrade.State.statefile = self.statefile
+        self.datadir = tempfile.mkdtemp(prefix="system_upgrade_test_datadir-")
+        system_upgrade.SystemUpgradeCommand.DATADIR = self.datadir
         self.cli = mock.MagicMock()
         self.command = system_upgrade.SystemUpgradeCommand(cli=self.cli)
-        self.command.base.conf.cachedir = os.path.join(self.statedir, "cache")
+        self.command.base.conf.cachedir = os.path.join(self.datadir, "cache")
         self.command.base.conf.destdir = None
-        system_upgrade.DEFAULT_DATADIR = os.path.join(self.statedir, 'default_datadir')
 
     def tearDown(self):
-        shutil.rmtree(self.statedir)
-        system_upgrade.State.statefile = self.old_statefile
+        shutil.rmtree(self.datadir)
 
 
 class CommandTestCase(CommandTestCaseBase):
@@ -302,8 +297,8 @@ class CleanCommandTestCase(CommandTestCaseBase):
 class RebootCheckCommandTestCase(CommandTestCaseBase):
     def setUp(self):
         super(RebootCheckCommandTestCase, self).setUp()
-        self.MAGIC_SYMLINK = self.statedir + '/symlink'
-        self.DEFAULT_DATADIR = self.statedir + '/default_datadir'
+        self.magic_symlink = self.datadir + '/symlink'
+        self.command.magic_symlink = self.magic_symlink
 
     def test_pre_configure_reboot(self):
         with self.command.state as state:
@@ -318,8 +313,7 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
 
     def check_reboot(self, status='complete', lexists=False, command='system-upgrade',
                      state_command='system-upgrade'):
-        with patch('system_upgrade.os.path.lexists') as lexists_func,\
-                patch('system_upgrade.DEFAULT_DATADIR', self.DEFAULT_DATADIR):
+        with patch('system_upgrade.os.path.lexists') as lexists_func:
             self.command.state.state_version = 2
             self.command.state.download_status = status
             self.command.opts = mock.MagicMock()
@@ -345,9 +339,8 @@ class RebootCheckCommandTestCase(CommandTestCaseBase):
             self.check_reboot(status='complete', lexists=True)
 
     def test_run_prepare(self):
-        with patch('system_upgrade.MAGIC_SYMLINK', self.MAGIC_SYMLINK):
-            self.command.run_prepare()
-        self.assertEqual(os.readlink(self.MAGIC_SYMLINK), system_upgrade.DEFAULT_DATADIR)
+        self.command.run_prepare()
+        self.assertEqual(os.readlink(self.magic_symlink), self.datadir)
         self.assertEqual(self.command.state.upgrade_status, 'ready')
 
     @patch('system_upgrade.SystemUpgradeCommand.run_prepare')
@@ -380,13 +373,13 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.destdir = None
         self.command.base.conf.destdir = None
         self.command.pre_configure_download()
-        self.assertEqual(self.command.base.conf.cachedir, system_upgrade.DEFAULT_DATADIR)
+        self.assertEqual(self.command.base.conf.cachedir, self.datadir)
 
     def test_pre_configure_download_destdir(self):
         self.command.opts = mock.MagicMock()
-        self.command.opts.destdir = self.statedir
+        self.command.opts.destdir = self.datadir
         self.command.pre_configure_download()
-        self.assertEqual(self.command.base.conf.destdir, self.statedir)
+        self.assertEqual(self.command.base.conf.destdir, self.datadir)
 
     def test_configure_download(self):
         self.command.opts = mock.MagicMock()
@@ -410,21 +403,19 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = self.statedir
+        self.command.base.conf.installroot = self.datadir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
-        self.command.opts.destdir = self.statedir
+        self.command.opts.destdir = self.datadir
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
         self.command.pre_configure_download()
         self.command.transaction_download()
-        with system_upgrade.State() as state:
+        with system_upgrade.State(self.command.state.statefile) as state:
             self.assertEqual(state.state_version, system_upgrade.STATE_VERSION)
             self.assertEqual(state.download_status, "complete")
             self.assertEqual(state.distro_sync, True)
-            self.assertEqual(state.allow_erasing, "allow_erasing")
-            self.assertEqual(state.best, True)
-            self.assertEqual(state.destdir, self.statedir)
+            self.assertEqual(state.destdir, self.datadir)
             self.assertEqual(state.upgrade_command, "system_upgrade")
 
     def test_transaction_download_offline_upgrade(self):
@@ -440,20 +431,18 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = self.statedir
+        self.command.base.conf.installroot = self.datadir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
-        self.command.opts.destdir = self.statedir
+        self.command.opts.destdir = self.datadir
         self.command.base.conf.install_weak_deps = True
         self.command.base.conf.module_platform_id = ''
         self.command.pre_configure_download()
         self.command.transaction_download()
-        with system_upgrade.State() as state:
+        with system_upgrade.State(self.command.state.statefile) as state:
             self.assertEqual(state.download_status, "complete")
             self.assertEqual(state.distro_sync, False)
-            self.assertEqual(state.allow_erasing, "allow_erasing")
-            self.assertEqual(state.best, True)
-            self.assertEqual(state.destdir, self.statedir)
+            self.assertEqual(state.destdir, self.datadir)
             self.assertEqual(state.upgrade_command, "offline-upgrade")
 
 
