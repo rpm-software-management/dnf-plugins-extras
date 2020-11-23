@@ -5,6 +5,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.13 Release Notes
+====================
+
+- system-upgrade: Use Transaction Store/Replay
+- system-upgrade: Pretty-print the state json
+
+Bugs fixed in 4.0.13:
+
+
+====================
 4.0.12 Release Notes
 ====================
 
