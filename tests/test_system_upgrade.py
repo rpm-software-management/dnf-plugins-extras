@@ -253,6 +253,7 @@ class CommandTestCaseBase(unittest.TestCase):
         self.datadir = tempfile.mkdtemp(prefix="system_upgrade_test_datadir-")
         system_upgrade.SystemUpgradeCommand.DATADIR = self.datadir
         self.cli = mock.MagicMock()
+        self.cli.base.conf.installroot = "/"
         self.command = system_upgrade.SystemUpgradeCommand(cli=self.cli)
         self.command.base.conf.cachedir = os.path.join(self.datadir, "cache")
         self.command.base.conf.destdir = None
@@ -403,7 +404,6 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = self.datadir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
         self.command.opts.destdir = self.datadir
@@ -431,7 +431,6 @@ class DownloadCommandTestCase(CommandTestCase):
         self.command.opts.repos_ed = []
         self.cli.demands.allow_erasing = "allow_erasing"
         self.command.base.conf.best = True
-        self.command.base.conf.installroot = self.datadir
         self.command.base.conf.releasever = "35"
         self.command.base.conf.gpgcheck = True
         self.command.opts.destdir = self.datadir
