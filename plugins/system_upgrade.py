@@ -75,6 +75,12 @@ def reboot():
     else:
         Popen(["systemctl", "reboot"])
 
+def poweroff():
+    if os.getenv("DNF_SYSTEM_UPGRADE_NO_SHUTDOWN", default = False):
+        logger.info(_("Shutdown turned off, not shutting down."))
+    else:
+        Popen(["systemctl", "poweroff"])
+
 
 def get_url_from_os_release():
     key = "UPGRADE_GUIDE_URL="
@@ -680,7 +686,7 @@ class SystemUpgradeCommand(dnf.cli.Command):
                         UPGRADE_FINISHED_ID)
         self.run_clean()
         if self.opts.tid[0] == "upgrade":
-            reboot()
+            poweroff()
 
 
 class OfflineUpgradeCommand(SystemUpgradeCommand):
