@@ -35,6 +35,7 @@ class Rpmconf(dnf.Plugin):
         self.packages = []
         self.frontend = None
         self.diff = None
+        self.unattended = None
         self._interactive = None
 
     def config(self):
@@ -56,8 +57,13 @@ class Rpmconf(dnf.Plugin):
         else:
             self.frontend = None
 
+        if conf.has_section('main') and conf.has_option('main', 'unattended'):
+            self.unattended = conf.get('main', 'unattended')
+        else:
+            self.unattended = None
+
     def resolved(self):
-        if not self._interactive:
+        if not self._interactive and not self.unattended:
             return
 
         for pkg in self.base.transaction.install_set:
@@ -67,15 +73,17 @@ class Rpmconf(dnf.Plugin):
             self.packages.append(pkg.name)
 
     def transaction(self):
-        if not self._interactive:
+        if not self._interactive and not self.unattended:
             logger.debug(_("rpmconf plugin will not run "
-                           "in non-interactive mode"))
+                           "in non-interactive mode"
+                           "without unattended mode"))
             return
 
         rconf = rpmconf.RpmConf(
             packages=self.packages,
             frontend=self.frontend,
-            diff=self.diff)
+            diff=self.diff,
+            unattended=self.unattended)
         try:
             rconf.run()
         except SystemExit as e:

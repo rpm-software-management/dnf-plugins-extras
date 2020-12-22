@@ -47,6 +47,12 @@ The minimal plugin configuration file should consists of `[main]` section with `
 
     Defines whether plugin should only display file differences.
 
+``unattended``
+    string, default: None
+
+    Defines if unattended operation should be used and in which mode.
+    For list of valid modes see :manpage:`rpmconf(8)`.
+
 --------
 See Also
 --------

@@ -1,5 +1,6 @@
 %{!?dnf_lowest_compatible: %global dnf_lowest_compatible 4.4.3}
 %global dnf_plugins_extra_obsolete 2.0.0
+%global rpmconf_lowest_compatible 1.1.3
 
 %undefine __cmake_in_source_build
 
@@ -55,10 +56,10 @@ Kickstart file.
 
 %package -n python3-dnf-plugin-rpmconf
 Summary:        RpmConf Plugin for DNF
-BuildRequires:  python3-rpmconf
+BuildRequires:  python3-rpmconf >= %{rpmconf_lowest_compatible}
 Requires:       python3-%{name}-common = %{version}-%{release}
 %{?python_provide:%python_provide python3-%{name}-rpmconf}
-Requires:       python3-rpmconf
+Requires:       python3-rpmconf >= %{rpmconf_lowest_compatible}
 Provides:       %{name}-rpmconf = %{version}-%{release}
 Provides:       dnf-plugin-rpmconf = %{version}-%{release}
 Provides:       python3-%{name}-rpmconf = %{version}-%{release}
