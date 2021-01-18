@@ -40,10 +40,6 @@ Synopsis
 
 ``dnf system-upgrade download --releasever VERSION [OPTIONS]``
 
-On modular system, also set the ``module_platform_id``. For example, for Fedora 30:
-
-``dnf system-upgrade download --releasever 30 [OPTIONS]``
-
 ``dnf system-upgrade reboot``
 
 ``dnf system-upgrade clean``
