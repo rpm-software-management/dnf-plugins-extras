@@ -88,6 +88,8 @@ Requires:       python3-%{name}-common = %{version}-%{release}
 Requires:       python3-systemd
 %{?python_provide:%python_provide python3-%{name}-system-upgrade}
 Provides:       dnf-command(system-upgrade)
+Provides:       dnf-command(offline-upgrade)
+Provides:       dnf-command(offline-distrosync)
 Provides:       %{name}-system-upgrade = %{version}-%{release}
 Provides:       system-upgrade = %{version}-%{release}
 Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
@@ -102,8 +104,8 @@ BuildRequires:  python3-systemd
 %{?systemd_requires}
 
 %description -n python3-dnf-plugin-system-upgrade
-System Upgrade Plugin for DNF, Python 3 version. Enables offline system upgrades
-using the "dnf system-upgrade" command.
+System Upgrade Plugin for DNF, Python 3 version. Enables offline system upgrades and distrosync
+using three commands: ``system-upgrade``, ``offline-upgrade``, and ``offline-distrosync``.
 
 %package -n python3-dnf-plugin-tracer
 Summary:        Tracer Plugin for DNF
