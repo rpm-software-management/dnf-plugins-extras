@@ -164,6 +164,9 @@ pushd %{buildroot}%{_unitdir}/system-update.target.wants/
   ln -sr ../dnf-system-upgrade.service
 popd
 
+ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-offline-upgrade.8.gz
+ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-offline-distrosync.8.gz
+
 %find_lang %{name}
 
 %check
@@ -198,6 +201,8 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/system_upgrade.py
 %{python3_sitelib}/dnf-plugins/__pycache__/system_upgrade.*
 %{_mandir}/man8/dnf-system-upgrade.*
+%{_mandir}/man8/dnf-offline-upgrade.8.gz
+%{_mandir}/man8/dnf-offline-distrosync.8.gz
 
 %files -n python3-dnf-plugin-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
