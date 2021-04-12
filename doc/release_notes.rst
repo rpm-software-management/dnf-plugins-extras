@@ -5,6 +5,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.14 Release Notes
+====================
+
+- [spec] Add dnf-command() provides for offline commands (RhBug:1917378)
+
+Bugs fixed in 4.0.14:
+
+* :rhbug:`1917378`
+
+====================
 4.0.13 Release Notes
 ====================
 

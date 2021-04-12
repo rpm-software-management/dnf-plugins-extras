@@ -214,5 +214,9 @@
     [
         1863434,
         "dnf-plugins-extras: FTBFS in Fedora rawhide/f33"
+    ],
+    [
+        1917378,
+        "Make offline-upgrade and offline-distrosync easy to find and install"
     ]
 ]
