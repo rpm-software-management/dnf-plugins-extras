@@ -3,7 +3,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.4)
 
 FIND_PACKAGE (PythonInterp 3 EXACT REQUIRED)
 
-EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from sys import stdout; from distutils import sysconfig; stdout.write(sysconfig.get_python_lib())" OUTPUT_VARIABLE PYTHON_INSTALL_DIR)
+EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from sys import stdout; from sysconfig import get_path; stdout.write(get_path('purelib'))" OUTPUT_VARIABLE PYTHON_INSTALL_DIR)
 MESSAGE(STATUS "Python install dir is ${PYTHON_INSTALL_DIR}")
 
 SET (SYSCONFDIR /etc)
