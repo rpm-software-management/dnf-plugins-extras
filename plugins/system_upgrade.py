@@ -19,7 +19,6 @@
 
 """system_upgrade.py - DNF plugin to handle major-version system upgrades."""
 
-from distutils.version import StrictVersion
 from subprocess import call, Popen, check_output, CalledProcessError
 import json
 import os
@@ -51,8 +50,6 @@ UPGRADE_STARTED_ID = uuid.UUID('3e0a5636d16b4ca4bbe5321d06c6aa62')
 UPGRADE_FINISHED_ID = uuid.UUID('8cec00a1566f4d3594f116450395f06c')
 
 ID_TO_IDENTIFY_BOOTS = UPGRADE_STARTED_ID
-
-DNFVERSION = StrictVersion(dnf.const.VERSION)
 
 PLYMOUTH = '/usr/bin/plymouth'
 
