@@ -638,7 +638,13 @@ class SystemUpgradeCommand(dnf.cli.Command):
     # == transaction_*: do stuff after a successful transaction ===============
 
     def transaction_download(self):
-        data = serialize_transaction(self.base.history.get_current())
+        transaction = self.base.history.get_current()
+
+        if not transaction.packages():
+            logger.info(_("The system-upgrade transaction is empty, your system is already up-to-date."))
+            return
+
+        data = serialize_transaction(transaction)
         try:
             with open(self.transaction_file, "w") as f:
                 json.dump(data, f, indent=4, sort_keys=True)
