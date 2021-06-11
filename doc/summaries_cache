@@ -218,5 +218,9 @@
     [
         1917378,
         "Make offline-upgrade and offline-distrosync easy to find and install"
+    ],
+    [
+        1917639,
+        "dnf-offline-upgrade download creates empty transaction file; on reboot causes hang"
     ]
 ]

@@ -5,6 +5,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.15 Release Notes
+====================
+
+- Bug fixes:
+  - system-upgrade: Handle empty transaction on download (RhBug:1917639)
+
+Bugs fixed in 4.0.15:
+
+* :rhbug:`1917639`
+
+====================
 4.0.14 Release Notes
 ====================
 

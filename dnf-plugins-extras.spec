@@ -4,7 +4,7 @@
 %undefine __cmake_in_source_build
 
 Name:           dnf-plugins-extras
-Version:        4.0.14
+Version:        4.0.15
 Release:        1%{?dist}
 Summary:        Extras Plugins for DNF
 License:        GPLv2+
