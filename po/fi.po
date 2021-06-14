@@ -1,19 +1,21 @@
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2017. #zanata, 2020.
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2018. #zanata, 2020.
+# Ricky Tigg <ricky.tigg@gmail.com>, 2020, 2021.
+# Jan Kuparinen <copper_fin@hotmail.com>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:18-0400\n"
-"PO-Revision-Date: 2020-03-22 07:00+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2021-06-13 09:18-0400\n"
+"PO-Revision-Date: 2021-06-09 15:04+0000\n"
+"Last-Translator: Jan Kuparinen <copper_fin@hotmail.com>\n"
 "Language-Team: Finnish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.3\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -30,72 +32,73 @@ msgstr "tiedostoa ei voi jäsentää: %s"
 
 #: plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr ""
+msgstr "Lisätään '{}' käsittelypakettien luetteloon rpmconf:a varten"
 
 #: plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr ""
+msgstr "rpmconf-liitännäinen ei toimi ei-vuorovaikutteisessa tilassa"
 
 #: plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr ""
+msgstr "ohitetaan sys.exit rpmconf:sta MERGE-muuttujan puuttuessa"
 
 #: plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "ohittaa sys.exit rpmconf:ta puuttuvan tiedoston vuoksi"
 
 #: plugins/showvars.py:46
 msgid "show all active dnf variables"
-msgstr ""
+msgstr "näytä kaikki aktiiviset dnf-muuttujat"
 
 #: plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr ""
+msgstr "yhteyden muodostaminen snapperdiin epäonnistui: %s"
 
 #: plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "pre_snapshot:n luominen"
 
 #: plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "pre_snapshot %d luotu"
 
 #: plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "pre_snapshot:n luominen epäonnistui: %s"
 
 #: plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr ""
+msgstr "ohitetaan post_snapshot, koska pre_snapshot:n luominen epäonnistui"
 
 #: plugins/snapper.py:80
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "post_snapshot:n luominen"
 
 #: plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "post_snapshot %d luotu"
 
 #: plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "post_snapshot:n luominen epäonnistui: %s"
 
 #. Translators: This string is only used in unit tests.
 #: plugins/system_upgrade.py:45
 msgid "the color of the sky"
 msgstr "taivaan väri"
 
-#: plugins/system_upgrade.py:61
+#: plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
+"Tarvitaan --releasever, joka on suurempi kuin nykyinen järjestelmäversio."
 
 #. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:63
+#: plugins/system_upgrade.py:59
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
@@ -104,150 +107,162 @@ msgstr ""
 "Lataus valmistui! Suorita 'dnf {command} reboot' aloittaaksesi versiopäivityksen.\n"
 "Poista välimuistissa olevat metatiedot ja transaktio suorittamalla 'dnf {command} clean'"
 
-#: plugins/system_upgrade.py:66
+#: plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
+"Valitettavasti sinun on käytettävä 'download --releasever' sijasta '--"
+"network'"
 
-#: plugins/system_upgrade.py:75
+#: plugins/system_upgrade.py:71
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "Uudelleenkäynnistys sammutettu, ei uudelleenkäynnistystä."
 
-#: plugins/system_upgrade.py:124
+#: plugins/system_upgrade.py:120
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
-msgstr ""
+msgstr "Näytön tyhjennystä ei voi poistaa käytöstä: %s"
 
-#: plugins/system_upgrade.py:145
+#: plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
+msgstr "Tilatiedoston %s lataaminen epäonnistui, jatkuu tyhjällä tilalla."
 
-#: plugins/system_upgrade.py:297
+#: plugins/system_upgrade.py:286
 msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
+msgstr "Seuraavat käynnistykset näyttävät sisältävän päivityslokeja:"
 
-#: plugins/system_upgrade.py:307
+#: plugins/system_upgrade.py:296
 msgid "-- no logs were found --"
 msgstr "-- lokeja ei löytynyt --"
 
-#: plugins/system_upgrade.py:322
+#: plugins/system_upgrade.py:311
 msgid "Cannot find logs with this index."
-msgstr ""
+msgstr "Tämän hakemiston lokeja ei löydy."
 
-#: plugins/system_upgrade.py:331
+#: plugins/system_upgrade.py:320
 msgid "Unable to match systemd journal entry"
-msgstr ""
+msgstr "systemd-päiväkirjamerkintää ei voida täsmätä"
 
-#: plugins/system_upgrade.py:352
+#: plugins/system_upgrade.py:341
 msgid "Prepare system for upgrade to a new release"
 msgstr "Valmistele järjestelmä uuteen julkaisuun päivittämiseksi"
 
-#: plugins/system_upgrade.py:362
+#: plugins/system_upgrade.py:357
 msgid "keep installed packages if the new release's version is older"
-msgstr ""
+msgstr "säilytä asennetut paketit, jos uuden version versio on vanhempi"
 
-#: plugins/system_upgrade.py:366
+#: plugins/system_upgrade.py:361
 msgid "which logs to show"
-msgstr ""
+msgstr "mitkä lokit näytetään"
 
-#: plugins/system_upgrade.py:400
+#: plugins/system_upgrade.py:395
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
+"Yhteensopimaton versio tiedoista. Palauta 'dnf {command} download [OPTIONS]'"
 
-#: plugins/system_upgrade.py:437
+#: plugins/system_upgrade.py:432
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
+"Komentoa 'offline-distrosync' ei voi käyttää --no-downgrade -vaihtoehdon "
+"kanssa"
 
-#: plugins/system_upgrade.py:459
+#: plugins/system_upgrade.py:454
 msgid "Additional information for System Upgrade: {}"
-msgstr ""
+msgstr "Lisätietoja järjestelmän päivityksestä: {}"
 
-#: plugins/system_upgrade.py:462
+#: plugins/system_upgrade.py:457
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr ""
 "Ennen kuin jatkat, varmista että järjestelmä on täysin ajan tasalla "
-"suorittamalla \"dnf --refresh upgrade\". Haluatko jatkaa"
+"suorittamalla 'dnf --refresh upgrade'. Haluatko jatkaa"
 
-#: plugins/system_upgrade.py:466
+#: plugins/system_upgrade.py:461
 msgid "Operation aborted."
-msgstr "Toimenpide lopetettu."
+msgstr "Toimenpide peruttu."
 
-#: plugins/system_upgrade.py:529
+#: plugins/system_upgrade.py:519
 msgid "system is not ready for upgrade"
 msgstr "järjestelmä ei ole valmis järjestelmäpäivitykseen"
 
-#: plugins/system_upgrade.py:532
+#: plugins/system_upgrade.py:522
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
+"transaktiota ei valmisteltu komentoa {command} varten. Palauta 'dnf "
+"{command} download [OPTIONS]'"
 
-#: plugins/system_upgrade.py:536
+#: plugins/system_upgrade.py:526
 msgid "upgrade is already scheduled"
 msgstr "järjestelmäpäivitys on jo ajastettu"
 
-#: plugins/system_upgrade.py:542
+#: plugins/system_upgrade.py:532
 msgid "trigger file does not exist. exiting quietly."
 msgstr "liipaisintiedostoa ei ole olemassa. poistutaan hiljaa."
 
-#: plugins/system_upgrade.py:545
+#: plugins/system_upgrade.py:535
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "muu järjestelmäpäivitystyökalu on käynnissä. poistutaan hiljaa."
 
-#: plugins/system_upgrade.py:554
+#: plugins/system_upgrade.py:544
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr "suorita 'dnf {command} reboot' aloittaaksesi versiopäivityksen"
 
-#: plugins/system_upgrade.py:572
+#: plugins/system_upgrade.py:562
 msgid "Rebooting to perform upgrade."
 msgstr "Käynnistetään uudelleen järjestelmäpäivityksen suorittamiseksi."
 
-#: plugins/system_upgrade.py:606
+#: plugins/system_upgrade.py:595
 msgid "Starting offline upgrade. This will take a while."
-msgstr "Käynnistetään offline-versiopäivitystä. Tämä saattaa kestää hetken."
+msgstr "Aloitetaan ei-verkkopäivitys. Tämä saattaa kestää hetken."
 
-#: plugins/system_upgrade.py:608
+#: plugins/system_upgrade.py:597
 msgid "Starting offline distrosync. This will take a while."
-msgstr ""
+msgstr "Aloitetaan ei-verkko-jakelusynkronointi. Tämä saattaa kestää hetken."
 
-#: plugins/system_upgrade.py:610
+#: plugins/system_upgrade.py:599
 msgid "Starting system upgrade. This will take a while."
 msgstr "Aloitetaan järjestelmäpäivitys. Tämä saattaa kestää hetken."
 
-#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
-#, python-format
-msgid "Unable to match package: %s"
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Unable to match some of packages"
-msgstr ""
-
-#: plugins/system_upgrade.py:659
+#: plugins/system_upgrade.py:615
 msgid "Cleaning up downloaded data..."
 msgstr "Siivotaan ladattuja tietoja..."
 
-#: plugins/system_upgrade.py:737
+#: plugins/system_upgrade.py:644
+msgid ""
+"The system-upgrade transaction is empty, your system is already up-to-date."
+msgstr ""
+"Järjestelmän päivitystransaktio on tyhjä, järjestelmäsi on jo ajan tasalla."
+
+#: plugins/system_upgrade.py:653
+msgid "Transaction saved to {}."
+msgstr "Transaktio tallennettu {}:een."
+
+#: plugins/system_upgrade.py:656
+msgid "Error storing transaction: {}"
+msgstr "Transaktion tallennuksessa tapahtui virhe: {}"
+
+#: plugins/system_upgrade.py:678
 msgid "Download finished."
 msgstr "Lataus valmistui."
 
-#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
+#: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 "Järjestelmäpäivitys valmistui! Siivotaan ja käynnistetään uudelleen..."
 
-#: plugins/system_upgrade.py:751
+#: plugins/system_upgrade.py:691
 msgid "Prepare offline upgrade of the system"
-msgstr ""
+msgstr "Valmista järjestelmän ei-verkkopäivitys"
 
-#: plugins/system_upgrade.py:756
+#: plugins/system_upgrade.py:696
 msgid "Prepare offline distrosync of the system"
-msgstr ""
+msgstr "Valmista järjestelmän ei-verkko-jakelusynkronointi"
 
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
@@ -257,11 +272,11 @@ msgstr ""
 
 #: plugins/tracer.py:69
 msgid "For more information run:"
-msgstr ""
+msgstr "Saat lisätietoja suorittamalla:"
 
 #: plugins/tracer.py:96
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr ""
+msgstr "Kutsu Tracer-sovellusliittymään päättyi odottamatta:"
 
 #: plugins/tracer.py:98
 msgid ""
@@ -269,8 +284,14 @@ msgid ""
 "Thank you"
 msgstr ""
 "Käy osoitteessa https://github.com/FrostyX/tracer/issues ja ilmoita "
-"ongelmasta, kiitos."
+"ongelmasta, kiitos"
 
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Pahoittelemme mahdollisesti aiheutunutta haittaa"
+
+#~ msgid "Unable to match package: %s"
+#~ msgstr "Pakettia ei voida yhdistää: %s"
+
+#~ msgid "Unable to match some of packages"
+#~ msgstr "Joitakin paketteja ei voida yhdistää"

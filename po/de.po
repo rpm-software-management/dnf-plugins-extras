@@ -3,20 +3,21 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2015. #zanata
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2016. #zanata
 # Marek Blaha <mblaha@redhat.com>, 2018. #zanata
+# Fabian Affolter <mail@fabian-affolter.ch>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:18-0400\n"
-"PO-Revision-Date: 2018-04-06 02:05+0000\n"
-"Last-Translator: Marek Blaha <mblaha@redhat.com>\n"
-"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"POT-Creation-Date: 2021-06-13 09:18-0400\n"
+"PO-Revision-Date: 2020-12-13 14:35+0000\n"
+"Last-Translator: Fabian Affolter <mail@fabian-affolter.ch>\n"
+"Language-Team: German <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -25,7 +26,7 @@ msgstr ""
 
 #: plugins/kickstart.py:62
 msgid "kickstart file"
-msgstr ""
+msgstr "*kickstart Datei"
 
 #: plugins/kickstart.py:80
 #, python-format
@@ -39,10 +40,12 @@ msgstr "»{}« wird zur Liste der Pakete für rpmconf hinzugefügt"
 #: plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
 msgstr ""
+"*rpmconf #Plugin wird nicht funktionieren in nicht-interaktives Verfahren"
 
 #: plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
 msgstr ""
+"Überhören *sys.Ausgang von *rpmconf dank fehlend #EINVERLEIBEN Variable"
 
 #: plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
@@ -92,80 +95,80 @@ msgstr ""
 #. Translators: This string is only used in unit tests.
 #: plugins/system_upgrade.py:45
 msgid "the color of the sky"
-msgstr ""
+msgstr "die Farbe des Himmels"
 
-#: plugins/system_upgrade.py:61
+#: plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 
 #. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:63
+#: plugins/system_upgrade.py:59
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
 
-#: plugins/system_upgrade.py:66
+#: plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 
-#: plugins/system_upgrade.py:75
+#: plugins/system_upgrade.py:71
 msgid "Reboot turned off, not rebooting."
 msgstr ""
 
-#: plugins/system_upgrade.py:124
+#: plugins/system_upgrade.py:120
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr ""
 
-#: plugins/system_upgrade.py:145
+#: plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 
-#: plugins/system_upgrade.py:297
+#: plugins/system_upgrade.py:286
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 
-#: plugins/system_upgrade.py:307
+#: plugins/system_upgrade.py:296
 msgid "-- no logs were found --"
-msgstr ""
+msgstr "-- Keine Logs gefunden --"
 
-#: plugins/system_upgrade.py:322
+#: plugins/system_upgrade.py:311
 msgid "Cannot find logs with this index."
 msgstr ""
 
-#: plugins/system_upgrade.py:331
+#: plugins/system_upgrade.py:320
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: plugins/system_upgrade.py:352
+#: plugins/system_upgrade.py:341
 msgid "Prepare system for upgrade to a new release"
 msgstr ""
 
-#: plugins/system_upgrade.py:362
+#: plugins/system_upgrade.py:357
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 
-#: plugins/system_upgrade.py:366
+#: plugins/system_upgrade.py:361
 msgid "which logs to show"
 msgstr ""
 
-#: plugins/system_upgrade.py:400
+#: plugins/system_upgrade.py:395
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 
-#: plugins/system_upgrade.py:437
+#: plugins/system_upgrade.py:432
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 
-#: plugins/system_upgrade.py:459
+#: plugins/system_upgrade.py:454
 msgid "Additional information for System Upgrade: {}"
 msgstr ""
 
-#: plugins/system_upgrade.py:462
+#: plugins/system_upgrade.py:457
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -174,80 +177,84 @@ msgstr ""
 "installiert sind. Dies kann durch den Aufruf von \"dnf --refresh upgrade\" "
 "erfolgen. Wollen Sie fortfahren?"
 
-#: plugins/system_upgrade.py:466
+#: plugins/system_upgrade.py:461
 msgid "Operation aborted."
-msgstr ""
+msgstr "Operation abgebrochen."
 
-#: plugins/system_upgrade.py:529
+#: plugins/system_upgrade.py:519
 msgid "system is not ready for upgrade"
 msgstr ""
 
-#: plugins/system_upgrade.py:532
+#: plugins/system_upgrade.py:522
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
 
-#: plugins/system_upgrade.py:536
+#: plugins/system_upgrade.py:526
 msgid "upgrade is already scheduled"
 msgstr ""
 
-#: plugins/system_upgrade.py:542
+#: plugins/system_upgrade.py:532
 msgid "trigger file does not exist. exiting quietly."
 msgstr ""
 
-#: plugins/system_upgrade.py:545
+#: plugins/system_upgrade.py:535
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 
-#: plugins/system_upgrade.py:554
+#: plugins/system_upgrade.py:544
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr ""
 
-#: plugins/system_upgrade.py:572
+#: plugins/system_upgrade.py:562
 msgid "Rebooting to perform upgrade."
 msgstr ""
 
-#: plugins/system_upgrade.py:606
+#: plugins/system_upgrade.py:595
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 
-#: plugins/system_upgrade.py:608
+#: plugins/system_upgrade.py:597
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 
-#: plugins/system_upgrade.py:610
+#: plugins/system_upgrade.py:599
 msgid "Starting system upgrade. This will take a while."
 msgstr ""
 
-#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
-#, python-format
-msgid "Unable to match package: %s"
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Unable to match some of packages"
-msgstr ""
-
-#: plugins/system_upgrade.py:659
+#: plugins/system_upgrade.py:615
 msgid "Cleaning up downloaded data..."
 msgstr ""
 
-#: plugins/system_upgrade.py:737
+#: plugins/system_upgrade.py:644
+msgid ""
+"The system-upgrade transaction is empty, your system is already up-to-date."
+msgstr ""
+
+#: plugins/system_upgrade.py:653
+msgid "Transaction saved to {}."
+msgstr ""
+
+#: plugins/system_upgrade.py:656
+msgid "Error storing transaction: {}"
+msgstr ""
+
+#: plugins/system_upgrade.py:678
 msgid "Download finished."
 msgstr ""
 
-#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
+#: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 
-#: plugins/system_upgrade.py:751
+#: plugins/system_upgrade.py:691
 msgid "Prepare offline upgrade of the system"
 msgstr ""
 
-#: plugins/system_upgrade.py:756
+#: plugins/system_upgrade.py:696
 msgid "Prepare offline distrosync of the system"
 msgstr ""
 

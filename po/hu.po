@@ -1,14 +1,14 @@
 # Meskó Balázs <meskobalazs@gmail.com>, 2016. #zanata
 # Meskó Balázs <meskobalazs@gmail.com>, 2018. #zanata
 # Meskó Balázs <meskobalazs@gmail.com>, 2019. #zanata
-# Balázs Meskó <meskobalazs@mailbox.org>, 2020.
+# Balázs Meskó <meskobalazs@mailbox.org>, 2020, 2021.
 # Anonymous <noreply@weblate.org>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-05 09:18-0400\n"
-"PO-Revision-Date: 2020-05-08 15:40+0000\n"
+"POT-Creation-Date: 2021-06-13 09:18-0400\n"
+"PO-Revision-Date: 2021-02-10 13:41+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@mailbox.org>\n"
 "Language-Team: Hungarian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/hu/>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.4\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -95,13 +95,13 @@ msgstr "A művelet utáni pillanatfelvétel készítése meghiúsult: %s"
 msgid "the color of the sky"
 msgstr "az égbolt színe"
 
-#: plugins/system_upgrade.py:61
+#: plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
 "A jelenlegi rendszer verziójánál nagyobb --releasever értéket kell megadnia."
 
 #. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:63
+#: plugins/system_upgrade.py:59
 #, python-brace-format
 msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
@@ -110,71 +110,71 @@ msgstr ""
 "Letöltés kész! Használja a „dnf {command} reboot” parancsot a frissítés indításához.\n"
 "A tárolt metaadatok és a tranzakció eltávolításához használja ezt: „dnf {command} clean”"
 
-#: plugins/system_upgrade.py:66
+#: plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
 msgstr ""
 "Sajnáljuk, a „download --releasever” parancsot kell használni a „--network” "
 "helyett"
 
-#: plugins/system_upgrade.py:75
+#: plugins/system_upgrade.py:71
 msgid "Reboot turned off, not rebooting."
 msgstr ""
 
-#: plugins/system_upgrade.py:124
+#: plugins/system_upgrade.py:120
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "A képernyő törlése nem tiltható le: %s"
 
-#: plugins/system_upgrade.py:145
+#: plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "Állapotfájl betöltése meghiúsult: %s, folytatás üres állapottal."
 
-#: plugins/system_upgrade.py:297
+#: plugins/system_upgrade.py:286
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "A következő indulások tartalmazzák a frissítési naplókat:"
 
-#: plugins/system_upgrade.py:307
+#: plugins/system_upgrade.py:296
 msgid "-- no logs were found --"
 msgstr "-- nem található naplófájl --"
 
-#: plugins/system_upgrade.py:322
+#: plugins/system_upgrade.py:311
 msgid "Cannot find logs with this index."
 msgstr "Ilyen index alatt nem található naplófájl."
 
-#: plugins/system_upgrade.py:331
+#: plugins/system_upgrade.py:320
 msgid "Unable to match systemd journal entry"
 msgstr "Nincs találat a systemd naplóbejegyzésre"
 
-#: plugins/system_upgrade.py:352
+#: plugins/system_upgrade.py:341
 msgid "Prepare system for upgrade to a new release"
 msgstr "Rendszer előkészítése az új verzióra történő frissítéshez"
 
-#: plugins/system_upgrade.py:362
+#: plugins/system_upgrade.py:357
 msgid "keep installed packages if the new release's version is older"
 msgstr "megtartja a telepített csomagokat, ha az új kiadás verziója régebbi"
 
-#: plugins/system_upgrade.py:366
+#: plugins/system_upgrade.py:361
 msgid "which logs to show"
 msgstr "megjelenítendő naplók"
 
-#: plugins/system_upgrade.py:400
+#: plugins/system_upgrade.py:395
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 "Nem kompatibilis adatverziók. Futtassa újra: „dnf {command} download "
 "[KAPCSOLÓK]”"
 
-#: plugins/system_upgrade.py:437
+#: plugins/system_upgrade.py:432
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 "Az „offline-distrosync” parancs nem használható a --no-downgrade kapcsolóval"
 
-#: plugins/system_upgrade.py:459
+#: plugins/system_upgrade.py:454
 msgid "Additional information for System Upgrade: {}"
 msgstr "További információk a rendszerfrissítéshez: {}"
 
-#: plugins/system_upgrade.py:462
+#: plugins/system_upgrade.py:457
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -182,15 +182,15 @@ msgstr ""
 "A folytatás előtt győződjön meg róla, hogy a rendszer teljesen frissítve "
 "lett a „dnf --refresh upgrade” paranccsal. Folytatja"
 
-#: plugins/system_upgrade.py:466
+#: plugins/system_upgrade.py:461
 msgid "Operation aborted."
 msgstr "Művelet megszakítva."
 
-#: plugins/system_upgrade.py:529
+#: plugins/system_upgrade.py:519
 msgid "system is not ready for upgrade"
 msgstr "a rendszer nem áll készen a frissítésre"
 
-#: plugins/system_upgrade.py:532
+#: plugins/system_upgrade.py:522
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
@@ -199,66 +199,70 @@ msgstr ""
 "a tranzakció nem készült el ehhez: „{command}”. Futtassa újra: „dnf "
 "{command} download [KAPCSOLÓK]”"
 
-#: plugins/system_upgrade.py:536
+#: plugins/system_upgrade.py:526
 msgid "upgrade is already scheduled"
 msgstr "a frissítés már ütemezve van"
 
-#: plugins/system_upgrade.py:542
+#: plugins/system_upgrade.py:532
 msgid "trigger file does not exist. exiting quietly."
 msgstr "a kiváltó fájl nem létezik. csendes kilépés."
 
-#: plugins/system_upgrade.py:545
+#: plugins/system_upgrade.py:535
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "fut egy másik frissítési eszköz. csendes kilépés."
 
-#: plugins/system_upgrade.py:554
+#: plugins/system_upgrade.py:544
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr ""
 "a telepítés folytatásához használja a „dnf {command} reboot” parancsot"
 
-#: plugins/system_upgrade.py:572
+#: plugins/system_upgrade.py:562
 msgid "Rebooting to perform upgrade."
 msgstr "Újraindítás a frissítés végrehajtásához."
 
-#: plugins/system_upgrade.py:606
+#: plugins/system_upgrade.py:595
 msgid "Starting offline upgrade. This will take a while."
 msgstr "Offline frissítés elkezdése. Ez eltart egy darabig."
 
-#: plugins/system_upgrade.py:608
+#: plugins/system_upgrade.py:597
 msgid "Starting offline distrosync. This will take a while."
 msgstr "Offline disztribúciószinkronizálás elkezdése. Ez eltart egy darabig."
 
-#: plugins/system_upgrade.py:610
+#: plugins/system_upgrade.py:599
 msgid "Starting system upgrade. This will take a while."
 msgstr "Rendszerfrissítés elkezdése. Ez eltart egy darabig."
 
-#: plugins/system_upgrade.py:642 plugins/system_upgrade.py:651
-#, python-format
-msgid "Unable to match package: %s"
-msgstr "Nincs találat a csomagra: %s"
-
-#: plugins/system_upgrade.py:656
-msgid "Unable to match some of packages"
-msgstr "Nincs találat néhány csomagra"
-
-#: plugins/system_upgrade.py:659
+#: plugins/system_upgrade.py:615
 msgid "Cleaning up downloaded data..."
 msgstr "Letöltött adatok tisztítása…"
 
-#: plugins/system_upgrade.py:737
+#: plugins/system_upgrade.py:644
+msgid ""
+"The system-upgrade transaction is empty, your system is already up-to-date."
+msgstr ""
+
+#: plugins/system_upgrade.py:653
+msgid "Transaction saved to {}."
+msgstr "Tranzakció ide mentve: {}."
+
+#: plugins/system_upgrade.py:656
+msgid "Error storing transaction: {}"
+msgstr "Hiba történt a tranzakció tárolásakor: {}"
+
+#: plugins/system_upgrade.py:678
 msgid "Download finished."
 msgstr "Letöltés befejezve."
 
-#: plugins/system_upgrade.py:741 plugins/system_upgrade.py:742
+#: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "Frissítés kész! Tisztítás és újraindítás…"
 
-#: plugins/system_upgrade.py:751
+#: plugins/system_upgrade.py:691
 msgid "Prepare offline upgrade of the system"
 msgstr "A rendszer offline frissítésének előkészítése"
 
-#: plugins/system_upgrade.py:756
+#: plugins/system_upgrade.py:696
 msgid "Prepare offline distrosync of the system"
 msgstr "A rendszer offline disztribúciófrissítésének előkészítése"
 
@@ -286,3 +290,9 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Elnézést kérünk a kellemetlenségekért"
+
+#~ msgid "Unable to match package: %s"
+#~ msgstr "Nincs találat a csomagra: %s"
+
+#~ msgid "Unable to match some of packages"
+#~ msgstr "Nincs találat néhány csomagra"

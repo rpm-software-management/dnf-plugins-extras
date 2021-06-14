@@ -1,99 +1,100 @@
-# Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2015. #zanata, 2021.
-# Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>, 2017. #zanata, 2021.
-# Casey Jones <nahareport@yahoo.com>, 2020.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# simmon <simmon@nplob.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-13 09:18-0400\n"
-"PO-Revision-Date: 2021-03-31 03:01+0000\n"
-"Last-Translator: Ooyama Yosiyuki <qqke6wd9k@apricot.ocn.ne.jp>\n"
-"Language-Team: Japanese <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/ja/>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2021-06-14 07:35+0000\n"
+"Last-Translator: simmon <simmon@nplob.com>\n"
+"Language-Team: Korean <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.2\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
-msgstr "システム上のキックスタートファイルに定義されたパッケージをインストール"
+msgstr "시스템에 킥스타트 파일에서 정의 된 꾸러미를 설치합니다"
 
 #: plugins/kickstart.py:62
 msgid "kickstart file"
-msgstr "キックスタートファイル"
+msgstr "킥스타트 파일"
 
 #: plugins/kickstart.py:80
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr "ファイルがパースできません: %s"
+msgstr "파일을 구문분석 할 수 없습니다: %s"
 
 #: plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
-msgstr "rpmconfのハンドリングパッケージリストに '{}' を追加中"
+msgstr "rpmconf를 위해 관리하는 꾸러미 목록에 '{}' 추가하기"
 
 #: plugins/rpm_conf.py:71
 msgid "rpmconf plugin will not run in non-interactive mode"
-msgstr "rpmconf プラグインは非対話モードで実行されません"
+msgstr "rpmconf 플러그인은 비대화형 방식으로 실행하지 않습니다"
 
 #: plugins/rpm_conf.py:84
 msgid "ignoring sys.exit from rpmconf due to missing MERGE variable"
-msgstr "MERGE 変数が見つからないため、rpmconfのsys.exitを無視しています"
+msgstr "rpmconf 에서 MERGE 변수 누락으로 인해 sys.exit 무시"
 
 #: plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr "ファイルが見つからないため、rpmconfのsys.exitを無視しています"
+msgstr "rpmconf 에서 파일 누락으로 인해 sys.exit 무시"
 
 #: plugins/showvars.py:46
 msgid "show all active dnf variables"
-msgstr "アクティブなdnf変数をすべて表示"
+msgstr "모든 동작중인 dnf 변수를 보여주기"
 
 #: plugins/snapper.py:49
 #, python-format
 msgid "connect to snapperd failed: %s"
-msgstr "snapperdに接続できませんでした: %s"
+msgstr "snapperd 연결에 실패하였습니다: %s"
 
 #: plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr "pre_snapshotを作成中"
+msgstr "pre_snapshot 생성"
 
 #: plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr "pre_snapshot %d が作成されました"
+msgstr "pre_snapshot %d 생성됩니다"
 
 #: plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr "pre_snapshot 作成に失敗しました: %s"
+msgstr "pre_snapshot 생성이 실패하였습니다: %s"
 
 #: plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
-msgstr "pre_snapshot作成に失敗したため、post_snapshotをスキップ中"
+msgstr "post_snapshot because creation of pre_snapshot 건너 띄기가 실패하였습니다"
 
 #: plugins/snapper.py:80
 msgid "creating post_snapshot"
-msgstr "post_snapshotを作成中"
+msgstr "post_snapshot 생성중"
 
 #: plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
-msgstr "post_snapshot %d が作成されました"
+msgstr "post_snapshot %d 생성됩니다"
 
 #: plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr "post_snapshot 作成に失敗しました: %s"
+msgstr "post_snapshot 생성하기가 실패하였습니다: %s"
 
 #. Translators: This string is only used in unit tests.
 #: plugins/system_upgrade.py:45
 msgid "the color of the sky"
-msgstr "空の色"
+msgstr "하늘 색상"
 
 #: plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
-msgstr "--releasever は、現在のシステムのバージョン番号よりも大きくなければなりません。"
+msgstr "현재 시스템 버전 보다 더 큰 --releasever 가 필요합니다."
 
 #. Translators: do not change "reboot" here
 #: plugins/system_upgrade.py:59
@@ -102,81 +103,81 @@ msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
-"ダウンロード完了! アップグレード開始には 'dnf {command} reboot' を使ってください。\n"
-"キャッシュされた metadata と transaction の削除には 'dnf {command} clean' を使ってください"
+"내려받기 완료! 향상을 시작하기에 'dnf {command} reboot'를 사용하세요.\n"
+"캐쉬된 메타자료를 제거 하고 연결은 'dnf {command} clean'를 사용합니다"
 
 #: plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "すみませんが '--network' の代わりに 'download --releasever' を使う必要があります"
+msgstr "죄송합니다, '--network' 대신에 'download --releasever'를 사용해야 합니다"
 
 #: plugins/system_upgrade.py:71
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "재시작이 아닌, 재시작이 꺼졌습니다."
 
 #: plugins/system_upgrade.py:120
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
-msgstr "スクリーンブランキングは無効にできません: %s"
+msgstr "화면 공백을 비활성화 할 수 없습니다: %s"
 
 #: plugins/system_upgrade.py:140
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
-msgstr "状態ファイル: %s のロードに失敗しました。状態空で続行します。"
+msgstr "상태 파일을 적재하지 못했습니다:%s, 빈 상태로 진행합니다."
 
 #: plugins/system_upgrade.py:286
 msgid "The following boots appear to contain upgrade logs:"
-msgstr "以下ブートはアップグレードログを含んでいます:"
+msgstr "다음 재시작은 향상 기록을 포함해 나타납니다:"
 
 #: plugins/system_upgrade.py:296
 msgid "-- no logs were found --"
-msgstr "-- ログが見つかりません --"
+msgstr "-- 기록을 찾을 수 없습니다 --"
 
 #: plugins/system_upgrade.py:311
 msgid "Cannot find logs with this index."
-msgstr "このインデックスでログが見つかりません。"
+msgstr "이 색인에 기록을 찾을 수 없습니다."
 
 #: plugins/system_upgrade.py:320
 msgid "Unable to match systemd journal entry"
-msgstr "systemdジャーナルエントリーにマッチできません"
+msgstr "systemd 저널 항목을 일치 할 수 없습니다"
 
 #: plugins/system_upgrade.py:341
 msgid "Prepare system for upgrade to a new release"
-msgstr "システムに新リリースにアップグレードするための準備をしてください"
+msgstr "새로운 출시 향상을 위해 시스템을 준비합니다"
 
 #: plugins/system_upgrade.py:357
 msgid "keep installed packages if the new release's version is older"
-msgstr "新しいリリースバージョンがインストール済パッケージより古い場合は維持する"
+msgstr "새로운 출시 버전이 오래된 것이면 설치된 꾸러미를 유지합니다"
 
 #: plugins/system_upgrade.py:361
 msgid "which logs to show"
-msgstr "どのログを表示"
+msgstr "표시할 기록"
 
 #: plugins/system_upgrade.py:395
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr "データの非互換バージョン。 'dnf {command} download [OPTIONS]' を再実行してください"
+msgstr "비호환성 자료 버전. 'dnf {command} 내려받기 [OPTIONS]' 을 재시작합니다"
 
 #: plugins/system_upgrade.py:432
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr "コマンド 'offline-distrosync' は --no-downgrade オプションと使用できません"
+msgstr "명령 'offline-distrosync'은 --no-downgrade 선택과 함께 사용 할 수 없습니다"
 
 #: plugins/system_upgrade.py:454
 msgid "Additional information for System Upgrade: {}"
-msgstr "システムアップグレードの追加情報: {}"
+msgstr "시스템 향상을 위한 추가 정보: {}"
 
 #: plugins/system_upgrade.py:457
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
-msgstr "継続する前に \"dnf --refresh upgrade\" 実行によりシステム全体がアップグレードされることを確認してください。継続しますか"
+msgstr "계속하기 전에 dnf --refresh upgrade\" 실행하여 시스템이 완전히 향상 될 것이 확실합니다. 계속 하길 원하세요"
 
 #: plugins/system_upgrade.py:461
 msgid "Operation aborted."
-msgstr "操作が中断されました。"
+msgstr "작업이 중지됩니다."
 
 #: plugins/system_upgrade.py:519
 msgid "system is not ready for upgrade"
-msgstr "システムはアップグレードの準備ができてません。"
+msgstr "시스템이 향상 준비가 되지 않았습니다"
 
 #: plugins/system_upgrade.py:522
 #, python-brace-format
@@ -184,99 +185,92 @@ msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
-"トランザクションは '{command}' の準備ができていません。 'dnf {command} download [OPTIONS]' "
-"を再実行してください"
+"연결은 '{command}'를 위해 준비되어 있지 않습니다. 'dnf {command} download [OPTIONS]'를 반환합니다"
 
 #: plugins/system_upgrade.py:526
 msgid "upgrade is already scheduled"
-msgstr "アップグレードは既に予定されています"
+msgstr "향상이 이미 계획되었습니다"
 
 #: plugins/system_upgrade.py:532
 msgid "trigger file does not exist. exiting quietly."
-msgstr "トリガーファイルが存在しません。終了しています。"
+msgstr "트리거 파일이 존재하지 않습니다. 조용히 나갑니다."
 
 #: plugins/system_upgrade.py:535
 msgid "another upgrade tool is running. exiting quietly."
-msgstr "他のアップグレードツールが実行されています。終了しています。"
+msgstr "다른 향상 도구가 실행 중입니다 . 조용히 나가기."
 
 #: plugins/system_upgrade.py:544
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "アップグレード開始には 'dnf {command} reboot' を使用してください"
+msgstr "향상 시작에 'dnf {command} reboot' 를 사용합니다"
 
 #: plugins/system_upgrade.py:562
 msgid "Rebooting to perform upgrade."
-msgstr "アップグレード実行のため再起動中。"
+msgstr "향상 진행을 위해 재시작합니다."
 
 #: plugins/system_upgrade.py:595
 msgid "Starting offline upgrade. This will take a while."
-msgstr "offline upgradeを起動中。しばらく時間がかかります。"
+msgstr "오프라인 향상 시작하기. 이는 시간이 걸립니다."
 
 #: plugins/system_upgrade.py:597
 msgid "Starting offline distrosync. This will take a while."
-msgstr "offline distrosyncを起動中。しばらく時間がかかります。"
+msgstr "오프라인 배포준비를 시작하기. 이는 시간이 걸립니다."
 
 #: plugins/system_upgrade.py:599
 msgid "Starting system upgrade. This will take a while."
-msgstr "system upgrade を起動中。しばらく時間がかかります。"
+msgstr "시스템 향상 시작하기. 이는 시간이 걸립니다."
 
 #: plugins/system_upgrade.py:615
 msgid "Cleaning up downloaded data..."
-msgstr "ダウンロード済みデータを掃除しています..."
+msgstr "내려받은 자료를 정리하기..."
 
 #: plugins/system_upgrade.py:644
 msgid ""
 "The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
+msgstr "시스템-향상은 트랜잭션이 비어 있으면, 시스템이 이미 최신 상태입니다."
 
 #: plugins/system_upgrade.py:653
 msgid "Transaction saved to {}."
-msgstr ""
+msgstr "연결이 {}에 저장되었습니다."
 
 #: plugins/system_upgrade.py:656
 msgid "Error storing transaction: {}"
-msgstr ""
+msgstr "저장 중 연결 오류: {}"
 
 #: plugins/system_upgrade.py:678
 msgid "Download finished."
-msgstr "ダウンロード完了。"
+msgstr "내려받기가 끝났습니다."
 
 #: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
 msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "アップグレードは完了しました！ 掃除と再起動中..."
+msgstr "향상 완료! 정리하고 재시작..."
 
 #: plugins/system_upgrade.py:691
 msgid "Prepare offline upgrade of the system"
-msgstr "システムのoffline upgradeを準備"
+msgstr "시스템의 오프라인 향상을 준비 합니다"
 
 #: plugins/system_upgrade.py:696
 msgid "Prepare offline distrosync of the system"
-msgstr "システムのoffline distrosyncを準備"
+msgstr "시스템의 오프라인 배포 준비를 합니다"
 
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
-msgstr "torproxyプラグインを無効中: Torネットワークに接続できません"
+msgstr "torproxy 플러그인 사용하지 않기: tor 네트워크에 연결 할 수 없습니다"
 
 #: plugins/tracer.py:69
 msgid "For more information run:"
-msgstr "詳細情のため実行:"
+msgstr "보다 상세한 정보를 위해 실행합니다:"
 
 #: plugins/tracer.py:96
 msgid "Call to Tracer API ended unexpectedly:"
-msgstr "Tracer API 呼び出しが予期せず終了しました:"
+msgstr "Tracer API 호출이 예상치 않게 종료되었습니다:"
 
 #: plugins/tracer.py:98
 msgid ""
 "Please visit https://github.com/FrostyX/tracer/issues and submit the issue. "
 "Thank you"
-msgstr "https://github.com/FrostyX/tracer/issues に行きこの問題を報告してください。ありがとうございます"
+msgstr "https://github.com/FrostyX/tracer/issues 방문해 주시고, 결과를 제출해주세요. 감사합니다"
 
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
-msgstr "ご不便をお掛けして申し訳ございません"
-
-#~ msgid "Unable to match package: %s"
-#~ msgstr "マッチできませんパッケージ: %s"
-
-#~ msgid "Unable to match some of packages"
-#~ msgstr "いくつかのパッケージがマッチできません"
+msgstr "불편을 드려서 죄송합니다"
