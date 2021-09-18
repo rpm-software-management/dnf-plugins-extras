@@ -18,6 +18,7 @@ RPM packages for individual plugins are available in official Fedora repositorie
    dnf install dnf-plugin-system-upgrade
    dnf install dnf-plugin-torproxy
    dnf install dnf-plugin-tracer
+   dnf install dnf-plugin-rebuild-initrd
 
 Nigthly builds can be installed from `copr repository <https://copr.fedorainfracloud.org/coprs/rpmsoftwaremanagement/dnf-nightly/>`_.
 

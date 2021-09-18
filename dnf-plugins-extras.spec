@@ -147,6 +147,19 @@ Provides:       python3-%{name}-showvars = %{version}-%{release}
 This plugin dumps the current value of any defined DNF variables.  For example
 $releasever and $basearch.
 
+%package -n python3-dnf-plugin-rebuild-initrd
+Summary:        Initrd rebuild after new kernel Plugin for DNF
+Requires:       python3-%{name}-common = %{version}-%{release}
+%{?python_provide:%python_provide python3-%{name}-rebuild-initrd}
+Requires:       akmods
+Requires:       dracut
+Provides:       dnf-plugin-rebuild-initrd = %{version}-%{release}
+Provides:       python3-%{name}-rebuild-initrd = %{version}-%{release}
+
+%description -n python3-dnf-plugin-rebuild-initrd
+Runs akmods and dracut for each new kernel installed.
+This can solve problem of Nvidia hybrid cards users where nvidia.ko is
+required to show plymouth password screen over HDMI.
 
 %prep
 %autosetup
@@ -219,5 +232,10 @@ PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-pl
 %{python3_sitelib}/dnf-plugins/showvars.*
 %{python3_sitelib}/dnf-plugins/__pycache__/showvars.*
 %{_mandir}/man8/dnf-showvars.*
+
+%files -n python3-dnf-plugin-rebuild-initrd
+%{python3_sitelib}/dnf-plugins/rebuild_initrd.*
+%{python3_sitelib}/dnf-plugins/__pycache__/rebuild_initrd.*
+%{_mandir}/man8/dnf-rebuild-initrd.*
 
 %changelog

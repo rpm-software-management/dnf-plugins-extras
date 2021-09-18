@@ -247,6 +247,7 @@ man_pages = [
     ('torproxy', 'dnf-torproxy', u'DNF torproxy Plugin', AUTHORS, 8),
     ('showvars', 'dnf-showvars', u'DNF showvars Plugin', AUTHORS, 8),
     ('tracer', 'dnf-tracer', u'DNF tracer Plugin', AUTHORS, 8),
+    ('rebuild-initrd', 'dnf-rebuild-initrd', u'DNF rebuild-initrd Plugin', AUTHORS, 8),
 ]
 
 # If true, show URL addresses after external links.

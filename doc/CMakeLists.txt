@@ -27,5 +27,6 @@ INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/dnf-kickstart.8
 if (${PYTHON_VERSION_MAJOR} STREQUAL "3")
     INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/dnf-rpmconf.8
         ${CMAKE_CURRENT_BINARY_DIR}/dnf-torproxy.8
+        ${CMAKE_CURRENT_BINARY_DIR}/dnf-rebuild-initrd.8
         DESTINATION share/man/man8)
 endif()

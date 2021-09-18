@@ -32,6 +32,7 @@ This documents extras plugins of DNF:
    system-upgrade
    torproxy
    tracer
+   rebuild-initrd
 
 
 ========
