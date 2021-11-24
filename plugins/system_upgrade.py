@@ -88,12 +88,14 @@ def get_url_from_os_release():
 
 
 # DNF-FIXME: dnf.util.clear_dir() doesn't delete regular files :/
-def clear_dir(path):
+def clear_dir(path, ignore=[]):
     if not os.path.isdir(path):
         return
 
     for entry in os.listdir(path):
         fullpath = os.path.join(path, entry)
+        if fullpath in ignore:
+            continue
         try:
             if os.path.isdir(fullpath):
                 dnf.util.rm_rf(fullpath)
@@ -613,9 +615,10 @@ class SystemUpgradeCommand(dnf.cli.Command):
 
     def run_clean(self):
         logger.info(_("Cleaning up downloaded data..."))
-        clear_dir(self.base.conf.cachedir)
-        if self.base.conf.destdir:
-            clear_dir(self.base.conf.destdir)
+        # Don't delete persistor, it contains paths for downloaded packages
+        # that are used by dnf during finalizing base to clean them up
+        clear_dir(self.base.conf.cachedir,
+                  [dnf.persistor.TempfilePersistor(self.base.conf.cachedir).db_path])
         with self.state as state:
             state.download_status = None
             state.state_version = None
