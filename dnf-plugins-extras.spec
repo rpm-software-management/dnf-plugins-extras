@@ -16,7 +16,7 @@ BuildRequires:  cmake
 BuildRequires:  gettext
 BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
-BuildRequires:  python3-nose
+BuildRequires:  python3-pytest
 BuildRequires:  python3-sphinx
 
 %description
@@ -170,7 +170,7 @@ ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-o
 %find_lang %{name}
 
 %check
-PYTHONPATH="%{buildroot}%{python3_sitelib}:%{buildroot}%{python3_sitelib}/dnf-plugins/" nosetests-%{python3_version} -s tests/
+%pytest
 
 %files -n python3-%{name}-common -f %{name}.lang
 %{python3_sitelib}/dnfpluginsextras/
