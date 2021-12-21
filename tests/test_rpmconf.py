@@ -176,8 +176,8 @@ class TestRpmConf(unittest.TestCase):
         # Newer rpmconf changed output since F31
         expected_last_line_from_f31 = "File {0} has been merged.".format(new_path)
 
-        self.assertRegexpMatches(lines[-1], "{0}|{1}"
-                                 .format(expected_last_line_to_f30, expected_last_line_from_f31))
+        self.assertRegex(lines[-1], "{0}|{1}"
+                         .format(expected_last_line_to_f30, expected_last_line_from_f31))
 
     def test_diff_output(self):
         self._create_conf()
