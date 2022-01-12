@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-13 09:18-0400\n"
+"POT-Creation-Date: 2022-01-08 01:50+0000\n"
 "PO-Revision-Date: 2018-05-18 09:06+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan\n"
@@ -113,62 +113,62 @@ msgstr ""
 msgid "Reboot turned off, not rebooting."
 msgstr ""
 
-#: plugins/system_upgrade.py:120
+#: plugins/system_upgrade.py:122
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr ""
 
-#: plugins/system_upgrade.py:140
+#: plugins/system_upgrade.py:142
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr ""
 
-#: plugins/system_upgrade.py:286
+#: plugins/system_upgrade.py:288
 msgid "The following boots appear to contain upgrade logs:"
 msgstr ""
 "Les següents arrencades semblen que continguin registres d'actualització de "
 "versió:"
 
-#: plugins/system_upgrade.py:296
+#: plugins/system_upgrade.py:298
 msgid "-- no logs were found --"
 msgstr "-- no s'ha trobat cap registre --"
 
-#: plugins/system_upgrade.py:311
+#: plugins/system_upgrade.py:313
 msgid "Cannot find logs with this index."
 msgstr "No s'ha pogut trobar cap registre amb aquest índex."
 
-#: plugins/system_upgrade.py:320
+#: plugins/system_upgrade.py:322
 msgid "Unable to match systemd journal entry"
 msgstr ""
 
-#: plugins/system_upgrade.py:341
+#: plugins/system_upgrade.py:343
 msgid "Prepare system for upgrade to a new release"
 msgstr ""
 "Prepara el sistema per a una actualització de versió a un nou llançament"
 
-#: plugins/system_upgrade.py:357
+#: plugins/system_upgrade.py:359
 msgid "keep installed packages if the new release's version is older"
 msgstr ""
 "mantén els paquets instal·lats si la versió del nou llançament és més antiga"
 
-#: plugins/system_upgrade.py:361
+#: plugins/system_upgrade.py:363
 msgid "which logs to show"
 msgstr "quins registres s'han de mostrar"
 
-#: plugins/system_upgrade.py:395
+#: plugins/system_upgrade.py:397
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr ""
 
-#: plugins/system_upgrade.py:432
+#: plugins/system_upgrade.py:434
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr ""
 
-#: plugins/system_upgrade.py:454
+#: plugins/system_upgrade.py:456
 msgid "Additional information for System Upgrade: {}"
 msgstr ""
 
-#: plugins/system_upgrade.py:457
+#: plugins/system_upgrade.py:459
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
@@ -176,87 +176,87 @@ msgstr ""
 "Abans de continuar, assegureu-vos que el vostre sistema estigui completament"
 " actualitzat amb l'execució de «dnf --refresh upgrade». Voleu continuar"
 
-#: plugins/system_upgrade.py:461
+#: plugins/system_upgrade.py:463
 msgid "Operation aborted."
 msgstr "S'ha avortat l'operació."
 
-#: plugins/system_upgrade.py:519
+#: plugins/system_upgrade.py:521
 msgid "system is not ready for upgrade"
 msgstr "el sistema no està preparat per una actualització de versió"
 
-#: plugins/system_upgrade.py:522
+#: plugins/system_upgrade.py:524
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr ""
 
-#: plugins/system_upgrade.py:526
+#: plugins/system_upgrade.py:528
 msgid "upgrade is already scheduled"
 msgstr "l'actualització de versió ja està programada"
 
-#: plugins/system_upgrade.py:532
+#: plugins/system_upgrade.py:534
 msgid "trigger file does not exist. exiting quietly."
 msgstr ""
 
-#: plugins/system_upgrade.py:535
+#: plugins/system_upgrade.py:537
 msgid "another upgrade tool is running. exiting quietly."
 msgstr ""
 "una altra eina d'actualització de versió està en execució. Se surt "
 "ràpidament."
 
-#: plugins/system_upgrade.py:544
+#: plugins/system_upgrade.py:546
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr ""
 
-#: plugins/system_upgrade.py:562
+#: plugins/system_upgrade.py:564
 msgid "Rebooting to perform upgrade."
 msgstr "Es reinicia per a realitzar l'actualització de versió."
 
-#: plugins/system_upgrade.py:595
+#: plugins/system_upgrade.py:597
 msgid "Starting offline upgrade. This will take a while."
 msgstr ""
 
-#: plugins/system_upgrade.py:597
+#: plugins/system_upgrade.py:599
 msgid "Starting offline distrosync. This will take a while."
 msgstr ""
 
-#: plugins/system_upgrade.py:599
+#: plugins/system_upgrade.py:601
 msgid "Starting system upgrade. This will take a while."
 msgstr "S'inicia l'actualització de versió. Això pot trigar una estona."
 
-#: plugins/system_upgrade.py:615
+#: plugins/system_upgrade.py:617
 msgid "Cleaning up downloaded data..."
 msgstr "Neteja de les dades baixades..."
 
-#: plugins/system_upgrade.py:644
+#: plugins/system_upgrade.py:647
 msgid ""
 "The system-upgrade transaction is empty, your system is already up-to-date."
 msgstr ""
 
-#: plugins/system_upgrade.py:653
+#: plugins/system_upgrade.py:656
 msgid "Transaction saved to {}."
 msgstr ""
 
-#: plugins/system_upgrade.py:656
+#: plugins/system_upgrade.py:659
 msgid "Error storing transaction: {}"
 msgstr ""
 
-#: plugins/system_upgrade.py:678
+#: plugins/system_upgrade.py:681
 msgid "Download finished."
 msgstr "S'ha finalitzat la baixada."
 
-#: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
+#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr ""
 "S'ha completat l'actualització de la versió. Es neteja i es reinicia..."
 
-#: plugins/system_upgrade.py:691
+#: plugins/system_upgrade.py:694
 msgid "Prepare offline upgrade of the system"
 msgstr ""
 
-#: plugins/system_upgrade.py:696
+#: plugins/system_upgrade.py:699
 msgid "Prepare offline distrosync of the system"
 msgstr ""
 

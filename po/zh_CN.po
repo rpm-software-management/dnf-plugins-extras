@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-13 09:18-0400\n"
-"PO-Revision-Date: 2021-03-26 15:01+0000\n"
+"POT-Creation-Date: 2022-01-08 01:50+0000\n"
+"PO-Revision-Date: 2021-06-26 14:04+0000\n"
 "Last-Translator: Charles Lee <lchopn@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 4.7\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -112,143 +112,143 @@ msgstr "很抱歉，您需要使用 'download --releasever' 代替 '--network' �
 
 #: plugins/system_upgrade.py:71
 msgid "Reboot turned off, not rebooting."
-msgstr ""
+msgstr "已关闭重启选项，将不会重启。"
 
-#: plugins/system_upgrade.py:120
+#: plugins/system_upgrade.py:122
 #, python-format
 msgid "Screen blanking can't be disabled: %s"
 msgstr "无法禁用屏幕清空：%s"
 
-#: plugins/system_upgrade.py:140
+#: plugins/system_upgrade.py:142
 #, python-format
 msgid "Failed loading state file: %s, continuing with empty state."
 msgstr "加载状态文件 %s 时失败，将以空状态继续。"
 
-#: plugins/system_upgrade.py:286
+#: plugins/system_upgrade.py:288
 msgid "The following boots appear to contain upgrade logs:"
 msgstr "以下引导信息包含升级日志："
 
-#: plugins/system_upgrade.py:296
+#: plugins/system_upgrade.py:298
 msgid "-- no logs were found --"
 msgstr "-- 未发现日志 --"
 
-#: plugins/system_upgrade.py:311
+#: plugins/system_upgrade.py:313
 msgid "Cannot find logs with this index."
 msgstr "无法找到此索引日志。"
 
-#: plugins/system_upgrade.py:320
+#: plugins/system_upgrade.py:322
 msgid "Unable to match systemd journal entry"
 msgstr "无法匹配 systemd 日志条目"
 
-#: plugins/system_upgrade.py:341
+#: plugins/system_upgrade.py:343
 msgid "Prepare system for upgrade to a new release"
 msgstr "为升级至新发布版本准备系统"
 
-#: plugins/system_upgrade.py:357
+#: plugins/system_upgrade.py:359
 msgid "keep installed packages if the new release's version is older"
 msgstr "如果新发布版本的包较旧，则保持已安装软件包"
 
-#: plugins/system_upgrade.py:361
+#: plugins/system_upgrade.py:363
 msgid "which logs to show"
 msgstr "要显示哪些日志"
 
-#: plugins/system_upgrade.py:395
+#: plugins/system_upgrade.py:397
 #, python-brace-format
 msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
 msgstr "不兼容的数据版本。请重新执行 'dnf {command} download [OPTIONS]'"
 
-#: plugins/system_upgrade.py:432
+#: plugins/system_upgrade.py:434
 msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
 msgstr "命令 'offline-distrosync' 不能与 --no-downgrade 选项同时使用"
 
-#: plugins/system_upgrade.py:454
+#: plugins/system_upgrade.py:456
 msgid "Additional information for System Upgrade: {}"
 msgstr "系统升级的附加信息：{}"
 
-#: plugins/system_upgrade.py:457
+#: plugins/system_upgrade.py:459
 msgid ""
 "Before you continue ensure that your system is fully upgraded by running "
 "\"dnf --refresh upgrade\". Do you want to continue"
 msgstr "在继续之前，请确保您的系统已经通过执行 \"dnf --refresh upgrade\" 升级到了最新。您是否想要继续"
 
-#: plugins/system_upgrade.py:461
+#: plugins/system_upgrade.py:463
 msgid "Operation aborted."
 msgstr "操作中止。"
 
-#: plugins/system_upgrade.py:519
+#: plugins/system_upgrade.py:521
 msgid "system is not ready for upgrade"
 msgstr "系统并未准备好升级"
 
-#: plugins/system_upgrade.py:522
+#: plugins/system_upgrade.py:524
 #, python-brace-format
 msgid ""
 "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
 "download [OPTIONS]'"
 msgstr "事务还没有为 '{command}' 做好准备。请重新执行 'dnf {command} download [OPTIONS]'"
 
-#: plugins/system_upgrade.py:526
+#: plugins/system_upgrade.py:528
 msgid "upgrade is already scheduled"
 msgstr "已计划升级"
 
-#: plugins/system_upgrade.py:532
+#: plugins/system_upgrade.py:534
 msgid "trigger file does not exist. exiting quietly."
 msgstr "触发文件不存在。静默退出。"
 
-#: plugins/system_upgrade.py:535
+#: plugins/system_upgrade.py:537
 msgid "another upgrade tool is running. exiting quietly."
 msgstr "另一个升级工具正在运行。默默退出。"
 
-#: plugins/system_upgrade.py:544
+#: plugins/system_upgrade.py:546
 #, python-brace-format
 msgid "use 'dnf {command} reboot' to begin the upgrade"
 msgstr "执行 'dnf {command} reboot' 命令以开始升级"
 
-#: plugins/system_upgrade.py:562
+#: plugins/system_upgrade.py:564
 msgid "Rebooting to perform upgrade."
 msgstr "重新启动进行升级。"
 
-#: plugins/system_upgrade.py:595
+#: plugins/system_upgrade.py:597
 msgid "Starting offline upgrade. This will take a while."
 msgstr "正在开始离线升级。这将会花费一些时间。"
 
-#: plugins/system_upgrade.py:597
+#: plugins/system_upgrade.py:599
 msgid "Starting offline distrosync. This will take a while."
 msgstr "正在开始离线 distrosync。这将会花费一些时间。"
 
-#: plugins/system_upgrade.py:599
+#: plugins/system_upgrade.py:601
 msgid "Starting system upgrade. This will take a while."
 msgstr "正在开始系统升级。这需要一些时间。"
 
-#: plugins/system_upgrade.py:615
+#: plugins/system_upgrade.py:617
 msgid "Cleaning up downloaded data..."
 msgstr "正在清理已下载的数据…"
 
-#: plugins/system_upgrade.py:644
+#: plugins/system_upgrade.py:647
 msgid ""
 "The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
+msgstr "system-upgrade 事务为空，您的系统已经更新至最新。"
 
-#: plugins/system_upgrade.py:653
+#: plugins/system_upgrade.py:656
 msgid "Transaction saved to {}."
 msgstr "事务已保存至 {}。"
 
-#: plugins/system_upgrade.py:656
+#: plugins/system_upgrade.py:659
 msgid "Error storing transaction: {}"
 msgstr "存储事务时出现错误：{}"
 
-#: plugins/system_upgrade.py:678
+#: plugins/system_upgrade.py:681
 msgid "Download finished."
 msgstr "下载完成。"
 
-#: plugins/system_upgrade.py:681 plugins/system_upgrade.py:682
+#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
 msgid "Upgrade complete! Cleaning up and rebooting..."
 msgstr "升级完成。正在清理并重启…"
 
-#: plugins/system_upgrade.py:691
+#: plugins/system_upgrade.py:694
 msgid "Prepare offline upgrade of the system"
 msgstr "准备系统的离线升级"
 
-#: plugins/system_upgrade.py:696
+#: plugins/system_upgrade.py:699
 msgid "Prepare offline distrosync of the system"
 msgstr "准备系统的离线 distrosync"
 
