@@ -112,7 +112,7 @@ Options
     Behave like ``dnf update``: do not install packages from the new release
     if they are older than what is currently installed. This is the opposite of
     ``--distro-sync``. If both are specified, the last option will be used. The option cannot be
-    used with the ``offline-distrosync` command.
+    used with the ``offline-distrosync`` command.
 
 ``--number``
     Applied with ``log`` subcommand will show the log specified by the number.
