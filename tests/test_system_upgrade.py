@@ -251,19 +251,20 @@ class UtilTestCase(unittest.TestCase):
 class CommandTestCaseBase(unittest.TestCase):
     def setUp(self):
         self.datadir = tempfile.mkdtemp(prefix="system_upgrade_test_datadir-")
-        self.installroot = tempfile.mkdtemp(prefix="system_upgrade_test_installroot-")
+        self.installroot = tempfile.TemporaryDirectory(prefix="system_upgrade_test_installroot-")
         system_upgrade.SystemUpgradeCommand.DATADIR = self.datadir
         self.cli = mock.MagicMock()
         # the installroot is not strictly necessary for the test, but
         # releasever detection is accessing host system files without it, and
         # this fails on permissions in COPR srpm builds (e.g. from rpm-gitoverlay)
-        self.cli.base.conf.installroot = self.installroot
+        self.cli.base.conf.installroot = self.installroot.name
         self.command = system_upgrade.SystemUpgradeCommand(cli=self.cli)
         self.command.base.conf.cachedir = os.path.join(self.datadir, "cache")
         self.command.base.conf.destdir = None
 
     def tearDown(self):
         shutil.rmtree(self.datadir)
+        self.installroot.cleanup()
 
 
 class CommandTestCase(CommandTestCaseBase):
