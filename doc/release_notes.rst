@@ -5,6 +5,17 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.16 Release Notes
+====================
+
+- Fix cleaning up destdir after system-upgrade (RhBug:2024430)
+
+Bugs fixed in 4.0.16:
+
+* :rhbug:`2034178`
+* :rhbug:`2024430`
+
+====================
 4.0.15 Release Notes
 ====================
 

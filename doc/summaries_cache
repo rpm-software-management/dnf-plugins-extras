@@ -222,5 +222,13 @@
     [
         1917639,
         "dnf-offline-upgrade download creates empty transaction file; on reboot causes hang"
+    ],
+    [
+        2034178,
+        "dnf-plugins-extras fails to build with Python 3.11:  AttributeError: 'TestRpmConf' object has no attribute 'assertRegexpMatches'"
+    ],
+    [
+        2024430,
+        "dnf system-upgrade with --downloaddir uses rm -rf and will destroy user data"
     ]
 ]
