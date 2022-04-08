@@ -34,6 +34,13 @@ class Snapper(dnf.Plugin):
         self._pre_snap_created = False
         self._snapper = None
         self._pre_snap_number = None
+        self._snapper_config = "root"
+
+    def config(self):
+        conf = self.read_config(self.base.conf)
+
+        if conf.has_section("main") and conf.has_option("main", "snapper_config"):
+            self._snapper_config = conf.get("main", "snapper_config")
 
     def pre_transaction(self):
         if not self.base.transaction:
@@ -54,7 +61,8 @@ class Snapper(dnf.Plugin):
             logger.debug(
                 "snapper: " + _("creating pre_snapshot")
             )
-            self._pre_snap_number = self._snapper.CreatePreSnapshot("root", self.description,
+            self._pre_snap_number = self._snapper.CreatePreSnapshot(self._snapper_config,
+                                                                    self.description,
                                                                     "number", {})
             self._pre_snap_created = True
             logger.debug(
@@ -79,7 +87,8 @@ class Snapper(dnf.Plugin):
             logger.debug(
                 "snapper: " + _("creating post_snapshot")
             )
-            snap_post_number = self._snapper.CreatePostSnapshot("root", self._pre_snap_number,
+            snap_post_number = self._snapper.CreatePostSnapshot(self._snapper_config,
+                                                                self._pre_snap_number,
                                                                 self.description, "number", {})
             logger.debug(
                 "snapper: " + _("created post_snapshot %d"), snap_post_number

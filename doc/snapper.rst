@@ -25,3 +25,17 @@ Creates a pair of snapshots of root filesystem. One snapshot is created just bef
 The user is not supposed to interact with the plugin in any way.
 
 .. warning:: There is no mechanism to ensure data consistency during creating a snapshot. Files which are written at the same time as snapshot is created (eg. database files) can be corrupted or partially written in snapshot. Restoring such files will cause problems. Moreover, some system files must never be restored. Recommended is to only restore files that belong to the action you want to revert.
+
+-------------
+Configuration
+-------------
+
+``/etc/dnf/plugins/snapper.conf``
+
+[main] section optional parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``snapper_config``
+    string, default: ``root``
+
+    Specifies which snapper config should be used when taking snapshots.
