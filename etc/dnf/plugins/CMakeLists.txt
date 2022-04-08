@@ -1,4 +1,5 @@
 if (${PYTHON_VERSION_MAJOR} STREQUAL "3")
 INSTALL (FILES torproxy.conf DESTINATION ${SYSCONFDIR}/dnf/plugins)
 INSTALL (FILES rpmconf.conf DESTINATION ${SYSCONFDIR}/dnf/plugins)
+INSTALL (FILES snapper.conf DESTINATION ${SYSCONFDIR}/dnf/plugins)
 endif()

@@ -158,6 +158,7 @@ $releasever and $basearch.
 %{_mandir}/man8/dnf-rpmconf.*
 
 %files -n python3-dnf-plugin-snapper
+%config(noreplace) %{_sysconfdir}/dnf/plugins/snapper.conf
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 %{_mandir}/man8/dnf-snapper.*
