@@ -5,20 +5,21 @@
 # Marek Blaha <mblaha@redhat.com>, 2018. #zanata
 # Fabian Affolter <mail@fabian-affolter.ch>, 2020.
 # Ettore Atalan <atalanttore@googlemail.com>, 2021.
+# Joachim Philipp <joachim.philipp@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-08 01:50+0000\n"
-"PO-Revision-Date: 2021-12-05 20:16+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"PO-Revision-Date: 2022-04-14 20:17+0000\n"
+"Last-Translator: Joachim Philipp <joachim.philipp@gmail.com>\n"
 "Language-Team: German <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -50,7 +51,7 @@ msgstr ""
 
 #: plugins/rpm_conf.py:88
 msgid "ignoring sys.exit from rpmconf due to missing file"
-msgstr ""
+msgstr "ignoriere sys.exit von rpmconf wegen fehlender Datei"
 
 #: plugins/showvars.py:46
 msgid "show all active dnf variables"
@@ -63,35 +64,37 @@ msgstr "Verbindung zu snapperd fehlgeschlagen: %s"
 
 #: plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr ""
+msgstr "Erstelle pre_snapshot"
 
 #: plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr ""
+msgstr "pre_snapshot %d erstellt"
 
 #: plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr ""
+msgstr "Erstellen des pre_snapshot fehlgeschlagen: %s"
 
 #: plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
+"post_snapshot wird übersprungen, da Erstellen des pre_snapshot "
+"fehlgeschlagen ist"
 
 #: plugins/snapper.py:80
 msgid "creating post_snapshot"
-msgstr ""
+msgstr "Erstelle post_snapshot"
 
 #: plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
-msgstr ""
+msgstr "post_snapshot %d erstellt"
 
 #: plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr ""
+msgstr "Erstellen des post_snapshot fehlgeschlagen: %s"
 
 #. Translators: This string is only used in unit tests.
 #: plugins/system_upgrade.py:45
@@ -101,6 +104,7 @@ msgstr "die Farbe des Himmels"
 #: plugins/system_upgrade.py:57
 msgid "Need a --releasever greater than the current system version."
 msgstr ""
+"Es wird eine höhere --releasever benötigt als die installierte Version."
 
 #. Translators: do not change "reboot" here
 #: plugins/system_upgrade.py:59
@@ -109,6 +113,8 @@ msgid ""
 "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
 "To remove cached metadata and transaction use 'dnf {command} clean'"
 msgstr ""
+"Download abgeschlossen! Verwenden Sie 'dnf {command} reboot', um das Upgrade zu starten.\n"
+"Um zwischengespeicherte Metadaten und Transaktionen zu entfernen, verwenden Sie 'dnf {command} clean'"
 
 #: plugins/system_upgrade.py:62
 msgid "Sorry, you need to use 'download --releasever' instead of '--network'"

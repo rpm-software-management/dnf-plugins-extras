@@ -1,18 +1,19 @@
 # A S Alam <aalam@fedoraproject.org>, 2017. #zanata
+# A S Alam <amanpreet.alam@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-08 01:50+0000\n"
-"PO-Revision-Date: 2017-08-18 07:13+0000\n"
-"Last-Translator: A S Alam <aalam@fedoraproject.org>\n"
-"Language-Team: Punjabi\n"
+"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"PO-Revision-Date: 2022-04-18 16:17+0000\n"
+"Last-Translator: A S Alam <amanpreet.alam@gmail.com>\n"
+"Language-Team: Punjabi <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -168,7 +169,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:463
 msgid "Operation aborted."
-msgstr ""
+msgstr "ਕਾਰਵਾਈ ਅਧੂਰੀ ਛੱਡੀ ਗਈ।"
 
 #: plugins/system_upgrade.py:521
 msgid "system is not ready for upgrade"
@@ -225,11 +226,11 @@ msgstr ""
 
 #: plugins/system_upgrade.py:656
 msgid "Transaction saved to {}."
-msgstr ""
+msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਨੂੰ {} ਉੱਤੇ ਸੰਭਾਲਿਆ।"
 
 #: plugins/system_upgrade.py:659
 msgid "Error storing transaction: {}"
-msgstr ""
+msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ: {}"
 
 #: plugins/system_upgrade.py:681
 msgid "Download finished."

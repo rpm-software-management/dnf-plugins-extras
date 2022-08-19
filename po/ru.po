@@ -1,28 +1,28 @@
-# Igor Gorbounov <igor.gorbounov@gmail.com>, 2019. #zanata, 2020, 2021.
+# Igor Gorbounov <igor.gorbounov@gmail.com>, 2019. #zanata, 2020, 2021, 2022.
 # Vitaliy Bukatkin <vitaliy.bukatkin@gmail.com>, 2020.
 # Alexey Rubtsov <rushills@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-08 01:50+0000\n"
-"PO-Revision-Date: 2021-07-01 13:04+0000\n"
-"Last-Translator: Alexey Rubtsov <rushills@gmail.com>\n"
+"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"PO-Revision-Date: 2022-08-13 20:19+0000\n"
+"Last-Translator: Igor Gorbounov <igor.gorbounov@gmail.com>\n"
 "Language-Team: Russian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.13\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
-msgstr "Установка пакетов, определенных в файле кикстарта, в систему"
+msgstr "Установить в систему пакеты, определенные в файле кикстарта"
 
 #: plugins/kickstart.py:62
 msgid "kickstart file"
-msgstr "файл кикстарта"
+msgstr "kickstart-файл"
 
 #: plugins/kickstart.py:80
 #, python-format
@@ -154,7 +154,7 @@ msgstr "оставить установленные пакеты, если ве�
 
 #: plugins/system_upgrade.py:363
 msgid "which logs to show"
-msgstr "какие журналы показать"
+msgstr "какие журналы показывать"
 
 #: plugins/system_upgrade.py:397
 #, python-brace-format
@@ -182,7 +182,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:463
 msgid "Operation aborted."
-msgstr "Операция отменена."
+msgstr "Операция прервана."
 
 #: plugins/system_upgrade.py:521
 msgid "system is not ready for upgrade"
@@ -203,11 +203,12 @@ msgstr "обновление уже запланировано"
 
 #: plugins/system_upgrade.py:534
 msgid "trigger file does not exist. exiting quietly."
-msgstr "триггерный файл не существует, завершаем работу."
+msgstr "триггерный файл не существует, завершаем работу без уведомлений."
 
 #: plugins/system_upgrade.py:537
 msgid "another upgrade tool is running. exiting quietly."
-msgstr "работает еще одно средство обновления, завершаем работу."
+msgstr ""
+"работает еще одно средство обновления, завершаем работу без уведомлений."
 
 #: plugins/system_upgrade.py:546
 #, python-brace-format

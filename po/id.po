@@ -1,5 +1,5 @@
-# Andika Triwidada <andika@gmail.com>, 2018. #zanata, 2020.
-# Andika Triwidada <andika@gmail.com>, 2019. #zanata, 2020.
+# Andika Triwidada <andika@gmail.com>, 2018. #zanata, 2020, 2022.
+# Andika Triwidada <andika@gmail.com>, 2019. #zanata, 2020, 2022.
 # Didik Supriadi <didiksupriadi41@gmail.com>, 2020.
 # Anonymous <noreply@weblate.org>, 2020.
 # Aditya Rahman <adityarahman032@gmail.com>, 2021.
@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-08 01:50+0000\n"
-"PO-Revision-Date: 2021-06-09 15:04+0000\n"
-"Last-Translator: Arman Arisman <arman.wu@gmail.com>\n"
+"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"PO-Revision-Date: 2022-02-09 02:16+0000\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.6.2\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -188,7 +188,7 @@ msgstr ""
 
 #: plugins/system_upgrade.py:463
 msgid "Operation aborted."
-msgstr "Operasi dibatalkan."
+msgstr "Operasi digugrkan."
 
 #: plugins/system_upgrade.py:521
 msgid "system is not ready for upgrade"
