@@ -243,7 +243,6 @@ man_pages = [
     ('kickstart', 'dnf-kickstart', u'DNF kickstart Plugin', AUTHORS, 8),
     ('rpmconf', 'dnf-rpmconf', u'DNF rpmconf Plugin', AUTHORS, 8),
     ('snapper', 'dnf-snapper', u'DNF snapper Plugin', AUTHORS, 8),
-    ('system-upgrade', 'dnf-system-upgrade', u'DNF system-upgrade Plugin', AUTHORS, 8),
     ('torproxy', 'dnf-torproxy', u'DNF torproxy Plugin', AUTHORS, 8),
     ('showvars', 'dnf-showvars', u'DNF showvars Plugin', AUTHORS, 8),
     ('tracer', 'dnf-tracer', u'DNF tracer Plugin', AUTHORS, 8),

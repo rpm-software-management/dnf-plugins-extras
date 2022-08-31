@@ -15,7 +15,6 @@ RPM packages for individual plugins are available in official Fedora repositorie
    dnf install dnf-plugin-rpmconf
    dnf install dnf-plugin-showvars
    dnf install dnf-plugin-snapper
-   dnf install dnf-plugin-system-upgrade
    dnf install dnf-plugin-torproxy
    dnf install dnf-plugin-tracer
 

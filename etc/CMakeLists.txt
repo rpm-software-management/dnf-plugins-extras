@@ -1,2 +1,1 @@
 ADD_SUBDIRECTORY (dnf)
-ADD_SUBDIRECTORY (systemd)
