@@ -20,7 +20,6 @@ ADD_DEPENDENCIES (doc doc-html doc-man)
 
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/dnf-kickstart.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf-snapper.8
-    ${CMAKE_CURRENT_BINARY_DIR}/dnf-system-upgrade.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf-tracer.8
     ${CMAKE_CURRENT_BINARY_DIR}/dnf-showvars.8
 	DESTINATION share/man/man8)

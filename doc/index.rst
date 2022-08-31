@@ -29,7 +29,6 @@ This documents extras plugins of DNF:
    rpmconf
    showvars
    snapper
-   system-upgrade
    torproxy
    tracer
 

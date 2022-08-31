@@ -82,31 +82,6 @@ Obsoletes:      python3-%{name}-snapper < %{dnf_plugins_extra_obsolete}
 %description -n python3-dnf-plugin-snapper
 Snapper Plugin for DNF, Python 3 version. Creates snapshot every transaction.
 
-%package -n python3-dnf-plugin-system-upgrade
-Summary:        System Upgrade Plugin for DNF
-Requires:       python3-%{name}-common = %{version}-%{release}
-Requires:       python3-systemd
-%{?python_provide:%python_provide python3-%{name}-system-upgrade}
-Provides:       dnf-command(system-upgrade)
-Provides:       dnf-command(offline-upgrade)
-Provides:       dnf-command(offline-distrosync)
-Provides:       %{name}-system-upgrade = %{version}-%{release}
-Provides:       system-upgrade = %{version}-%{release}
-Provides:       dnf-plugin-system-upgrade = %{version}-%{release}
-Provides:       python3-%{name}-system-upgrade = %{version}-%{release}
-Obsoletes:      python3-%{name}-system-upgrade < %{dnf_plugins_extra_obsolete}
-Obsoletes:      fedup < 0.9.4
-Obsoletes:      dnf-plugin-system-upgrade < 0.10
-Conflicts:      python2-dnf-plugin-system-upgrade < %{version}-%{release}
-BuildRequires:  pkgconfig(systemd)
-BuildRequires:  systemd
-BuildRequires:  python3-systemd
-%{?systemd_requires}
-
-%description -n python3-dnf-plugin-system-upgrade
-System Upgrade Plugin for DNF, Python 3 version. Enables offline system upgrades and distrosync
-using three commands: ``system-upgrade``, ``offline-upgrade``, and ``offline-distrosync``.
-
 %package -n python3-dnf-plugin-tracer
 Summary:        Tracer Plugin for DNF
 Requires:       python3-%{name}-common = %{version}-%{release}
@@ -159,14 +134,6 @@ $releasever and $basearch.
 %install
   %cmake_install
 
-mkdir -p %{buildroot}%{_unitdir}/system-update.target.wants/
-pushd %{buildroot}%{_unitdir}/system-update.target.wants/
-  ln -sr ../dnf-system-upgrade.service
-popd
-
-ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-offline-upgrade.8.gz
-ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-offline-distrosync.8.gz
-
 %find_lang %{name}
 
 %check
@@ -193,16 +160,6 @@ ln -sf %{_mandir}/man8/dnf-system-upgrade.8.gz %{buildroot}%{_mandir}/man8/dnf-o
 %{python3_sitelib}/dnf-plugins/snapper.*
 %{python3_sitelib}/dnf-plugins/__pycache__/snapper.*
 %{_mandir}/man8/dnf-snapper.*
-
-%files -n python3-dnf-plugin-system-upgrade
-%{_unitdir}/dnf-system-upgrade.service
-%{_unitdir}/dnf-system-upgrade-cleanup.service
-%{_unitdir}/system-update.target.wants/dnf-system-upgrade.service
-%{python3_sitelib}/dnf-plugins/system_upgrade.py
-%{python3_sitelib}/dnf-plugins/__pycache__/system_upgrade.*
-%{_mandir}/man8/dnf-system-upgrade.*
-%{_mandir}/man8/dnf-offline-upgrade.8.gz
-%{_mandir}/man8/dnf-offline-distrosync.8.gz
 
 %files -n python3-dnf-plugin-tracer
 %{python3_sitelib}/dnf-plugins/tracer.*
