@@ -5,6 +5,15 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ====================
+4.0.17 Release Notes
+====================
+
+- Translations update
+
+Bugs fixed in 4.0.17:
+
+
+====================
 4.0.16 Release Notes
 ====================
 
