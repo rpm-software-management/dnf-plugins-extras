@@ -4,6 +4,16 @@ Extras DNF Plugins Release Notes
 
 .. contents::
 
+===================
+4.1.0 Release Notes
+===================
+
+- Move system-upgrade plugin to core (RhBug:2054235)
+
+Bugs fixed in 4.1.0:
+
+* :rhbug:`2054235`
+
 ====================
 4.0.17 Release Notes
 ====================

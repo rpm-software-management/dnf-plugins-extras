@@ -230,5 +230,9 @@
     [
         2024430,
         "dnf system-upgrade with --downloaddir uses rm -rf and will destroy user data"
+    ],
+    [
+        2054235,
+        "Offline updates"
     ]
 ]
