@@ -27,6 +27,8 @@ from dnf.pycomp import StringIO
 
 import tests.support
 from tests.support import mock
+from importlib.metadata import version
+from packaging.version import parse
 
 from itertools import zip_longest
 
@@ -38,6 +40,10 @@ def create_file(path, content):
         f.write(content)
     return path, content
 
+class FakeRpmfile(object):
+    def __init__(self, conf_file, fflags):
+        self.name = conf_file
+        self.fflags = fflags
 
 class RpmconfPluginStub(object):
 
@@ -53,6 +59,8 @@ class RpmconfPluginStub(object):
         self._patches = [
             mock.patch("rpm.TransactionSet.dbMatch", return_value=self.packages),
             mock.patch("rpm.fi", return_value=((self._conf_file, None, None, None, 1), ))
+                if parse(version('rpmconf')) < parse('1.1.10') else
+                    mock.patch("rpm.files", return_value=(FakeRpmfile(self._conf_file, 1), ))
         ]
         for patch in self._patches:
             patch.__enter__()

@@ -18,6 +18,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
 BuildRequires:  python3-pytest
 BuildRequires:  python3-sphinx
+BuildRequires:  python3-packaging
 
 %description
 Extras Plugins for DNF.
