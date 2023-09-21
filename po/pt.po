@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2019-09-13 04:04+0000\n"
 "Last-Translator: Manuela Silva <mmsrs@sky.com>\n"
 "Language-Team: Portuguese\n"
@@ -84,176 +84,6 @@ msgstr ""
 msgid "creating post_snapshot failed: %s"
 msgstr ""
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "a cor do céu"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "É necessário um --releasever superior à versão atual do sistema."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-"Desculpe, precisa de utilizar 'download --releasever' em vez de '--network'"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "O ecrã em branco não pode ser desativado: %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-"Não foi possível carregar o ficheiro estado: %s, a continuar com o estado em"
-" branco."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- ainda não foram encontrados registos --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Não é possível encontrar os registos com este índice."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Não é possível corresponder com a entrada do diário systemd"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Prepare o sistema para atualizar para um novo lançamento"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-"Manter os pacotes instalados se a versão do novo lançamento for mais antiga"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "quais os registos a mostrar"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Antes de continuar, certifique-se que o seu sistema está totalmente "
-"atualizado, executando 'dnf --refresh upgrade'. Quer continuar"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Operação abortada."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "o sistema não está pronto para atualizar"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "a atualização já está agendada"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr ""
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-"outra ferramenta de atualização está em execução. a sair silenciosamente."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr ""
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "A reiniciar para executar a atualização."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "A iniciar a atualização do sistema. Isto irá demorar algum tempo."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "A limpar os dados transferidos..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr ""
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Transferência concluída."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Atualização concluída. A limpar e a reiniciar..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr ""
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr ""
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "A desativar o extra torproxy: não é possível ligar à rede Tor"
@@ -277,6 +107,78 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Nós pedimos desculpa pela inconveniência."
+
+#~ msgid "the color of the sky"
+#~ msgstr "a cor do céu"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "É necessário um --releasever superior à versão atual do sistema."
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr ""
+#~ "Desculpe, precisa de utilizar 'download --releasever' em vez de '--network'"
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "O ecrã em branco não pode ser desativado: %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr ""
+#~ "Não foi possível carregar o ficheiro estado: %s, a continuar com o estado em"
+#~ " branco."
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- ainda não foram encontrados registos --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Não é possível encontrar os registos com este índice."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Não é possível corresponder com a entrada do diário systemd"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Prepare o sistema para atualizar para um novo lançamento"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr ""
+#~ "Manter os pacotes instalados se a versão do novo lançamento for mais antiga"
+
+#~ msgid "which logs to show"
+#~ msgstr "quais os registos a mostrar"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Antes de continuar, certifique-se que o seu sistema está totalmente "
+#~ "atualizado, executando 'dnf --refresh upgrade'. Quer continuar"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Operação abortada."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "o sistema não está pronto para atualizar"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "a atualização já está agendada"
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr ""
+#~ "outra ferramenta de atualização está em execução. a sair silenciosamente."
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "A reiniciar para executar a atualização."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "A iniciar a atualização do sistema. Isto irá demorar algum tempo."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "A limpar os dados transferidos..."
+
+#~ msgid "Download finished."
+#~ msgstr "Transferência concluída."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Atualização concluída. A limpar e a reiniciar..."
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "Não é possível corresponder ao pacote: %s"

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
-"PO-Revision-Date: 2022-08-13 20:19+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
+"PO-Revision-Date: 2022-12-05 19:19+0000\n"
 "Last-Translator: Igor Gorbounov <igor.gorbounov@gmail.com>\n"
 "Language-Team: Russian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: plugins/kickstart.py:57
 msgid "Install packages defined in a kickstart file on your system"
@@ -27,7 +27,7 @@ msgstr "kickstart-файл"
 #: plugins/kickstart.py:80
 #, python-format
 msgid "file cannot be parsed: %s"
-msgstr "не удается разобрать файл: %s"
+msgstr "не удается обработать файл: %s"
 
 #: plugins/rpm_conf.py:65
 msgid "Adding '{}' to list of handling packages for rpmconf"
@@ -56,215 +56,36 @@ msgstr "не удалось подключиться к snapperd: %s"
 
 #: plugins/snapper.py:55
 msgid "creating pre_snapshot"
-msgstr "создание предварительного снимка"
+msgstr "создание pre_snapshot"
 
 #: plugins/snapper.py:61
 #, python-format
 msgid "created pre_snapshot %d"
-msgstr "создан предварительный снимок %d"
+msgstr "создан pre_snapshot %d"
 
 #: plugins/snapper.py:65
 #, python-format
 msgid "creating pre_snapshot failed: %s"
-msgstr "не удалось создать предварительный снимок: %s"
+msgstr "не удалось создать pre_snapshot: %s"
 
 #: plugins/snapper.py:74
 msgid "skipping post_snapshot because creation of pre_snapshot failed"
 msgstr ""
-"пропускается последующий снимок, потому что не удалось создать "
-"предварительный снимок"
+"пропускается post_snapshot, потому что не удалось создать pre_snapshot"
 
 #: plugins/snapper.py:80
 msgid "creating post_snapshot"
-msgstr "создание последующего снимка"
+msgstr "создание post_snapshot"
 
 #: plugins/snapper.py:85
 #, python-format
 msgid "created post_snapshot %d"
-msgstr "создан последующий снимок %d"
+msgstr "создан post_snapshot %d"
 
 #: plugins/snapper.py:89
 #, python-format
 msgid "creating post_snapshot failed: %s"
-msgstr "не удалось создать последующий снимок: %s"
-
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "цвет неба"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "--releasever должно быть больше текущей версии системы."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"Загрузка завершилась! Для запуска обновления используйте «dnf {command} reboot».\n"
-"Для удаления кэшированных метаданных и транзакции используйте «dnf {command} clean»"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-"К сожалению, необходимо использовать «download --releasever» вместо "
-"«--network»"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr "Перезагрузка отключена, перезагрузка не выполняется."
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "Гашение экрана не отключается: %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-"Не удалось загрузить файл состояния: %s, продолжение с пустым состоянием."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Похоже, что в следующих загрузках есть журналы обновления:"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- журналы не найдены --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Не удается найти журналы с этим индексом."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Не удалось найти соответствие записи в журнале systemd"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Подготовка системы к обновлению до новой версии"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr "оставить установленные пакеты, если версия нового выпуска старше"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "какие журналы показывать"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-"Несовместимая версия данных. Еще раз запустите «dnf {command} download "
-"[ПАРАМЕТРЫ]»"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-"Команду «offline-distrosync» нельзя использовать с параметром --no-downgrade"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "Дополнительная информация для обновления системы: {}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Прежде, чем продолжить, убедитесь, что ваша система полностью обновлена, с "
-"помощью команды «dnf --refresh upgrade». Хотите продолжить"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Операция прервана."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "система не готова к обновлению"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-"транзакция не была подготовлена для «{command}». Еще раз запустите «dnf "
-"{command} download [ПАРАМЕТРЫ]»"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "обновление уже запланировано"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "триггерный файл не существует, завершаем работу без уведомлений."
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-"работает еще одно средство обновления, завершаем работу без уведомлений."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "используйте «dnf {command} reboot», чтобы начать обновление"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "Перезагрузка для выполнения обновления."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr "Начинается автономное обновление. На это понадобится некоторое время."
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr ""
-"Начинается автономная синхронизация дистрибутива. На это понадобится "
-"некоторое время."
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "Запуск обновления системы. На это потребуется какое-то время."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "Очистка загруженных данных..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr "Транзакция обновления системы пуста, ваша система уже обновлена."
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "Транзакция сохранена в {}."
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "Ошибка при сохранении транзакции: {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Загрузка закончена."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Обновление завершилось! Очистка и перезагрузка..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "Подготовить автономное обновление системы"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "Подготовить автономную синхронизацию дистрибутива системы"
+msgstr "не удалось создать post_snapshot: %s"
 
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
@@ -289,6 +110,139 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Приносим извинения за неудобства"
+
+#~ msgid "the color of the sky"
+#~ msgstr "цвет неба"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "--releasever должно быть больше текущей версии системы."
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "Загрузка завершилась! Для запуска обновления используйте «dnf {command} reboot».\n"
+#~ "Для удаления кэшированных метаданных и транзакции используйте «dnf {command} clean»"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr ""
+#~ "К сожалению, необходимо использовать «download --releasever» вместо "
+#~ "«--network»"
+
+#~ msgid "Reboot turned off, not rebooting."
+#~ msgstr "Перезагрузка отключена, перезагрузка не выполняется."
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "Гашение экрана не отключается: %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr ""
+#~ "Не удалось загрузить файл состояния: %s, продолжение с пустым состоянием."
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "Похоже, что в следующих загрузках есть журналы обновления:"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- журналы не найдены --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Не удается найти журналы с этим индексом."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Не удалось найти соответствие записи в журнале systemd"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Подготовка системы к обновлению до новой версии"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr "оставить установленные пакеты, если версия нового выпуска старше"
+
+#~ msgid "which logs to show"
+#~ msgstr "какие журналы показывать"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr ""
+#~ "Несовместимая версия данных. Еще раз запустите «dnf {command} download "
+#~ "[ПАРАМЕТРЫ]»"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr ""
+#~ "Команду «offline-distrosync» нельзя использовать с параметром --no-downgrade"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "Дополнительная информация для обновления системы: {}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Прежде, чем продолжить, убедитесь, что ваша система полностью обновлена, с "
+#~ "помощью команды «dnf --refresh upgrade». Хотите продолжить"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Операция прервана."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "система не готова к обновлению"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr ""
+#~ "транзакция не была подготовлена для «{command}». Еще раз запустите «dnf "
+#~ "{command} download [ПАРАМЕТРЫ]»"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "обновление уже запланировано"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "триггерный файл не существует, завершаем работу без уведомлений."
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr ""
+#~ "работает еще одно средство обновления, завершаем работу без уведомлений."
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "используйте «dnf {command} reboot», чтобы начать обновление"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "Перезагрузка для выполнения обновления."
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr "Начинается автономное обновление. На это понадобится некоторое время."
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr ""
+#~ "Начинается автономная синхронизация дистрибутива. На это понадобится "
+#~ "некоторое время."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "Запуск обновления системы. На это потребуется какое-то время."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "Очистка загруженных данных..."
+
+#~ msgid ""
+#~ "The system-upgrade transaction is empty, your system is already up-to-date."
+#~ msgstr "Транзакция обновления системы пуста, ваша система уже обновлена."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "Транзакция сохранена в {}."
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "Ошибка при сохранении транзакции: {}"
+
+#~ msgid "Download finished."
+#~ msgstr "Загрузка закончена."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Обновление завершилось! Очистка и перезагрузка..."
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "Подготовить автономное обновление системы"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "Подготовить автономную синхронизацию дистрибутива системы"
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "Не удалось найти соответствие пакету: %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2020-05-24 14:31+0000\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/zh_TW/>\n"
@@ -87,171 +87,6 @@ msgstr "已建立 post_snapshot %d"
 msgid "creating post_snapshot failed: %s"
 msgstr "建立 post_snapshot 失敗：%s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "天空的顏色"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "需要比 --releasever 更新的目前系統版本"
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"下載完成！使用「dnf {command} reboot」以開始升級程序。\n"
-"如要移除快取的中介資料及處理事項，請用「dnf {command} clean」"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "抱歉，您需要使用「download --releasever」取代「network」"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "無法停用螢幕轉黑：%s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr "無法載入狀態檔案：%s，以空白狀態繼續。"
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "以下的開機引導包含了升級記錄："
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- 找不到記錄檔案 --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "無法透過這個索引找到記錄檔案"
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "無法符合 systemd 的記錄檔項目"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "準備系統以升級至新的發行版本"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr "假如新的釋出版本比較舊，保留已安裝的軟體包。"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "要顯示哪個記錄檔"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr "資料版本不相容。請重新執行「dnf {command} download [OPTIONS]」"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr "「offline-distrosync」命令不可與 --no-downgrade 選項配合使用"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "系統升級的額外資訊：{}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr "在您繼續前，請確保您的系統已經透過執行「dnf --refresh upgrade」完全升級。想要繼續嗎？"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "取消作業。"
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "系統尚未準備好升級"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr "未準備好「{command}」的處理事項。請重新執行「dnf {command} download [OPTIONS]」"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "已經排程升級"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "觸發檔案不存在。安靜離開。"
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "另外一個升級工具正在執行中。安靜離開。"
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "請使用「dnf {command} reboot」開始升級"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "重新開機以執行升級。"
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr "開始系統升級。這需要一段時間。"
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr "開始離線 distrosync。這需要一段時間。"
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "開始系統升級。這需要一段時間。"
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "正在清理已下載的資料…"
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr ""
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "下載完成。"
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "升級完成！正在清理並重新啟動…"
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "準備系統的離線更新"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "準備系統的離線 distrosync"
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "正在停用 torproxy 插件：無法連線至 Tor 網路"
@@ -273,6 +108,113 @@ msgstr "請前往 https://github.com/FrostyX/tracer/issues 並提交問題。非
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "很抱歉給您帶來不便"
+
+#~ msgid "the color of the sky"
+#~ msgstr "天空的顏色"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "需要比 --releasever 更新的目前系統版本"
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "下載完成！使用「dnf {command} reboot」以開始升級程序。\n"
+#~ "如要移除快取的中介資料及處理事項，請用「dnf {command} clean」"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr "抱歉，您需要使用「download --releasever」取代「network」"
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "無法停用螢幕轉黑：%s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr "無法載入狀態檔案：%s，以空白狀態繼續。"
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "以下的開機引導包含了升級記錄："
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- 找不到記錄檔案 --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "無法透過這個索引找到記錄檔案"
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "無法符合 systemd 的記錄檔項目"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "準備系統以升級至新的發行版本"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr "假如新的釋出版本比較舊，保留已安裝的軟體包。"
+
+#~ msgid "which logs to show"
+#~ msgstr "要顯示哪個記錄檔"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr "資料版本不相容。請重新執行「dnf {command} download [OPTIONS]」"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr "「offline-distrosync」命令不可與 --no-downgrade 選項配合使用"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "系統升級的額外資訊：{}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr "在您繼續前，請確保您的系統已經透過執行「dnf --refresh upgrade」完全升級。想要繼續嗎？"
+
+#~ msgid "Operation aborted."
+#~ msgstr "取消作業。"
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "系統尚未準備好升級"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr "未準備好「{command}」的處理事項。請重新執行「dnf {command} download [OPTIONS]」"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "已經排程升級"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "觸發檔案不存在。安靜離開。"
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "另外一個升級工具正在執行中。安靜離開。"
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "請使用「dnf {command} reboot」開始升級"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "重新開機以執行升級。"
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr "開始系統升級。這需要一段時間。"
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr "開始離線 distrosync。這需要一段時間。"
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "開始系統升級。這需要一段時間。"
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "正在清理已下載的資料…"
+
+#~ msgid "Download finished."
+#~ msgstr "下載完成。"
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "升級完成！正在清理並重新啟動…"
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "準備系統的離線更新"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "準備系統的離線 distrosync"
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "無法匹配軟體包：%s"

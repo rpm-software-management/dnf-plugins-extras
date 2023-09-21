@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2021-06-03 00:03+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/da/>\n"
@@ -86,178 +86,6 @@ msgstr "oprettede post_snapshot %d"
 msgid "creating post_snapshot failed: %s"
 msgstr "kunne ikke oprette post_snapshot: %s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "himlens farve"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "Skal have en --releasever større end den nuværende systemversion."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"Download færdig! Brug 'dnf {command} reboot' til at starte opgraderingen.\n"
-"For at fjerne den mellemlagret metadata og transaktion bruges 'dnf {command} clean'"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-"Beklager, du skal bruge 'download --releasever' i stedet for '--network'"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr "Genstart slået fra, genstarter ikke."
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "Rydning af skærm kan ikke deaktiveres: %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr "Kunne ikke indlæse tilstandsfilen: %s, fortsætter med tom tilstand."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Følgende opstarter ser ud til at indeholde opgraderingslogge:"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- der blev ikke fundet nogen logge --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Kan ikke finde logge med dette indeks."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Kan ikke matche systemd-journalpost"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Forbered systemet til opgradering til en ny udgivelse"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr "bevar installerede pakker hvis den nye udgivelses version er ældre"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "hvilke logge som skal vises"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-"Inkompatibel version af data. Kør 'dnf {command} download [TILVALG]' igen"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-"Kommandoen 'offline-distrosync' kan ikke bruges med tilvalget --no-downgrade"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "Yderligere information for systemopgradering: {}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Inden du fortsætter, så sørg for at dit system er fuldt opgraderet ved at "
-"køre \"dnf --refresh upgrade\". Vil du fortsætte"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Handling afbrudt."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "systemet er ikke klar til opgradering"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-"transaktionen var ikke forberedt til '{command}'. Kør 'dnf {command} "
-"download [TILVALG]' igen"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "opgradering er allerede planlagt"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "udløserfil findes ikke - afslutter stille."
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "der kører et andet opgraderingsvæktøj - afslutter stille."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "brug 'dnf {command} reboot' for at begynde opgraderingen"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "Genstart for at udføre opgraderingen."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr "Starter offlineopgradering. Det vil tage noget tid."
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr "Starter offlinedistrosync. Det vil tage noget tid."
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "Starter systemopgradering - det kan tage noget tid."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "Rydder op i downloadet data..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "Transaktion gemt til {}."
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "Fejl ved gemning af transaktion: {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Download færdig."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Opgradering gennemført! Rydder op og genstarter..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "Forbered offlineopgradering af systemet"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "Forbered offlinedistrosync af systemet"
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
@@ -282,6 +110,129 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Vi beklager ulejligheden"
+
+#~ msgid "the color of the sky"
+#~ msgstr "himlens farve"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "Skal have en --releasever større end den nuværende systemversion."
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "Download færdig! Brug 'dnf {command} reboot' til at starte opgraderingen.\n"
+#~ "For at fjerne den mellemlagret metadata og transaktion bruges 'dnf {command} clean'"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr ""
+#~ "Beklager, du skal bruge 'download --releasever' i stedet for '--network'"
+
+#~ msgid "Reboot turned off, not rebooting."
+#~ msgstr "Genstart slået fra, genstarter ikke."
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "Rydning af skærm kan ikke deaktiveres: %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr "Kunne ikke indlæse tilstandsfilen: %s, fortsætter med tom tilstand."
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "Følgende opstarter ser ud til at indeholde opgraderingslogge:"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- der blev ikke fundet nogen logge --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Kan ikke finde logge med dette indeks."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Kan ikke matche systemd-journalpost"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Forbered systemet til opgradering til en ny udgivelse"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr "bevar installerede pakker hvis den nye udgivelses version er ældre"
+
+#~ msgid "which logs to show"
+#~ msgstr "hvilke logge som skal vises"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr ""
+#~ "Inkompatibel version af data. Kør 'dnf {command} download [TILVALG]' igen"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr ""
+#~ "Kommandoen 'offline-distrosync' kan ikke bruges med tilvalget --no-downgrade"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "Yderligere information for systemopgradering: {}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Inden du fortsætter, så sørg for at dit system er fuldt opgraderet ved at "
+#~ "køre \"dnf --refresh upgrade\". Vil du fortsætte"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Handling afbrudt."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "systemet er ikke klar til opgradering"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr ""
+#~ "transaktionen var ikke forberedt til '{command}'. Kør 'dnf {command} "
+#~ "download [TILVALG]' igen"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "opgradering er allerede planlagt"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "udløserfil findes ikke - afslutter stille."
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "der kører et andet opgraderingsvæktøj - afslutter stille."
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "brug 'dnf {command} reboot' for at begynde opgraderingen"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "Genstart for at udføre opgraderingen."
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr "Starter offlineopgradering. Det vil tage noget tid."
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr "Starter offlinedistrosync. Det vil tage noget tid."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "Starter systemopgradering - det kan tage noget tid."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "Rydder op i downloadet data..."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "Transaktion gemt til {}."
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "Fejl ved gemning af transaktion: {}"
+
+#~ msgid "Download finished."
+#~ msgstr "Download færdig."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Opgradering gennemført! Rydder op og genstarter..."
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "Forbered offlineopgradering af systemet"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "Forbered offlinedistrosync af systemet"
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "Kan ikke matche pakke: %s"

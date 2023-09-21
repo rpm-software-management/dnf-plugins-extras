@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2021-09-02 09:04+0000\n"
 "Last-Translator: Ludek Janda <ljanda@redhat.com>\n"
 "Language-Team: Japanese <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/ja/>\n"
@@ -87,173 +87,6 @@ msgstr "post_snapshot %d が作成されました"
 msgid "creating post_snapshot failed: %s"
 msgstr "post_snapshot 作成に失敗しました: %s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "空の色"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "--releasever は、現在のシステムのバージョン番号よりも大きくなければなりません。"
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"ダウンロード完了! アップグレード開始には 'dnf {command} reboot' を使ってください。\n"
-"キャッシュされた metadata と transaction の削除には 'dnf {command} clean' を使ってください"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "すみませんが '--network' の代わりに 'download --releasever' を使う必要があります"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "スクリーンブランキングは無効にできません: %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr "状態ファイル: %s のロードに失敗しました。状態空で続行します。"
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "以下ブートはアップグレードログを含んでいます:"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- ログが見つかりません --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "このインデックスでログが見つかりません。"
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "systemdジャーナルエントリーにマッチできません"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "システムに新リリースにアップグレードするための準備をしてください"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr "新しいリリースバージョンがインストール済パッケージより古い場合は維持する"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "どのログを表示"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr "データの非互換バージョン。 'dnf {command} download [OPTIONS]' を再実行してください"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr "コマンド 'offline-distrosync' は --no-downgrade オプションと使用できません"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "システムアップグレードの追加情報: {}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr "継続する前に \"dnf --refresh upgrade\" 実行によりシステム全体がアップグレードされることを確認してください。継続しますか"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "操作が中断されました。"
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "システムはアップグレードの準備ができてません。"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-"トランザクションは '{command}' の準備ができていません。 'dnf {command} download [OPTIONS]' "
-"を再実行してください"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "アップグレードは既に予定されています"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "トリガーファイルが存在しません。終了しています。"
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "他のアップグレードツールが実行されています。終了しています。"
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "アップグレード開始には 'dnf {command} reboot' を使用してください"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "アップグレード実行のため再起動中。"
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr "offline upgradeを起動中。しばらく時間がかかります。"
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr "offline distrosyncを起動中。しばらく時間がかかります。"
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "system upgrade を起動中。しばらく時間がかかります。"
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "ダウンロード済みデータを掃除しています..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "{} に保存されているトランザクション。"
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "トランザクションの保存エラー： {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "ダウンロード完了。"
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "アップグレードは完了しました！ 掃除と再起動中..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "システムのoffline upgradeを準備"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "システムのoffline distrosyncを準備"
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "torproxyプラグインを無効中: Torネットワークに接続できません"
@@ -275,6 +108,121 @@ msgstr "https://github.com/FrostyX/tracer/issues に行きこの問題を報告�
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "ご不便をお掛けして申し訳ございません"
+
+#~ msgid "the color of the sky"
+#~ msgstr "空の色"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "--releasever は、現在のシステムのバージョン番号よりも大きくなければなりません。"
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "ダウンロード完了! アップグレード開始には 'dnf {command} reboot' を使ってください。\n"
+#~ "キャッシュされた metadata と transaction の削除には 'dnf {command} clean' を使ってください"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr "すみませんが '--network' の代わりに 'download --releasever' を使う必要があります"
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "スクリーンブランキングは無効にできません: %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr "状態ファイル: %s のロードに失敗しました。状態空で続行します。"
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "以下ブートはアップグレードログを含んでいます:"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- ログが見つかりません --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "このインデックスでログが見つかりません。"
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "systemdジャーナルエントリーにマッチできません"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "システムに新リリースにアップグレードするための準備をしてください"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr "新しいリリースバージョンがインストール済パッケージより古い場合は維持する"
+
+#~ msgid "which logs to show"
+#~ msgstr "どのログを表示"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr "データの非互換バージョン。 'dnf {command} download [OPTIONS]' を再実行してください"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr "コマンド 'offline-distrosync' は --no-downgrade オプションと使用できません"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "システムアップグレードの追加情報: {}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr "継続する前に \"dnf --refresh upgrade\" 実行によりシステム全体がアップグレードされることを確認してください。継続しますか"
+
+#~ msgid "Operation aborted."
+#~ msgstr "操作が中断されました。"
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "システムはアップグレードの準備ができてません。"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr ""
+#~ "トランザクションは '{command}' の準備ができていません。 'dnf {command} download [OPTIONS]' "
+#~ "を再実行してください"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "アップグレードは既に予定されています"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "トリガーファイルが存在しません。終了しています。"
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "他のアップグレードツールが実行されています。終了しています。"
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "アップグレード開始には 'dnf {command} reboot' を使用してください"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "アップグレード実行のため再起動中。"
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr "offline upgradeを起動中。しばらく時間がかかります。"
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr "offline distrosyncを起動中。しばらく時間がかかります。"
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "system upgrade を起動中。しばらく時間がかかります。"
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "ダウンロード済みデータを掃除しています..."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "{} に保存されているトランザクション。"
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "トランザクションの保存エラー： {}"
+
+#~ msgid "Download finished."
+#~ msgstr "ダウンロード完了。"
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "アップグレードは完了しました！ 掃除と再起動中..."
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "システムのoffline upgradeを準備"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "システムのoffline distrosyncを準備"
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "マッチできませんパッケージ: %s"

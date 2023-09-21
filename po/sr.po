@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2021-03-28 06:01+0000\n"
 "Last-Translator: Марко Костић (Marko Kostić) <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/sr/>\n"
@@ -88,177 +88,6 @@ msgstr "направио позни _снимак стања %d"
 msgid "creating post_snapshot failed: %s"
 msgstr "стварање позног _снимка стања није успело: %s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "боја неба"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "Потребан ми је --releasever већи од тренутног издања система."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-"Нажалост, морате користити „download --releasever“ уместо параметра "
-"„--network“"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr ""
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-"Неуспех при учитавању датотеке стања: %s, настављам са празним стањем."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Делује да следећа подизања система садрже записнике о надограђивању:"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- нема нађених записника --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Не могу наћи записнике са овим индексом."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Не могу да нађем подударање у журналу за наведени унос"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Припрема система за надоградњу на ново издање"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-"задржи инсталиране пакете ако је издање пакета старије у новом издању "
-"система"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "које записнике приказати"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Пре него што наставите, постарајте се да је ваш систем у потпуности ажуран "
-"тако што ћете извршити наредбу „dnf --refresh upgrade“. Да ли желите да "
-"наставите"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Радња је отказана."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "систем није спреман за надоградњу"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "надоградња је већ заказана"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "окидачка датотека не постоји. излазим тихо."
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "друга алатка за надограђивање већ ради. излазим тихо."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr ""
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "Поново покрећем систем за извршавање надоградње."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "Започињем надоградњу система. Ово ће потрајати."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "Чистим преузете податке..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "Трансакција сачувана у путањи {}."
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Преузимање је завршено."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Надограђивање је обављено! Чистим и поново покрећем систем..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr ""
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr ""
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "Онемогућавам torproxy прикључак: не могу да се повежем на Тор мрежу"
@@ -282,6 +111,85 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Извињавамо се због било каквих непријатности"
+
+#~ msgid "the color of the sky"
+#~ msgstr "боја неба"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "Потребан ми је --releasever већи од тренутног издања система."
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr ""
+#~ "Нажалост, морате користити „download --releasever“ уместо параметра "
+#~ "„--network“"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr ""
+#~ "Неуспех при учитавању датотеке стања: %s, настављам са празним стањем."
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "Делује да следећа подизања система садрже записнике о надограђивању:"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- нема нађених записника --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Не могу наћи записнике са овим индексом."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Не могу да нађем подударање у журналу за наведени унос"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Припрема система за надоградњу на ново издање"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr ""
+#~ "задржи инсталиране пакете ако је издање пакета старије у новом издању "
+#~ "система"
+
+#~ msgid "which logs to show"
+#~ msgstr "које записнике приказати"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Пре него што наставите, постарајте се да је ваш систем у потпуности ажуран "
+#~ "тако што ћете извршити наредбу „dnf --refresh upgrade“. Да ли желите да "
+#~ "наставите"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Радња је отказана."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "систем није спреман за надоградњу"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "надоградња је већ заказана"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "окидачка датотека не постоји. излазим тихо."
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "друга алатка за надограђивање већ ради. излазим тихо."
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "Поново покрећем систем за извршавање надоградње."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "Започињем надоградњу система. Ово ће потрајати."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "Чистим преузете податке..."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "Трансакција сачувана у путањи {}."
+
+#~ msgid "Download finished."
+#~ msgstr "Преузимање је завршено."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Надограђивање је обављено! Чистим и поново покрећем систем..."
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "Не могу да нађем подударање за пакет: %s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2021-10-10 00:45+0000\n"
 "Last-Translator: Titouan Bénard <itotutona@evta.fr>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fr/>\n"
@@ -92,190 +92,6 @@ msgstr "post-instantané %d créé"
 msgid "creating post_snapshot failed: %s"
 msgstr "erreur de création du post-instantané : %s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "la couleur du ciel"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr "--releasever doit être supérieure à la version courante du système."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"Téléchargement complété ! Utilisez « dnf {command} reboot » pour démarrer la mise à jour.\n"
-"Pour supprimer les métadonnées et les transactions en cache, utilisez « dnf {command} clean »"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-"Désolé, vous devez utiliser « download --releasever » au lieu de « --network"
-" »"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr "Redémarrage désactivé, ne redémarre pas."
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "L’extinction de l’affichage ne peut pas être désactivé : %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-"Échec du chargement du fichier d’état : %s, poursuite avec un état vide."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Les démarrages suivants contiennent des journaux de mises à niveau :"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- aucun journal n’a été trouvé --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Journaux introuvables avec cet index."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Impossible de faire correspondre l’entrée de journal systemd"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Préparer le système pour une mise à niveau vers une nouvelle version"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-"garde les paquets installés si la version provenant du système à niveau est "
-"plus ancienne"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "les journaux à afficher"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-"Version des données incompatibles. Veuillez exécuter à nouveau « dnf "
-"{command} download [OPTIONS] »"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-"La commande « offline-distrosync » ne peut pas être utilisée avec --no-"
-"downgrade option"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "Informations complémentaires pour les mises à jour système : {}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Avant de continuer, assurez-vous que votre système est complètement à jour "
-"en lançant « dnf --refresh upgrade ». Voulez-vous continuer"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Opération avortée."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "le système n’est pas prêt pour la mise à niveau"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-"la transaction n’était pas préparée pour « {command} ». Veuillez exécuter "
-"« dnf {command} download [OPTIONS] » à nouveau"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "la mise à niveau est déjà programmée"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "le fichier déclencheur n’existe pas. Fermeture silencieuse."
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr ""
-"un autre outil de mise à niveau est en fonctionnement. Fermeture "
-"silencieuse."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "utilisez « dnf {command} reboot » pour démarrer la mise à jour"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "Redémarrage pour réaliser la mise à niveau."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr ""
-"Démarrage de la mise à jour hors ligne. Cela prendra un certain temps."
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr "Démarrage du distrosync hors ligne. Cela prendra un certain temps."
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr ""
-"Démarrage du processus de mise à niveau. Cela peut prendre un certain temps."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "Nettoyage des données téléchargées …"
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-"La transaction de mise à niveau du système est vide, votre système est déjà "
-"à jour."
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "Transaction enregistrée vers {}."
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "Erreur lors du stockage de la transaction : {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Téléchargement terminé."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "Préparation de la mise à jour hors ligne du système"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "Préparation du distrosync du système hors ligne"
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
@@ -301,6 +117,145 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "Nous nous excusons de tout désagrément"
+
+#~ msgid "the color of the sky"
+#~ msgstr "la couleur du ciel"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr "--releasever doit être supérieure à la version courante du système."
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "Téléchargement complété ! Utilisez « dnf {command} reboot » pour démarrer la mise à jour.\n"
+#~ "Pour supprimer les métadonnées et les transactions en cache, utilisez « dnf {command} clean »"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr ""
+#~ "Désolé, vous devez utiliser « download --releasever » au lieu de « --network"
+#~ " »"
+
+#~ msgid "Reboot turned off, not rebooting."
+#~ msgstr "Redémarrage désactivé, ne redémarre pas."
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "L’extinction de l’affichage ne peut pas être désactivé : %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr ""
+#~ "Échec du chargement du fichier d’état : %s, poursuite avec un état vide."
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "Les démarrages suivants contiennent des journaux de mises à niveau :"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- aucun journal n’a été trouvé --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Journaux introuvables avec cet index."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Impossible de faire correspondre l’entrée de journal systemd"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Préparer le système pour une mise à niveau vers une nouvelle version"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr ""
+#~ "garde les paquets installés si la version provenant du système à niveau est "
+#~ "plus ancienne"
+
+#~ msgid "which logs to show"
+#~ msgstr "les journaux à afficher"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr ""
+#~ "Version des données incompatibles. Veuillez exécuter à nouveau « dnf "
+#~ "{command} download [OPTIONS] »"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr ""
+#~ "La commande « offline-distrosync » ne peut pas être utilisée avec --no-"
+#~ "downgrade option"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "Informations complémentaires pour les mises à jour système : {}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Avant de continuer, assurez-vous que votre système est complètement à jour "
+#~ "en lançant « dnf --refresh upgrade ». Voulez-vous continuer"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Opération avortée."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "le système n’est pas prêt pour la mise à niveau"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr ""
+#~ "la transaction n’était pas préparée pour « {command} ». Veuillez exécuter "
+#~ "« dnf {command} download [OPTIONS] » à nouveau"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "la mise à niveau est déjà programmée"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "le fichier déclencheur n’existe pas. Fermeture silencieuse."
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr ""
+#~ "un autre outil de mise à niveau est en fonctionnement. Fermeture "
+#~ "silencieuse."
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "utilisez « dnf {command} reboot » pour démarrer la mise à jour"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "Redémarrage pour réaliser la mise à niveau."
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr ""
+#~ "Démarrage de la mise à jour hors ligne. Cela prendra un certain temps."
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr "Démarrage du distrosync hors ligne. Cela prendra un certain temps."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr ""
+#~ "Démarrage du processus de mise à niveau. Cela peut prendre un certain temps."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "Nettoyage des données téléchargées …"
+
+#~ msgid ""
+#~ "The system-upgrade transaction is empty, your system is already up-to-date."
+#~ msgstr ""
+#~ "La transaction de mise à niveau du système est vide, votre système est déjà "
+#~ "à jour."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "Transaction enregistrée vers {}."
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "Erreur lors du stockage de la transaction : {}"
+
+#~ msgid "Download finished."
+#~ msgstr "Téléchargement terminé."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Mise à niveau effectuée ! Nettoyage et redémarrage en cours …"
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "Préparation de la mise à jour hors ligne du système"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "Préparation du distrosync du système hors ligne"
 
 #~ msgid "Unable to match package: %s"
 #~ msgstr "Impossible de faire correspondre le paquet : %s"

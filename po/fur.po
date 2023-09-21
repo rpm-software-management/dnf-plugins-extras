@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2021-07-17 21:04+0000\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/fur/>\n"
@@ -93,187 +93,6 @@ msgstr "creade post-istantanie %d"
 msgid "creating post_snapshot failed: %s"
 msgstr "faliment tal creâ la post-istantanie: %s"
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "il colôr dal cîl"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr ""
-"Al covente un valôr di --releasever plui grant de version curinte dal "
-"sisteme."
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-"Discjariament completât! Dopre 'dnf {command} reboot' par scomençâ l'inzornament.\n"
-"Par gjavâ i metadâts e la transazion in cache dopre 'dnf {command} clean'"
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr "Tu scugnis doprâ 'download --releasever' invezit di '--network'"
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-"E je stade disativade la pussibilitât di tornâ a inviâ, duncje no si tornarà"
-" a inviâ."
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr "Nol è pussibil disativâ il scuriment dal visôr: %s"
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-"Nol è stât pussibil cjariâ il file di stât: %s, si continue cul stât vueit."
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr "Chescj inviaments a somein contignî regjistris di inzornaments:"
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- nol è stât cjatât nissun regjistri --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr "Impussibil cjatâ regjistris cun chest indiç."
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr "Impussibil fâ corispuindi la vôs dal gjornâl di systemd"
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "Prepare il sisteme pal inzornament a une gnove version"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-"ten instalât i pachets se lis versions de gnove publicazion a son plui "
-"vecjis"
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr "cuâi regjistris mostrâ"
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-"Version dai dâts incompatibile. Torne eseguìs 'dnf {command} download "
-"[OPZIONS]'"
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-"Nol è pussibil doprâ il comant 'offline-distrosync' cu la opzion --no-"
-"downgrade"
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr "Informazions adizionâls pal inzornament dal sisteme: {}"
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-"Prime di continuâ siguriti che il sisteme al sedi dal dut inzornât eseguint "
-"\"dnf --refresh upgrade\". Continuâ"
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "Operazion anulade."
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "il sisteme nol è pront pal inzornament"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-"la transazion no je stade preparade par '{command}'. Torne eseguìs 'dnf "
-"{command} download [OPZIONS]'"
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "l'inzornament al è za planificât"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr "il file ativadôr nol esist, jessude cidine."
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "un altri strument di inzornament al è in esecuzion, jessude cidine."
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr "dopre 'dnf {command} reboot'par scomençâ l'inzornament"
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "Si torne a inviâ par eseguî l'inzornament."
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr "Daûr a scomençâ l'inzornament fûr rêt. Chest al durarà un pôc."
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr "Daûr a scomençâ il distrosync fûr rêt. Chest al durarà un pôc."
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "Daûr a scomençâ l'inzornament dal sisteme. Chest al durarà un pôc."
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "Daûr a netâ fûr i dâts discjariâts..."
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-"La transazion di system-upgrade e je vueide, il to sisteme al è za inzornât."
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "Transazion salvade su {}."
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "Erôr tal archiviâ la transazion: {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "Discjariament finît."
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "Inzornament completât! Daûr a netâ e a tornâ a inviâ..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr "Preparazion dal inzornament fûr rêt dal sisteme"
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr "Preparazion dal distrosync fûr rêt dal sisteme"
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr "Disabilitazion dal plugin torproxy: impussibil coneti ae rêt Tor"
@@ -297,3 +116,139 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "O domandìn scuse par ogni fastidi"
+
+#~ msgid "the color of the sky"
+#~ msgstr "il colôr dal cîl"
+
+#~ msgid "Need a --releasever greater than the current system version."
+#~ msgstr ""
+#~ "Al covente un valôr di --releasever plui grant de version curinte dal "
+#~ "sisteme."
+
+#~ msgid ""
+#~ "Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
+#~ "To remove cached metadata and transaction use 'dnf {command} clean'"
+#~ msgstr ""
+#~ "Discjariament completât! Dopre 'dnf {command} reboot' par scomençâ l'inzornament.\n"
+#~ "Par gjavâ i metadâts e la transazion in cache dopre 'dnf {command} clean'"
+
+#~ msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
+#~ msgstr "Tu scugnis doprâ 'download --releasever' invezit di '--network'"
+
+#~ msgid "Reboot turned off, not rebooting."
+#~ msgstr ""
+#~ "E je stade disativade la pussibilitât di tornâ a inviâ, duncje no si tornarà"
+#~ " a inviâ."
+
+#~ msgid "Screen blanking can't be disabled: %s"
+#~ msgstr "Nol è pussibil disativâ il scuriment dal visôr: %s"
+
+#~ msgid "Failed loading state file: %s, continuing with empty state."
+#~ msgstr ""
+#~ "Nol è stât pussibil cjariâ il file di stât: %s, si continue cul stât vueit."
+
+#~ msgid "The following boots appear to contain upgrade logs:"
+#~ msgstr "Chescj inviaments a somein contignî regjistris di inzornaments:"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- nol è stât cjatât nissun regjistri --"
+
+#~ msgid "Cannot find logs with this index."
+#~ msgstr "Impussibil cjatâ regjistris cun chest indiç."
+
+#~ msgid "Unable to match systemd journal entry"
+#~ msgstr "Impussibil fâ corispuindi la vôs dal gjornâl di systemd"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "Prepare il sisteme pal inzornament a une gnove version"
+
+#~ msgid "keep installed packages if the new release's version is older"
+#~ msgstr ""
+#~ "ten instalât i pachets se lis versions de gnove publicazion a son plui "
+#~ "vecjis"
+
+#~ msgid "which logs to show"
+#~ msgstr "cuâi regjistris mostrâ"
+
+#~ msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
+#~ msgstr ""
+#~ "Version dai dâts incompatibile. Torne eseguìs 'dnf {command} download "
+#~ "[OPZIONS]'"
+
+#~ msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
+#~ msgstr ""
+#~ "Nol è pussibil doprâ il comant 'offline-distrosync' cu la opzion --no-"
+#~ "downgrade"
+
+#~ msgid "Additional information for System Upgrade: {}"
+#~ msgstr "Informazions adizionâls pal inzornament dal sisteme: {}"
+
+#~ msgid ""
+#~ "Before you continue ensure that your system is fully upgraded by running "
+#~ "\"dnf --refresh upgrade\". Do you want to continue"
+#~ msgstr ""
+#~ "Prime di continuâ siguriti che il sisteme al sedi dal dut inzornât eseguint "
+#~ "\"dnf --refresh upgrade\". Continuâ"
+
+#~ msgid "Operation aborted."
+#~ msgstr "Operazion anulade."
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "il sisteme nol è pront pal inzornament"
+
+#~ msgid ""
+#~ "the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
+#~ "download [OPTIONS]'"
+#~ msgstr ""
+#~ "la transazion no je stade preparade par '{command}'. Torne eseguìs 'dnf "
+#~ "{command} download [OPZIONS]'"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "l'inzornament al è za planificât"
+
+#~ msgid "trigger file does not exist. exiting quietly."
+#~ msgstr "il file ativadôr nol esist, jessude cidine."
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "un altri strument di inzornament al è in esecuzion, jessude cidine."
+
+#~ msgid "use 'dnf {command} reboot' to begin the upgrade"
+#~ msgstr "dopre 'dnf {command} reboot'par scomençâ l'inzornament"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "Si torne a inviâ par eseguî l'inzornament."
+
+#~ msgid "Starting offline upgrade. This will take a while."
+#~ msgstr "Daûr a scomençâ l'inzornament fûr rêt. Chest al durarà un pôc."
+
+#~ msgid "Starting offline distrosync. This will take a while."
+#~ msgstr "Daûr a scomençâ il distrosync fûr rêt. Chest al durarà un pôc."
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "Daûr a scomençâ l'inzornament dal sisteme. Chest al durarà un pôc."
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "Daûr a netâ fûr i dâts discjariâts..."
+
+#~ msgid ""
+#~ "The system-upgrade transaction is empty, your system is already up-to-date."
+#~ msgstr ""
+#~ "La transazion di system-upgrade e je vueide, il to sisteme al è za inzornât."
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "Transazion salvade su {}."
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "Erôr tal archiviâ la transazion: {}"
+
+#~ msgid "Download finished."
+#~ msgstr "Discjariament finît."
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "Inzornament completât! Daûr a netâ e a tornâ a inviâ..."
+
+#~ msgid "Prepare offline upgrade of the system"
+#~ msgstr "Preparazion dal inzornament fûr rêt dal sisteme"
+
+#~ msgid "Prepare offline distrosync of the system"
+#~ msgstr "Preparazion dal distrosync fûr rêt dal sisteme"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-13 02:44+0000\n"
+"POT-Creation-Date: 2023-09-16 01:34+0000\n"
 "PO-Revision-Date: 2022-04-18 16:17+0000\n"
 "Last-Translator: A S Alam <amanpreet.alam@gmail.com>\n"
 "Language-Team: Punjabi <https://translate.fedoraproject.org/projects/dnf/dnf-plugins-extras/pa/>\n"
@@ -85,169 +85,6 @@ msgstr ""
 msgid "creating post_snapshot failed: %s"
 msgstr ""
 
-#. Translators: This string is only used in unit tests.
-#: plugins/system_upgrade.py:45
-msgid "the color of the sky"
-msgstr "ਅਸਮਾਨ ਦਾ ਰੰਗ"
-
-#: plugins/system_upgrade.py:57
-msgid "Need a --releasever greater than the current system version."
-msgstr ""
-
-#. Translators: do not change "reboot" here
-#: plugins/system_upgrade.py:59
-#, python-brace-format
-msgid ""
-"Download complete! Use 'dnf {command} reboot' to start the upgrade.\n"
-"To remove cached metadata and transaction use 'dnf {command} clean'"
-msgstr ""
-
-#: plugins/system_upgrade.py:62
-msgid "Sorry, you need to use 'download --releasever' instead of '--network'"
-msgstr ""
-
-#: plugins/system_upgrade.py:71
-msgid "Reboot turned off, not rebooting."
-msgstr ""
-
-#: plugins/system_upgrade.py:122
-#, python-format
-msgid "Screen blanking can't be disabled: %s"
-msgstr ""
-
-#: plugins/system_upgrade.py:142
-#, python-format
-msgid "Failed loading state file: %s, continuing with empty state."
-msgstr ""
-
-#: plugins/system_upgrade.py:288
-msgid "The following boots appear to contain upgrade logs:"
-msgstr ""
-
-#: plugins/system_upgrade.py:298
-msgid "-- no logs were found --"
-msgstr "-- ਕੋਈ ਲਾਗ ਨਹੀਂ ਲੱਭਿਆ --"
-
-#: plugins/system_upgrade.py:313
-msgid "Cannot find logs with this index."
-msgstr ""
-
-#: plugins/system_upgrade.py:322
-msgid "Unable to match systemd journal entry"
-msgstr ""
-
-#: plugins/system_upgrade.py:343
-msgid "Prepare system for upgrade to a new release"
-msgstr "ਸਿਸਟਮ ਨੂੰ ਨਵੇਂ ਰੀਲਿਜ਼ ਵਾਸਤੇ ਅੱਪਗਰੇਡ ਲਈ ਤਿਆਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
-
-#: plugins/system_upgrade.py:359
-msgid "keep installed packages if the new release's version is older"
-msgstr ""
-
-#: plugins/system_upgrade.py:363
-msgid "which logs to show"
-msgstr ""
-
-#: plugins/system_upgrade.py:397
-#, python-brace-format
-msgid "Incompatible version of data. Rerun 'dnf {command} download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:434
-msgid "Command 'offline-distrosync' cannot be used with --no-downgrade option"
-msgstr ""
-
-#: plugins/system_upgrade.py:456
-msgid "Additional information for System Upgrade: {}"
-msgstr ""
-
-#: plugins/system_upgrade.py:459
-msgid ""
-"Before you continue ensure that your system is fully upgraded by running "
-"\"dnf --refresh upgrade\". Do you want to continue"
-msgstr ""
-
-#: plugins/system_upgrade.py:463
-msgid "Operation aborted."
-msgstr "ਕਾਰਵਾਈ ਅਧੂਰੀ ਛੱਡੀ ਗਈ।"
-
-#: plugins/system_upgrade.py:521
-msgid "system is not ready for upgrade"
-msgstr "ਸਿਸਟਮ ਅੱਪਗਰੇਡ ਕਰਨ ਲਈ ਤਿਆਰ ਨਹੀਂ ਹੈ"
-
-#: plugins/system_upgrade.py:524
-#, python-brace-format
-msgid ""
-"the transaction was not prepared for '{command}'. Rerun 'dnf {command} "
-"download [OPTIONS]'"
-msgstr ""
-
-#: plugins/system_upgrade.py:528
-msgid "upgrade is already scheduled"
-msgstr "ਅੱਪਗਰੇਡ ਲਈ ਪਹਿਲਾਂ ਹੀ ਸਮਾਂ ਤਹਿ ਕੀਤਾ ਗਿਆ"
-
-#: plugins/system_upgrade.py:534
-msgid "trigger file does not exist. exiting quietly."
-msgstr ""
-
-#: plugins/system_upgrade.py:537
-msgid "another upgrade tool is running. exiting quietly."
-msgstr "ਹੋਰ ਅੱਪਗਰੇਡ ਟੂਲ ਚੱਲ ਰਿਹਾ ਹੈ। ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।"
-
-#: plugins/system_upgrade.py:546
-#, python-brace-format
-msgid "use 'dnf {command} reboot' to begin the upgrade"
-msgstr ""
-
-#: plugins/system_upgrade.py:564
-msgid "Rebooting to perform upgrade."
-msgstr "ਅੱਪਗਰੇਡ ਕਰਨ ਲਈ ਮੁੜ-ਚਾਲੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।"
-
-#: plugins/system_upgrade.py:597
-msgid "Starting offline upgrade. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:599
-msgid "Starting offline distrosync. This will take a while."
-msgstr ""
-
-#: plugins/system_upgrade.py:601
-msgid "Starting system upgrade. This will take a while."
-msgstr "ਸਿਸਟਮ ਨੂੰ ਅੱਪਗਰੇਡ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ। ਇਸ ਨੂੰ ਕੁਝ ਸਮਾਂ ਲੱਗੇਗਾ।"
-
-#: plugins/system_upgrade.py:617
-msgid "Cleaning up downloaded data..."
-msgstr "...ਡਾਊਨਲੋਡ ਕੀਤੇ ਡਾਟੇ ਨੂੰ ਸਾਫ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
-
-#: plugins/system_upgrade.py:647
-msgid ""
-"The system-upgrade transaction is empty, your system is already up-to-date."
-msgstr ""
-
-#: plugins/system_upgrade.py:656
-msgid "Transaction saved to {}."
-msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਨੂੰ {} ਉੱਤੇ ਸੰਭਾਲਿਆ।"
-
-#: plugins/system_upgrade.py:659
-msgid "Error storing transaction: {}"
-msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ: {}"
-
-#: plugins/system_upgrade.py:681
-msgid "Download finished."
-msgstr "ਡਾਊਨਲੋਡ ਕਰਨਾ ਪੂਰਾ ਹੋਇਆ।"
-
-#: plugins/system_upgrade.py:684 plugins/system_upgrade.py:685
-msgid "Upgrade complete! Cleaning up and rebooting..."
-msgstr "ਅੱਪਗਰੇਡ ਪੂਰਾ ਹੋਇਆ! ਸਾਫ਼ ਕਰਕੇ ਮੁੜ-ਚਾਲੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
-
-#: plugins/system_upgrade.py:694
-msgid "Prepare offline upgrade of the system"
-msgstr ""
-
-#: plugins/system_upgrade.py:699
-msgid "Prepare offline distrosync of the system"
-msgstr ""
-
 #: plugins/torproxy.py:31
 msgid "Disabling torproxy plugin: cannot connect to the Tor network"
 msgstr ""
@@ -269,3 +106,45 @@ msgstr ""
 #: plugins/tracer.py:100
 msgid "We apologize for any inconvenience"
 msgstr "ਕਿਸੇ ਵੀ ਆਈ ਸਮੱਸਿਆ ਲਈ ਸਾਨੂੰ ਅਫ਼ਸੋਸ ਹੈ"
+
+#~ msgid "the color of the sky"
+#~ msgstr "ਅਸਮਾਨ ਦਾ ਰੰਗ"
+
+#~ msgid "-- no logs were found --"
+#~ msgstr "-- ਕੋਈ ਲਾਗ ਨਹੀਂ ਲੱਭਿਆ --"
+
+#~ msgid "Prepare system for upgrade to a new release"
+#~ msgstr "ਸਿਸਟਮ ਨੂੰ ਨਵੇਂ ਰੀਲਿਜ਼ ਵਾਸਤੇ ਅੱਪਗਰੇਡ ਲਈ ਤਿਆਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#~ msgid "Operation aborted."
+#~ msgstr "ਕਾਰਵਾਈ ਅਧੂਰੀ ਛੱਡੀ ਗਈ।"
+
+#~ msgid "system is not ready for upgrade"
+#~ msgstr "ਸਿਸਟਮ ਅੱਪਗਰੇਡ ਕਰਨ ਲਈ ਤਿਆਰ ਨਹੀਂ ਹੈ"
+
+#~ msgid "upgrade is already scheduled"
+#~ msgstr "ਅੱਪਗਰੇਡ ਲਈ ਪਹਿਲਾਂ ਹੀ ਸਮਾਂ ਤਹਿ ਕੀਤਾ ਗਿਆ"
+
+#~ msgid "another upgrade tool is running. exiting quietly."
+#~ msgstr "ਹੋਰ ਅੱਪਗਰੇਡ ਟੂਲ ਚੱਲ ਰਿਹਾ ਹੈ। ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।"
+
+#~ msgid "Rebooting to perform upgrade."
+#~ msgstr "ਅੱਪਗਰੇਡ ਕਰਨ ਲਈ ਮੁੜ-ਚਾਲੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।"
+
+#~ msgid "Starting system upgrade. This will take a while."
+#~ msgstr "ਸਿਸਟਮ ਨੂੰ ਅੱਪਗਰੇਡ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ। ਇਸ ਨੂੰ ਕੁਝ ਸਮਾਂ ਲੱਗੇਗਾ।"
+
+#~ msgid "Cleaning up downloaded data..."
+#~ msgstr "...ਡਾਊਨਲੋਡ ਕੀਤੇ ਡਾਟੇ ਨੂੰ ਸਾਫ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#~ msgid "Transaction saved to {}."
+#~ msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਨੂੰ {} ਉੱਤੇ ਸੰਭਾਲਿਆ।"
+
+#~ msgid "Error storing transaction: {}"
+#~ msgstr "ਟਰਾਂਸੈਕਸ਼ਨ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ: {}"
+
+#~ msgid "Download finished."
+#~ msgstr "ਡਾਊਨਲੋਡ ਕਰਨਾ ਪੂਰਾ ਹੋਇਆ।"
+
+#~ msgid "Upgrade complete! Cleaning up and rebooting..."
+#~ msgstr "ਅੱਪਗਰੇਡ ਪੂਰਾ ਹੋਇਆ! ਸਾਫ਼ ਕਰਕੇ ਮੁੜ-ਚਾਲੂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
