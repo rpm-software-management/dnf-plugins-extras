@@ -5,6 +5,16 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.1.1 Release Notes
+===================
+
+- Update translations
+- Adapt tests to RPM 4.19
+
+Bugs fixed in 4.1.1:
+
+
+===================
 4.1.0 Release Notes
 ===================
 
