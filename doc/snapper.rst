@@ -35,6 +35,11 @@ Configuration
 [main] section optional parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+``enabled``
+    boolean, default: True
+
+    Specifies whether the plugin is enabled.
+
 ``snapper_config``
     string, default: ``root``
 
