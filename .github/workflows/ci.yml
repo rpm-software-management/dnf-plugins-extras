@@ -12,7 +12,7 @@ jobs:
       package-urls: ${{steps.copr-build.outputs.package-urls}}
     steps:
       - name: Check out ci-dnf-stack
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: rpm-software-management/ci-dnf-stack
           ref: dnf-4-stack
@@ -25,7 +25,7 @@ jobs:
           copr-api-token: ${{secrets.COPR_API_TOKEN}}
 
       - name: Check out sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: gits/${{github.event.repository.name}}
           ref: ${{github.event.pull_request.head.sha}}  # check out the PR HEAD
@@ -46,7 +46,7 @@ jobs:
       options: --privileged
     steps:
       - name: Check out ci-dnf-stack
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: rpm-software-management/ci-dnf-stack
           ref: dnf-4-stack
