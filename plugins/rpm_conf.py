@@ -75,7 +75,7 @@ class Rpmconf(dnf.Plugin):
     def transaction(self):
         if not self._interactive and not self.unattended:
             logger.debug(_("rpmconf plugin will not run "
-                           "in non-interactive mode"
+                           "in non-interactive mode "
                            "without unattended mode"))
             return
 
