@@ -53,6 +53,7 @@ class RpmconfPluginStub(object):
         self.diff = None
         self.frontend = None
         self._interactive = True
+        self.unattended = None
         self._patches = []
 
     def __enter__(self):
