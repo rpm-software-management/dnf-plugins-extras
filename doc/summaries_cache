@@ -234,5 +234,9 @@
     [
         2054235,
         "Offline updates"
+    ],
+    [
+        2089544,
+        "DNF Snapper plugin fails if config isn't named \"root\""
     ]
 ]

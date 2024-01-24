@@ -5,6 +5,20 @@ Extras DNF Plugins Release Notes
 .. contents::
 
 ===================
+4.1.2 Release Notes
+===================
+
+- New features:
+  - rpmconf: Implement unattended config option
+
+- Bug fixes:
+  - snapper: Add support for specifying snapper config name. (RhBug:2089544)
+
+Bugs fixed in 4.1.2:
+
+* :rhbug:`2089544`
+
+===================
 4.1.1 Release Notes
 ===================
 
