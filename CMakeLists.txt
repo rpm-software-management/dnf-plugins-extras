@@ -1,6 +1,7 @@
+CMAKE_MINIMUM_REQUIRED (VERSION 3.5.0...4.0.2)
 PROJECT (dnf-plugins-extras NONE)
-CMAKE_MINIMUM_REQUIRED (VERSION 2.4)
 
+cmake_policy(SET CMP0148 OLD)
 FIND_PACKAGE (PythonInterp 3 EXACT REQUIRED)
 
 EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c "from sys import stdout; from sysconfig import get_path; stdout.write(get_path('purelib'))" OUTPUT_VARIABLE PYTHON_INSTALL_DIR)

@@ -13,7 +13,7 @@ URL:            https://github.com/rpm-software-management/%{name}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  cmake
+BuildRequires:  cmake >= 3.5.0
 BuildRequires:  gettext
 BuildRequires:  python3-devel
 BuildRequires:  python3-dnf >= %{dnf_lowest_compatible}
